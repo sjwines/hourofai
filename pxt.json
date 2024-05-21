@@ -16,7 +16,6 @@
         "forest/forest4.md",
         "forest/forest5.md",
         "forest/forest6.md"
-        
     ],
     "testFiles": [
         "test.ts"
