@@ -9,7 +9,14 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "forest.md"
+        "forest.md",
+        "forest/forest1.md",
+        "forest/forest2.md",
+        "forest/forest3.md",
+        "forest/forest4.md",
+        "forest/forest5.md",
+        "forest/forest6.md"
+        
     ],
     "testFiles": [
         "test.ts"
