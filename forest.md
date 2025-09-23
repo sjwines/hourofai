@@ -4,10 +4,10 @@
 * infoUrl: skillmap/educator-info/forest-map-info
 * bannerUrl: /static/skillmap/forest/forest6.gif
 * backgroundurl: /static/skillmap/backgrounds/forest-comp.png
-* primarycolor: #b27ea3
-* secondarycolor: #ffffff
-* tertiarycolor: #249fa5
-* highlightcolor: #fcd34b
+* primarycolor: #002F5E
+* secondarycolor: #6BA4D9
+* tertiarycolor: #7A8B8C
+* highlightcolor: #FFD700
 * completednodecolor: #466849
 
 
