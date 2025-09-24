@@ -3,7 +3,7 @@
 * description: The last few summers have been some of the hottest on record and the forest service needs you to help keep fires under control. Use blocks to code your airtanker and set up tech so your ground team can help you save the forest!
 * infoUrl: skillmap/educator-info/forest-map-info
 * bannerUrl: /static/skillmap/forest/forest6.gif
-* backgroundurl: /assets/NAVSEAMap.png
+* backgroundurl: /static/assets/NAVSEAMap.png
 * primarycolor: #002F5E
 * secondarycolor: #6BA4D9
 * tertiarycolor: #7A8B8C
