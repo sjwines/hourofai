@@ -102,16 +102,26 @@ container that's already in the workspace.
 ```blocks
 scene.setBackgroundImage(tutorial_asset.ocean_background)
 let myDrone = sprites.create(img`
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 c 0 0 0 0 0 0
-    0 0 0 0 0 0 0 c 0 0 0 0 0 0
-    0 0 4 4 e e b b b b b c 0 0
-    0 0 4 e 4 4 4 4 e b e 4 0 0
-    0 c c e 4 4 4 e c c c 4 c 0
-    c c c b 4 4 4 c c c c 4 c c
-    c b c e 4 4 4 4 c c c 4 c b
-    0 0 4 e 4 4 4 4 4 4 4 4 0 0
-    0 0 0 c c 0 0 0 0 c 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 f 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 f c f 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 f c c 0 0 0 0 0 0 0 0 0
+    0 0 0 0 c f 0 f 4 4 4 4 4 4 4 f 0 0 0 0
+    0 0 0 0 f c 5 4 4 4 4 f f c 4 4 f 0 0 0
+    0 0 0 0 f c 4 4 4 4 4 f c f f 4 0 0 0 0
+    0 0 0 0 c c 4 4 4 4 4 f c f f f 0 0 0 0
+    0 0 0 0 c f f 4 5 4 4 f f f 4 f 0 0 0 0
+    0 0 0 0 0 0 0 f c f 4 4 4 4 0 0 0 0 0 0
+    0 0 0 0 0 0 0 f f 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     `, SpriteKind.Player)
 
 // @highlight
@@ -143,16 +153,26 @@ Your drone glides off-screen if you go too far.
 scene.setBackgroundImage(tutorial_asset.ocean_background)
 
 let myDrone = sprites.create(img`
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 c 0 0 0 0 0 0
-    0 0 0 0 0 0 0 c 0 0 0 0 0 0
-    0 0 4 4 e e b b b b b c 0 0
-    0 0 4 e 4 4 4 4 e b e 4 0 0
-    0 c c e 4 4 4 e c c c 4 c 0
-    c c c b 4 4 4 c c c c 4 c c
-    c b c e 4 4 4 4 c c c 4 c b
-    0 0 4 e 4 4 4 4 4 4 4 4 0 0
-    0 0 0 c c 0 0 0 0 c 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 f 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 f c f 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 f c c 0 0 0 0 0 0 0 0 0
+    0 0 0 0 c f 0 f 4 4 4 4 4 4 4 f 0 0 0 0
+    0 0 0 0 f c 5 4 4 4 4 f f c 4 4 f 0 0 0
+    0 0 0 0 f c 4 4 4 4 4 f c f f 4 0 0 0 0
+    0 0 0 0 c c 4 4 4 4 4 f c f f f 0 0 0 0
+    0 0 0 0 c f f 4 5 4 4 f f f 4 f 0 0 0 0
+    0 0 0 0 0 0 0 f c f 4 4 4 4 0 0 0 0 0 0
+    0 0 0 0 0 0 0 f f 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     `, SpriteKind.Player)
 controller.moveSprite(myDrone)
 myDrone.setStayInScreen(true)
