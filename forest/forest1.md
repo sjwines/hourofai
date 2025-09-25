@@ -436,3 +436,10 @@ You should be able to pilot your drone all around the ocean and see the sights.
 
 When you're ready, click **Done** to return to the skillmap and go to the next level
 where you'll add the 🔥🔥🔥.
+
+When you're ready, click **Done** to return to the skillmap and go to the next level
+where you'll add the 🔥🔥🔥.
+
+```package
+tutorial_asset=github:sjwines/tutorial_asset
+```
