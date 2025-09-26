@@ -1,9 +1,9 @@
 # Drone Command *Operation Uplink*
 * name: Protect the Ocean
-* description: A critical intel package has slipped into enemy hands. Pilot a recon drone across hostile waters, recover the scattered data shards, and beam them back to the ship before the window closes. Stealth is survival—enemy sonobuoys are listening. Use your drone’s active-sonar counterpulse to map safe routes and jam hostile pings, but time it right: every burst risks revealing your position.
+* description: A critical intel package has slipped into enemy hands. Pilot a recon drone across hostile waters, recover the scattered data shards, and beam them back to the ship before the window closes.
 * infoUrl: skillmap/educator-info/forest-map-info
 * bannerUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavalStemLogo.png
-* backgroundurl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NAVSEAMap.png
+* backgroundurl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SkillMapBackground.png
 * primarycolor: #002F5E
 * secondarycolor: #6BA4D9
 * tertiarycolor: #7A8B8C
