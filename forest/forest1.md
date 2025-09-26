@@ -1,13 +1,15 @@
-# Silent Seas- UUV Ops
+# Drone Command - Operation Uplink
 ### @explicitHints true
 
 ## Welcome @showdialog
-You’ll build a **UUV (underwater drone)** mission:
+**The Manta Ray**
+![The Manta Ray](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/UUVMantaRay.png)
+You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
 - **Collect data** pods underwater
-- **Surface** at a buoy to **upload** (score!)
-- **Recharge** at a dock
+- **Surface** at a buoy to **upload** and increase your score
+- **Recharge** at a Naval ship
 - Avoid **sonar buoys**
-- A **coded AI advisor** will suggest "Collect / Surface / Recharge" using simple rules you can **tune**
+- Use a **coded AI advisor** that will suggest "Collect / Surface / Recharge" using simple rules you can **tune**
 Ready to launch?
 
 ```template
@@ -18,7 +20,7 @@ let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
 
 ## {2. Set the Scene}
 **🌊 Welcome to the Ocean**
-Notice there is some code that has already been added to your program. 
+Notice there are two blocks of code that have already been added to your program. 
 
 
 ~hint What's a sprite? 💡
@@ -35,7 +37,7 @@ hint~
 
 **Want a new background or drone?**
 
-- :paper sprite: From the ``||sprites:Sprites||`` category, grab another <br/>
+- :paper plane: From the ``||sprites:Sprites||`` category, grab another <br/>
 ```block
 let mySprite = sprites.create(img`
     0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -62,6 +64,10 @@ hint~
 
 ## Want a different background or drone? @showdialog
 Click on the image on either the background or sprite block and customize it how you like. <br/>
+```blocks
+scene.setBackgroundImage(myassets.ocean_background)
+let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
+```
 
 ## {4. Learn to Glide}
 
@@ -75,7 +81,9 @@ controller.moveSprite(myDrone)
 ```
 and snap it into **the end** of the <br/>
 ``||loops:on start||``
-container that's already in the workspace.
+container that's already in the workspace. 
+
+Change from mySprite to myDrone so that you are referencing your drone sprite.
 
 #### ~ tutorialhint
 ```blocks
@@ -99,7 +107,13 @@ _💡 You can also use the arrow keys on your keyboard!_
 
 ![Find the game window.](/static/skillmap/forest/game.png "The game window is in the lower corner.")
 
-## {6. Follow with Camera}
+## Did You Know? @showdialog
+![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png)
+As the world's first and only autonomous underwater and surface vehicle (AUSV), the **US Navy Triton** can operate in sailing mode or submarine mode with its interchangeable sail.
+Sea drones like Triton are deployed in combat to **gather intelligence**, **conduct surveillance** and **reconnaissance**, **sweep mines**, and **protect critical underwater infrastructure**.
+Drones also **protect** crewed vessels in the fleet like aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
+
+## {7. Follow with Camera}
 
 **😮 Ack!**<br/>
 Your drone glides off-screen if you go too far.
@@ -118,16 +132,18 @@ myDrone.setStayInScreen(true)
 
 to **the end** of the 
 ``||loops:on start||``
-container that's already in the workspace.
+container that's already in the workspace. 
 
-## {7. Pilot Your Drone}
+Change from mySprite to myDrone so that you are referencing your drone sprite.
+
+## {8. Pilot Your Drone}
 
 - :binoculars: Take a look in the game window! <br/><br/>
 You should be able to pilot your drone all around the ocean and see the sights.
 
 
 
-## {8. Finale}
+## {9. Finale}
 
 **You've finished the first level!**<br/>
 👏 👏 👏
