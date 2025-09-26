@@ -1,6 +1,6 @@
-# Save the Forest
-* name: Save the Forest
-* description: The last few summers have been some of the hottest on record and the forest service needs you to help keep fires under control. Use blocks to code your airtanker and set up tech so your ground team can help you save the forest!
+# Drone Command *Operation Uplink*
+* name: Protect the Ocean
+* description: A critical intel package has slipped into enemy hands. Pilot a recon drone across hostile waters, recover the scattered data shards, and beam them back to the ship before the window closes. Stealth is survival—enemy sonobuoys are listening. Use your drone’s active-sonar counterpulse to map safe routes and jam hostile pings, but time it right: every burst risks revealing your position.
 * infoUrl: skillmap/educator-info/forest-map-info
 * bannerUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavalStemLogo.png
 * backgroundurl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NAVSEAMap.png
@@ -11,15 +11,15 @@
 * completednodecolor: #466849
 
 
-## Save the Forest
-* name: Save the Forest
+## Drone Command *Operation Uplink*
+* name: Drone Command *Operation Uplink*
 * layout: manual
 
 ### forest1
 * allowcodecarryover: false
-* name: Prepare Your Plane
+* name: Prepare Your Drone
 * type: tutorial
-* description: Set up your airtanker to make sure you can get everywhere you need to be!
+* description: Set up your drone to make sure you can get everywhere you need to be!
 * url: https://github.com/sjwines/hourofai/forest/forest1
 * imageUrl: /static/skillmap/forest/forest1.gif
 * tags: easy, sprite, movement
