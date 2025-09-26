@@ -11,30 +11,9 @@ You’ll build a **UUV (underwater drone)** mission:
 Ready to launch?
 
 ```template
-scene.setBackgroundImage(tutorial_asset.ocean_background)
+scene.setBackgroundImage(myassets.ocean_background)
 
-let myDrone = sprites.create(img`
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f c f 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f c c 0 0 0 0 0 0 0 0 0
-    0 0 0 0 c f 0 f 4 4 4 4 4 4 4 f 0 0 0 0
-    0 0 0 0 f c 5 4 4 4 4 f f c 4 4 f 0 0 0
-    0 0 0 0 f c 4 4 4 4 4 f c f f 4 0 0 0 0
-    0 0 0 0 c c 4 4 4 4 4 f c f f f 0 0 0 0
-    0 0 0 0 c f f 4 5 4 4 f f f 4 f 0 0 0 0
-    0 0 0 0 0 0 0 f c f 4 4 4 4 0 0 0 0 0 0
-    0 0 0 0 0 0 0 f f 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    `, SpriteKind.Player)
+let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
 ```
 
 ## {2. Set the Scene}
@@ -101,28 +80,8 @@ container that's already in the workspace.
 #### ~ tutorialhint
 ```blocks
 scene.setBackgroundImage(tutorial_asset.ocean_background)
-let myDrone = sprites.create(img`
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f c f 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f c c 0 0 0 0 0 0 0 0 0
-    0 0 0 0 c f 0 f 4 4 4 4 4 4 4 f 0 0 0 0
-    0 0 0 0 f c 5 4 4 4 4 f f c 4 4 f 0 0 0
-    0 0 0 0 f c 4 4 4 4 4 f c f f 4 0 0 0 0
-    0 0 0 0 c c 4 4 4 4 4 f c f f f 0 0 0 0
-    0 0 0 0 c f f 4 5 4 4 f f f 4 f 0 0 0 0
-    0 0 0 0 0 0 0 f c f 4 4 4 4 0 0 0 0 0 0
-    0 0 0 0 0 0 0 f f 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    `, SpriteKind.Player)
+
+let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
 
 // @highlight
 controller.moveSprite(myDrone)
@@ -152,28 +111,7 @@ Your drone glides off-screen if you go too far.
 ```blocks
 scene.setBackgroundImage(tutorial_asset.ocean_background)
 
-let myDrone = sprites.create(img`
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f c f 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 f c c 0 0 0 0 0 0 0 0 0
-    0 0 0 0 c f 0 f 4 4 4 4 4 4 4 f 0 0 0 0
-    0 0 0 0 f c 5 4 4 4 4 f f c 4 4 f 0 0 0
-    0 0 0 0 f c 4 4 4 4 4 f c f f 4 0 0 0 0
-    0 0 0 0 c c 4 4 4 4 4 f c f f f 0 0 0 0
-    0 0 0 0 c f f 4 5 4 4 f f f 4 f 0 0 0 0
-    0 0 0 0 0 0 0 f c f 4 4 4 4 0 0 0 0 0 0
-    0 0 0 0 0 0 0 f f 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-    `, SpriteKind.Player)
+let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
 controller.moveSprite(myDrone)
 myDrone.setStayInScreen(true)
 ```
@@ -189,7 +127,7 @@ You should be able to pilot your drone all around the ocean and see the sights.
 
 
 
-## {Finale}
+## {8. Finale}
 
 **You've finished the first level!**<br/>
 👏 👏 👏
@@ -199,8 +137,6 @@ You should be able to pilot your drone all around the ocean and see the sights.
 When you're ready, click **Done** to return to the skillmap and go to the next level
 where you'll add the 🔥🔥🔥.
 
-
 ```package
-tutorial_asset=github:sjwines/tutorial_asset
-
+myassets=github:sjwines/myassets
 ```
