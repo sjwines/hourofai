@@ -1,9 +1,9 @@
-# Drone Command *Operation Uplink*
-* name: Protect the Ocean
+# Drone Command - Operation Uplink
+* name: Drone Command - Operation Uplink
 * description: A critical intel package has slipped into enemy hands. Pilot a recon drone across hostile waters, recover the scattered data shards, and beam them back to the ship before the window closes.
 * infoUrl: skillmap/educator-info/forest-map-info
-* bannerUrl: https://github.com/sjwines/hourofai/blob/20e618bcd9a44e0daeda4e4bf5a41c9c3af7bba3/assets/Iconv2.png
-* backgroundurl: https://github.com/sjwines/hourofai/blob/20e618bcd9a44e0daeda4e4bf5a41c9c3af7bba3/assets/SkillMapBackgroundv2.png
+* bannerUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Iconv2.png
+* backgroundurl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SkillMapBackgroundv2.png
 * primarycolor: #002F5E
 * secondarycolor: #6BA4D9
 * tertiarycolor: #7A8B8C
@@ -11,8 +11,8 @@
 * completednodecolor: #466849
 
 
-## Drone Command *Operation Uplink*
-* name: Drone Command *Operation Uplink*
+## Drone Command - Operation Uplink
+* name: Drone Command - Operation Uplink
 * layout: manual
 
 ### forest1
