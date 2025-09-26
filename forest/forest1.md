@@ -87,7 +87,7 @@ Change from mySprite to myDrone so that you are referencing your drone sprite.
 
 #### ~ tutorialhint
 ```blocks
-scene.setBackgroundImage(tutorial_asset.ocean_background)
+scene.setBackgroundImage(myassets.ocean_background)
 
 let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
 
@@ -123,7 +123,7 @@ Your drone glides off-screen if you go too far.
 - :tree:  To keep your sprite in sight, open the  ``||sprites:Sprites||`` category and drag <br/>
 
 ```blocks
-scene.setBackgroundImage(tutorial_asset.ocean_background)
+scene.setBackgroundImage(myassets.ocean_background)
 
 let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
 controller.moveSprite(myDrone)
