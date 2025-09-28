@@ -9,7 +9,7 @@
 * tertiarycolor: #7A8B8C
 * highlightcolor: #FFD700
 * completednodecolor: #466849
-
+* alternatesources: github:https://github.com/sjwines/hourofai/forest.md
 
 ## Drone Command - Operation Uplink
 * name: Drone Command - Operation Uplink
