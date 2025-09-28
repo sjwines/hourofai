@@ -13,9 +13,8 @@ You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above 
 Ready to launch?
 
 ```template
-scene.setBackgroundImage(myassets.ocean_background)
-
-let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
+scene.setBackgroundImage(wines_assets.oceanBackground)
+let myDrone = sprites.create(wines_assets.drone2, SpriteKind.Player)
 ```
 
 ## {2. Set the Scene}
@@ -65,8 +64,8 @@ hint~
 ## Want a different background or drone? @showdialog
 Click on the image on either the background or sprite block and customize it how you like. <br/>
 ```blocks
-scene.setBackgroundImage(myassets.ocean_background)
-let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
+scene.setBackgroundImage(wines_assets.oceanBackground)
+let myDrone = sprites.create(wines_assets.drone2, SpriteKind.Player)
 ```
 
 ## {4. Learn to Glide}
@@ -87,9 +86,9 @@ Change from mySprite to myDrone so that you are referencing your drone sprite.
 
 #### ~ tutorialhint
 ```blocks
-scene.setBackgroundImage(myassets.ocean_background)
+scene.setBackgroundImage(wines_assets.oceanBackground)
 
-let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
+let myDrone = sprites.create(wines_assets.drone2, SpriteKind.Player)
 
 // @highlight
 controller.moveSprite(myDrone)
@@ -123,9 +122,9 @@ Your drone glides off-screen if you go too far.
 - :tree:  To keep your sprite in sight, open the  ``||sprites:Sprites||`` category and drag <br/>
 
 ```blocks
-scene.setBackgroundImage(myassets.ocean_background)
+scene.setBackgroundImage(wines_assets.oceanBackground)
 
-let myDrone = sprites.create(myassets.drone_two, SpriteKind.Player)
+let myDrone = sprites.create(wines_assets.drone2, SpriteKind.Player)
 controller.moveSprite(myDrone)
 myDrone.setStayInScreen(true)
 ```
@@ -154,5 +153,5 @@ When you're ready, click **Done** to return to the skillmap and go to the next l
 where you'll add the 🔥🔥🔥.
 
 ```package
-myassets=github:sjwines/myassets
+wines_assets=github:sjwines/wines_assets
 ```
