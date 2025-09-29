@@ -189,7 +189,7 @@ After, click the name **mySprite** and rename it to a name that represents the s
 ![US Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
 Robitic warfare specialists serve the U.S. Navy and are responsible for the operation, maintenance, and tactical employment of robotic and autonomous systems to achieve a hybrid manned-unmanned fleet.
 
-## {3. Add The Ship Sprite}
+## {4. Add The Ship Sprite}
 **Create your Ship Sprite**
 - :paper plane: From the ``||sprites:Sprites||`` category, grab another <br/>
 
@@ -210,9 +210,9 @@ hint~
 
 **Give Your Sprite an Important Name**
 
-Click the name mysprite and change it to a name that represents the sprite, such as myShip.
+Click the name **mySprite** and change it to a name that represents the sprite, such as **myShip**.
 
-## {4. Move your Sprites Locations}
+## {5. Move your Sprites Locations}
 Right now, your sprites at overlapping each other. Let's move your sprites to their starting locations at the start of the game.
 
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
@@ -227,15 +227,17 @@ myShip.setPosition(15,20)
 
 ---
 
-Set your drone's **x** position to **35** and **y** position to **25**.
+Set your drone's **x** position to **35** and <br/>
+**y** position to **25**.
 
 ---
 
-Set your ships's **x** position to **15** and **y** position to **20**.
+Set your ships's **x** position to **15** and <br/>
+**y** position to **20**.
 
-You can always change these numbers to what you like.
+You can always change these numbers to what ever you like.
 
-## {5. Learn to Glide}
+## {6. Learn to Glide}
 **↔Get the Drone Moving**
 
 - :game pad: From the ``||controller:Controller||`` category, drag <br/>
@@ -248,9 +250,9 @@ and snap it into **the end** of the <br/>
 ``||loops:on start||``
 container that's already in the workspace. 
 
-Change from mySprite to myDrone so that you are referencing your drone sprite.
+Click the name **mySprite** and change it to myDrone.
 
-## {5. Try It}
+## {7. Try It}
 - :binoculars: Look at your project in the game window!
 
 Your sprite should move around the ocean as you move the joypad.
@@ -264,7 +266,7 @@ As the world's first and only autonomous underwater and surface vehicle (AUSV), 
 Sea drones like Triton are deployed in combat to **gather intelligence**, **conduct surveillance** and **reconnaissance**, **sweep mines**, and **protect critical underwater infrastructure**.
 Drones also **protect** crewed vessels in the fleet like aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
 
-## {7. Follow with Camera}
+## {8. Follow with Camera}
 **😮 Ack!** <br/>
 
 Your drone glides off-screen if you go too far.
@@ -283,7 +285,7 @@ to **the end** of the
 ``||loops:on start||``
 container that's already in the workspace. 
 
-Change from mySprite to myDrone so that you are referencing your drone sprite.
+Click the name **mySprite** and change it to **myDrone**.
 
 ## {8. Pilot Your Drone}
 - :binoculars: Take a look in the game window! <br/><br/>
@@ -291,7 +293,7 @@ You should be able to pilot your drone all around the ocean and see the sights.
 
 
 
-## {9. Finale}
+## {10. Finale}
 **You've finished the first level!**<br/>
 👏 👏 👏
 
