@@ -1,4 +1,4 @@
-# Drone Command - Operation Uplink
+# Prepare Your Drone
 ### @explicitHints true
 
 ## Welcome @showdialog
