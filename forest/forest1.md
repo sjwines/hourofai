@@ -186,7 +186,6 @@ Click the name **mySprite** and change it to **myDrone**.
 - :binoculars: Take a look in the game window! <br/><br/>
 You should be able to pilot your drone all around the ocean and see the sights.
 
-
 ## {10. Finale}
 **You've finished the first level!**<br/>
 👏 👏 👏
