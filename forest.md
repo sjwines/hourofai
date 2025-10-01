@@ -2,7 +2,7 @@
 * name: Drone Command - Operation Uplink
 * description: A critical intel package had slipped into enemy hands, but upon delivery, was scattered across the ocean floor. Before the data gets into the enemy hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship.
 * infoUrl: skillmap/educator-info/forest-map-info
-* bannerUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Iconv2.png
+* bannerUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
 * backgroundurl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SkillMapBackgroundv2.png
 * primarycolor: #002F5E
 * secondarycolor: #6BA4D9
