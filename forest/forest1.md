@@ -127,7 +127,7 @@ Set your drone's **x** position to **80** and <br/>
 
 ---
 
-You can always change these numbers to what ever you like.
+You can always change these numbers to whatever you like.
 
 ## {6. Learn to Glide}
 **↔Get the Drone Moving**
