@@ -4,14 +4,13 @@
 ## Welcome @showdialog
 **The Manta Ray**
 ![The Manta Ray](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/UUVMantaRay.png)
-A critical intel package had slipped into enemy hands, but upon delivery, was scattered across the ocean floor. Before the data gets into the enemy hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship.
+A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship. Once all 15 data shards are collected, the game is over and you can leave enemy waters.
 
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
 - **Collect data** pods underwater
-- **Surface** at a buoy to **upload** and increase your score
-- **Recharge** at a Naval ship
-- Avoid **sonar buoys**
-- Use a **coded AI advisor** that will suggest "Collect / Surface / Recharge" using simple rules you can **tune**
+- **Surface** at the ship to **upload** and increase your score
+- Avoid the **sonar the buoy** that can steal the data
+- Use a **coded AI advisor** that will suggest "Collect / Upload / Avoid" using simple rules you can **tune**
 
 ```template
 scene.setBackgroundColor(9)
@@ -44,7 +43,28 @@ hint~
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
 ```block
-let myDrone = sprites.create(img``, SpriteKind.Player)
+let myDrone = sprites.create(img`
+    ....................
+    ....................
+    ....................
+    ....................
+    .........cf.........
+    .........ff.........
+    .........ccf........
+    ...fff.ffffffff.....
+    ...cfc4444444f44....
+    ...cfc444444fcf4....
+    ...c.f444444fcf4....
+    ...ccff44444444f....
+    ...fff.ffffffff.....
+    .......fc..ff.fff...
+    ......ff...fc.......
+    ...........ff.......
+    ....................
+    ....................
+    ....................
+    ....................
+    `, SpriteKind.Player)
 ```
 
 and snap it into ``||loops:on start||`` <br/>
@@ -68,51 +88,44 @@ After, click the name **mySprite** and rename it to a name that represents the s
 ![US Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
 Robitic warfare specialists serve the U.S. Navy and are responsible for the operation, maintenance, and tactical employment of robotic and autonomous systems to achieve a hybrid manned-unmanned fleet.
 
-## {4. Add The Ship Sprite}
-**Create your Ship Sprite**
-- :paper plane: From the ``||sprites:Sprites||`` category, grab another <br/>
-
-```block
-let myShip = sprites.create(img``, SpriteKind.Player)
-```
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
-
-~hint Show me how! 🕵🏽
-
-![Add the sprite block.](/static/skillmap/mole/add-sprite.gif "Add a sprite to your game.")
-
-hint~
-
----
-
-**Give Your Sprite an Important Name**
-
-Click the name **mySprite** and change it to a name that represents the sprite, such as **myShip**.
-
 ## {5. Move your Sprites Locations}
-Right now, your sprites at overlapping each other. Let's move your sprites to their starting locations at the start of the game.
+Let's move your drone to their starting location at the start of the game.
 
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
+
 ```block
-let myDrone = sprites.create(img``, SpriteKind.Player)
+let myDrone = sprites.create(img`
+    ....................
+    ....................
+    ....................
+    ....................
+    .........cf.........
+    .........ff.........
+    .........ccf........
+    ...fff.ffffffff.....
+    ...cfc4444444f44....
+    ...cfc444444fcf4....
+    ...c.f444444fcf4....
+    ...ccff44444444f....
+    ...fff.ffffffff.....
+    .......fc..ff.fff...
+    ......ff...fc.......
+    ...........ff.......
+    ....................
+    ....................
+    ....................
+    ....................
+    `, SpriteKind.Player)
 // @highlight
-myDrone.setPosition(35,35)
-let myShip= sprites.create(img``, SpriteKind.Player)
-// @highlight
-myShip.setPosition(15,20)
+myDrone.setPosition(80,80)
 ```
 
 ---
 
-Set your drone's **x** position to **35** and <br/>
-**y** position to **25**.
+Set your drone's **x** position to **80** and <br/>
+**y** position to **80**.
 
 ---
-
-Set your ships's **x** position to **15** and <br/>
-**y** position to **20**.
 
 You can always change these numbers to what ever you like.
 
@@ -129,12 +142,13 @@ and snap it into **the end** of the <br/>
 ``||loops:on start||``
 container that's already in the workspace. 
 
-Click the name **mySprite** and change it to myDrone.
+Click the name **mySprite** and change it to **myDrone**.
 
 ## {7. Try It}
 - :binoculars: Look at your project in the game window!
 
 Your sprite should move around the ocean as you move the joypad.
+
 _💡 You can also use the arrow keys on your keyboard!_
 
 ![Find the game window.](/static/skillmap/forest/game.png "The game window is in the lower corner.")
@@ -154,10 +168,11 @@ Your drone glides off-screen if you go too far.
 
 - :game pad: From the ``||sprites:Sprites||`` category, drag <br/>
 
-
 ```blocks
 let myDrone = sprites.create(img``, SpriteKind.Player)
 myDrone.setStayInScreen(true)
+// @highlight
+scene.cameraFollowSprite(myDrone)
 ```
 
 to **the end** of the 
@@ -169,7 +184,6 @@ Click the name **mySprite** and change it to **myDrone**.
 ## {8. Pilot Your Drone}
 - :binoculars: Take a look in the game window! <br/><br/>
 You should be able to pilot your drone all around the ocean and see the sights.
-
 
 
 ## {10. Finale}
