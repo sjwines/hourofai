@@ -1,7 +1,7 @@
 # Drone Command - Operation Uplink
 * name: Drone Command - Operation Uplink
 * description: A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy's hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship.
-* infoUrl: skillmap/educator-info/forest-map-info
+* infoUrl: 
 * bannerUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
 * backgroundurl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SkillMapBackgroundv2.png
 * primarycolor: #002F5E
@@ -21,7 +21,7 @@
 * type: tutorial
 * description: Set up your drone to make sure you can get everywhere you need to be!
 * url: https://github.com/sjwines/hourofai/forest/forest1
-* imageUrl: /static/skillmap/forest/forest1.gif
+* imageUrl: 
 * tags: easy, sprite, movement
 * next: forest2
 * position: 0 0
@@ -31,7 +31,7 @@
 * type: tutorial
 * description: Use loops to add random fires to your map!
 * url: https://github.com/sjwines/hourofai/forest/forest2
-* imageUrl: /static/skillmap/forest/forest2.gif
+* imageUrl: 
 * tags: easy, loops, sprites
 * next: forest3
 * position: 1 0
@@ -41,7 +41,7 @@
 * type: tutorial
 * description: Add a water hose to your plane so you can keep your fires under control.
 * url: https://github.com/sjwines/hourofai/forest/forest3
-* imageUrl: /static/skillmap/forest/forest3.gif
+* imageUrl: 
 * tags: easy, events, sprites
 * next: forest4
 * position: 1 1
@@ -51,7 +51,7 @@
 * type: tutorial
 * description: Lots of things affect how quickly fire spreads. In this activity, you'll add variables to change fire danger levels.
 * url: https://github.com/sjwines/hourofai/forest/forest4
-* imageUrl: /static/skillmap/forest/forest4.gif
+* imageUrl: 
 * tags: easy, variables, overlaps
 * next: forest5
 * position: 2 1
@@ -61,7 +61,7 @@
 * type: tutorial
 * description: Computer science is more important to firefighting than ever before! Add some technology to keep your pilots updated!
 * url: https://github.com/sjwines/hourofai/forest/forest5
-* imageUrl: /static/skillmap/forest/forest5.gif
+* imageUrl: 
 * tags: easy, custom
 * next: forest-cert
 * position: 2 2
@@ -72,27 +72,25 @@
 * name: Congrats!
 * kind: completion
 * type: certificate
-* url: /static/skillmap/certificates/forest-cert.pdf
-* imageUrl: /static/skillmap/certificates/forest-cert.png
+* url: 
+* imageUrl: 
 * next: forest6
 * position: 3 2
 * rewards:
     * certificate:
-        * url: /static/skillmap/certificates/forest-cert.pdf
-        * preview: /static/skillmap/certificates/forest-cert.png
+        * url: 
+        * preview: 
     * completion-badge:
-        * image: /static/badges/badge-forest.png
-        * name: Save the Forest
+        * image: 
+        * name: Protect the Ocean
 * actions:
-    * map: [Try Jungle Jump](/skillmap/jungle)
-    * map: [Try Space Explorer](/skillmap/space)
     * editor: [Edit Your Project with a Full Toolbox] (/)
 
 
 ### forest6
 * name: Keep Going!
 * type: tutorial
-* description: Add sounds and animations to customize your game.
+* description: Complete mini challenges!
 * url: https://github.com/sjwines/hourofai/forest/forest6
 * imageUrl: /static/skillmap/forest/forest6.gif
 * tags: custom, animation, sounds
