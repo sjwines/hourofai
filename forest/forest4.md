@@ -134,12 +134,12 @@ If you arrive with 0 data, the ship will say “No data” and you’ll hear a t
 hint~
 
 ## {Finale}
-👏 Great, your ocean has real danger now!
+👏 Great, you can now keep track of how many data shards you have collected!
 
 ---
 
 When you're finished, click **Done** to
-head to the next level and find out how to upload your data to the ship!
+head to the next level and find out how to add your AI advisor!
 
 ```blockconfig.global
 custom.placeDataRandomly()
