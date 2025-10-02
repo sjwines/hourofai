@@ -116,7 +116,7 @@ Turn on the “bump” rule so the buoy knocks your drone back (and you lose dat
 
 From ``||custom:Custom||``, add:
 
-```block
+```blocks
 custom.enableBuoyBump()
 ```
 
@@ -135,7 +135,7 @@ Your drone comes equiped with technology that can sonar jam the communication wi
 
 From ``||custom:Custom||``, add:
 
-```block
+```blocks
 custom.enablePulse()
 ```
 
@@ -156,6 +156,7 @@ head to the next level and find out how to upload your data to the ship!
 
 ```blockconfig.global
 custom.placeDataRandomly()
+custom.enableBuoyBump()
 custom.enableDataCollection()
 custom.spawnEnemyBuoy()
 custom.enablePulse()
@@ -381,7 +382,4 @@ namespace custom {
         })
     }
 }
-
-
-
 ```
