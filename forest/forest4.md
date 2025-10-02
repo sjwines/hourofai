@@ -1,4 +1,4 @@
-# Enemy Waters
+# Upload Complete
 
 ### @explicitHints true
 
@@ -84,10 +84,6 @@ custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
 ```
-# Upload Complete
-
-### @explicitHints true
-
 ## Welcome @showdialog
 
 **Ship Upload & Scoring**
