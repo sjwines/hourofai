@@ -1,6 +1,68 @@
 # Upload Complete
-
 ### @explicitHints true
+
+## Welcome @showdialog
+
+**Ship Upload & Scoring**
+
+You’ve got data shards, now let’s upload them at the ship and update your score.
+
+## {2. Start a Score}
+
+Initialize your score so uploads count.
+
+---
+
+From ``||info:Info||``, add:
+```blocks
+info.setScore(0)
+```
+
+---
+
+and snap it into ``||loops:on start||`` <br/>
+container already in the workspace.  <br/>
+
+## {3. Enable Upload at the Ship}
+
+Turn on the upload rule: touching myShip uploads the data you’re holding, adds to score, then resets your cargo.
+
+---
+
+From ``||custom:Custom||``, add:
+
+```blocks
+custom.enableUploadAtShip()
+```
+---
+
+**Test it:**
+
+- Collect a few data pieces.
+- Touch the ship.
+- Watch the score increase and the ship say how much got uploaded.
+
+~hint What if nothing uploads?
+If you arrive with 0 data, the ship will say “No data” and you’ll hear a thump.
+hint~
+
+## {Finale}
+👏 Great, you can now keep track of how many data shards you have collected!
+
+---
+
+When you're finished, click **Done** to
+head to the next level and find out how to add your AI advisor!
+
+```blockconfig.global
+custom.placeDataRandomly()
+custom.enableDataCollection()
+custom.spawnEnemyBuoy()
+custom.enableBuoyBump()
+custom.enablePulse()
+info.setScore(0)
+custom.enableUploadAtShip()
+```
 
 ```template
 scene.setBackgroundColor(9)
@@ -77,74 +139,6 @@ let myData = sprites.create(img`
     . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
 myData.setPosition(60, 60)
-
-custom.placeDataRandomly()
-custom.enableDataCollection(randint(3,3))
-custom.spawnEnemyBuoy()
-custom.enableBuoyBump()
-custom.enablePulse()
-```
-## Welcome @showdialog
-
-**Ship Upload & Scoring**
-
-You’ve got data shards, now let’s upload them at the ship and update your score.
-
-## {2. Start a Score}
-
-Initialize your score so uploads count.
-
----
-
-From ``||info:Info||``, add:
-```blocks
-info.setScore(0)
-```
-
----
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
-
-## {3. Enable Upload at the Ship}
-
-Turn on the upload rule: touching myShip uploads the data you’re holding, adds to score, then resets your cargo.
-
----
-
-From ``||custom:Custom||``, add:
-
-```blocks
-custom.enableUploadAtShip()
-```
----
-
-**Test it:**
-
-- Collect a few data pieces.
-- Touch the ship.
-- Watch the score increase and the ship say how much got uploaded.
-
-~hint What if nothing uploads?
-If you arrive with 0 data, the ship will say “No data” and you’ll hear a thump.
-hint~
-
-## {Finale}
-👏 Great, you can now keep track of how many data shards you have collected!
-
----
-
-When you're finished, click **Done** to
-head to the next level and find out how to add your AI advisor!
-
-```blockconfig.global
-custom.placeDataRandomly()
-custom.enableDataCollection()
-custom.spawnEnemyBuoy()
-custom.enableBuoyBump()
-custom.enablePulse()
-info.setScore(0)
-custom.enableUploadAtShip()
 ```
 
 ```package
