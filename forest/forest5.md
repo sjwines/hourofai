@@ -117,6 +117,7 @@ You can “tune” the mission by changing max cargo, when to upload, and the da
 ---
 
 From ``||custom:Custom||``, add:
+
 ```blocks
 custom.setMissionTuning(3, 3, 32)
 ```
@@ -128,7 +129,7 @@ container already in the workspace.  <br/>
 
 ---
 
-Then experiment! For example carry more before uploading, but keep the same danger radius:
+Then experiment! For example, carry more before uploading, but keep the same danger radius:
 
 ```blocks
 custom.setMissionTuning(5, 5, 32)
@@ -156,11 +157,11 @@ custom.enableWinAtScore(15)
 ```
 
 ## {Finale}
-👏 Your advisor is live and smart! Click Done to finish the mission or iterate on your tuning.
+👏 Your advisor is live and smart! Click Done to complete the mission or refine your tuning.
 
 ---
 
-On the next part, you can save your certificate and then move onto the final level, challenges!
+In the next part, you can save your certificate and then move on to the final level, challenges!
 
 ---
 
