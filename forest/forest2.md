@@ -62,7 +62,7 @@ hint~
 **Create Your Ship Sprite**
 - :paper plane: From the ``||sprites:Sprites||`` category, grab another <br/>
 
-```block
+```blocks
 let myShip = sprites.create(img`
     ..............................
     ..............................
@@ -122,7 +122,7 @@ You can always change these numbers to whatever you like.
 **Create Your Data Sprite**
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
-```block
+```blocks
 let myData = sprites.create(img`
     . . . . . . 9 9 9 9 9 9 . . . . 
     . . . . 9 9 6 6 6 6 6 6 9 9 . . 
@@ -201,7 +201,7 @@ In this program our if/then is this block:
 
 ---
 
-```block
+```blocks
 if (true){
 }
 
@@ -524,7 +524,4 @@ namespace custom {
         })
     }
 }
-
-
-
 ```
