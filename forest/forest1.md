@@ -42,7 +42,7 @@ hint~
 **Create Your Drone Sprite**
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
-```block
+```blocks
 let myDrone = sprites.create(img`
     ....................
     ....................
@@ -93,7 +93,7 @@ Let's move your drone to their starting location at the start of the game.
 
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
-```block
+```blocks
 let myDrone = sprites.create(img`
     ....................
     ....................
@@ -134,7 +134,7 @@ You can always change these numbers to whatever you like.
 
 - :game pad: From the ``||controller:Controller||`` category, drag <br/>
 
-```block
+```blocks
 let myDrone = sprites.create(img`
     ....................
     ....................
