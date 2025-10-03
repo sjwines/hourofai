@@ -243,6 +243,7 @@ namespace custom {
             ....fe46bbbbbf....
             ........66666.....
         `, SpriteKind.Enemy)
+
         enemyBuoy.setPosition(120, 40)
         enemyBuoy.setVelocity(50, 35)
         enemyBuoy.setBounceOnWall(true)
