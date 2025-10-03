@@ -1,6 +1,41 @@
 # Challenge Lab: Polish & Experiment
-
 ### @explicitHints true
+
+## Welcome @showdialog
+
+Time to tune, test, and tinker!
+
+## Mini Challenges 
+
+Pick a few mini-challenges below to make your game more interesting, harder, or just yours. 
+
+---
+
+**Pick as many as you would like:**
+- Add or edit sprites
+- Add more enemies by calling custom.spawnEnemyBuoy() more times.
+- Change the carry limit
+- Change the win goal
+- Add a timer to add presure to collect the data shards with info.startCountDown(45)
+- Make the drone faster or slower with controller.moveSprite(myDrone, 110, 110)
+- Or any other idea you have! Have fun and the possiblities are endless!
+
+## {Finale}
+👏 Congratulations on successfully securing the stolen documents!
+
+When you're finished, click **Done** to finish the activity.
+
+```blockconfig.global
+custom.placeDataRandomly()
+custom.enableDataCollection()
+custom.spawnEnemyBuoy()
+custom.enableBuoyBump()
+custom.enablePulse()
+custom.enableUploadAtShip()
+custom.setupAdvisorHUD()
+custom.setMissionTuning(3, 3, 32)
+custom.enableWinAtScore(15)
+```
 
 ```template
 scene.setBackgroundColor(9)
@@ -77,53 +112,7 @@ let myData = sprites.create(img`
     . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
 myData.setPosition(60, 60)
-
-custom.placeDataRandomly()
-custom.enableDataCollection(randint(3,3))
-custom.spawnEnemyBuoy()
-custom.enableBuoyBump()
-custom.enablePulse()
 info.setScore(0)
-custom.enableUploadAtShip()
-custom.setupAdvisorHUD()
-custom.setMissionTuning(3, 3, 32)
-custom.enableWinAtScore(15)
-```
-## Welcome @showdialog
-
-Time to tune, test, and tinker!
-
-## Mini Challenges 
-
-Pick a few mini-challenges below to make your game more interesting, harder, or just yours. 
-
----
-
-**Pick as many as you would like:**
-- Add or edit sprites
-- Add more enemies by calling custom.spawnEnemyBuoy() more times.
-- Change the carry limit
-- Change the win goal
-- Add a timer to add presure to collect the data shards with info.startCountDown(45)
-- Make the drone faster or slower with controller.moveSprite(myDrone, 110, 110)
-- Or any other idea you have! Have fun and the possiblities are endless!
-
-## {Finale}
-👏 Congratulations on successfully securing the stolen documents!
-
-When you're finished, click **Done** to finish the activity.
-
-```blockconfig.global
-custom.placeDataRandomly()
-custom.enableDataCollection()
-custom.spawnEnemyBuoy()
-custom.enableBuoyBump()
-custom.enablePulse()
-info.setScore(0)
-custom.enableUploadAtShip()
-custom.setupAdvisorHUD()
-custom.setMissionTuning(3, 3, 32)
-custom.enableWinAtScore(15)
 ```
 
 ```package
