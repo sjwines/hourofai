@@ -82,12 +82,12 @@ myData.setPosition(60, 60)
 ## Welcome @showdialog
 **The SPURV**
 ![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png)
-The first underwater vehicles were created in the 1950's and were used to collect oceanographic data in the arctic waters.
+The first underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
 In this section, you will program your drone to collect the missing data in enemy territory.
 
 ## {2. Set the Scene}
 - :binoculars: Look at your project in the game window!
-Your drone should move around when you press the arrow keys.
+Your drone should move in the direction you press the arrow keys.
 
 ---
 
@@ -109,7 +109,28 @@ hint~
 - :paper plane: From the ``||sprites:Sprites||`` category, grab another <br/>
 
 ```block
-let myShip = sprites.create(img``, SpriteKind.Player)
+let myShip = sprites.create(img`
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    .............c................
+    ...........ccc................
+    .............c................
+    ...........bbbccc.............
+    ...........cccccc.............
+    ..cccccccccbbbccc.............
+    ..cbccbbbbbccccccccccccccccc..
+    ....bbbbbbbbbbbbbbcccbbbcccc..
+    ....ccccccccccccccccccccc.....
+    ....cc2222222222222222222.....
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+`, SpriteKind.Ship)
 myShip.setPosition(20,100)
 ```
 
@@ -148,7 +169,24 @@ You can always change these numbers to whatever you like.
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
 ```block
-let myData = sprites.create(img``, SpriteKind.Food)
+let myData = sprites.create(img`
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
+    . . 9 6 8 1 9 9 c c c 9 1 8 6 9 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 d d 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 9 9 c c c c 9 1 8 6 9 
+    . . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
+    . . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+`, SpriteKind.Food)
 myData.setPosition(60,60)
 ```
 
@@ -177,9 +215,9 @@ You can always change these numbers to whatever you like.
 ## Why Custom Green Blocks @showdialog
 
 When your program starts to grow, you’ll see the same ideas repeat: “put the data somewhere new,” “spawn a buoy that bounces,” “give advice.”
-Instead of rewriting long code each time, we bundle it into a custom block. 
+Instead of rewriting long code each time, we bundle it into a **custom block**. 
 
-This is called **abstraction**: hiding the messy details behind a simple, easy-to-use command.
+This is called **abstraction**: hiding the **messy details** behind a simple, easy-to-use command.
 
 You’ve already used abstraction:
 
@@ -187,12 +225,14 @@ You’ve already used abstraction:
 controller.moveSprite(myDrone) 
 ```
 
-You don’t see the math inside how the controls work, you know that if you move the arrow keys, the drone will move.
+You don’t see the math inside how the controls work; you know that if you move the arrow keys, the drone will move.
 
 Now we’ll use more that are already made for us!
 
 ## Check for Overlap
-If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. We will practice abstraction here with a custom block, but inside of it hidden is a programming concept called if/then conditionals!
+If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. 
+
+We will practice abstraction here with a custom block, but inside of it, hidden is a programming concept called if/then conditionals!
 
 ---
 
@@ -214,7 +254,7 @@ if (true){
 ```
 hint~
 
-You will not need to dragout a if/then block, instead drag out the custom block:
+You will not need to drag out an if/then block; instead, drag out the custom block:
 
 - :paper plane: From the ``||custom:Custom||`` category, grab <br/>
 
@@ -233,7 +273,7 @@ Notice how the data sprite's location is random on each run.
 
 ## How a Custom Block Works 
 
-A custom block consists of 4 main parts:
+Hidden inside a custom block consists 4 main parts:
 - a name (what shows up as the block text),
 - inputs/parameters (what you can change),
 - body (the steps it runs),
@@ -286,11 +326,15 @@ container already in the workspace.  <br/>
 
 This custom block allows you to pick up a maximum amount of data that can be picked up at a time.
 
-By default it is 3, but for example, you can change the number:
+By default, it is 3, but for example, you can change the number. 
+
+For fun, let's add a random block from the ``||math:Math||`` so that each time you play the game, the amount you can collect changes.
 
 ```blocks
 custom.enableDataCollection(randint(3,5))
 ```
+
+The random block acts as a range; the first number is the lowest number, and the second number is the highest. In this example, each time the program runs, it will randomly pick a number between 3 and 5 inclusive. 
 
 ## {Finale}
 👏 **There you have it!**
