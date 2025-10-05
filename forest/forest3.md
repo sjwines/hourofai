@@ -16,6 +16,7 @@ Let’s create the roaming buoy.
 From ``||custom:Custom||``, drag:
 
 ```blocks
+//@highlight
 custom.spawnEnemyBuoy()
 ```
 
@@ -36,6 +37,7 @@ Turn on the “bump” rule so the buoy knocks your drone back (and you lose dat
 From ``||custom:Custom||``, add:
 
 ```blocks
+//@highlight
 custom.enableBuoyBump()
 ```
 
@@ -55,6 +57,7 @@ Your drone comes equiped with technology that can sonar jam the communication wi
 From ``||custom:Custom||``, add:
 
 ```blocks
+//@highlight
 custom.enablePulse()
 ```
 
@@ -83,6 +86,7 @@ custom.enablePulse()
 
 ```template
 scene.setBackgroundImage(img``,)
+namespace SpriteKind { export const Ship = SpriteKind.create(); export const DronePulse = SpriteKind.create();}
 let myDrone = sprites.create(img`
 ....................
 ....................
@@ -150,13 +154,18 @@ let myData = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
 myData.setPosition(60,60)
-placeDataRandomly()
-enableDataCollection()
+custom.placeDataRandomly()
+custom.enableDataCollection()
 ```
 
 ```customts
 //% weight=100 color=#0fbc11 icon=""
 namespace custom {
+    // --- Tunables students can change later via a block ---
+    export let MAX_CARGO = 3
+    export let UPLOAD_AT = 3
+    export let DANGER_RADIUS = 32
+    
     // --- Private state for our helpers ---
     let cargo = 0
     let enemyBuoy: Sprite = null
@@ -180,24 +189,26 @@ namespace custom {
         }
     }
 
-        //% block="enable data collection (max 3)"
-        export function enableDataCollection(): void {
-            let cargo = 0
-            const CAP = 3
-    
-            sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
-                if (cargo >= CAP) {
-                    const drone = firstOf(SpriteKind.Player)
-                    if (drone) drone.sayText("Storage full!", 400)
-                    music.thump.play()
-                    return
+    //% block="enable data collection (max 3)"
+    export function enableDataCollection(): void {
+        cargo = 0
+        const CAP = 3
+
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
+            if (cargo >= CAP) {
+                if (typeof myDrone !== "undefined" && myDrone) {
+                    myDrone.sayText("Storage full!", 400)
                 }
-                cargo += 1
-                music.baDing.play()
-                custom.placeDataRandomly()
-            })
-        }
+                music.thump.play()
+                return
+            }
+            cargo += 1
+            music.baDing.play()
+            custom.placeDataRandomly()
+        })
     }
+
+    
 
     //% block="spawn enemy buoy"
     export function spawnEnemyBuoy(): void {
