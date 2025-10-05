@@ -35,8 +35,7 @@ hint~
 
 
 ---
-
-We need a background for our project.
+First, we need a background for our project.
 - :tree: Go to the ``||scene: Scene||`` category **in the toolbox** and grab
 ```blocks
 //@highlight
