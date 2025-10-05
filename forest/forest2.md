@@ -31,6 +31,7 @@ hint~
 - :paper plane: From the ``||sprites:Sprites||`` category, grab another <br/>
 
 ```blocks
+//@highlight
 let myShip = sprites.create(img`
     ..............................
     ..............................
@@ -53,6 +54,7 @@ let myShip = sprites.create(img`
     ..............................
     ..............................
 `, SpriteKind.Player)
+//@highlight
 myShip.setPosition(20,100)
 ```
 
@@ -75,7 +77,7 @@ Click **Player**, Add a new kind, and change it to **Ship**.
 ---
 
 **Give Your Sprite an Important Name**
-Click the name **mySprite** and change it to a name that represents the sprite, such as **myShip**.
+- Click the name **mySprite** and change it to a name that represents the sprite, such as **myShip**.
 
 ---
 
@@ -91,6 +93,7 @@ You can always change these numbers to whatever you like.
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
 ```blocks
+//@highlight
 let myData = sprites.create(img`
     . . . . . . 9 9 9 9 9 9 . . . . 
     . . . . 9 9 6 6 6 6 6 6 9 9 . . 
@@ -109,6 +112,7 @@ let myData = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
+//@highlight
 myData.setPosition(60,60)
 ```
 
@@ -123,7 +127,8 @@ Click **Player** and change it to **Food**.
 
 ---
 
-Give it an important name, such as **myData** & select the **data sprite** from the **Gallery** or create your own!
+**Give Your Sprite an Important Name**
+- Give it an important name, such as **myData** & select the **data sprite** from the **Gallery** or create your own!
 
 ---
 
@@ -144,6 +149,7 @@ This is called **abstraction**: hiding the **messy details** behind a simple, ea
 You’ve already used abstraction:
 
 ```blocks
+//@highlight
 controller.moveSprite(myDrone) 
 ```
 
@@ -181,6 +187,7 @@ You will not need to drag out an if/then block; instead, drag out the custom blo
 - :paper plane: From the ``||custom:Custom||`` category, grab <br/>
 
 ```blocks
+//@highlight
 custom.placeDataRandomly()
 ```
 
@@ -205,6 +212,7 @@ Hidden inside a custom block consists 4 main parts:
 
 The placeDataRandomly() block at the start of your program runs and places your data sprite at a random location on the map.
 ```blocks
+//@highlight
 custom.placeDataRandomly()
 ```
 
@@ -212,6 +220,7 @@ custom.placeDataRandomly()
 
 **What's hidden inside?**
 ```blocks
+//@highlight
 let myData = sprites.create(img`
     . . . . . . 9 9 9 9 9 9 . . . . 
     . . . . 9 9 6 6 6 6 6 6 9 9 . . 
@@ -230,6 +239,7 @@ let myData = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
+//@highlight
 myData.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.screenHeight() - 16))
 ```
 
@@ -240,6 +250,7 @@ The final part of this activity is enabling your drone to collect the data:
 - :paper plane: From the ``||custom:Custom||`` category, grab <br/>
 
 ```blocks
+//@highlight
 custom.enableDataCollection()
 ```
 
@@ -263,11 +274,10 @@ custom.placeDataRandomly()
 custom.enableDataCollection()
 ```
 
-
 ```template
-scene.setBackgroundColor(9)
 
 // DRONE
+scene.setBackgroundImage(img``,)
 let myDrone = sprites.create(img`
 ....................
 ....................
