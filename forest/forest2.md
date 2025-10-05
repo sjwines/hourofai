@@ -327,13 +327,14 @@ namespace custom {
 
     //% block="enable data collection (max 3)"
     export function enableDataCollection(): void {
-        let cargo = 0
+        cargo = 0
         const CAP = 3
-
+    
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
             if (cargo >= CAP) {
-                const drone = firstOf(SpriteKind.Player)
-                if (drone) drone.sayText("Storage full!", 400)
+                if (typeof myDrone !== "undefined" && myDrone) {
+                    myDrone.sayText("Storage full!", 400)
+                }
                 music.thump.play()
                 return
             }
@@ -342,7 +343,6 @@ namespace custom {
             custom.placeDataRandomly()
         })
     }
-}
 ```
 
 ```assetjson
