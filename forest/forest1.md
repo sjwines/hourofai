@@ -4,6 +4,7 @@
 ## Welcome @showdialog
 **The Manta Ray**
 ![The Manta Ray](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/UUVMantaRay.png)
+
 A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship. Once all 15 data shards are collected, the game is over and you can leave enemy waters.
 
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
@@ -14,7 +15,7 @@ You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above 
 
 Ready to launch?
 
-## {2. Set the Scene}
+## Set the Scene
 **🌊 Welcome to the Ocean**
 
 The ship is getting ready to arrive and launch the drone into the water to collect the scattered data before it gets into enemy hands.
@@ -37,7 +38,8 @@ hint~
 
 We need a background for our project.
 - :tree: Go to the ``||scene: Scene||`` category **in the toolbox** and grab
-```block
+```blocks
+//@highlight
 scene.setBackgroundImage(img`.`)
 ```
 then snap it inside the empty <br/>
@@ -60,48 +62,32 @@ hint~
 
 ```blocks
 //@highlight
-scene.setBackgroundImage(img`.`)
+scene.setBackgroundImage(img`)
 ```
 
 ## {Step 3}
 
-- :paint brush: Click the empty **grey square** to open the image editor and choose a background from the **Gallery**.
+- :paint brush: Click the empty **grey square** to open the image editor and choose a background from the **Gallery** or **My Assets**.
 
 ```blocks
 //@highlight
-scene.setBackgroundImage(assets.image`Planet`)
+scene.setBackgroundImage(img`)
 ```
 
 _💡 If you don't find a background you like, you can make one of your own!_
 
+
 ## {Step 4}
-
-**Let's add movement to the scene**
-
-- :arrows alternate: To make it look like the camera is moving, go to ``||scroller: Scroller||`` and drag
-```block
-scroller.scrollBackgroundWithSpeed(-50, 0)
-```
-into **the end** of the <br/>
-``||loops(noclick):on start||`` container. <br/>
-
-#### ~ tutorialhint
-```blocks
-scene.setBackgroundImage(assets.image`Planet`)
-//@highlight
-scroller.scrollBackgroundWithSpeed(-50, 0)
-```
-
-## {Step 5}
 
 - :binoculars: Look at your project in the game window to see what your code has done!
 
-You should see a background that's scrolling from right to left.
+You should see a background. Hopefully with an ocean theme!
 
-## **Create Your Drone Sprite**
+## Create Your Drone Sprite
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
 ```blocks
+//@highlight
 let myDrone = sprites.create(img`
     ....................
     ....................
@@ -137,17 +123,14 @@ hint~
 
 ---
 
-**Choose Your Sprite Picture & Give it an Important Name**
-
-Click on the **gray box** and then either draw your own sprite, or click **Gallery** and pick from one of the 5 drones, then click **Done**. 
-
-After, click the name **mySprite** and rename it to a name that represents the sprite, such as **myDrone**.
+_💡 If you don't like that drone, click the box and change to one of the others you like under **My Assets**, or you can make one of your own!_
  
 ## Did You Know? @showdialog
 ![US Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
+
 Robitic warfare specialists serve the U.S. Navy and are responsible for the operation, maintenance, and tactical employment of robotic and autonomous systems to achieve a hybrid manned-unmanned fleet.
 
-## {5. Move your Sprites Locations}
+## Move your Sprites Locations
 Let's move your drone to their starting location at the start of the game.
 
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
@@ -181,14 +164,9 @@ myDrone.setPosition(80,80)
 
 ---
 
-Set your drone's **x** position to **80** and <br/>
-**y** position to **80**.
+You can always change the location by changing these numbers to whatever you like.
 
----
-
-You can always change these numbers to whatever you like.
-
-## {6. Learn to Glide}
+## Learn to Glide
 **↔Get the Drone Moving**
 
 - :game pad: From the ``||controller:Controller||`` category, drag <br/>
@@ -225,9 +203,7 @@ and snap it into **the end** of the <br/>
 ``||loops:on start||``
 container that's already in the workspace. 
 
-Click the name **mySprite** and change it to **myDrone**.
-
-## {7. Try It}
+## Try It
 - :binoculars: Look at your project in the game window!
 
 Your sprite should move around the ocean as you move the joypad.
@@ -243,7 +219,7 @@ Sea drones like Triton are deployed in combat to **gather intelligence**, **cond
 
 Drones also **protect** crewed vessels in the fleet like aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
 
-## {8. Follow with Camera}
+## Follow with Camera
 **😮 Ack!** <br/>
 
 Your drone glides off-screen if you go too far.
@@ -285,11 +261,13 @@ to **the end** of the
 ``||loops:on start||``
 container that's already in the workspace. 
 
-Click the name **mySprite** and change it to **myDrone**.
+Move to the next step to test out movement!
 
 ## {8. Pilot Your Drone}
 - :binoculars: Take a look in the game window! <br/><br/>
 You should be able to pilot your drone all around the ocean and see the sights.
+
+**Oops!** It may not look like your sprite is moving right now, but as soon as you add more sprites in the next level, you'll see!
 
 ## {10. Finale}
 **You've finished the first level!**<br/>
@@ -325,7 +303,9 @@ let myDrone = sprites.create(img`
 `, SpriteKind.Player)
 controller.moveSprite(myDrone)
 scene.cameraFollowSprite(myDrone)
+myDrone.setPosition(80,80)
 ```
+
 
 ```assetjson
 {
