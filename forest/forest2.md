@@ -275,8 +275,6 @@ custom.enableDataCollection()
 ```
 
 ```template
-
-// DRONE
 scene.setBackgroundImage(img``,)
 let myDrone = sprites.create(img`
 ....................
@@ -327,14 +325,13 @@ namespace custom {
 
     //% block="enable data collection (max 3)"
     export function enableDataCollection(): void {
-        cargo = 0
+        let cargo = 0
         const CAP = 3
-    
+
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
             if (cargo >= CAP) {
-                if (typeof myDrone !== "undefined" && myDrone) {
-                    myDrone.sayText("Storage full!", 400)
-                }
+                const drone = firstOf(SpriteKind.Player)
+                if (drone) drone.sayText("Storage full!", 400)
                 music.thump.play()
                 return
             }
@@ -343,6 +340,7 @@ namespace custom {
             custom.placeDataRandomly()
         })
     }
+}
 ```
 
 ```assetjson
