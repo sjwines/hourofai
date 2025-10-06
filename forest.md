@@ -80,7 +80,7 @@
         * url: /static/skillmap/certificates/forest-cert.pdf
         * preview: /static/skillmap/certificates/forest-cert.png
     * completion-badge:
-        * image: /static/badges/badge-forest.png
+        * image: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneBadge.png
         * name: Protect the Ocean
 * actions:
     * editor: [Edit Your Project with a Full Toolbox] (/)
