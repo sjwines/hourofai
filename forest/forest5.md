@@ -93,8 +93,8 @@ custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
-custom.setupAdvisorHUD()
 custom.setMissionTuning(3, 3, 32)
+custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
 ```
 
@@ -208,13 +208,13 @@ namespace custom {
         }
     }
 
-    //% block="enable data collection (max 3)"
+    //% block="enable data collection"
     export function enableDataCollection(): void {
         cargo = 0
-        const CAP = 3
 
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
-            if (cargo >= CAP) {
+            // use the tuned cap, not a hard-coded 3
+            if (cargo >= MAX_CARGO) {
                 if (typeof myDrone !== "undefined" && myDrone) {
                     myDrone.sayText("Storage full!", 400)
                 }
@@ -228,7 +228,6 @@ namespace custom {
     }
 
     
-
     //% block="spawn enemy buoy"
     export function spawnEnemyBuoy(): void {
         enemyBuoy = sprites.create(img`
@@ -353,7 +352,11 @@ namespace custom {
         MAX_CARGO = Math.max(1, max | 0)
         UPLOAD_AT = Math.max(1, uploadAt | 0)
         DANGER_RADIUS = Math.max(8, radius | 0)
+
+        // optional safety: don't let current cargo exceed new cap
+        cargo = Math.min(cargo, MAX_CARGO)
     }
+
 
     //% block="setup advisor HUD"
     export function setupAdvisorHUD(): void {
