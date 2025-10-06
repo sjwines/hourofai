@@ -15,6 +15,7 @@ Initialize your score so uploads count.
 
 From ``||info:Info||``, add:
 ```blocks
+//@highlight
 info.setScore(0)
 ```
 
@@ -32,8 +33,10 @@ Turn on the upload rule: touching myShip uploads the data you’re holding, adds
 From ``||custom:Custom||``, add:
 
 ```blocks
+//@highlight
 custom.enableUploadAtShip()
 ```
+
 ---
 
 **Test it:**
