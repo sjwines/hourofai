@@ -253,13 +253,6 @@ namespace custom {
         })
     }
 
-    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
-    export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
-        MAX_CARGO = Math.max(1, max | 0)
-        UPLOAD_AT = Math.max(1, uploadAt | 0)
-        DANGER_RADIUS = Math.max(8, radius | 0)
-    }
-
     //% block="enable pulse to disable buoy"
     export function enablePulse(): void {
         controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
