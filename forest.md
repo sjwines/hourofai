@@ -72,13 +72,13 @@
 * kind: completion
 * type: certificate
 * url: /static/skillmap/certificates/forest-cert.pdf
-* imageUrl: /static/skillmap/certificates/forest-cert.png
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Certificate.png
 * next: forest6
 * position: 3 2
 * rewards:
     * certificate:
-        * url: /static/skillmap/certificates/forest-cert.pdf
-        * preview: /static/skillmap/certificates/forest-cert.png
+        * url: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Certificate.pdf
+        * preview: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Certificate.png
     * completion-badge:
         * image: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneBadge.png
         * name: Protect the Ocean
