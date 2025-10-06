@@ -93,11 +93,12 @@ custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
-custom.setMissionTuning(3, 3, 32)
 custom.setupAdvisorHUD()
+custom.setMissionTuning(3, 3, 32)
 custom.enableWinAtScore(15)
 ```
 
+```template
 ```template
 scene.setBackgroundImage(img``,)
 namespace SpriteKind { export const Ship = SpriteKind.create(); export const DronePulse = SpriteKind.create(); export const HUD = SpriteKind.create();}
@@ -184,7 +185,7 @@ namespace custom {
     export let MAX_CARGO = 3
     export let UPLOAD_AT = 3
     export let DANGER_RADIUS = 32
-    
+
     // --- Private state for our helpers ---
     let cargo = 0
     let enemyBuoy: Sprite = null
@@ -208,12 +209,16 @@ namespace custom {
         }
     }
 
-    //% block="enable data collection"
-    export function enableDataCollection(): void {
-        cargo = 0
+    //% block="enable data collection (max $capacity)"
+    //% capacity.defl=3
+    //% capacity.min=1 capacity.max=20
+    export function enableDataCollection(capacity: number): void {
+        // Let students’ choice drive the limit; fall back to current MAX_CARGO
+        if (capacity && capacity > 0) {
+            MAX_CARGO = capacity | 0
+        }
 
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
-            // use the tuned cap, not a hard-coded 3
             if (cargo >= MAX_CARGO) {
                 if (typeof myDrone !== "undefined" && myDrone) {
                     myDrone.sayText("Storage full!", 400)
@@ -223,11 +228,11 @@ namespace custom {
             }
             cargo += 1
             music.baDing.play()
-            custom.placeDataRandomly()
+            placeDataRandomly()
         })
     }
 
-    
+
     //% block="spawn enemy buoy"
     export function spawnEnemyBuoy(): void {
         enemyBuoy = sprites.create(img`
@@ -286,6 +291,58 @@ namespace custom {
         })
     }
 
+    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
+    export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
+        MAX_CARGO = Math.max(1, max | 0)
+        UPLOAD_AT = Math.max(1, uploadAt | 0)
+        DANGER_RADIUS = Math.max(8, radius | 0)
+    }
+
+    //% block="setup advisor HUD"
+    export function setupAdvisorHUD(): void {
+        hud = sprites.create(img`.`, SpriteKind.HUD)
+        hud.setFlag(SpriteFlag.RelativeToCamera, true)
+        hud.setPosition(48, 25)
+
+        game.onUpdateInterval(350, function () {
+            let advice = "Collect"
+            if (cargo >= MAX_CARGO) advice = "Upload (FULL)"
+            else if (cargo >= UPLOAD_AT) advice = "Upload"
+            if (
+                enemyBuoy &&
+                typeof myDrone !== "undefined" &&
+                myDrone &&
+                dist(myDrone, enemyBuoy) < DANGER_RADIUS
+            ) {
+                advice = "Avoid"
+            }
+
+            if (hud) {
+                const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
+                hud.sayText(`${advice}  | data ${suffix}`, 400)
+            }
+        })
+    }
+
+//% block="enable upload at ship"
+    export function enableUploadAtShip(): void {
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function () {
+            if (cargo > 0) {
+                info.changeScoreBy(cargo)
+                if (typeof myShip !== "undefined" && myShip) {
+                    myShip.sayText(`Uploaded ${cargo}`, 600)
+                }
+                music.powerUp.play()
+                cargo = 0
+            } else {
+                if (typeof myShip !== "undefined" && myShip) {
+                    myShip.sayText("No data", 400)
+                }
+                music.thump.play()
+            }
+        })
+    }
+
     //% block="enable pulse to disable buoy"
     export function enablePulse(): void {
         controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -327,62 +384,7 @@ namespace custom {
             })
         })
     }
-
-    //% block="enable upload at ship"
-    export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function () {
-            if (cargo > 0) {
-                info.changeScoreBy(cargo)
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText(`Uploaded ${cargo}`, 600)
-                }
-                music.powerUp.play()
-                cargo = 0
-            } else {
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText("No data", 400)
-                }
-                music.thump.play()
-            }
-        })
-    }
-
-    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
-    export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
-        MAX_CARGO = Math.max(1, max | 0)
-        UPLOAD_AT = Math.max(1, uploadAt | 0)
-        DANGER_RADIUS = Math.max(8, radius | 0)
-
-        // optional safety: don't let current cargo exceed new cap
-        cargo = Math.min(cargo, MAX_CARGO)
-    }
-
-
-    //% block="setup advisor HUD"
-    export function setupAdvisorHUD(): void {
-        hud = sprites.create(img`.`, SpriteKind.HUD)
-        hud.setFlag(SpriteFlag.RelativeToCamera, true)
-        hud.setPosition(48, 25)
-
-        game.onUpdateInterval(350, function () {
-            let advice = "Collect"
-            if (cargo >= MAX_CARGO) advice = "Upload (FULL)"
-            else if (cargo >= UPLOAD_AT) advice = "Upload"
-            if (
-                enemyBuoy &&
-                typeof myDrone !== "undefined" &&
-                myDrone &&
-                dist(myDrone, enemyBuoy) < DANGER_RADIUS
-            ) {
-                advice = "Avoid"
-            }
-
-            if (hud) {
-                const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
-                hud.sayText(`${advice}  | data ${suffix}`, 400)
-            }
-        })
-    }
+    
 
     //% block="win when score ≥ $threshold"
     export function enableWinAtScore(threshold: number): void {
