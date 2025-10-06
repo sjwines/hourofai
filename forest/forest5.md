@@ -9,12 +9,13 @@ Recall what a heuristic is (a simple, fast rule of thumb to make a decision).
 
 You will now practice with your heuristic here.
 
-A HUD is a a tiny on-screen assistant that suggests what to do next: Collect / Upload / Avoid, and shows how full your data storage is.
+A HUD is a tiny on-screen assistant that suggests what to do next: Collect / Upload / Avoid, and shows how full your data storage is.
 
 ## {2. Turn On the Advisor}
 From ``||custom:Custom||``, drag:
 
 ```blocks
+//@highlight
 custom.setupAdvisorHUD()
 ```
 
@@ -34,6 +35,7 @@ You can “tune” the mission by changing max cargo, when to upload, and the da
 From ``||custom:Custom||``, add:
 
 ```blocks
+//@highlight
 custom.setMissionTuning(3, 3, 32)
 ```
 
@@ -47,6 +49,7 @@ container already in the workspace.  <br/>
 Then experiment! For example, carry more before uploading, but keep the same danger radius:
 
 ```blocks
+//@highlight
 custom.setMissionTuning(5, 5, 32)
 ```
 
@@ -68,6 +71,7 @@ hint~
 End the mission when your score reaches a target:
 
 ```blocks
+//@highlight
 custom.enableWinAtScore(15)
 ```
 
@@ -205,28 +209,24 @@ namespace custom {
         }
     }
 
-    //% block="enable data collection (max $capacity)"
-    //% capacity.defl=3
-    //% capacity.min=1 capacity.max=20
-    export function enableDataCollection(capacity: number): void {
-        // Let students’ choice drive the limit; fall back to current MAX_CARGO
-        if (capacity && capacity > 0) {
-            MAX_CARGO = capacity | 0
-        }
-
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
-            if (cargo >= MAX_CARGO) {
-                if (typeof myDrone !== "undefined" && myDrone) {
-                    myDrone.sayText("Storage full!", 400)
+    //% block="enable data collection (max 3)"
+        export function enableDataCollection(): void {
+            cargo = 0
+            const CAP = 3
+    
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
+                if (cargo >= CAP) {
+                    if (typeof myDrone !== "undefined" && myDrone) {
+                        myDrone.sayText("Storage full!", 400)
+                    }
+                    music.thump.play()
+                    return
                 }
-                music.thump.play()
-                return
-            }
-            cargo += 1
-            music.baDing.play()
-            placeDataRandomly()
-        })
-    }
+                cargo += 1
+                music.baDing.play()
+                custom.placeDataRandomly()
+            })
+        }
 
 
     //% block="spawn enemy buoy"
