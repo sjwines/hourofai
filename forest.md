@@ -20,7 +20,7 @@
 * type: tutorial
 * description: Set up your drone to make sure you can get everywhere you need to be!
 * url: https://github.com/sjwines/hourofai/forest/forest1
-* imageUrl: /static/skillmap/forest/forest1.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile1Gif.gif
 * tags: easy, sprite, movement
 * next: forest2
 * position: 0 0
