@@ -60,15 +60,12 @@ custom.enableDataCollection()
 custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
-info.setScore(0)
 custom.enableUploadAtShip()
 ```
 
 ```template
-scene.setBackgroundColor(9)
-namespace SpriteKind { export const Ship = SpriteKind.create(); export const DronePulse = SpriteKind.create(); export const HUD = SpriteKind.create(); }
-
-// DRONE
+scene.setBackgroundImage(img``,)
+namespace SpriteKind { export const Ship = SpriteKind.create(); export const DronePulse = SpriteKind.create();}
 let myDrone = sprites.create(img`
 ....................
 ....................
@@ -91,54 +88,56 @@ let myDrone = sprites.create(img`
 ....................
 ....................
 `, SpriteKind.Player)
-controller.moveSprite(myDrone, 80, 80)
+controller.moveSprite(myDrone)
+myDrone.setPosition(80,80)
 scene.cameraFollowSprite(myDrone)
-
-// SHIP
 let myShip = sprites.create(img`
-    ..............................
-    ..............................
-    ..............................
-    ..............................
-    ..............................
-    ..............................
-    .............c................
-    ...........ccc................
-    .............c................
-    ...........bbbccc.............
-    ...........cccccc.............
-    ..cccccccccbbbccc.............
-    ..cbccbbbbbccccccccccccccccc..
-    ....bbbbbbbbbbbbbbcccbbbcccc..
-    ....ccccccccccccccccccccc.....
-    ....cc2222222222222222222.....
-    ..............................
-    ..............................
-    ..............................
-    ..............................
+..............................
+..............................
+..............................
+..............................
+..............................
+..............................
+............ccc...............
+.............ccc..............
+.............fffcc............
+..........bbbbbcbb............
+..........ffcbbccc............
+.ccccccccfbbbbbcccccc.........
+.ffbbbbbbbfffffcccccc...cfff..
+...fbbbbbbbbbbbbbbbccccccff...
+......ccccccccccccccccccc.....
+......eeeeeeeeeeeeeeeeeee.....
+..............................
+..............................
+..............................
+..............................
 `, SpriteKind.Ship)
-myShip.setPosition(20, 100)
-
-// DATA
+myShip.setPosition(20,100)
 let myData = sprites.create(img`
-    . . . . . . 9 9 9 9 9 9 . . . . 
-    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
-    . . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
-    . . 9 6 8 1 9 9 c c c 9 1 8 6 9 
-    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-    . 9 6 8 1 c . 9 d d 9 . c 1 8 6 
-    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-    . 9 6 8 1 9 9 c c c c 9 1 8 6 9 
-    . . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
-    . . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
-    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
-    . . . . . . 9 9 9 9 9 9 . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+. . . . . . 9 9 9 9 9 9 . . . . 
+. . . . 9 9 6 6 6 6 6 6 9 9 . . 
+. . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
+. . 9 6 8 1 9 9 c c c 9 1 8 6 9 
+. 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+. 9 6 8 1 c . 9 d d 9 . c 1 8 6 
+. 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+. 9 6 8 1 9 9 c c c c 9 1 8 6 9 
+. . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
+. . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
+. . . . 9 9 6 6 6 6 6 6 9 9 . . 
+. . . . . . 9 9 9 9 9 9 . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
-myData.setPosition(60, 60)
+myData.setPosition(60,60)
+custom.placeDataRandomly()
+custom.enableDataCollection()
+custom.spawnEnemyBuoy()
+custom.enableBuoyBump()
+custom.enablePulse()
 ```
 
 ```customts
@@ -148,7 +147,7 @@ namespace custom {
     export let MAX_CARGO = 3
     export let UPLOAD_AT = 3
     export let DANGER_RADIUS = 32
-
+    
     // --- Private state for our helpers ---
     let cargo = 0
     let enemyBuoy: Sprite = null
@@ -172,17 +171,13 @@ namespace custom {
         }
     }
 
-    //% block="enable data collection (max $capacity)"
-    //% capacity.defl=3
-    //% capacity.min=1 capacity.max=20
-    export function enableDataCollection(capacity: number): void {
-        // Let students’ choice drive the limit; fall back to current MAX_CARGO
-        if (capacity && capacity > 0) {
-            MAX_CARGO = capacity | 0
-        }
+    //% block="enable data collection (max 3)"
+    export function enableDataCollection(): void {
+        cargo = 0
+        const CAP = 3
 
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
-            if (cargo >= MAX_CARGO) {
+            if (cargo >= CAP) {
                 if (typeof myDrone !== "undefined" && myDrone) {
                     myDrone.sayText("Storage full!", 400)
                 }
@@ -191,10 +186,11 @@ namespace custom {
             }
             cargo += 1
             music.baDing.play()
-            placeDataRandomly()
+            custom.placeDataRandomly()
         })
     }
 
+    
 
     //% block="spawn enemy buoy"
     export function spawnEnemyBuoy(): void {
@@ -261,51 +257,6 @@ namespace custom {
         DANGER_RADIUS = Math.max(8, radius | 0)
     }
 
-    //% block="setup advisor HUD"
-    export function setupAdvisorHUD(): void {
-        hud = sprites.create(img`.`, SpriteKind.HUD)
-        hud.setFlag(SpriteFlag.RelativeToCamera, true)
-        hud.setPosition(48, 25)
-
-        game.onUpdateInterval(350, function () {
-            let advice = "Collect"
-            if (cargo >= MAX_CARGO) advice = "Upload (FULL)"
-            else if (cargo >= UPLOAD_AT) advice = "Upload"
-            if (
-                enemyBuoy &&
-                typeof myDrone !== "undefined" &&
-                myDrone &&
-                dist(myDrone, enemyBuoy) < DANGER_RADIUS
-            ) {
-                advice = "Avoid"
-            }
-
-            if (hud) {
-                const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
-                hud.sayText(`${advice}  | data ${suffix}`, 400)
-            }
-        })
-    }
-
-    //% block="enable upload at ship"
-    export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function () {
-            if (cargo > 0) {
-                info.changeScoreBy(cargo)
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText(`Uploaded ${cargo}`, 600)
-                }
-                music.powerUp.play()
-                cargo = 0
-            } else {
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText("No data", 400)
-                }
-                music.thump.play()
-            }
-        })
-    }
-
     //% block="enable pulse to disable buoy"
     export function enablePulse(): void {
         controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -348,11 +299,21 @@ namespace custom {
         })
     }
 
-    //% block="win when score ≥ $threshold"
-    export function enableWinAtScore(threshold: number): void {
-        game.onUpdate(function () {
-            if (info.score() >= threshold) {
-                game.over(true, effects.confetti)
+    //% block="enable upload at ship"
+    export function enableUploadAtShip(): void {
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function () {
+            if (cargo > 0) {
+                info.changeScoreBy(cargo)
+                if (typeof myShip !== "undefined" && myShip) {
+                    myShip.sayText(`Uploaded ${cargo}`, 600)
+                }
+                music.powerUp.play()
+                cargo = 0
+            } else {
+                if (typeof myShip !== "undefined" && myShip) {
+                    myShip.sayText("No data", 400)
+                }
+                music.thump.play()
             }
         })
     }
