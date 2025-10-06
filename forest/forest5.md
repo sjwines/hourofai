@@ -2,7 +2,6 @@
 ### @explicitHints true
 
 ## Welcome @showdialog
-
 **AI Advisor HUD**
 
 Recall what a heuristic is (a simple, fast rule of thumb to make a decision). 
@@ -348,7 +347,7 @@ namespace custom {
             }
         })
     }
-}
+
 //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
     export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
         MAX_CARGO = Math.max(1, max | 0)
