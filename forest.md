@@ -79,9 +79,6 @@
     * certificate:
         * url: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Certificate.pdf
         * preview: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Certificate.png
-    * completion-badge:
-        * image: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneBadge.png
-        * name: Protect the Ocean
 * actions:
     * editor: [Edit Your Project with a Full Toolbox] (/)
 
