@@ -139,6 +139,13 @@ Set your data's **x** position to **60** and <br/>
 
 You can always change these numbers to whatever you like.
 
+## {5. Pilot Your Drone}
+**Pilot Your Drone**
+- :binoculars: Take a look in the game window! <br/><br/>
+You should be able to pilot your drone all around the ocean and see the sights.
+
+**Oops!** Right now, nothing happens when your drone sprite touches the ship or data sprites! Lets code that next!
+
 ## Why Custom Green Blocks @showdialog
 
 When your program starts to grow, you’ll see the same ideas repeat: “put the data somewhere new,” “spawn a buoy that bounces,” “give advice.”
@@ -260,6 +267,12 @@ container already in the workspace.  <br/>
 ---
 
 This custom block allows you to pick up a maximum amount of 3 data shards at a time.
+
+---
+
+Run the program several times. 
+
+What happens after the drone collects 3 data shards?
 
 ## {Finale}
 👏 **There you have it!**
