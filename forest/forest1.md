@@ -225,7 +225,7 @@ Your drone glides off-screen if you go too far.
 
 ---
 
-- :game pad: From the ``||sprites:Sprites||`` category, drag <br/>
+- :game pad: From the ``||scene:Scene||`` category, drag <br/>
 
 ```blocks
 let myDrone = sprites.create(img`
@@ -275,7 +275,7 @@ You should be able to pilot your drone all around the ocean and see the sights.
 ---
 
 When you're ready, click **Done** to return to the skillmap and go to the next level
-where you'll add the 🔥🔥🔥.
+where you'll add your other sprites!.
 
 ```blockconfig.global
 let myDrone = sprites.create(img`
