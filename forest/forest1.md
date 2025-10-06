@@ -225,7 +225,7 @@ Your drone glides off-screen if you go too far.
 
 ---
 
-- :game pad: From the ``||scene:Scene||`` category, drag <br/>
+- :game pad: From the ``||scene: Scene||`` category, drag <br/>
 
 ```blocks
 let myDrone = sprites.create(img`
