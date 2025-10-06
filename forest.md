@@ -26,19 +26,19 @@
 * position: 0 0
 
 ### forest2
-* name: 🔥 Burning Issues 🔥
+* name: Missing Data
 * type: tutorial
-* description: Use loops to add random fires to your map!
+* description: Build your other sprites and learn about custom blocks!
 * url: https://github.com/sjwines/hourofai/forest/forest2
-* imageUrl: /static/skillmap/forest/forest2.gif
-* tags: easy, loops, sprites
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile2Gif.gif
+* tags: easy, functions, sprites, sprite interactions
 * next: forest3
 * position: 1 0
 
 ### forest3
-* name: Fire Fighting
+* name: Enemy Waters
 * type: tutorial
-* description: Add a water hose to your plane so you can keep your fires under control.
+* description: Prepare to face your enemy!
 * url: https://github.com/sjwines/hourofai/forest/forest3
 * imageUrl: /static/skillmap/forest/forest3.gif
 * tags: easy, events, sprites
@@ -46,9 +46,9 @@
 * position: 1 1
 
 ### forest4
-* name: Spreads Like Wildfire
+* name: Upload Complete
 * type: tutorial
-* description: Lots of things affect how quickly fire spreads. In this activity, you'll add variables to change fire danger levels.
+* description: Data collection is key. Collect the data and upload it at the ship!
 * url: https://github.com/sjwines/hourofai/forest/forest4
 * imageUrl: /static/skillmap/forest/forest4.gif
 * tags: easy, variables, overlaps
@@ -56,9 +56,9 @@
 * position: 2 1
 
 ### forest5
-* name: Head's Up
+* name: AI Advisor Online
 * type: tutorial
-* description: Computer science is more important to firefighting than ever before! Add some technology to keep your pilots updated!
+* description: Code your AI Advisor and then tune it with heuristics to how you want the game to be.
 * url: https://github.com/sjwines/hourofai/forest/forest5
 * imageUrl: /static/skillmap/forest/forest5.gif
 * tags: easy, custom
