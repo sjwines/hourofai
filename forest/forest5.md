@@ -348,7 +348,7 @@ namespace custom {
         })
     }
 
-//% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
+    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
     export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
         MAX_CARGO = Math.max(1, max | 0)
         UPLOAD_AT = Math.max(1, uploadAt | 0)
