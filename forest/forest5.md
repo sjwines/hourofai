@@ -88,7 +88,7 @@ head to the next level and find out how to add your AI advisor!
 
 ```blockconfig.global
 custom.placeDataRandomly()
-custom.enableDataCollection(3)
+custom.enableDataCollection()
 custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
