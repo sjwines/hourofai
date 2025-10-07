@@ -40,7 +40,7 @@
 * type: tutorial
 * description: Prepare to face your enemy!
 * url: https://github.com/sjwines/hourofai/forest/forest3
-* imageUrl: /static/skillmap/forest/forest3.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile3Gif.gif
 * tags: easy, events, sprites
 * next: forest4
 * position: 1 1
@@ -50,7 +50,7 @@
 * type: tutorial
 * description: Data collection is key. Collect the data and upload it at the ship!
 * url: https://github.com/sjwines/hourofai/forest/forest4
-* imageUrl: /static/skillmap/forest/forest4.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile4Gif.gif
 * tags: easy, variables, overlaps
 * next: forest5
 * position: 2 1
@@ -60,7 +60,7 @@
 * type: tutorial
 * description: Code your AI Advisor and then tune it with heuristics to how you want the game to be.
 * url: https://github.com/sjwines/hourofai/forest/forest5
-* imageUrl: /static/skillmap/forest/forest5.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile5Gif.gif
 * tags: easy, custom
 * next: forest-cert
 * position: 2 2
@@ -84,10 +84,10 @@
 
 
 ### forest6
-* name: Keep Going!
+* name: Challenge Lab
 * type: tutorial
 * description: Complete mini challenges!
 * url: https://github.com/sjwines/hourofai/forest/forest6
-* imageUrl: /static/skillmap/forest/forest6.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile6Gif.gif
 * tags: custom, animation, sounds
 * position: 4 2
