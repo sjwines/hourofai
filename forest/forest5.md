@@ -169,7 +169,7 @@ let myData = sprites.create(img`
 `, SpriteKind.Food)
 myData.setPosition(60,60)
 custom.placeDataRandomly()
-custom.enableDataCollection()
+custom.enableDataCollection(3)
 custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
