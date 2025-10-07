@@ -1,9 +1,26 @@
 # Prepare Your Drone
 ### @explicitHints true
+<!-- ***************************************************
+// Use the single hash to name the tutorial, and the
+// double hash to name the step. Triple hashes set
+// custom flags that change the way the tutorial works
+// https://makecode.com/writing-docs/tutorials
+// @explicitHints true cues the tutorial not to add hints
+// automatically, but to let you tell it when you want hints
+// ****************************************************-->
+
+<!-- ***************************************************
+//           STEP ONE
+<!-- ***************************************************
+// Step #1 is usually a modal (pop-up) that sets the scene
+// The @showdialog tag makes it pop out
+// **************************************************** -->
 
 ## Welcome @showdialog
 **The Manta Ray**
-![The Manta Ray](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/UUVMantaRay.png)
+<!-- This is how you add an image in markdown -->
+<!-- The first part is for the screen reader. The second is the URL of the image. The last is the mouse rollover text. -->
+![The Manta Ray](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/UUVMantaRay.png "The Manta Ray")
 
 A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship. Once all 15 data shards are collected, the game is over and you can leave enemy waters.
 
@@ -15,13 +32,23 @@ You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above 
 
 Ready to launch?
 
-## Set the Scene
+<!-- ***************************************************
+//                      STEP TWO
+<!-- ***************************************************
+// This step's title is inside curly braces. That hides it
+// from the viewer, because step titles are pretty huge
+// and obnoxious
+// **************************************************** -->
+## {2.Set the Scene}
 **🌊 Welcome to the Ocean**
 
 The ship is getting ready to arrive and launch the drone into the water to collect the scattered data before it gets into enemy hands.
 
 Let's get the code in there to make that happen!
 
+<!----------------------------------------------------------->
+<!-- This is how you create a clue within the instruction -->
+<!-- vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv -->
 ~hint What's a sprite? 💡
 
 
@@ -32,9 +59,34 @@ In Arcade, each character or image that does something is called a **SPRITE**.
 Sprites have properties that you can use and change — things like scale, position, and lifespan are all properties of sprites.
 Our ocean and drone are actually sprites, too.
 hint~
-
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!------------------------ End Clue --------------------------->
+<!----------------------------------------------------------->
 
 ---
+
+<!-- This next part of the instruction uses a couple of different
+// formats to guide students. 
+// https://makecode.com/writing-docs/snippets#namespace-coloring
+//
+// The -:tree: text adds an icon to the side of the instruction that 
+// corresponds to the category for the step (this one adds the tree icon)
+//
+// Next, the ``||scene:Scene||`` text creates a highlighted "button" that
+// opens the category it points to when clicked (it's the Scene category here.)
+//
+// Want the formatted text to link to a different category than the color
+// sends it to by default, use a different category in parentheses
+// ``||variables(sprites):set [mySprite]||`` makes a red block that
+// goes to the blue Sprites category.
+//
+// ``||loops(noclick):on start||`` makes the text green but doesn't
+// open any category
+//
+// The ```block segment lets you insert a block directly
+// into the instructions.
+// https://makecode.com/writing-docs/snippets#blocks
+// --------------------------------------------------------------->
 First, we need a background for our project.
 - :tree: Go to the ``||scene: Scene||`` category **in the toolbox** and grab
 ```blocks
@@ -57,6 +109,14 @@ block already in the workspace.
 
 hint~
 
+<!-- This section will add blocks to the answer key.
+// https://makecode.com/writing-docs/tutorials/basics#using-blocks
+// tutorialhint tells the tutorial that we're adding a hint now. 
+// Include all of the blocks that students will see within
+// the code segment that they're working on. 
+//  
+// Use //@highlight to highlight the instruction from this step 
+// https://makecode.com/writing-docs/snippets#highlight -->
 #### ~ tutorialhint
 
 ```blocks
@@ -64,6 +124,15 @@ hint~
 scene.setBackgroundImage(img`)
 ```
 
+<!-- ***************************************************
+//                      STEP THREE
+<!-- ***************************************************
+// Keep adding instructions and hints to guide students
+// toward the steps they need to take. Tutorials work best
+// when you "complete a thought" before moving on to the next thing.
+// Add a sprite, position it, get it moving, follow with the camera,
+// THEN you can move on to the maze mechanics.
+// **************************************************** -->
 ## {Step 3}
 
 - :paint brush: Click the empty **grey square** to open the image editor and choose a background from the **Gallery** or **My Assets**.
@@ -75,7 +144,14 @@ scene.setBackgroundImage(img`)
 
 _💡 If you don't find a background you like, you can make one of your own!_
 
-
+<!-- ***************************************************
+//                      STEP FIVE
+<!-- ***************************************************
+// Occasionally remind students to look at what they've done
+// so they can make sure things are working. You might be
+// surprised at how often they soldier on without taking
+// time to play with their creations.
+// **************************************************** -->
 ## {Step 4}
 
 - :binoculars: Look at your project in the game window to see what your code has done!
@@ -268,6 +344,16 @@ You should be able to pilot your drone all around the ocean and see the sights.
 
 **Oops!** It may not look like your sprite is moving right now, but as soon as you add more sprites in the next level, you'll see!
 
+<!-- ***************************************************
+//                      NOTE
+<!-- ***************************************************
+// Students usually max out somewhere between 10-15 steps.
+// If you can wrap-up the tutorial in this amount of time,
+// then it makes sense to use a single tutorial for the game.
+// Otherwise, consider creating a skillmap. Directions for
+// turning tutorials into skillmaps can be found at
+// aka.ms/make-a-skillmap
+// **************************************************** -->
 ## {10. Finale}
 **You've finished the first level!**<br/>
 👏 👏 👏
@@ -276,7 +362,19 @@ You should be able to pilot your drone all around the ocean and see the sights.
 
 When you're ready, click **Done** to return to the skillmap and go to the next level
 where you'll add your other sprites!.
+<!-- **************************** End Tutorial Text Portion *************************//
+// ---------------------------------------------------------------------------------//
+// The following code sets up the images, blocks, and extensions                   //
+// see https://makecode.com/writing-docs/tutorials/control-options#special-blocks //
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->
 
+<!-- ***************************************************
+//            BLOCKCONFIG - DEFAULT BLOCKS
+// ****************************************************
+// https://makecode.com/writing-docs/tutorials/basics#limitations
+// This is how you add default settings to blocks
+// in the toolbox
+******************************************************-->
 ```blockconfig.global
 let myDrone = sprites.create(img`
 ....................
@@ -305,7 +403,51 @@ scene.cameraFollowSprite(myDrone)
 myDrone.setPosition(80,80)
 ```
 
+<!-- ***************************************************
+//            PACKAGE - IMPORT EXTENSIONS
+// ****************************************************
+// https://makecode.com/writing-docs/snippets#package
+// This is how you import extensions into your tutorial
+******************************************************-->
 
+<!-- ***************************************************
+//            TEMPLATE - START WITH BLOCKS
+// ****************************************************
+// https://makecode.com/writing-docs/tutorials/control-options#special-blocks
+// This is how you start with code in the workspace
+******************************************************-->
+
+<!-- ***************************************************
+// GHOST - ADD BLOCKS EVEN IF THEY'RE NOT YET IN TUTORIAL
+// ****************************************************
+// https://makecode.com/writing-docs/tutorials/control-options#ghost-blocks
+// This is how you add blocks to the toolbox, even
+// if the tutorial doesn't use them
+// I've preloaded this with all of the code for our game.
+// Note that the blocks won't show up prefilled in the toolbox
+// unless you also add them to a blockconfig section.
+******************************************************-->
+
+<!-- ***************************************************
+//            CUSTOMTS - BEHIND THE SCENES
+// ****************************************************
+// https://makecode.com/writing-docs/tutorials/control-options#custom-code
+// This is how you add code "behind the scenes"
+// This code is hidden from the user so it's a good way
+// to hide confusing steps or add custom functions
+******************************************************-->
+
+<!-- ***************************************************
+//            ASSETJSON - ADD NON_EXTENSION ASSETS
+// ****************************************************
+// https://makecode.com/writing-docs/tutorials/resources#assetjson
+// This imports items into 'My Assets". This is important for things
+// like music and tilemaps that don't have a gallery.
+// You get this from saving a project containing only assets
+// from the url
+// https://arcade.makecode.com/?saveTemplate=1#editor
+// and pasting the result between the ticks
+******************************************************-->
 ```assetjson
 {
   "README.md": " ",
