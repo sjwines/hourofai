@@ -88,7 +88,7 @@ head to the next level and find out how to add your AI advisor!
 
 ```blockconfig.global
 custom.placeDataRandomly()
-custom.enableDataCollection()
+custom.enableDataCollection(3)
 custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
@@ -169,7 +169,7 @@ let myData = sprites.create(img`
 `, SpriteKind.Food)
 myData.setPosition(60,60)
 custom.placeDataRandomly()
-custom.enableDataCollection(3)
+custom.enableDataCollection()
 custom.spawnEnemyBuoy()
 custom.enableBuoyBump()
 custom.enablePulse()
