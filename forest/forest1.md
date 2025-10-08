@@ -201,12 +201,12 @@ hint~
 _💡 If you don't like that drone, click the box and change to one of the others you like under **My Assets**, or you can make one of your own!_
  
 ## Did You Know? @showdialog
-![US Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
+![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
 
-Robitic warfare specialists serve the U.S. Navy and are responsible for the operation, maintenance, and tactical employment of robotic and autonomous systems to achieve a hybrid manned-unmanned fleet.
+Robotic warfare specialists serve the U.S. Navy and are responsible for the operation, maintenance, and tactical employment of robotic and autonomous systems to achieve a hybrid manned-unmanned fleet.
 
 ## Move your Sprites Locations
-Let's move your drone to their starting location at the start of the game.
+Let's move your drone to its starting location at the start of the game.
 
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
 
@@ -239,7 +239,12 @@ myDrone.setPosition(80,80)
 
 ---
 
-You can always change the location by changing these numbers to whatever you like.
+You can always change the location by adjusting these numbers to your preference.
+
+## Career Spotlight: Navy Sonar Technician @showdialog
+![U.S. Navy Sonar Technician's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
+
+On real missions, Navy Sonar Technicians use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They interpret signals, tune sensors, and advise the team where to steer next.
 
 ## Learn to Glide
 **↔Get the Drone Moving**
