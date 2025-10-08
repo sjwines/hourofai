@@ -88,6 +88,12 @@ Set your ship's **x** position to **20** and <br/>
 
 You can always change these numbers to whatever you like.
 
+## Career Spotlight: Robotic Warfare Specialist (RWS) — Mission Handoff @showdialog
+In Part 1, you met the Robotic Warfare Specialist who plans, launches, and supervises unmanned systems. 
+In real-world operations, RWS teams utilize a support ship as both the launch/recovery point and the data handoff hub.
+
+Your ship sprite fills that role: it’s the safe place your drone returns to, offloads “payload/data,” and resets for the next task. 
+
 ## {4. Creating the Data Sprite}
 **Create Your Data Sprite**
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
@@ -192,6 +198,9 @@ What do you notice about the data sprite's location each time you run the progra
 
 What do you wonder about how this custom block works?
 
+## Drone Fact: GPS doesn’t work underwater @showdialog
+Radio/GPS signals fade quickly in seawater, so undersea drones navigate using onboard sensors (inertial measurement units, Doppler velocity logs) and acoustic beacons. That’s why “known landmarks” (your ship/data) and simple rules are so helpful in this level.
+
 ## How a Custom Block Works 
 
 Hidden inside a custom block are 4 main parts:
@@ -282,6 +291,11 @@ This custom block allows you to pick up a maximum of 3 data shards at a time.
 Run the program several times. 
 
 What happens after the drone collects 3 data shards?
+
+## Career Spotlight: Navy Oceanographer @showdialog
+![Navy Oceanographer](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSoceanographer.jpg)
+
+Currents, waves, and temperature layers change how drones move and how sonar travels. Navy oceanographers forecast these conditions so operators pick smarter routes—just like you’re designing rules about when and where to collect and upload data.
 
 ## {Finale}
 👏 **There you have it!**
