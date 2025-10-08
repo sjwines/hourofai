@@ -28,7 +28,7 @@ You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above 
 - **Collect data** pods underwater
 - **Surface** at the ship to **upload** and increase your score
 - Avoid the **sonar the buoy** that can steal the data
-- Use a **coded AI advisor** that will suggest "Collect / Upload / Avoid" using simple rules you can **tune**
+- Use a **coded AI advisor** that will suggest a "Collect / Upload / Avoid" using simple rules (heuristic) you can **tune**
 
 Ready to launch?
 
