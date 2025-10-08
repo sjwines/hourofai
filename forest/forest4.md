@@ -49,6 +49,9 @@ custom.enableUploadAtShip()
 If you arrive with 0 data, the ship will say “No data” and you’ll hear a thump.
 hint~
 
+## Drone Fact: Autonomy levels @showdialog
+Maritime drones can be teleoperated or semi-autonomous using simple rules (heuristics) like “collect, then upload, avoid danger.” Next, you’ll start shaping those rules so your drone makes smarter choices on its own.
+
 ## {Finale}
 👏 Great, you can now keep track of how many data shards you have collected!
 
