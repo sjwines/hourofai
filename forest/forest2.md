@@ -4,7 +4,7 @@
 ## Welcome @showdialog
 **The SPURV**
 ![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png)
-The first underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
+The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
 In this section, you will program your drone to collect the missing data in enemy territory.
 
 ## {2. Set the Scene}
@@ -71,7 +71,7 @@ hint~
 
 This sprite is different as it needs to be **labeled** as **Ship** instead of a **Player**. This will play an important role later as you will upload your data from the drone to the ship.
 
-Click **Player**, Add a new kind, and change it to **Ship**.
+Click **Player**, **Add a new kind**, and change it to **Ship**.
 
 
 ---
@@ -164,32 +164,12 @@ You don’t see the math inside how the controls work; you know that if you move
 
 Now we’ll use more that are already made for us!
 
-## Check for Overlap
-If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. 
 
-We will practice abstraction here with a custom block, but inside of it, hidden is a programming concept called if/then conditionals!
+## Placing the Data Randomly
 
----
+We need a way so that when the program starts, the data appears in a random location.
 
-~hint Tell me about if/then conditionals! 💡
-
----
-
-In programming, an if/then (a conditional) lets your code make a decision.
-You give it a condition that can be true or false.
-If the condition is true, then the code inside runs. If it’s false, it skips that code.
-In this program our if/then is this block:
-
----
-
-```blocks
-if (true){
-}
-
-```
-hint~
-
-You will not need to drag out an if/then block; instead, drag out the custom block:
+Introducing custom blocks! Drag out the custom block:
 
 - :paper plane: From the ``||custom:Custom||`` category, grab <br/>
 
@@ -205,11 +185,13 @@ container already in the workspace.  <br/>
 
 Run the program several times. 
 
-Notice how the data sprite's location is random on each run.
+What do you notice about the data sprite's location each time you run the program?
+
+What do you wonder about how this custom block works?
 
 ## How a Custom Block Works 
 
-Hidden inside a custom block consists 4 main parts:
+Hidden inside a custom block are 4 main parts:
 - a name (what shows up as the block text),
 - inputs/parameters (what you can change),
 - body (the steps it runs),
@@ -250,9 +232,33 @@ let myData = sprites.create(img`
 myData.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.screenHeight() - 16))
 ```
 
-## Data collection
+## Data Collection - Checking for Overlap
 
-The final part of this activity is enabling your drone to collect the data:
+If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. 
+
+We will practice abstraction here with a custom block, but inside of it, hidden is a programming concept called if/then conditionals!
+
+---
+
+~hint Tell me about if/then conditionals! 💡
+
+---
+
+In programming, an if/then (a conditional) lets your code make a decision.
+You give it a condition that can be true or false.
+If the condition is true, then the code inside runs. If it’s false, it skips that code.
+In this program our if/then is this block:
+
+---
+
+```blocks
+if (true){
+}
+
+```
+hint~
+
+You will not need to drag out an if/then block; instead:
 
 - :paper plane: From the ``||custom:Custom||`` category, grab <br/>
 
