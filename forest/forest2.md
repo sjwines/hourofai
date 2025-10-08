@@ -139,6 +139,9 @@ Set your data's **x** position to **60** and <br/>
 
 You can always change these numbers to whatever you like.
 
+## Drone Fact: What “payload” means @showdialog
+A drone’s payload is the equipment it carries—like cameras, sonars, or data pods. In your mission, “cargo” represents the data payload. Real maritime drones balance payload weight with range and battery life.
+
 ## {5. Pilot Your Drone}
 **Pilot Your Drone**
 - :binoculars: Take a look in the game window! <br/><br/>
@@ -272,7 +275,7 @@ container already in the workspace.  <br/>
 
 ---
 
-This custom block allows you to pick up a maximum amount of 3 data shards at a time.
+This custom block allows you to pick up a maximum of 3 data shards at a time.
 
 ---
 
