@@ -5,11 +5,11 @@
 
 **Ship Upload & Scoring**
 
-You’ve got data shards, now let’s upload them at the ship and update your score.
+You’ve got data shards, now let’s upload them to the ship and update your score.
 
 ## {2. Start a Score}
 
-Initialize your score so uploads count.
+Initialize your score so that the uploads count.
 
 ---
 
