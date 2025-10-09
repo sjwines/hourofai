@@ -9,7 +9,7 @@ You’ve got data shards, now let’s upload them to the ship and update your sc
 
 ## {2. Start a Score}
 
-Initialize your score so that the uploads count.
+Initialize your score so that the upload count is accurate.
 
 ---
 
@@ -26,7 +26,7 @@ container already in the workspace.  <br/>
 
 ## {3. Enable Upload at the Ship}
 
-Turn on the upload rule: touching myShip uploads the data you’re holding, adds to score, then resets your cargo.
+Turn on the upload rule: touching myShip uploads the data you’re holding, adds to the score, then resets your cargo.
 
 ---
 
@@ -46,11 +46,11 @@ custom.enableUploadAtShip()
 - Watch the score increase and the ship say how much got uploaded.
 
 ~hint What if nothing uploads?
-If you arrive with 0 data, the ship will say “No data” and you’ll hear a thump.
+If you arrive with 0 data, the ship will say “No data,” and you’ll hear a thump.
 hint~
 
 ## Drone Fact: Autonomy levels @showdialog
-Maritime drones can be teleoperated or semi-autonomous using simple rules (heuristics) like “collect, then upload, avoid danger.” Next, you’ll start shaping those rules so your drone makes smarter choices on its own.
+Maritime drones can be teleoperated or semi-autonomous, utilizing simple rules (heuristics) such as “collect, then upload, avoid danger.” Next, you’ll start shaping those rules so your drone makes smarter choices on its own.
 
 ## {Finale}
 👏 Great, you can now keep track of how many data shards you have collected!
