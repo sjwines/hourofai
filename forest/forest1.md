@@ -341,8 +341,6 @@ to **the end** of the
 ``||loops:on start||``
 container that's already in the workspace. 
 
-Move to the next step to test out movement!
-
 ## {8. Pilot Your Drone}
 - :binoculars: Take a look in the game window! <br/><br/>
 You should be able to pilot your drone all around the ocean and see the sights.
