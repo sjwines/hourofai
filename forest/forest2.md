@@ -28,7 +28,7 @@ hint~
 
 ## {3. Add The Ship Sprite}
 **Create Your Ship Sprite**
-- :paper plane: From the ``||sprites:Sprites||`` category, grab another <br/>
+- :paper plane: **Step 1** From the ``||sprites:Sprites||`` category, grab another <br/>
 
 ```blocks
 //@highlight
@@ -71,17 +71,17 @@ hint~
 
 This sprite is different as it needs to be **labeled** as **Ship** instead of a **Player**. This will play an important role later as you will upload your data from the drone to the ship.
 
-Click **Player**, **Add a new kind**, and change it to **Ship**.
+**Step 2** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
 
 ---
 
 **Give Your Sprite an Important Name**
-- Click the name **mySprite** and change it to a name that represents the sprite, such as **myShip**.
+- **Step 3** Click the name **mySprite** and change it to a name that represents the sprite to **myShip**. It is important you name it **myShip** as you will need that later on.
 
 ---
 
-Set your ship's **x** position to **20** and <br/>
+**Step 4** Set your ship's **x** position to **20** and <br/>
 **y** position to **100**.
 
 ---
@@ -89,6 +89,8 @@ Set your ship's **x** position to **20** and <br/>
 You can always change these numbers to whatever you like.
 
 ## Career Spotlight: Robotic Warfare Specialist (RWS) — Mission Handoff @showdialog
+![U.S. Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSRWS.png "U.S. Navy Robotic Warfare Specialists")
+
 In Part 1, you met the Robotic Warfare Specialist who plans, launches, and supervises unmanned systems. 
 In real-world operations, RWS teams utilize a support ship as both the launch/recovery point and the data handoff hub.
 
@@ -127,7 +129,7 @@ container already in the workspace.  <br/>
 
 ---
 
-Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **pPlayer** because your drone will be collecting it. 
+Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **Player** because your drone will be collecting it. 
 
 Click **Player** and change it to **Food**.
 
