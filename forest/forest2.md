@@ -7,26 +7,7 @@
 The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
 In this section, you will program your drone to collect the missing data in enemy territory.
 
-## {2. Set the Scene}
-- :binoculars: Look at your project in the game window!
-Your drone should move in the direction you press the arrow keys.
-
----
-
-_Can you remember which lines of code create each action?_
-
----
-
-~hint My game doesn't work ⚠️
-
----
-
-If your code isn't working and you can't figure out why, click
-<br/>"Replace my code"<br/>
-to replace the blocks in your workspace with new starter code.
-hint~
-
-## {3. Add The Ship Sprite}
+## {2. Add The Ship Sprite}
 **Create Your Ship Sprite**
 - :paper plane: **Step 1** From the ``||sprites:Sprites||`` category, grab another <br/>
 
@@ -95,6 +76,25 @@ In Part 1, you met the Robotic Warfare Specialist who plans, launches, and super
 In real-world operations, RWS teams utilize a support ship as both the launch/recovery point and the data handoff hub.
 
 Your ship sprite fills that role: it’s the safe place your drone returns to, offloads “payload/data,” and resets for the next task. 
+
+## {3. Set the Scene}
+- :binoculars: Look at your project in the game window!
+Your drone should move in the direction you press the arrow keys.
+
+---
+
+_Can you remember which lines of code create each action?_
+
+---
+
+~hint My game doesn't work ⚠️
+
+---
+
+If your code isn't working and you can't figure out why, click
+<br/>"Replace my code"<br/>
+to replace the blocks in your workspace with new starter code.
+hint~
 
 ## {4. Creating the Data Sprite}
 **Create Your Data Sprite**
