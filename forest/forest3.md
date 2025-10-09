@@ -5,11 +5,11 @@
 
 **Avoid the Sonar Buoy**
 
-Enemy sonar buoys patrol these waters. They’ll bump your drone and make you drop any collected data.
+Enemy sonar buoys patrol these waters. They’ll bump your drone and cause you to lose any collected data.
 
 ## {2. Spawn the Enemy Buoy}
 
-Let’s create the roaming buoy.
+Let’s create the enemy roaming sonar buoy.
 
 ---
 
@@ -26,7 +26,7 @@ container already in the workspace.  <br/>
 ---
 
 ~hint What does this spawn enemy buoy do?
-The green block creates enemyBuoy, puts it on the map, gives it a velocity, and turns on bounce on wall so it roams.
+The green block creates an enemy buoy, places it on the map, assigns it a velocity, and enables bounce on wall, allowing it to roam.
 hint~
 
 ## {3. Make It Dangerous (Bump/Avoid)}
@@ -46,11 +46,17 @@ container already in the workspace.  <br/>
 
 ---
 
-Now playtest, let the buoy hit you and watch what happens!
+Now playtest, let the buoy hit you, and watch what happens!
+
+## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
+![U.S. Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg)
+Cryptologic Technician Technical hunts and defends **data links**. 
+
+If an enemy drone communicates home after a buoy detects you, a Cryptologic Technician Technical looks for patterns to **jam, spoof, or geolocate** their communication.
 
 ## Enable a Disabling Sonar Pulse
 
-Your drone comes equiped with technology that can sonar jam the communication with the enemy buoy. 
+Your drone comes equipped with technology that can jam the enemy buoy's sonar communication. 
 
 ---
 
@@ -67,6 +73,12 @@ container already in the workspace.  <br/>
 ---
 
 Now playtest, and hit the spacebar to activate your sonar jam.
+
+## Drone Fact: Active vs. Passive Sonar @showdialog
+- **Active sonar** sends out a ping and listens for echoes—great for finding things, but it **reveals your position**.  
+- **Passive sonar** only listens **stealthily**, but slower to detect and easier to confuse with ocean noise.
+
+Your buoy’s timed “ping” event is a tiny version of active sonar.
 
 ## {Finale}
 👏 Great, your ocean has real danger now!
