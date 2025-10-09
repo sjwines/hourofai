@@ -16,7 +16,7 @@
 // The @showdialog tag makes it pop out
 // **************************************************** -->
 
-## Welcome @showdialog
+## 1. Welcome @showdialog
 **The Manta Ray**
 <!-- This is how you add an image in markdown -->
 <!-- The first part is for the screen reader. The second is the URL of the image. The last is the mouse rollover text. -->
@@ -244,7 +244,7 @@ You can always change the location by adjusting these numbers to your preference
 ## Career Spotlight: Navy Sonar Technician @showdialog
 ![U.S. Navy Sonar Technician's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
 
-On real missions, Navy Sonar Technicians use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They interpret signals, tune sensors, and advise the team where to steer next.
+On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
 ## Learn to Glide
 **↔Get the Drone Moving**
