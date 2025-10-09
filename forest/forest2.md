@@ -94,6 +94,7 @@ _Can you remember which lines of code create each action?_
 If your code isn't working and you can't figure out why, click
 <br/>"Replace my code"<br/>
 to replace the blocks in your workspace with new starter code.
+
 hint~
 
 ## {4. Creating the Data Sprite}
@@ -268,8 +269,8 @@ In this program our if/then is this block:
 ```blocks
 if (true){
 }
-
 ```
+
 hint~
 
 You will not need to drag out an if/then block; instead:
@@ -382,6 +383,7 @@ namespace custom {
             placeDataRandomly()
         })
     }
+}
 ```
 
 ```assetjson
