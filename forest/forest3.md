@@ -201,13 +201,17 @@ namespace custom {
         }
     }
 
-    //% block="enable data collection (max 3)"
-    export function enableDataCollection(): void {
-        cargo = 0
-        const CAP = 3
+    //% block="enable data collection (max $capacity)"
+    //% capacity.defl=3
+    //% capacity.min=1 capacity.max=20
+    export function enableDataCollection(capacity: number): void {
+        // Let students’ choice drive the limit; fall back to current MAX_CARGO
+        if (capacity && capacity > 0) {
+            MAX_CARGO = capacity | 0
+        }
 
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
-            if (cargo >= CAP) {
+            if (cargo >= MAX_CARGO) {
                 if (typeof myDrone !== "undefined" && myDrone) {
                     myDrone.sayText("Storage full!", 400)
                 }
@@ -216,11 +220,11 @@ namespace custom {
             }
             cargo += 1
             music.baDing.play()
-            custom.placeDataRandomly()
+            placeDataRandomly()
         })
     }
 
-    
+
 
     //% block="spawn enemy buoy"
     export function spawnEnemyBuoy(): void {
