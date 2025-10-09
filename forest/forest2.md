@@ -278,7 +278,7 @@ You will not need to drag out an if/then block; instead:
 
 ```blocks
 //@highlight
-custom.enableDataCollection()
+custom.enableDataCollection(3)
 ```
 
 and snap it into ``||loops:on start||`` <br/>
@@ -309,7 +309,7 @@ head to the next level and find out how to avoid the enemy sonar buoys!
 
 ```blockconfig.global
 custom.placeDataRandomly()
-custom.enableDataCollection()
+custom.enableDataCollection(3)
 ```
 
 ```template
@@ -362,9 +362,8 @@ namespace custom {
     }
 
     //% block="enable data collection (max $capacity)"
-    //% capacity.defl=3
-    //% capacity.min=1 capacity.max=20
-    export function enableDataCollection(capacity: number): void {
+    //% capacity.defl=3 capacity.min=1 capacity.max=20
+    export function enableDataCollection(capacity: number = 3): void {
         // Let students’ choice drive the limit; fall back to current MAX_CARGO
         if (capacity && capacity > 0) {
             MAX_CARGO = capacity | 0
