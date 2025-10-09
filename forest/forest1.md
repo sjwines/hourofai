@@ -341,8 +341,8 @@ to **the end** of the
 ``||loops:on start||``
 container that's already in the workspace. 
 
-## {8. Pilot Your Drone}
-- :binoculars: Take a look in the game window! <br/><br/>
+---
+
 You should be able to pilot your drone all around the ocean and see the sights.
 
 🤭**Oops!** It may not look like your sprite isn't moving right now, but as soon as you add more sprites in the next level, you'll see how your drone interacts with them!
