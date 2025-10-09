@@ -343,6 +343,8 @@ scene.cameraFollowSprite(myDrone)
 ```
 
 ```customts
+    let cargo = 0
+    let MAX_CARGO = 3
 //% weight=100 color=#0fbc11 icon=""
 namespace custom {
     // helpers: grab the first sprite of a kind (if it exists)
