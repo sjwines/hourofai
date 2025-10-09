@@ -63,7 +63,7 @@ head to the next level and find out how to add your AI advisor!
 ```blockconfig.global
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
-custom.spawnEnemyBuoy(1)
+custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
@@ -141,7 +141,7 @@ let myData = sprites.create(img`
 myData.setPosition(60,60)
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
-custom.spawnEnemyBuoy(1)
+custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
 ```
