@@ -345,7 +345,7 @@ container that's already in the workspace.
 
 You should be able to pilot your drone all around the ocean and see the sights.
 
-🤭**Oops!** It may not look like your sprite isn't moving right now, but as soon as you add more sprites in the next level, you'll see how your drone interacts with them!
+🤭**Oops!** Your sprite isn't moving anymore because the cameraFollow block makes the camera stay on top of the drone sprite, but as soon as you add more sprites in the next level, you'll see how your drone interacts with them!
 
 <!-- ***************************************************
 //                      NOTE
