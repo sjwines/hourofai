@@ -17,7 +17,7 @@ From ``||custom:Custom||``, drag:
 
 ```blocks
 //@highlight
-custom.spawnEnemyBuoy()
+custom.spawnEnemyBuoys(1)
 ```
 
 and snap it into ``||loops:on start||`` <br/>
@@ -90,8 +90,8 @@ head to the next level and find out how to upload your data to the ship!
 
 ```blockconfig.global
 custom.placeDataRandomly()
-custom.enableDataCollection()
-custom.spawnEnemyBuoy()
+custom.enableDataCollection(3)
+custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
 ```
@@ -167,7 +167,7 @@ let myData = sprites.create(img`
 `, SpriteKind.Food)
 myData.setPosition(60,60)
 custom.placeDataRandomly()
-custom.enableDataCollection()
+custom.enableDataCollection(3)
 ```
 
 ```customts
@@ -180,11 +180,7 @@ namespace custom {
     
     // --- Private state for our helpers ---
     let cargo = 0
-    let enemyBuoy: Sprite = null
     let hitCooldown = false
-    let buoyDisabled = false
-    let savedVX = 0
-    let savedVY = 0
     let hud: Sprite = null
 
     function dist(a: Sprite, b: Sprite): number {
@@ -202,9 +198,8 @@ namespace custom {
     }
 
     //% block="enable data collection (max $capacity)"
-    //% capacity.defl=3
-    //% capacity.min=1 capacity.max=20
-    export function enableDataCollection(capacity: number): void {
+    //% capacity.defl=3 capacity.min=1 capacity.max=20
+    export function enableDataCollection(capacity: number = 3): void {
         // Let students’ choice drive the limit; fall back to current MAX_CARGO
         if (capacity && capacity > 0) {
             MAX_CARGO = capacity | 0
@@ -224,11 +219,21 @@ namespace custom {
         })
     }
 
+// helpers: grab the first sprite of a kind (if it exists)
+    function firstOf(kind: number): Sprite {
+        const list = sprites.allOfKind(kind)
+        return list.length ? list[0] : null
+    }
 
+    //% block="spawn enemy buoys (count %count)"
+    //% count.defl=3 count.min=1 count.max=20
+    export function spawnEnemyBuoys(count: number): void {
+        // sanitize the input a bit so students can’t break things
+        count = Math.floor(Math.max(1, Math.min(20, count)))
 
-    //% block="spawn enemy buoy"
-    export function spawnEnemyBuoy(): void {
-        enemyBuoy = sprites.create(img`
+        for (let i = 0; i < count; i++) {
+            // use a simple built-in image so this works even if assets differ
+            const buoy = sprites.create(img`
             ..................
             ........ddddd.....
             ........ddddd.....
@@ -247,10 +252,16 @@ namespace custom {
             ....fe46b4444ff...
             ....fe46bbbbbf....
             ........66666.....
-        `, SpriteKind.Enemy)
-        enemyBuoy.setPosition(120, 40)
-        enemyBuoy.setVelocity(50, 35)
-        enemyBuoy.setBounceOnWall(true)
+            `, SpriteKind.Enemy)
+
+            buoy.setPosition(
+                randint(16, scene.screenWidth() - 16),
+                randint(16, scene.screenHeight() - 16)
+            )
+            buoy.setVelocity(randint(-40, 40), randint(-40, 40))
+            buoy.setBounceOnWall(true)
+
+        }
     }
 
     //% block="enable buoy bump"
@@ -291,17 +302,35 @@ namespace custom {
         DANGER_RADIUS = Math.max(8, radius | 0)
     }
 
+    // helpers: nearest enemy buoy to the player
+    function closestEnemyTo(drone: Sprite): Sprite {
+        const enemies = sprites.allOfKind(SpriteKind.Enemy)
+        if (!enemies.length || !drone) return null
+        let best = enemies[0]
+        let bestD2 = (best.x - drone.x) ** 2 + (best.y - drone.y) ** 2
+        for (let i = 1; i < enemies.length; i++) {
+            const e = enemies[i]
+            const d2 = (e.x - drone.x) ** 2 + (e.y - drone.y) ** 2
+            if (d2 < bestD2) { best = e; bestD2 = d2 }
+        }
+        return best
+    }
+
     //% block="enable pulse to disable buoy"
     export function enablePulse(): void {
         controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+            // default shot if no enemies exist
             let vx = 0, vy = -120
-            if (enemyBuoy && typeof myDrone !== "undefined" && myDrone) {
-                vx = enemyBuoy.x - myDrone.x
-                vy = enemyBuoy.y - myDrone.y
-                const m = Math.max(1, Math.sqrt(vx * vx + vy * vy))
-                vx = Math.round(120 * vx / m)
-                vy = Math.round(120 * vy / m)
+
+            const target = (typeof myDrone !== "undefined" && myDrone) ? closestEnemyTo(myDrone) : null
+            if (target && myDrone) {
+                let dx = target.x - myDrone.x
+                let dy = target.y - myDrone.y
+                const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+                vx = Math.round(120 * dx / m)
+                vy = Math.round(120 * dy / m)
             }
+
             const pulse = sprites.createProjectileFromSprite(img`
                 . . 8 8 f f f f f f 8 8 . .
                 . 6 8 f f f f f f f f 8 6 .
@@ -318,20 +347,21 @@ namespace custom {
 
         sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (p, buoy) {
             p.destroy(effects.disintegrate, 100)
-            if (buoyDisabled) return
-            buoyDisabled = true
-            savedVX = buoy.vx
-            savedVY = buoy.vy
+
+            // freeze ONLY the buoy that was hit
+            const oldVX = buoy.vx
+            const oldVY = buoy.vy
             buoy.setVelocity(0, 0)
             buoy.startEffect(effects.halo, 3000)
             music.zapped.play()
+
             control.runInParallel(function () {
                 pause(3000)
-                buoy.setVelocity(savedVX, savedVY)
-                buoyDisabled = false
+                buoy.setVelocity(oldVX, oldVY)
             })
         })
     }
+
 }
 ```
 
