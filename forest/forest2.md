@@ -293,7 +293,7 @@ This custom block allows you to pick up a maximum of 3 data shards at a time.
 
 Run the program several times. 
 
-What happens after the drone collects 3 data shards?
+What happens after the drone collects 3 data shards? What do you expect to happen if we change the number 3 to 5?
 
 ## Career Spotlight: Navy Oceanographer @showdialog
 ![Navy Oceanographer](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSoceanographer.jpg)
