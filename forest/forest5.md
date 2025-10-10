@@ -320,13 +320,11 @@ namespace custom {
             let advice = "Collect"
             if (cargo >= MAX_CARGO) advice = "Upload (FULL)"
             else if (cargo >= UPLOAD_AT) advice = "Upload"
-            if (
-                enemyBuoy &&
-                typeof myDrone !== "undefined" &&
-                myDrone &&
-                dist(myDrone, enemyBuoy) < DANGER_RADIUS
-            ) {
-                advice = "Avoid"
+            const nearest =
+                (typeof myDrone !== "undefined" && myDrone) ? closestEnemyTo(myDrone) : null;
+            
+            if (nearest && myDrone && dist(myDrone, nearest) < DANGER_RADIUS) {
+                advice = "Avoid";
             }
 
             if (hud) {
