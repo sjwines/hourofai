@@ -315,18 +315,28 @@ namespace custom {
         hud = sprites.create(img`.`, SpriteKind.HUD)
         hud.setFlag(SpriteFlag.RelativeToCamera, true)
         hud.setPosition(48, 25)
-
+    
         game.onUpdateInterval(350, function () {
+            // default suggestion
             let advice = "Collect"
-            if (cargo >= MAX_CARGO) advice = "Upload (FULL)"
-            else if (cargo >= UPLOAD_AT) advice = "Upload"
-            const nearest =
-                (typeof myDrone !== "undefined" && myDrone) ? closestEnemyTo(myDrone) : null;
-            
-            if (nearest && myDrone && dist(myDrone, nearest) < DANGER_RADIUS) {
-                advice = "Avoid";
+    
+            // capacity / upload hints
+            if (cargo >= MAX_CARGO) {
+                advice = "Upload (FULL)"
+            } else if (cargo >= UPLOAD_AT) {
+                advice = "Upload"
             }
-
+    
+            // danger check: is ANY enemy within DANGER_RADIUS of the drone?
+            const drone = (typeof myDrone !== "undefined" && myDrone) ? myDrone : null
+            const dangerNearby =
+                !!(drone && sprites
+                    .allOfKind(SpriteKind.Enemy)
+                    .some(e => dist(drone, e) < DANGER_RADIUS))
+    
+            if (dangerNearby) advice = "Avoid"
+    
+            // HUD text
             if (hud) {
                 const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
                 hud.sayText(`${advice}  | data ${suffix}`, 400)
