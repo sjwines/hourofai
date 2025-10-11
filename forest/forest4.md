@@ -157,7 +157,7 @@ namespace custom {
     // --- Private state for our helpers ---
     let cargo = 0
     let hitCooldown = false
-    let hud: Sprite = null
+    let hudText: TextSprite = null
 
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
@@ -333,18 +333,14 @@ namespace custom {
 
     //% block="enable upload at ship"
     export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function () {
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
             if (cargo > 0) {
                 info.changeScoreBy(cargo)
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText(`Uploaded ${cargo}`, 600)
-                }
+                if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
                 music.powerUp.play()
                 cargo = 0
             } else {
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText("No data", 400)
-                }
+                if (typeof myShip !== "undefined" && myShip) myShip.sayText("No data", 400)
                 music.thump.play()
             }
         })
