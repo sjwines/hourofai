@@ -312,7 +312,7 @@ custom.enableDataCollection(3)
 ```
 
 ```template
-scene.setBackgroundImage(img``,)
+scene.setBackgroundImage(img``)
 let myDrone = sprites.create(img`
 ....................
 ....................
