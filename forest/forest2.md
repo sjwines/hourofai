@@ -62,8 +62,7 @@ This sprite is different as it needs to be **labeled** as **Ship** instead of a 
 
 ---
 
-**Step 4:** Set your ship's **x** position to **20** and <br/>
-**y** position to **100**.
+**Step 4:** Set your ship's **x** position to **20** and **y** position to **100**.
 
 ---
 
@@ -141,8 +140,7 @@ Notice this sprite is different as it needs to be **labeled** as **Food** instea
 
 ---
 
-**Step 4:** Set your data's **x** position to **60** and <br/>
-**y** position to **60**.
+**Step 4:** Set your data's **x** position to **60** and **y** position to **60**.
 
 ---
 
