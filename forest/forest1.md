@@ -91,7 +91,7 @@ First, we need a background for our project.
 - :tree: Go to the ``||scene: Scene||`` category **in the toolbox** and grab
 ```blocks
 //@highlight
-scene.setBackgroundImage(img`.`)
+scene.setBackgroundImage(img``)
 ```
 then snap it inside the empty <br/>
 ``||loops(noclick): on start||`` <br/>
@@ -121,7 +121,7 @@ hint~
 
 ```blocks
 //@highlight
-scene.setBackgroundImage(img`)
+scene.setBackgroundImage(img``)
 ```
 
 <!-- ***************************************************
@@ -139,7 +139,7 @@ scene.setBackgroundImage(img`)
 
 ```blocks
 //@highlight
-scene.setBackgroundImage(img`)
+scene.setBackgroundImage(img``)
 ```
 
 _💡 If you don't find a background you like, you can make one of your own!_
