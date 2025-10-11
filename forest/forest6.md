@@ -38,7 +38,7 @@ custom.enableWinAtScore(15)
 ```
 
 ```template
-scene.setBackgroundImage(img``,)
+scene.setBackgroundImage(img``)
 namespace SpriteKind { export const Ship = SpriteKind.create(); export const DronePulse = SpriteKind.create(); export const HUD = SpriteKind.create();}
 let myDrone = sprites.create(img`
 ....................
