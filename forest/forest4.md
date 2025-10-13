@@ -118,7 +118,7 @@ let myShip = sprites.create(img`
 ..............................
 ..............................
 ..............................
-`, SpriteKind.Ship)
+`, SpriteKind.Player)
 myShip.setPosition(20,100)
 let myData = sprites.create(img`
 . . . . . . 9 9 9 9 9 9 . . . . 
@@ -147,10 +147,6 @@ custom.enablePulse()
 ```
 
 ```customts
-namespace SpriteKind {
-    //% isKind
-    export const Ship = SpriteKind.create()
-}
 //% weight=100 color=#0fbc11 icon=""
 namespace custom {
     // --- Tunables students can change later via a block ---
@@ -337,7 +333,7 @@ namespace custom {
 
     //% block="enable upload at ship"
     export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (drone, ship) {
             if (cargo > 0) {
                 info.changeScoreBy(cargo)
                 if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
