@@ -147,6 +147,10 @@ custom.enablePulse()
 ```
 
 ```customts
+namespace SpriteKind {
+    //% isKind
+    export const Ship = SpriteKind.create()
+}
 //% weight=100 color=#0fbc11 icon=""
 namespace custom {
     // --- Tunables students can change later via a block ---
