@@ -81,11 +81,6 @@ custom.enableWinAtScore(15)
 
 In the next part, you can save your certificate and then move on to the final level, challenges!
 
----
-
-When you're finished, click **Done** to
-head to the next level and find out how to add your AI advisor!
-
 ```blockconfig.global
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
