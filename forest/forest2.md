@@ -98,7 +98,7 @@ hint~
 
 ## {4. Creating the Data Sprite}
 **Create Your Data Sprite**
-- **Step 1:** :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab <br/>
 
 ```blocks
 //@highlight
