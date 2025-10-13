@@ -8,6 +8,7 @@
 You’ve got data shards, now let’s upload them to the ship and update your score.
 
 ## {2. Start a Score}
+**Start a Score**
 
 Initialize your score so that the upload count is accurate.
 
@@ -25,6 +26,7 @@ and snap it into ``||loops:on start||`` <br/>
 container already in the workspace.  <br/>
 
 ## {3. Enable Upload at the Ship}
+**Enable Upload at the Ship**
 
 Turn on the upload rule: touching myShip uploads the data you’re holding, adds to the score, then resets your cargo.
 
@@ -66,12 +68,17 @@ custom.enableDataCollection(3)
 custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
+info.setScore(0)
 custom.enableUploadAtShip()
 ```
 
 ```template
 scene.setBackgroundImage(img``)
-namespace SpriteKind {export const DronePulse = SpriteKind.create();}
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+    export const DronePulse = SpriteKind.create();
+    }
+
 let myDrone = sprites.create(img`
 ....................
 ....................
@@ -118,7 +125,7 @@ let myShip = sprites.create(img`
 ..............................
 ..............................
 ..............................
-`, SpriteKind.Player)
+`, SpriteKind.Ship)
 myShip.setPosition(20,100)
 let myData = sprites.create(img`
 . . . . . . 9 9 9 9 9 9 . . . . 
@@ -144,6 +151,7 @@ custom.enableDataCollection(3)
 custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
+
 ```
 
 ```customts
@@ -157,7 +165,6 @@ namespace custom {
     // --- Private state for our helpers ---
     let cargo = 0
     let hitCooldown = false
-    let hudText: TextSprite = null
 
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
@@ -333,7 +340,7 @@ namespace custom {
 
     //% block="enable upload at ship"
     export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (drone, ship) {
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
             if (cargo > 0) {
                 info.changeScoreBy(cargo)
                 if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
