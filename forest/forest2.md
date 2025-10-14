@@ -50,7 +50,7 @@ hint~
 
 ---
 
-This sprite is different as it needs to be **labeled** as **Ship** instead of a **mySprite**. This will play an important role later as you will upload your data from the drone to the ship.
+This sprite is different as it needs to be **labeled** as a **Ship** sprite instead of a **Player**. This will play an important role later as you will upload your data from the drone to the ship.
 
 **Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
@@ -58,7 +58,7 @@ This sprite is different as it needs to be **labeled** as **Ship** instead of a 
 ---
 
 **Give Your Sprite an Important Name**
-- **Step 3:** Give it the important name, **myShip** & select the **ship sprite** from the **Gallery** or create your own!
+- **Step 3:** Give it the important name, **myShip** instead of **MySprite** & select the **ship sprite** from the **Gallery** or create your own!
 
 ---
 
