@@ -129,7 +129,7 @@ container already in the workspace.  <br/>
 
 ---
 
-Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **mySprite** because your drone will be collecting it. 
+Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **Player** because your drone will be collecting it. 
 
 **Step 2:** Click **Player** and change it to **Food**.
 
