@@ -221,7 +221,7 @@ namespace custom {
     }
 
 
-// helpers: grab the first sprite of a kind (if it exists)
+    // helpers: grab the first sprite of a kind (if it exists)
     function firstOf(kind: number): Sprite {
         const list = sprites.allOfKind(kind)
         return list.length ? list[0] : null
@@ -297,6 +297,17 @@ namespace custom {
         })
     }
 
+    //% block="use this as the advisor HUD %sprite"
+    //% sprite.shadow=spritescreate
+    export function setHUDSprite(sprite: Sprite): void {
+        if (!sprite) return
+        sprite.setKind(SpriteKind.HUD)
+        sprite.setFlag(SpriteFlag.RelativeToCamera, true)
+        sprite.setPosition(48, 25)
+        hud = sprite
+    }
+
+
     //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
     export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
         MAX_CARGO = Math.max(1, max | 0)
@@ -306,22 +317,21 @@ namespace custom {
 
     //% block="setup advisor HUD"
     export function setupAdvisorHUD(): void {
-        hud = sprites.create(img`.`, SpriteKind.HUD)
-        hud.setFlag(SpriteFlag.RelativeToCamera, true)
-        hud.setPosition(48, 25)
+        if (!hud) {
+            hud = sprites.create(img`.`, SpriteKind.HUD)
+            hud.setFlag(SpriteFlag.RelativeToCamera, true)
+            hud.setPosition(48, 25)
+        }
     
         game.onUpdateInterval(350, function () {
-            // default suggestion
             let advice = "Collect"
     
-            // capacity / upload hints
             if (cargo >= MAX_CARGO) {
                 advice = "Upload (FULL)"
             } else if (cargo >= UPLOAD_AT) {
                 advice = "Upload"
             }
     
-            // danger check: is ANY enemy within DANGER_RADIUS of the drone?
             const drone = (typeof myDrone !== "undefined" && myDrone) ? myDrone : null
             const dangerNearby =
                 !!(drone && sprites
@@ -330,7 +340,6 @@ namespace custom {
     
             if (dangerNearby) advice = "Avoid"
     
-            // HUD text
             if (hud) {
                 const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
                 hud.sayText(`${advice}  | data ${suffix}`, 400)
@@ -338,20 +347,21 @@ namespace custom {
         })
     }
 
-//% block="enable upload at ship"
-    export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
-            if (cargo > 0) {
-                info.changeScoreBy(cargo)
-                if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
-                music.powerUp.play()
-                cargo = 0
-            } else {
-                if (typeof myShip !== "undefined" && myShip) myShip.sayText("No data", 400)
-                music.thump.play()
-            }
-        })
-    }
+
+    //% block="enable upload at ship"
+        export function enableUploadAtShip(): void {
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
+                if (cargo > 0) {
+                    info.changeScoreBy(cargo)
+                    if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
+                    music.powerUp.play()
+                    cargo = 0
+                } else {
+                    if (typeof myShip !== "undefined" && myShip) myShip.sayText("No data", 400)
+                    music.thump.play()
+                }
+            })
+        }
 
     // helpers: nearest enemy buoy to the player
     function closestEnemyTo(drone: Sprite): Sprite {
