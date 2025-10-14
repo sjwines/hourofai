@@ -60,7 +60,7 @@
 * type: tutorial
 * description: Code your AI Advisor and then tune it with heuristics to how you want the game to be.
 * url: https://github.com/sjwines/hourofai/forest/forest5
-* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile5Gif.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
 * tags: easy, custom
 * next: forest-cert
 * position: 2 2
@@ -88,6 +88,6 @@
 * type: tutorial
 * description: Complete mini challenges!
 * url: https://github.com/sjwines/hourofai/forest/forest6
-* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile6Gif.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
 * tags: custom, animation, sounds
 * position: 4 2
