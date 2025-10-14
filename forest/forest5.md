@@ -192,10 +192,12 @@ namespace custom {
     export let UPLOAD_AT = 3
     export let DANGER_RADIUS = 32
 
+
     // --- Private state for our helpers ---
     let cargo = 0
     let hitCooldown = false
     let hud: Sprite = null
+    hud = sprites.create(img`.`, SpriteKind.HUD)
 
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
