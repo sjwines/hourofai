@@ -202,7 +202,6 @@ namespace custom {
     let cargo = 0
     let hitCooldown = false
     let hud: Sprite = null
-    hud = sprites.create(img`.`, SpriteKind.HUD)
 
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
