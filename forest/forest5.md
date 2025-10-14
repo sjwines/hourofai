@@ -8,7 +8,26 @@ Recall what a heuristic is (a simple, fast rule of thumb to make a decision).
 
 You will now practice with your heuristic here.
 
-A HUD is a tiny on-screen assistant that suggests what to do next: Collect / Upload / Avoid, and shows how full your data storage is.
+A Heads Up Display (HUD), is a tiny on-screen assistant that suggests what to do next: Collect / Upload / Avoid, and shows how full your data storage is.
+
+## Create your AI Advisor HUD**
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab another <br/>
+
+```blocks
+//@highlight
+let hud = sprites.create(img``, SpriteKind.Player)
+```
+
+---
+
+This sprite is different as it needs to be **labeled** as **HUD** instead of a **Player**.
+
+**Step 2:** Click **Player**, **Add a new kind**, and change it to **HUD**.
+
+---
+
+**Give Your Sprite an Important Name**
+- **Step 3:** Give it the important name, **hud** instead of **mySprite**. You **do not** need to give this sprite an image.
 
 ## {2. Turn On the Advisor}
 From ``||custom:Custom||``, drag:
