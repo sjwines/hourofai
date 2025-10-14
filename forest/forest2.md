@@ -50,7 +50,7 @@ hint~
 
 ---
 
-This sprite is different as it needs to be **labeled** as **Ship** instead of a **Player**. This will play an important role later as you will upload your data from the drone to the ship.
+This sprite is different as it needs to be **labeled** as **Ship** instead of a **mySprite**. This will play an important role later as you will upload your data from the drone to the ship.
 
 **Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
@@ -129,7 +129,7 @@ container already in the workspace.  <br/>
 
 ---
 
-Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **Player** because your drone will be collecting it. 
+Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **mySprite** because your drone will be collecting it. 
 
 **Step 2:** Click **Player** and change it to **Food**.
 
