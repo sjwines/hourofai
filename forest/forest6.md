@@ -32,14 +32,19 @@ custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
-custom.setupAdvisorHUD()
 custom.setMissionTuning(3, 3, 32)
+custom.setHUDSprite(hud)
+custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
 ```
 
 ```template
 scene.setBackgroundImage(img``)
-namespace SpriteKind {export const DronePulse = SpriteKind.create(); export const HUD = SpriteKind.create();}
+namespace SpriteKind {
+    export const DronePulse = SpriteKind.create();
+    export const HUD = SpriteKind.create();
+    export const Ship = SpriteKind.create();
+}
 let myDrone = sprites.create(img`
 ....................
 ....................
@@ -114,9 +119,6 @@ custom.enableBuoyBump()
 custom.enablePulse()
 info.setScore(0)
 custom.enableUploadAtShip()
-custom.setupAdvisorHUD()
-custom.setMissionTuning(3, 3, 32)
-custom.enableWinAtScore(15)
 ```
 
 ```customts
@@ -126,6 +128,7 @@ namespace custom {
     export let MAX_CARGO = 3
     export let UPLOAD_AT = 3
     export let DANGER_RADIUS = 32
+
 
     // --- Private state for our helpers ---
     let cargo = 0
@@ -169,7 +172,7 @@ namespace custom {
     }
 
 
-// helpers: grab the first sprite of a kind (if it exists)
+    // helpers: grab the first sprite of a kind (if it exists)
     function firstOf(kind: number): Sprite {
         const list = sprites.allOfKind(kind)
         return list.length ? list[0] : null
@@ -245,6 +248,17 @@ namespace custom {
         })
     }
 
+    //% block="use this as the advisor HUD %sprite"
+    //% sprite.shadow=spritescreate
+    export function setHUDSprite(sprite: Sprite): void {
+        if (!sprite) return
+        sprite.setKind(SpriteKind.HUD)
+        sprite.setFlag(SpriteFlag.RelativeToCamera, true)
+        sprite.setPosition(48, 25)
+        hud = sprite
+    }
+
+
     //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
     export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
         MAX_CARGO = Math.max(1, max | 0)
@@ -254,23 +268,29 @@ namespace custom {
 
     //% block="setup advisor HUD"
     export function setupAdvisorHUD(): void {
-        hud = sprites.create(img`.`, SpriteKind.HUD)
-        hud.setFlag(SpriteFlag.RelativeToCamera, true)
-        hud.setPosition(48, 25)
-
+        if (!hud) {
+            hud = sprites.create(img`.`, SpriteKind.HUD)
+            hud.setFlag(SpriteFlag.RelativeToCamera, true)
+            hud.setPosition(48, 25)
+        }
+    
         game.onUpdateInterval(350, function () {
             let advice = "Collect"
-            if (cargo >= MAX_CARGO) advice = "Upload (FULL)"
-            else if (cargo >= UPLOAD_AT) advice = "Upload"
-            if (
-                enemyBuoy &&
-                typeof myDrone !== "undefined" &&
-                myDrone &&
-                dist(myDrone, enemyBuoy) < DANGER_RADIUS
-            ) {
-                advice = "Avoid"
+    
+            if (cargo >= MAX_CARGO) {
+                advice = "Upload (FULL)"
+            } else if (cargo >= UPLOAD_AT) {
+                advice = "Upload"
             }
-
+    
+            const drone = (typeof myDrone !== "undefined" && myDrone) ? myDrone : null
+            const dangerNearby =
+                !!(drone && sprites
+                    .allOfKind(SpriteKind.Enemy)
+                    .some(e => dist(drone, e) < DANGER_RADIUS))
+    
+            if (dangerNearby) advice = "Avoid"
+    
             if (hud) {
                 const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
                 hud.sayText(`${advice}  | data ${suffix}`, 400)
@@ -278,24 +298,21 @@ namespace custom {
         })
     }
 
-//% block="enable upload at ship"
-    export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function () {
-            if (cargo > 0) {
-                info.changeScoreBy(cargo)
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText(`Uploaded ${cargo}`, 600)
+
+    //% block="enable upload at ship"
+        export function enableUploadAtShip(): void {
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
+                if (cargo > 0) {
+                    info.changeScoreBy(cargo)
+                    if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
+                    music.powerUp.play()
+                    cargo = 0
+                } else {
+                    if (typeof myShip !== "undefined" && myShip) myShip.sayText("No data", 400)
+                    music.thump.play()
                 }
-                music.powerUp.play()
-                cargo = 0
-            } else {
-                if (typeof myShip !== "undefined" && myShip) {
-                    myShip.sayText("No data", 400)
-                }
-                music.thump.play()
-            }
-        })
-    }
+            })
+        }
 
     // helpers: nearest enemy buoy to the player
     function closestEnemyTo(drone: Sprite): Sprite {
