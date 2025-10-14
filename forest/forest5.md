@@ -25,6 +25,18 @@ container already in the workspace.  <br/>
 
 This creates a small HUD that updates every ~⅓ second with advice and a “data X/Y” readout.
 
+---
+
+From ``||custom:Custom||``, drag:
+
+```blocks
+//@highlight
+custom.setHUDSprite(hud)
+```
+
+and snap it into ``||loops:on start||`` <br/>
+container already in the workspace.  <br/>
+
 ## {3. Practice Mission Tuning}
 
 You can “tune” the mission by changing max cargo, when to upload, and the danger radius around the buoy. Try changing them:
@@ -89,6 +101,7 @@ custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
 custom.setMissionTuning(3, 3, 32)
+custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
 ```
