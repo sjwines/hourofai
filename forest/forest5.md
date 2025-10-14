@@ -182,7 +182,7 @@ namespace custom {
     // --- Private state for our helpers ---
     let cargo = 0
     let hitCooldown = false
-    let hudText: TextSprite = null
+    let hud: Sprite = null
 
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
