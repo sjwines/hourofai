@@ -88,8 +88,8 @@ custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
-custom.setupAdvisorHUD()
 custom.setMissionTuning(3, 3, 32)
+custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
 ```
 
