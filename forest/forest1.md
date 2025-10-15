@@ -88,11 +88,13 @@ hint~
 // https://makecode.com/writing-docs/snippets#blocks
 // --------------------------------------------------------------->
 First, we need a background for our project.
-- :tree: Go to the ``||scene: Scene||`` category **in the toolbox** and grab
+- :tree: Go to the ``||scene: Scene||`` category **in the toolbox** and grab:
+
 ```blocks
 //@highlight
 scene.setBackgroundImage(img``)
 ```
+
 then snap it inside the empty <br/>
 ``||loops(noclick): on start||`` <br/>
 block already in the workspace.
@@ -159,7 +161,7 @@ _💡 If you don't find a background you like, you can make one of your own!_
 You should see a background. Hopefully with an ocean theme!
 
 ## Create Your Drone Sprite
-- :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
+- :paper plane: From the ``||sprites:Sprites||`` category, grab: 
 
 ```blocks
 //@highlight
@@ -187,8 +189,8 @@ let myDrone = sprites.create(img`
     `, SpriteKind.Player)
 ```
 
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
+and snap it into ``||loops:on start||``
+container already in the workspace.  
 
 ~hint Show me how! 🕵🏽
 
@@ -200,10 +202,10 @@ hint~
 
 _💡 If you don't like that drone, click the box and change to one of the others you like under **My Assets**, or you can make one of your own!_
  
-## Did You Know? @showdialog
+## Career Spotlight: Navy Robotic Warfare Specialists @showdialog
 ![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
 
-Robotic warfare specialists serve the U.S. Navy and are responsible for the operation, maintenance, and tactical employment of robotic and autonomous systems to achieve a hybrid manned-unmanned fleet.
+**Robotic warfare specialists** serve the U.S. Navy and are responsible for the **operation, maintenance, and tactical employment of robotic and autonomous systems** to achieve a hybrid manned-unmanned fleet.
 
 ## Move your Sprites Locations
 Let's move your drone to its starting location at the start of the game.
@@ -241,8 +243,8 @@ myDrone.setPosition(80,80)
 
 You can always change the location by adjusting these numbers to your preference.
 
-## Career Spotlight: Navy Sonar Technician @showdialog
-![U.S. Navy Sonar Technician's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
+## Career Spotlight: Navy Sonar Technicians @showdialog
+![U.S. Navy Sonar Technicians](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
 
 On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
@@ -292,7 +294,7 @@ _💡 You can also use the arrow keys on your keyboard!_
 
 ![Find the game window.](/static/skillmap/forest/game.png "The game window is in the lower corner.")
 
-## Did You Know? @showdialog
+## Drone Facts @showdialog
 ![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png)
 As the world's first and only autonomous underwater and surface vehicle (AUSV), the **US Navy Triton** can operate in sailing mode or submarine mode with its interchangeable sail.
 Sea drones like Triton are deployed in combat to **gather intelligence**, **conduct surveillance** and **reconnaissance**, **sweep mines**, and **protect critical underwater infrastructure**.
