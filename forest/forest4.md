@@ -78,7 +78,6 @@ namespace SpriteKind {
     export const Ship = SpriteKind.create()
     export const DronePulse = SpriteKind.create();
     }
-
 let myDrone = sprites.create(img`
 ....................
 ....................
