@@ -298,13 +298,6 @@ namespace custom {
         })
     }
 
-    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
-    export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
-        MAX_CARGO = Math.max(1, max | 0)
-        UPLOAD_AT = Math.max(1, uploadAt | 0)
-        DANGER_RADIUS = Math.max(8, radius | 0)
-    }
-
     // helpers: nearest enemy buoy to the player
     function closestEnemyTo(drone: Sprite): Sprite {
         const enemies = sprites.allOfKind(SpriteKind.Enemy)
@@ -379,6 +372,7 @@ namespace custom {
             }
         })
     })
+    }
 }
 ```
 
