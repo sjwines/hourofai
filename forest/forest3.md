@@ -98,7 +98,10 @@ custom.enablePulse()
 
 ```template
 scene.setBackgroundImage(img``)
-namespace SpriteKind {export const DronePulse = SpriteKind.create();}
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+    export const DronePulse = SpriteKind.create();
+    }
 let myDrone = sprites.create(img`
 ....................
 ....................
