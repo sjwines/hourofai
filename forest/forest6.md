@@ -359,36 +359,21 @@ namespace custom {
 
         sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (p, buoy) {
             p.destroy(effects.disintegrate, 100)
-            music.zapped.play()
-        
-            const STUN_MS = 3000
-            const now = game.runtime()
-        
-            // If not already stunned, remember its current velocity once
-            let stunUntil = sprites.readDataNumber(buoy, "stunUntil") || 0
-            if (stunUntil <= now) {
-                sprites.setDataNumber(buoy, "oldVX", buoy.vx)
-                sprites.setDataNumber(buoy, "oldVY", buoy.vy)
-            }
-        
-            // Extend/refresh the stun window and stop movement
-            stunUntil = now + STUN_MS
-            sprites.setDataNumber(buoy, "stunUntil", stunUntil)
+
+            // freeze ONLY the buoy that was hit
+            const oldVX = buoy.vx
+            const oldVY = buoy.vy
             buoy.setVelocity(0, 0)
-            buoy.startEffect(effects.halo, STUN_MS)
-        
-            // One timer per hit is fine—only the latest expiry restores motion
+            buoy.startEffect(effects.halo, 3000)
+            music.zapped.play()
+
             control.runInParallel(function () {
-                pause(STUN_MS)
-                const latest = sprites.readDataNumber(buoy, "stunUntil") || 0
-                if (latest <= game.runtime()) {
-                    const ovx = sprites.readDataNumber(buoy, "oldVX") || 0
-                    const ovy = sprites.readDataNumber(buoy, "oldVY") || 0
-                    buoy.setVelocity(ovx, ovy)
-                }
+                pause(3000)
+                buoy.setVelocity(oldVX, oldVY)
             })
         })
     }
+
 
     //% block="win when score ≥ $threshold"
     export function enableWinAtScore(threshold: number): void {
