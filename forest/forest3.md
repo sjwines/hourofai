@@ -2,12 +2,187 @@
 ### @explicitHints true
 
 ## Welcome to Enemy Waters @showdialog
+**The SPURV**
+![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png)
+The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
 
+In this section, you will program your drone to collect the missing data in enemy territory.
+
+## {Step 2}
+**Create Your Data Sprite**
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
+
+```blocks
+//@highlight
+let myData = sprites.create(img`
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
+    . . 9 6 8 1 9 9 c c c 9 1 8 6 9 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 d d 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 9 9 c c c c 9 1 8 6 9 
+    . . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
+    . . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+`, SpriteKind.Food)
+```
+
+and snap it into ``||loops:on start||`` <br/>
+container already in the workspace.  <br/>
+
+---
+
+Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **Player** because your drone will be collecting it. 
+
+**Step 2:** Click **Player** and change it to **Food**.
+
+## Why Custom Green Blocks @showdialog
+**Why Custom Green Blocks**
+
+When your program starts to grow, you’ll see the same ideas repeat: “put the data somewhere new,” “spawn a buoy that bounces,” “give advice.”
+Instead of rewriting long code each time, we bundle it into a **custom block**. 
+This is called **abstraction**: hiding the **messy details** behind a simple, easy-to-use command.
+
+You’ve already used abstraction:
+
+```blocks
+//@highlight
+controller.moveSprite(myDrone) 
+```
+
+You don’t see the math inside how the controls work; you know that if you move the arrow keys, the drone will move.
+
+Now we’ll use more that are already made for us!
+
+## Placing the Data Randomly
+We need a way so that when the program starts, the data appears in a random location.
+
+Introducing custom blocks! Drag out the custom block:
+- :paper plane: From the ``||custom:Custom||`` category, grab <br/>
+
+```blocks
+//@highlight
+custom.placeDataRandomly()
+```
+
+and snap it into ``||loops:on start||`` <br/>
+container already in the workspace.  <br/>
+
+---
+
+Run the program several times. 
+
+What do you notice about the data sprite's location each time you run the program?
+
+What do you wonder about how this custom block works?
+
+## Drone Fact: What “payload” means @showdialog
+A drone’s payload is the equipment it carries—like cameras, sonars, or data pods. In your mission, “cargo” represents the data payload. 
+
+Real maritime drones balance payload weight with range and battery life.
+
+## How a Custom Block Works 
+Hidden inside a custom block are 4 main parts:
+- a name (what shows up as the block text),
+- inputs/parameters (what you can change),
+- body (the steps it runs),
+- and sometimes a result (a return value).
+
+---
+
+The placeDataRandomly() block at the start of your program runs and places your data sprite at a random location on the map.
+
+```blocks
+//@highlight
+custom.placeDataRandomly()
+```
+
+---
+
+**What's hidden inside?**
+
+```blocks
+//@highlight
+let myData = sprites.create(img`
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
+    . . 9 6 8 1 9 9 c c c 9 1 8 6 9 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 d d 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 9 9 c c c c 9 1 8 6 9 
+    . . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
+    . . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+`, SpriteKind.Food)
+//@highlight
+myData.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.screenHeight() - 16))
+```
+
+## Data Collection - Checking for Overlap
+If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. 
+We will practice abstraction here with a custom block, but inside of it, hidden is a programming concept called if/then conditionals!
+
+---
+
+~hint Tell me about if/then conditionals! 💡
+
+---
+
+In programming, an if/then (a conditional) lets your code make a decision.
+You give it a condition that can be true or false.
+If the condition is true, then the code inside runs. If it’s false, it skips that code.
+In this program our if/then is this block:
+
+---
+
+```blocks
+if (true){
+}
+```
+
+hint~
+You will not need to drag out an if/then block; instead:
+- :paper plane: From the ``||custom:Custom||`` category, grab <br/>
+
+```blocks
+//@highlight
+custom.enableDataCollection(3)
+
+```
+and snap it into ``||loops:on start||`` <br/>
+container already in the workspace.  <br/>
+
+---
+
+This custom block allows you to pick up a maximum of 3 data shards at a time.
+
+---
+
+Run the program several times. 
+
+What happens after the drone collects 3 data shards? What do you expect to happen if we change the number 3 to 5?
+
+## Career Spotlight: Navy Oceanographer @showdialog
+![Navy Oceanographer](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSoceanographer.jpg)
+Currents, waves, and temperature layers change how drones move and how sonar travels. Navy oceanographers forecast these conditions so operators pick smarter routes—just like you’re designing rules about when and where to collect and upload data.
+
+## {Step 3}
 **Avoid the Sonar Buoy**
-
 Enemy sonar buoys patrol these waters. They’ll bump your drone and cause you to lose any collected data.
-
-## {2. Spawn the Enemy Buoy}
 
 Let’s create the enemy roaming sonar buoy.
 
@@ -25,8 +200,14 @@ container already in the workspace.  <br/>
 
 ---
 
+Run the program several times. 
+
+Change the number from 1 to 3. 
+
+What is the maximum amount of enemy buoys you can have in your game?
+
 ~hint What does this spawn enemy buoy do?
-The green block creates an enemy buoy, places it on the map, assigns it a velocity, and enables bounce on wall, allowing it to roam.
+The green block creates an enemy buoy, places it on the map, assigns it a velocity, and enables bounce on wall, allowing it to roam. 
 hint~
 
 ## {3. Make It Dangerous (Bump/Avoid)}
@@ -50,9 +231,9 @@ Now playtest, let the buoy hit you, and watch what happens!
 
 ## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
 ![U.S. Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg)
-Cryptologic Technician Technical hunts and defends **data links**. 
+**Cryptologic Technician Technical** hunts and defends **data links**. 
 
-If an enemy drone communicates home after a buoy detects you, a Cryptologic Technician Technical looks for patterns to **jam, spoof, or geolocate** their communication.
+If an enemy drone communicates home after a buoy **detects you**, a Cryptologic Technician Technical looks for patterns to **jam, spoof, or geolocate** their communication.
 
 ## Enable a Disabling Sonar Pulse
 
@@ -74,6 +255,10 @@ container already in the workspace.  <br/>
 
 Now playtest, and hit the spacebar to activate your sonar jam.
 
+---
+
+What happens to the enemy buoy?
+
 ## Drone Fact: Active vs. Passive Sonar @showdialog
 - **Active sonar** sends out a ping and listens for echoes—great for finding things, but it **reveals your position**.  
 - **Passive sonar** only listens **stealthily**, but slower to detect and easier to confuse with ocean noise.
@@ -89,6 +274,24 @@ When you're finished, click **Done** to
 head to the next level and find out how to upload your data to the ship!
 
 ```blockconfig.global
+let myData = sprites.create(img`
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
+    . . 9 6 8 1 9 9 c c c 9 1 8 6 9 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 d d 9 . c 1 8 6 
+    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
+    . 9 6 8 1 9 9 c c c c 9 1 8 6 9 
+    . . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
+    . . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
+    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
+    . . . . . . 9 9 9 9 9 9 . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+`, SpriteKind.Food)
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
 custom.spawnEnemyBuoys(1)
@@ -149,28 +352,39 @@ let myShip = sprites.create(img`
 ..............................
 ..............................
 `, SpriteKind.Ship)
-myShip.setPosition(20,100)
-let myData = sprites.create(img`
-. . . . . . 9 9 9 9 9 9 . . . . 
-. . . . 9 9 6 6 6 6 6 6 9 9 . . 
-. . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
-. . 9 6 8 1 9 9 c c c 9 1 8 6 9 
-. 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-. 9 6 8 1 c . 9 d d 9 . c 1 8 6 
-. 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-. 9 6 8 1 9 9 c c c c 9 1 8 6 9 
-. . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
-. . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
-. . . . 9 9 6 6 6 6 6 6 9 9 . . 
-. . . . . . 9 9 9 9 9 9 . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Food)
-myData.setPosition(60,60)
-custom.placeDataRandomly()
-custom.enableDataCollection(3)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
+```
+
+```ghost
+// Ensure Math operator blocks appear in the toolbox:
+let __add = 0 + 0
+let __sub = 0 - 0
+let __mul = 0 * 0
+let __div = 1 / 1
+let __mod = 1 % 1
+
+// Common math helpers (these surface their blocks, too):
+let __pow = Math.pow(2, 3)
+let __min = Math.min(0, 1)
+let __max = Math.max(0, 1)
+let __abs = Math.abs(-1)
+let __round = Math.round(1.2)
+let __floor = Math.floor(1.8)
+let __ceil = Math.ceil(1.1)
+
+// Random & screen size blocks you’re using:
+let __rand = randint(0, 10)
+let __w = scene.screenWidth()
+let __h = scene.screenHeight()
+
+// Also reference the pattern students will build (doesn't run in ghost)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
 ```
 
 ```customts
@@ -184,7 +398,6 @@ namespace custom {
     // --- Private state for our helpers ---
     let cargo = 0
     let hitCooldown = false
-    let hud: Sprite = null
 
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
@@ -192,8 +405,10 @@ namespace custom {
 
     //% block="place data randomly"
     export function placeDataRandomly(): void {
-        if (typeof myData !== "undefined" && myData) {
-            myData.setPosition(
+        const list = sprites.allOfKind(SpriteKind.Food)
+        if (list.length) {
+            const data = list[0]
+            data.setPosition(
                 randint(16, scene.screenWidth() - 16),
                 randint(16, scene.screenHeight() - 16)
             )
@@ -222,7 +437,7 @@ namespace custom {
         })
     }
 
-// helpers: grab the first sprite of a kind (if it exists)
+    // helpers: grab the first sprite of a kind (if it exists)
     function firstOf(kind: number): Sprite {
         const list = sprites.allOfKind(kind)
         return list.length ? list[0] : null
