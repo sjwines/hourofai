@@ -16,19 +16,21 @@
 // The @showdialog tag makes it pop out
 // **************************************************** -->
 
-## 1. Welcome @showdialog
+## Drone Command - Operation Uplink @showdialog
+A **critical intel package** has slipped into enemy hands, but before delivery, the aerial drone carrying it was taken down, and the data was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to **pilot** a recon drone across hostile waters, **recover** the scattered data shards, and **upload** them back to the ship. 
+
+Once all **15 data shards are collected**, the game is over, and you can leave the enemy waters.
+
 **The Manta Ray**
 <!-- This is how you add an image in markdown -->
 <!-- The first part is for the screen reader. The second is the URL of the image. The last is the mouse rollover text. -->
 ![The Manta Ray](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/UUVMantaRay.png "The Manta Ray")
 
-A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship. Once all 15 data shards are collected, the game is over and you can leave enemy waters.
-
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
 - **Collect data** pods underwater
 - **Surface** at the ship to **upload** and increase your score
-- Avoid the **sonar the buoy** that can steal the data
-- Use a **coded AI advisor** that will suggest a "Collect / Upload / Avoid" using simple rules (heuristic) you can **tune**
+- Avoid the **sonar buoy** that can steal the data
+- Use a **coded AI advisor** that will suggest a **"Collect / Upload / Avoid"** using simple rules (heuristic) you can **tune**
 
 Ready to launch?
 
@@ -51,9 +53,7 @@ Let's get the code in there to make that happen!
 <!-- vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv -->
 ~hint What's a sprite? 💡
 
-
 ---
-
 
 In Arcade, each character or image that does something is called a **SPRITE**.
 Sprites have properties that you can use and change — things like scale, position, and lifespan are all properties of sprites.
@@ -119,12 +119,6 @@ hint~
 //  
 // Use //@highlight to highlight the instruction from this step 
 // https://makecode.com/writing-docs/snippets#highlight -->
-#### ~ tutorialhint
-
-```blocks
-//@highlight
-scene.setBackgroundImage(img``)
-```
 
 <!-- ***************************************************
 //                      STEP THREE
@@ -137,7 +131,7 @@ scene.setBackgroundImage(img``)
 // **************************************************** -->
 ## {Step 3}
 
-- :paint brush: Click the empty **grey square** to open the image editor and choose a background from the **Gallery** or **My Assets**.
+- :paint brush: Click the empty **gray square** to open the image editor and choose a background from the **Gallery** or **My Assets**.
 
 ```blocks
 //@highlight
@@ -158,9 +152,11 @@ _💡 If you don't find a background you like, you can make one of your own!_
 
 - :binoculars: Look at your project in the game window to see what your code has done!
 
-You should see a background. Hopefully with an ocean theme!
+_💡You should see a background. Hopefully with an ocean theme!_
 
-## Create Your Drone Sprite
+## {Step 5}
+**Create Your Drone Sprite**
+
 - :paper plane: From the ``||sprites:Sprites||`` category, grab: 
 
 ```blocks
@@ -200,14 +196,16 @@ hint~
 
 ---
 
-_💡 If you don't like that drone, click the box and change to one of the others you like under **My Assets**, or you can make one of your own!_
+_💡 If you don't like that drone, click the box and change to one of the others you like under **My Assets**, or you can **make one of your own**!_
  
 ## Career Spotlight: Navy Robotic Warfare Specialists @showdialog
 ![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
 
-**Robotic warfare specialists** serve the U.S. Navy and are responsible for the **operation, maintenance, and tactical employment of robotic and autonomous systems** to achieve a hybrid manned-unmanned fleet.
+**Robotic warfare specialists** serve the U.S. Navy and are responsible for the **operation, maintenance**, and **tactical employment** of **robotic and autonomous systems** to achieve a hybrid manned-unmanned fleet.
 
-## Move your Sprites Locations
+## {Step 7}
+**Move your Drone's Starting Location**
+
 Let's move your drone to its starting location at the start of the game.
 
 - :paper plane: From the ``||sprites:Sprites||`` category, grab <br/>
@@ -241,14 +239,14 @@ myDrone.setPosition(80,80)
 
 ---
 
-You can always change the location by adjusting these numbers to your preference.
+_💡You can always change the location by adjusting these numbers to your preference._
 
 ## Career Spotlight: Navy Sonar Technicians @showdialog
 ![U.S. Navy Sonar Technicians](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
 
 On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
-## Learn to Glide
+## {Step 9}
 **↔Get the Drone Moving**
 
 - :game pad: From the ``||controller:Controller||`` category, drag <br/>
@@ -285,7 +283,8 @@ and snap it into **the end** of the <br/>
 ``||loops:on start||``
 container that's already in the workspace. 
 
-## Try It
+## {Step 10}
+**Try It**
 - :binoculars: Look at your project in the game window!
 
 Your sprite should move around the ocean as you move the joypad.
@@ -301,12 +300,10 @@ Sea drones like Triton are deployed in combat to **gather intelligence**, **cond
 
 Drones also **protect** crewed vessels in the fleet like aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
 
-## Follow with Camera
+## {Step 12}
 **😮 Ack!** <br/>
 
 Your drone glides off-screen if you go too far.
-
----
 
 - :game pad: From the ``||scene: Scene||`` category, drag <br/>
 
@@ -345,11 +342,11 @@ container that's already in the workspace.
 
 ---
 
-You should be able to pilot your drone all around the ocean and see the sights.
+You should now be able to pilot your drone anywhere and keep it in view, as the camera follows it.
 
 ---
 
-🤭**Oops!** Your sprite isn't moving anymore because the cameraFollow block makes the camera stay on top of the drone sprite, but as soon as you add more sprites in the next level, you'll see how your drone interacts with them!
+_💡If it looks like the drone isn’t moving, that’s just because the camera is centered on it._
 
 <!-- ***************************************************
 //                      NOTE
@@ -367,8 +364,8 @@ You should be able to pilot your drone all around the ocean and see the sights.
 
 ---
 
-When you're ready, click **Done** to return to the skillmap and go to the next level
-where you'll add your other sprites!.
+When you're ready, click **Done** to return to the skillmap and go to the next level,
+where you'll add your other sprites!
 <!-- **************************** End Tutorial Text Portion *************************//
 // ---------------------------------------------------------------------------------//
 // The following code sets up the images, blocks, and extensions                   //
@@ -405,9 +402,9 @@ let myDrone = sprites.create(img`
     ....................
     ....................
     `, SpriteKind.Player)
+myDrone.setPosition(80,80)
 controller.moveSprite(myDrone)
 scene.cameraFollowSprite(myDrone)
-myDrone.setPosition(80,80)
 ```
 
 <!-- ***************************************************
