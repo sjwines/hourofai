@@ -59,8 +59,7 @@ Maritime drones can be teleoperated or semi-autonomous, utilizing simple rules (
 
 ---
 
-When you're finished, click **Done** to
-head to the next level and find out how to add your AI advisor!
+When you're finished, click **Done** to head to the next level and find out how to add your AI advisor!
 
 ```blockconfig.global
 custom.placeDataRandomly()
@@ -125,7 +124,10 @@ let myShip = sprites.create(img`
 ..............................
 ..............................
 `, SpriteKind.Ship)
-myShip.setPosition(20,100)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
 let myData = sprites.create(img`
 . . . . . . 9 9 9 9 9 9 . . . . 
 . . . . 9 9 6 6 6 6 6 6 9 9 . . 
@@ -144,13 +146,40 @@ let myData = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
-myData.setPosition(60,60)
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
 custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
+```
 
+```ghost
+// Ensure Math operator blocks appear in the toolbox:
+let __add = 0 + 0
+let __sub = 0 - 0
+let __mul = 0 * 0
+let __div = 1 / 1
+let __mod = 1 % 1
+
+// Common math helpers (these surface their blocks, too):
+let __pow = Math.pow(2, 3)
+let __min = Math.min(0, 1)
+let __max = Math.max(0, 1)
+let __abs = Math.abs(-1)
+let __round = Math.round(1.2)
+let __floor = Math.floor(1.8)
+let __ceil = Math.ceil(1.1)
+
+// Random & screen size blocks you’re using:
+let __rand = randint(0, 10)
+let __w = scene.screenWidth()
+let __h = scene.screenHeight()
+
+// Also reference the pattern students will build (doesn't run in ghost)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
 ```
 
 ```customts
@@ -171,8 +200,10 @@ namespace custom {
 
     //% block="place data randomly"
     export function placeDataRandomly(): void {
-        if (typeof myData !== "undefined" && myData) {
-            myData.setPosition(
+        const list = sprites.allOfKind(SpriteKind.Food)
+        if (list.length) {
+            const data = list[0]
+            data.setPosition(
                 randint(16, scene.screenWidth() - 16),
                 randint(16, scene.screenHeight() - 16)
             )
@@ -201,7 +232,7 @@ namespace custom {
         })
     }
 
-// helpers: grab the first sprite of a kind (if it exists)
+    // helpers: grab the first sprite of a kind (if it exists)
     function firstOf(kind: number): Sprite {
         const list = sprites.allOfKind(kind)
         return list.length ? list[0] : null
