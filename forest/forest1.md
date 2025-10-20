@@ -44,7 +44,7 @@ Ready to launch?
 ## {2.Set the Scene}
 **🌊 Welcome to the Ocean**
 
-The ship is getting ready to arrive and launch the drone into the water to collect the scattered data before it gets into enemy hands.
+The ship is preparing to arrive and launch the drone into the water to collect the scattered data before it falls into enemy hands.
 
 Let's get the code in there to make that happen!
 
@@ -295,13 +295,14 @@ _💡 You can also use the arrow keys on your keyboard!_
 
 ## Drone Facts @showdialog
 ![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png)
-As the world's first and only autonomous underwater and surface vehicle (AUSV), the **US Navy Triton** can operate in sailing mode or submarine mode with its interchangeable sail.
+As the world's first and only autonomous underwater and surface vehicle (AUSV), the **US Navy Triton** can operate in either sailing mode or submarine mode, thanks to its interchangeable sail.
+
 Sea drones like Triton are deployed in combat to **gather intelligence**, **conduct surveillance** and **reconnaissance**, **sweep mines**, and **protect critical underwater infrastructure**.
 
-Drones also **protect** crewed vessels in the fleet like aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
+Drones also **protect** crewed vessels in the fleet, such as aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
 
 ## {Step 12}
-**😮 Ack!** <br/>
+**😮 Ack!**
 
 Your drone glides off-screen if you go too far.
 
@@ -420,6 +421,7 @@ scene.cameraFollowSprite(myDrone)
 // https://makecode.com/writing-docs/tutorials/control-options#special-blocks
 // This is how you start with code in the workspace
 ******************************************************-->
+
 
 <!-- ***************************************************
 // GHOST - ADD BLOCKS EVEN IF THEY'RE NOT YET IN TUTORIAL
