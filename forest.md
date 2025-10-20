@@ -26,7 +26,7 @@
 * position: 0 0
 
 ### forest2
-* name: Missing Data
+* name: Incoming Ship
 * type: tutorial
 * description: Build your other sprites and learn about custom blocks!
 * url: https://github.com/sjwines/hourofai/forest/forest2
