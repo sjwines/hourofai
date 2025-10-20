@@ -92,7 +92,10 @@ let myShip = sprites.create(img`
 ..............................
 ..............................
 `, SpriteKind.Ship)
-myShip.setPosition(20,100)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
 let myData = sprites.create(img`
 . . . . . . 9 9 9 9 9 9 . . . . 
 . . . . 9 9 6 6 6 6 6 6 9 9 . . 
@@ -111,7 +114,6 @@ let myData = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
-myData.setPosition(60,60)
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
 custom.spawnEnemyBuoys(1)
@@ -119,6 +121,40 @@ custom.enableBuoyBump()
 custom.enablePulse()
 info.setScore(0)
 custom.enableUploadAtShip()
+let hud = sprites.create(img``, SpriteKind.Player)
+custom.setMissionTuning(3, 3, 32)
+custom.setHUDSprite(hud)
+custom.setupAdvisorHUD()
+custom.enableWinAtScore(15)
+```
+
+```ghost
+// Ensure Math operator blocks appear in the toolbox:
+let __add = 0 + 0
+let __sub = 0 - 0
+let __mul = 0 * 0
+let __div = 1 / 1
+let __mod = 1 % 1
+
+// Common math helpers (these surface their blocks, too):
+let __pow = Math.pow(2, 3)
+let __min = Math.min(0, 1)
+let __max = Math.max(0, 1)
+let __abs = Math.abs(-1)
+let __round = Math.round(1.2)
+let __floor = Math.floor(1.8)
+let __ceil = Math.ceil(1.1)
+
+// Random & screen size blocks you’re using:
+let __rand = randint(0, 10)
+let __w = scene.screenWidth()
+let __h = scene.screenHeight()
+
+// Also reference the pattern students will build (doesn't run in ghost)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
 ```
 
 ```customts
@@ -141,8 +177,10 @@ namespace custom {
 
     //% block="place data randomly"
     export function placeDataRandomly(): void {
-        if (typeof myData !== "undefined" && myData) {
-            myData.setPosition(
+        const list = sprites.allOfKind(SpriteKind.Food)
+        if (list.length) {
+            const data = list[0]
+            data.setPosition(
                 randint(16, scene.screenWidth() - 16),
                 randint(16, scene.screenHeight() - 16)
             )
@@ -248,72 +286,6 @@ namespace custom {
         })
     }
 
-    //% block="use this as the advisor HUD %sprite"
-    //% sprite.shadow=spritescreate
-    export function setHUDSprite(sprite: Sprite): void {
-        if (!sprite) return
-        sprite.setKind(SpriteKind.HUD)
-        sprite.setFlag(SpriteFlag.RelativeToCamera, true)
-        sprite.setPosition(48, 25)
-        hud = sprite
-    }
-
-
-    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
-    export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
-        MAX_CARGO = Math.max(1, max | 0)
-        UPLOAD_AT = Math.max(1, uploadAt | 0)
-        DANGER_RADIUS = Math.max(8, radius | 0)
-    }
-
-    //% block="setup advisor HUD"
-    export function setupAdvisorHUD(): void {
-        if (!hud) {
-            hud = sprites.create(img`.`, SpriteKind.HUD)
-            hud.setFlag(SpriteFlag.RelativeToCamera, true)
-            hud.setPosition(48, 25)
-        }
-    
-        game.onUpdateInterval(350, function () {
-            let advice = "Collect"
-    
-            if (cargo >= MAX_CARGO) {
-                advice = "Upload (FULL)"
-            } else if (cargo >= UPLOAD_AT) {
-                advice = "Upload"
-            }
-    
-            const drone = (typeof myDrone !== "undefined" && myDrone) ? myDrone : null
-            const dangerNearby =
-                !!(drone && sprites
-                    .allOfKind(SpriteKind.Enemy)
-                    .some(e => dist(drone, e) < DANGER_RADIUS))
-    
-            if (dangerNearby) advice = "Avoid"
-    
-            if (hud) {
-                const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
-                hud.sayText(`${advice}  | data ${suffix}`, 400)
-            }
-        })
-    }
-
-
-    //% block="enable upload at ship"
-        export function enableUploadAtShip(): void {
-            sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
-                if (cargo > 0) {
-                    info.changeScoreBy(cargo)
-                    if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
-                    music.powerUp.play()
-                    cargo = 0
-                } else {
-                    if (typeof myShip !== "undefined" && myShip) myShip.sayText("No data", 400)
-                    music.thump.play()
-                }
-            })
-        }
-
     // helpers: nearest enemy buoy to the player
     function closestEnemyTo(drone: Sprite): Sprite {
         const enemies = sprites.allOfKind(SpriteKind.Enemy)
@@ -374,6 +346,69 @@ namespace custom {
         })
     }
 
+    //% block="enable upload at ship"
+        export function enableUploadAtShip(): void {
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
+                if (cargo > 0) {
+                    info.changeScoreBy(cargo)
+                    if (typeof myShip !== "undefined" && myShip) myShip.sayText(`Uploaded ${cargo}`, 600)
+                    music.powerUp.play()
+                    cargo = 0
+                } else {
+                    if (typeof myShip !== "undefined" && myShip) myShip.sayText("No data", 400)
+                    music.thump.play()
+                }
+            })
+        }
+
+    //% block="use this as the advisor HUD %sprite"
+    //% sprite.shadow=spritescreate
+    export function setHUDSprite(sprite: Sprite): void {
+        if (!sprite) return
+        sprite.setKind(SpriteKind.HUD)
+        sprite.setFlag(SpriteFlag.RelativeToCamera, true)
+        sprite.setPosition(48, 25)
+        hud = sprite
+    }
+
+    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
+    export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
+        MAX_CARGO = Math.max(1, max | 0)
+        UPLOAD_AT = Math.max(1, uploadAt | 0)
+        DANGER_RADIUS = Math.max(8, radius | 0)
+    }
+
+    //% block="setup advisor HUD"
+    export function setupAdvisorHUD(): void {
+        if (!hud) {
+            hud = sprites.create(img`.`, SpriteKind.HUD)
+            hud.setFlag(SpriteFlag.RelativeToCamera, true)
+            hud.setPosition(48, 25)
+        }
+    
+        game.onUpdateInterval(350, function () {
+            let advice = "Collect"
+    
+            if (cargo >= MAX_CARGO) {
+                advice = "Upload (FULL)"
+            } else if (cargo >= UPLOAD_AT) {
+                advice = "Upload"
+            }
+    
+            const drone = (typeof myDrone !== "undefined" && myDrone) ? myDrone : null
+            const dangerNearby =
+                !!(drone && sprites
+                    .allOfKind(SpriteKind.Enemy)
+                    .some(e => dist(drone, e) < DANGER_RADIUS))
+    
+            if (dangerNearby) advice = "Avoid"
+    
+            if (hud) {
+                const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
+                hud.sayText(`${advice}  | data ${suffix}`, 400)
+            }
+        })
+    }
 
     //% block="win when score ≥ $threshold"
     export function enableWinAtScore(threshold: number): void {
