@@ -486,7 +486,7 @@ namespace custom {
     
             if (hud) {
                 const suffix = cargo >= MAX_CARGO ? "FULL" : `${cargo}/${MAX_CARGO}`
-                hud.sayText(`${advice} | data ${suffix}`, 400)
+                hud.sayText(`${advice}  | data ${suffix}`, 400)
             }
         })
     }
