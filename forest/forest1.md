@@ -241,11 +241,6 @@ myDrone.setPosition(80,80)
 
 _💡You can always change the location by adjusting these numbers to your preference._
 
-## Career Spotlight: Navy Sonar Technicians @showdialog
-![U.S. Navy Sonar Technicians](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
-
-On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
-
 ## {Step 9}
 **↔Get the Drone Moving**
 
