@@ -210,6 +210,12 @@ What is the maximum amount of enemy buoys you can have in your game?
 The green block creates an enemy buoy, places it on the map, assigns it a velocity, and enables bounce on wall, allowing it to roam. 
 hint~
 
+## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
+![U.S. Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg)
+**Cryptologic Technician Technical** hunts and defends **data links**. 
+
+If an enemy drone communicates home after a buoy **detects you**, a Cryptologic Technician looks for patterns to **jam, spoof, or geolocate** their communication.
+
 ## {3. Make It Dangerous (Bump/Avoid)}
 Turn on the “bump” rule so the buoy knocks your drone back (and you lose data if you’re carrying any).
 
@@ -229,11 +235,10 @@ container already in the workspace.  <br/>
 
 Now playtest, let the buoy hit you, and watch what happens!
 
-## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
-![U.S. Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg)
-**Cryptologic Technician Technical** hunts and defends **data links**. 
+## Career Spotlight: Navy Sonar Technicians @showdialog
+![U.S. Navy Sonar Technicians](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
 
-If an enemy drone communicates home after a buoy **detects you**, a Cryptologic Technician Technical looks for patterns to **jam, spoof, or geolocate** their communication.
+On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
 ## Enable a Disabling Sonar Pulse
 
