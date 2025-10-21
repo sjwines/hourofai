@@ -53,11 +53,6 @@ This sprite is different as it needs to be **labeled** as a **Ship** sprite inst
 
 **Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
-
----
-
-_💡You can change your ships x and y position to what ever you like._
-
 ## {Step 3}
 **Update Your Ship Sprite's Location**
 - :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
@@ -95,6 +90,10 @@ container already in the workspace.  <br/>
 --- 
 
 **Step 2** Update the position block from **myDrone** to **myShip**.
+
+---
+
+_💡You can change your ships x and y position to what ever you like. You will update the position in the next level_
 
 ## Career Spotlight: Robotic Warfare Specialist (RWS) — Mission Handoff @showdialog
 ![U.S. Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSRWS.png "U.S. Navy Robotic Warfare Specialists")
