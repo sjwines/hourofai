@@ -10,7 +10,9 @@ You will now practice with your heuristic here.
 
 A Heads Up Display (HUD), is a tiny on-screen assistant that suggests what to do next: Collect / Upload / Avoid, and shows how full your data storage is.
 
-## Create your AI Advisor HUD**
+## {Step 2}
+**Create your AI Advisor HUD**
+
 For a moment, the game will not load. Add a final sprite to fix the game:
 
 - :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab another <br/>
