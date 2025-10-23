@@ -118,6 +118,7 @@ custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
+controller.moveSprite(myDrone, 100, 100)
 custom.setMissionTuning(3, 3, 32)
 custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
@@ -207,6 +208,13 @@ custom.enableBuoyBump()
 custom.enablePulse()
 info.setScore(0)
 custom.enableUploadAtShip()
+game.onUpdateInterval(500, function () {
+    if (info.score() >= 10) {
+        controller.moveSprite(myDrone, 120, 120)
+    } else {
+        controller.moveSprite(myDrone, 100, 100)
+    }
+})
 ```
 
 ```ghost
@@ -236,6 +244,15 @@ myShip.setPosition(
     randint(16, scene.screenWidth() - 16),
     randint(16, scene.screenHeight() - 16)
 )
+// Surface the "on game update every" block (no-op body)
+game.onUpdateInterval(500, function () { })
+
+// Surface score() for comparisons in if/else
+let __scoreSurface = info.score()
+
+// Surface if/else & >= comparison without affecting the game
+if (true) { } else { }
+let __geSurface = 1 >= 0
 ```
 
 ```customts
