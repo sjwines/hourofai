@@ -111,18 +111,6 @@ Your drone should move in the direction you press the arrow keys.
 
 _Can you remember which lines of code create each action?_
 
----
-
-~hint My game doesn't work ⚠️
-
----
-
-If your code isn't working and you can't figure out why, click
-<br/>"Replace my code"<br/>
-to replace the blocks in your workspace with new starter code.
-
-hint~
-
 ## {Step 6}
 **Randomize Your Ship's Starting Location**
 
