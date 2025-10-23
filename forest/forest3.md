@@ -9,6 +9,22 @@ The first unmanned underwater vehicles were developed in the 1950s and used to c
 In this section, you will program your drone to collect the missing data in enemy territory.
 
 ## {Step 2}
+- :binoculars: Look at your project in the game window!
+Your drone should move in the direction you press the arrow keys.
+
+---
+
+~hint My game doesn't work ⚠️
+
+---
+
+If your code isn't working and you can't figure out why, click
+<br/>"Replace my code"<br/>
+to replace the blocks in your workspace with new starter code.
+
+hint~
+
+## {Step 3}
 **Create Your Data Sprite**
 - :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
 
