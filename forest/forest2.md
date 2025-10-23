@@ -51,7 +51,7 @@ hint~
 
 This sprite is different as it needs to be **labeled** as a **Ship** sprite instead of a **Player**. You only want one player sprite, your drone.
 
-**Step 2:** Click **Player** and change it to **Ship**.
+**Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
 ## {Step 3}
 **Update Your Ship Sprite's Location**
@@ -93,7 +93,7 @@ container already in the workspace.  <br/>
 
 ---
 
-_💡You can change your ships x and y position to what ever you like. You will update the position in the next level_
+_💡You can change your ship's x and y position to whatever you like. You will update the position in the next level_
 
 ## Career Spotlight: Robotic Warfare Specialist (RWS) — Mission Handoff @showdialog
 ![U.S. Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSRWS.png "U.S. Navy Robotic Warfare Specialists")
@@ -157,7 +157,7 @@ _💡Click the **next** button to fix this problem._
 ## {Step 7}
 **Continue to Randomize**
 
-Right now when you run the program, sometimes the ship appears off screen. To fix this, you will use the ``||scene: screen width||`` and ``||scene: screen height||`` blocks.
+Right now, when you run the program, sometimes the ship appears off-screen. To fix this, you will use the ``||scene: screen width||`` and ``||scene: screen height||`` blocks.
 
 - From ``||math:Math||`` drag the 0 - 0 block into the right side of the subtraction sign of both the x and y.
 
@@ -192,7 +192,7 @@ myShip.setPosition(
 ## {Step 8}
 **Continue to Randomize**
 
-In the left side of the subtraction sign, put ``||scene: screen width||`` for x and ``||scene: screen height||`` for y.
+On the left side of the subtraction sign, put ``||scene: screen width||`` for x and ``||scene: screen height||`` for y.
 
 ```blocks
 let myShip = sprites.create(img`
@@ -308,9 +308,6 @@ myShip.setPosition(20,100)
 
 ```template
 scene.setBackgroundImage(img``)
-namespace SpriteKind {
-    export const Ship = SpriteKind.create();
-}
 let myDrone = sprites.create(img`
 ....................
 ....................
