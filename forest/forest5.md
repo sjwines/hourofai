@@ -27,16 +27,11 @@ container already in the workspace.  <br/>
 
 ---
 
----
-
 This sprite is different as it needs to be **labeled** as **HUD** instead of a **Player**.
 
-**Step 2:** Click **Player**, **Add a new kind**, and change it to **HUD**.
+**Step 2:** Click **Player** and change it to **HUD**.
 
 ---
-
-**Give Your Sprite an Important Name**
-- **Step 3:** Give it the important name, **hud** instead of **mySprite**.
 
 You **do not** need to give this sprite an image.
 
