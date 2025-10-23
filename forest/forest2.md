@@ -308,6 +308,9 @@ myShip.setPosition(20,100)
 
 ```template
 scene.setBackgroundImage(img``)
+namespace SpriteKind {
+    export const Ship = SpriteKind.create();
+}
 let myDrone = sprites.create(img`
 ....................
 ....................
