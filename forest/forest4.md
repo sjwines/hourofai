@@ -54,8 +54,135 @@ hint~
 ## Drone Fact: Autonomy levels @showdialog
 Maritime drones can be teleoperated or semi-autonomous, utilizing simple rules (heuristics) such as “collect, then upload, avoid danger.” Next, you’ll start shaping those rules so your drone makes smarter choices on its own.
 
+## {Step 4}
+**Drone Speed Boost**
+
+Let’s use an if/else so your drone speeds up once your score reaches 10. 
+
+---
+
+- :game pad: From the ``||game:Game||`` category, drag on game update every 500 ms into the workspace. This block will not connect to the``||loops:on start||`` block.
+
+```blocks
+//@highlight
+game.onUpdateInterval(500, function () {
+})
+```
+
+## {Step 5}
+
+Add the decision (if/else) that will check your score.
+
+- :game pad: From ``||logic:Logic||`` drag an if/else into that update block.
+
+```blocks
+game.onUpdateInterval(500, function () {
+    //@highlight
+    if (true) {
+        
+    } else {
+        
+    }
+})
+```
+
+## {Step 6}
+We’ll tell the game to speed up when your score reaches 5.
+
+- :game pad: **Step 1:** From ``||logic:Logic||``, drag the comparison block (looks like 0 < 0) and snap it into the if slot.
+
+```blocks
+game.onUpdateInterval(500, function () {
+    //@highlight
+    if (0 < 0) {
+        
+    } else {
+        
+    }
+})
+```
+
+---
+
+- :game pad: **Step 2:** Click the dropdown and change < to ≥.
+
+```blocks
+game.onUpdateInterval(500, function () {
+    //@highlight
+    if (0 >= 0) {
+        
+    } else {
+        
+    }
+})
+```
+
+## {Step 7}
+
+Now, you will cmpare your score to a number.
+
+- :paper plane: **Step 1:** From ``||info:Info||``, drag score into the left socket.
+
+```blocks
+game.onUpdateInterval(500, function () {
+    //@highlight
+    if (info.score() >= 0) {
+        
+    } else {
+        
+    }
+})
+```
+
+---
+
+You don't want the drone to have the speed boost from the start of the game. 
+
+- :paper plane: **Step 2:** Click the number and type 5 in the right socket.
+
+```blocks
+game.onUpdateInterval(500, function () {
+    //@highlight
+    if (info.score() >= 5) {
+        
+    } else {
+        
+    }
+})
+```
+
+This checks if the score is greater than or equal to 5.
+
+_💡You can always change when the drone speed boost will happen by adjusting the number to your preference._
+
+## {Step 8}
+
+Add movement speed to both outcomes. 
+
+**If** score is greater than or equal to 5, drone gets a speed boost, **else** drone speed stays the same.
+
+- :game pad: From ``||controller:Controller||`` add move mySprite with vx vy into both branches.
+
+```blocks
+//@highlight
+game.onUpdateInterval(500, function () {
+    if (info.score() >= 5) {
+        controller.moveSprite(myDrone, 120, 120)
+    } else {
+        controller.moveSprite(myDrone, 100, 100)
+    }
+})
+```
+
+---
+
+Change the values to the speed you want. The speed in the if section, should be higher than the else section.
+
+_💡For example, set vx, vy to 120 in the if and 100 in the else._
+
+
 ## {Finale}
-👏 Great, you can now keep track of how many data shards you have collected!
+👏 Great, you can now keep track of how many data shards you have collected and speed up your drone after reaching a certain score!
 
 ---
 
@@ -69,6 +196,7 @@ custom.enableBuoyBump()
 custom.enablePulse()
 info.setScore(0)
 custom.enableUploadAtShip()
+controller.moveSprite(myDrone, 100, 100)
 ```
 
 ```template
@@ -180,6 +308,16 @@ myShip.setPosition(
     randint(16, scene.screenWidth() - 16),
     randint(16, scene.screenHeight() - 16)
 )
+
+// Surface the "on game update every" block (no-op body)
+game.onUpdateInterval(500, function () { })
+
+// Surface score() for comparisons in if/else
+let __scoreSurface = info.score()
+
+// Surface if/else & >= comparison without affecting the game
+if (true) { } else { }
+let __geSurface = 1 >= 0
 ```
 
 ```customts
