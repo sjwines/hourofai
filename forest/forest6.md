@@ -36,6 +36,7 @@ custom.setMissionTuning(3, 3, 32)
 custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
+controller.moveSprite(myDrone, 100, 100)
 ```
 
 ```template
@@ -126,6 +127,13 @@ custom.setMissionTuning(3, 3, 32)
 custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
+game.onUpdateInterval(500, function () {
+    if (info.score() >= 10) {
+        controller.moveSprite(myDrone, 120, 120)
+    } else {
+        controller.moveSprite(myDrone, 100, 100)
+    }
+})
 ```
 
 ```ghost
@@ -155,6 +163,16 @@ myShip.setPosition(
     randint(16, scene.screenWidth() - 16),
     randint(16, scene.screenHeight() - 16)
 )
+
+// Surface the "on game update every" block (no-op body)
+game.onUpdateInterval(500, function () { })
+
+// Surface score() for comparisons in if/else
+let __scoreSurface = info.score()
+
+// Surface if/else & >= comparison without affecting the game
+if (true) { } else { }
+let __geSurface = 1 >= 0
 ```
 
 ```customts
