@@ -123,6 +123,7 @@ custom.setMissionTuning(3, 3, 32)
 custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
+let hud = sprites.create(img``, SpriteKind.Player)
 ```
 
 ```template
