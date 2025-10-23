@@ -51,7 +51,7 @@ hint~
 
 This sprite is different as it needs to be **labeled** as a **Ship** sprite instead of a **Player**. You only want one player sprite, your drone.
 
-**Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
+**Step 2:** Click **Player** and change it to **Ship**.
 
 ## {Step 3}
 **Update Your Ship Sprite's Location**
