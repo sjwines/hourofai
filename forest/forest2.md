@@ -149,7 +149,7 @@ myShip.setPosition(
 
 ---
 
-Run the program at least 10 times. 
+- :binoculars: Run the program at least 10 times. 
 
 How many times does the **ship** appear **off** the **game screen**?
 
