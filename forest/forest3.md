@@ -58,7 +58,7 @@ container already in the workspace.  <br/>
 
 Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **Player** because your drone will be collecting it. 
 
-**Step 2:** Click **Player** and change it to **Food**.
+- :paper plane: **Step 2:** Click **Player** and change it to **Food**.
 
 ## Why Custom Green Blocks @showdialog
 **Why Custom Green Blocks**
