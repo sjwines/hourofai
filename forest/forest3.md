@@ -3,7 +3,7 @@
 
 ## Welcome to Enemy Waters @showdialog
 **The SPURV**
-![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png)
+![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png "The SPURV")
 
 The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
 
