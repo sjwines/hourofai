@@ -7,7 +7,7 @@ Time to tune, test, and tinker!
 
 ## Mini Challenges 
 
-- :game pad: Pick a few mini-challenges below to make your game more interesting, harder, or just yours. 
+- :game pad: Choose a few of the mini-challenges below to customize your game and make it more engaging or challenging.
 
 ---
 
@@ -214,21 +214,6 @@ function __surfaceAll(): void {
     __img.fill(3)
     __img.drawRect(2, 2, 28, 28, 1)
     __img.drawLine(0, 0, 31, 31, 2)
-
-    // ANIMATION (surfaces the category)
-    // Requires frames; use dummy so blocks appear
-    animation.runImageAnimation(__tmp, [image.create(16, 16), image.create(16, 16)], 200, true)
-
-    // TILES (surfaces tile blocks without changing the current map)
-    let __loc = tiles.getTileLocation(0, 0)
-    // Place-on-tile block surfaced but wrapped (no call)
-    function __tileHelpers() {
-        scene.placeOnRandomTile(__tmp, img`
-            . . . .
-            . . . .
-            . . . .
-            . . . .
-        `)
     }
 
     // MUSIC / SOUND
