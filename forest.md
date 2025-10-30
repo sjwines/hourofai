@@ -77,8 +77,8 @@
 * position: 3 2
 * rewards:
     * certificate:
-        * url: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Certificate.pdf
-        * preview: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Certificate.png
+        * url: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaworthySTEMChallengeCertificate.pdf
+        * preview: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaworthySTEMChallengeCertificate.png
 * actions:
     * editor: [Edit Your Project with a Full Toolbox] (/)
 
