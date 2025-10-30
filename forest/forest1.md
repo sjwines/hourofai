@@ -290,6 +290,7 @@ _💡 You can also use the arrow keys on your keyboard!_
 
 ## Drone Facts @showdialog
 ![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png)
+
 As the world's first and only autonomous underwater and surface vehicle (AUSV), the **US Navy Triton** can operate in either sailing mode or submarine mode, thanks to its interchangeable sail.
 
 Sea drones like Triton are deployed in combat to **gather intelligence**, **conduct surveillance** and **reconnaissance**, **sweep mines**, and **protect critical underwater infrastructure**.
