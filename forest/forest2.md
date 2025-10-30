@@ -3,7 +3,7 @@
 
 ## Part 2: Incoming Ship @showdialog
 **The USS Delaware (SSN 791)**
-![The SPURV](https://raw.githubusercontent.com/shanew1890/hourofai/master/assets/USSDelaware.jpg "The SPURV")
+![The USS Delware SSN 791](https://raw.githubusercontent.com/shanew1890/hourofai/master/assets/USSDelaware.jpg "The USS Delware SSN 791")
 
 The USS Delaware marks the first-ever torpedo tube **deployment and recovery** of a UUV in support of a **tactical mission**.
 
