@@ -3,7 +3,7 @@
 
 ## Welcome @showdialog
 
-Time to tune, test, and tinker!
+- :game pad: Time to tune, test, and tinker!
 
 ## Mini Challenges 
 
@@ -137,14 +137,17 @@ game.onUpdateInterval(500, function () {
 ```
 
 ```ghost
-// Ensure Math operator blocks appear in the toolbox:
+// ======= MAX-SURFACE GHOST BUNDLE (safe / no-op) =======
+// Purpose: Surface most Arcade blocks in the tutorial toolbox
+// Notes: Code below either runs as harmless constants or lives in a
+//        never-invoked function so gameplay is unchanged.
+
+// --- Basic math & utilities (already harmless if executed) ---
 let __add = 0 + 0
 let __sub = 0 - 0
-let __mul = 0 * 0
+let __mul = 1 * 1
 let __div = 1 / 1
 let __mod = 1 % 1
-
-// Common math helpers (these surface their blocks, too):
 let __pow = Math.pow(2, 3)
 let __min = Math.min(0, 1)
 let __max = Math.max(0, 1)
@@ -152,27 +155,116 @@ let __abs = Math.abs(-1)
 let __round = Math.round(1.2)
 let __floor = Math.floor(1.8)
 let __ceil = Math.ceil(1.1)
-
-// Random & screen size blocks you’re using:
 let __rand = randint(0, 10)
 let __w = scene.screenWidth()
 let __h = scene.screenHeight()
 
-// Also reference the pattern students will build (doesn't run in ghost)
+// --- Surface arrays & text ops ---
+let __arrNums: number[] = [1, 2, 3]
+__arrNums.push(4)
+let __sum = __arrNums.reduce((a, b) => a + b, 0)
+let __strA = "score:"
+let __strB = __strA + info.score()
+
+// --- A never-called “surface” function to expose categories/blocks ---
+function __surfaceAll(): void {
+    // CONTROLLER
+    controller.moveSprite(myDrone, 100, 100)
+    controller.A.onEvent(ControllerButtonEvent.Pressed, function () { })
+    controller.B.onEvent(ControllerButtonEvent.Pressed, function () { })
+    controller.up.onEvent(ControllerButtonEvent.Pressed, function () { })
+    controller.left.onEvent(ControllerButtonEvent.Repeated, function () { })
+
+    // GAME LOOPS & TIMERS
+    game.onUpdate(function () { })
+    game.onUpdateInterval(500, function () { })
+
+    // INFO (score, life, countdown)
+    info.setScore(0)
+    info.changeScoreBy(1)
+    info.setLife(3)
+    info.changeLifeBy(-1)
+    info.startCountdown(45)
+    if (info.score() >= 10) { }
+
+    // SCENE (camera, effects, background)
+    scene.cameraFollowSprite(myDrone)
+    scene.cameraShake(2, 100)
+    scene.setBackgroundColor(9)
+    scene.setBackgroundImage(image.create(160, 120))
+    effects.confetti.startScreenEffect(200)
+    effects.bubbles.endScreenEffect()
+
+    // SPRITES (create, flags, z, say, scale, kinds, overlaps)
+    namespace SpriteKind { export const Extra = SpriteKind.create() }
+    let __tmp = sprites.create(image.create(16, 16), SpriteKind.Extra)
+    __tmp.setFlag(SpriteFlag.StayInScreen, true)
+    __tmp.setFlag(SpriteFlag.Ghost, false)
+    __tmp.setZ(50)
+    __tmp.sayText("Hello", 200)
+    __tmp.setScale(1.25, ScaleAnchor.Middle)
+    sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (a, b) { })
+    sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (p, e) { })
+
+    // PROJECTILES
+    sprites.createProjectileFromSprite(image.create(8, 8), myDrone, 50, 0)
+
+    // IMAGES (draw ops)
+    let __img = image.create(32, 32)
+    __img.fill(3)
+    __img.drawRect(2, 2, 28, 28, 1)
+    __img.drawLine(0, 0, 31, 31, 2)
+
+    // ANIMATION (surfaces the category)
+    // Requires frames; use dummy so blocks appear
+    animation.runImageAnimation(__tmp, [image.create(16, 16), image.create(16, 16)], 200, true)
+
+    // TILES (surfaces tile blocks without changing the current map)
+    let __loc = tiles.getTileLocation(0, 0)
+    // Place-on-tile block surfaced but wrapped (no call)
+    function __tileHelpers() {
+        scene.placeOnRandomTile(__tmp, img`
+            . . . .
+            . . . .
+            . . . .
+            . . . .
+        `)
+    }
+
+    // MUSIC / SOUND
+    music.baDing.play()
+    music.thump.play()
+    music.playTone(262, music.beat(BeatFraction.Quarter))
+
+    // TEXT / MESSAGES
+    game.splash("Hello")
+    game.showLongText("This surfaces showLongText", DialogLayout.Bottom)
+
+    // LOOPS & LOGIC (if/else, for-of)
+    if (true) { } else { }
+    for (let n of __arrNums) { }
+
+    // RANDOM PLACEMENT / SCREEN SIZE
+    __tmp.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.screenHeight() - 16))
+}
+
+// Also reference patterns students will build (doesn't run in ghost)
 myShip.setPosition(
     randint(16, scene.screenWidth() - 16),
     randint(16, scene.screenHeight() - 16)
 )
 
-// Surface the "on game update every" block (no-op body)
-game.onUpdateInterval(500, function () { })
-
-// Surface score() for comparisons in if/else
-let __scoreSurface = info.score()
-
-// Surface if/else & >= comparison without affecting the game
-if (true) { } else { }
+// Surface comparison operators & Boolean logic
 let __geSurface = 1 >= 0
+let __ltSurface = 0 < 1
+let __boolAnd = (true && false)
+let __boolOr = (true || false)
+
+// Surface “>=” block in context
+if (info.score() >= 0) { }
+
+// Keep the “on game update every” present
+game.onUpdateInterval(1000, function () { })
 ```
 
 ```customts
