@@ -194,7 +194,7 @@ This custom block allows you to pick up a maximum of 3 data shards at a time.
 What happens after the drone collects 3 data shards? What do you expect to happen if we change the number 3 to 5?
 
 ## Career Spotlight: Navy Oceanographer @showdialog
-![Navy Oceanographer](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSoceanographer.jpg)
+![Navy Oceanographer](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSoceanographer.jpg "Navy Oceanographer")
 
 Currents, waves, and temperature layers **change** how drones **move** and how sonar **travels**. **Navy oceanographers** forecast these conditions so operators pick **smarter routes**, just like you’re designing rules about when and where to collect and upload data.
 
@@ -229,7 +229,7 @@ The green block creates an enemy buoy, places it on the map, assigns it a veloci
 hint~
 
 ## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
-![U.S. Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg)
+![Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg "Navy Cryptologic Technician Technical")
 
 **Cryptologic Technician Technical** hunts and defends **data links**. 
 
@@ -257,7 +257,7 @@ container already in the workspace.  <br/>
 What happens when the enemy buoy touches the drone? What if you have collected some of the data shards?
 
 ## Career Spotlight: Navy Sonar Technicians @showdialog
-![U.S. Navy Sonar Technicians](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
+![Navy Sonar Technicians](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png "Navy Sonar Technicians")
 
 On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
@@ -284,7 +284,7 @@ container already in the workspace.  <br/>
 What happens to the enemy buoy?
 
 ## Drone Fact: Active vs. Passive Sonar @showdialog
-![Active vs. Passive Sonar](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/avspSonar.png)
+![Active vs. Passive Sonar](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/avspSonar.png "Active vs. Passive Sonar")
 
 - **Active sonar** sends out a ping and listens for echoes, great for finding things, but it **reveals your position**.  
 - **Passive sonar** only listens **stealthily**, but slower to detect and easier to confuse with ocean noise.
