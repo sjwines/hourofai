@@ -4,17 +4,18 @@
 ## Welcome @showdialog
 
 **Ship Upload & Scoring**
+![Drone Uploading Data to the Ship](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneuploading.png "Drone Uploading Data to the Ship")
 
 You’ve got data shards, now let’s upload them to the ship and update your score.
 
 ## {2. Start a Score}
-**Start a Score**
 
 Initialize your score so that the upload count is accurate.
 
 ---
 
-From ``||info:Info||``, add:
+- :game pad: From ``||info:Info||``, add:
+
 ```blocks
 //@highlight
 info.setScore(0)
@@ -32,7 +33,7 @@ Turn on the upload rule: touching myShip uploads the data you’re holding, adds
 
 ---
 
-From ``||custom:Custom||``, add:
+- :paper plane:  From ``||custom:Custom||``, add:
 
 ```blocks
 //@highlight
@@ -61,7 +62,7 @@ Let’s use an if/else so your drone speeds up once your score reaches 10.
 
 ---
 
-- :game pad: From the ``||game:Game||`` category, drag on game update every 500 ms into the workspace. This block will not connect to the``||loops:on start||`` block.
+- :paper plane: From the ``||game:Game||`` category, drag on game update every 500 ms into the workspace. This block will not connect to the``||loops:on start||`` block.
 
 ```blocks
 //@highlight
@@ -73,7 +74,7 @@ game.onUpdateInterval(500, function () {
 
 Add the decision (if/else) that will check your score.
 
-- :game pad: From ``||logic:Logic||`` drag an if/else into that update block.
+- :paper plane: From ``||logic:Logic||`` drag an if/else into that update block.
 
 ```blocks
 game.onUpdateInterval(500, function () {
@@ -89,7 +90,7 @@ game.onUpdateInterval(500, function () {
 ## {Step 6}
 We’ll tell the game to speed up when your score reaches 5.
 
-- :game pad: **Step 1:** From ``||logic:Logic||``, drag the comparison block (looks like 0 < 0) and snap it into the if slot.
+- :paper plane: **Step 1:** From ``||logic:Logic||``, drag the comparison block (looks like 0 < 0) and snap it into the if slot.
 
 ```blocks
 game.onUpdateInterval(500, function () {
@@ -104,7 +105,7 @@ game.onUpdateInterval(500, function () {
 
 ---
 
-- :game pad: **Step 2:** Click the dropdown and change < to ≥.
+- :paper plane: **Step 2:** Click the dropdown and change < to ≥.
 
 ```blocks
 game.onUpdateInterval(500, function () {
@@ -153,6 +154,8 @@ game.onUpdateInterval(500, function () {
 
 This checks if the score is greater than or equal to 5.
 
+---
+
 _💡You can always change when the drone speed boost will happen by adjusting the number to your preference._
 
 ## {Step 8}
@@ -177,6 +180,8 @@ game.onUpdateInterval(500, function () {
 ---
 
 Change the values to the speed you want. The speed in the if section, should be higher than the else section.
+
+---
 
 _💡For example, set vx, vy to 120 in the if and 100 in the else._
 
