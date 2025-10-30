@@ -4,7 +4,7 @@
 ## Welcome @showdialog
 
 **Ship Upload & Scoring**
-![Drone Uploading Data to the Ship](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneuploading.png "Drone Uploading Data to the Ship")
+![Drone Uploading Data to the Ship](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneUploading.png "Drone Uploading Data to the Ship")
 
 You’ve got data shards, now let’s upload them to the ship and update your score.
 
