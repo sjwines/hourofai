@@ -101,9 +101,13 @@ What do you notice about the data sprite's location each time you run the progra
 What do you wonder about how this custom block works?
 
 ## Drone Fact: What “payload” means @showdialog
-A drone’s payload is the equipment it carries—like cameras, sonars, or data pods. In your mission, “cargo” represents the data payload. 
+![Drone Payload](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/dronePayload.png "Drone Payload")
 
-Real maritime drones balance payload weight with range and battery life.
+A drone’s **payload** is the stuff it carries to get the job done—like cameras, sonar tools, or data pods. 
+
+In your game, your drone’s “cargo” is the data it **collects**.
+
+Real ocean drones have to **trade off** between the weight of their payload and the range of their batteries.
 
 ## How a Custom Block Works 
 Hidden inside a custom block are 4 main parts:
@@ -114,7 +118,7 @@ Hidden inside a custom block are 4 main parts:
 
 ---
 
-The placeDataRandomly() block at the start of your program runs and places your data sprite at a random location on the map.
+The **placeDataRandomly()** block at the start of your program runs and places your data sprite at a **random location** on the map.
 
 ```blocks
 //@highlight
@@ -151,7 +155,7 @@ myData.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.scre
 
 ## Data Collection - Checking for Overlap
 If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. 
-We will practice abstraction here with a custom block, but inside of it, hidden is a programming concept called if/then conditionals!
+We will practice abstraction here with a custom block, but inside it, hidden is a programming concept called an if/then conditional!
 
 ---
 
@@ -162,7 +166,7 @@ We will practice abstraction here with a custom block, but inside of it, hidden 
 In programming, an if/then (a conditional) lets your code make a decision.
 You give it a condition that can be true or false.
 If the condition is true, then the code inside runs. If it’s false, it skips that code.
-In this program our if/then is this block:
+In this program, our if/then is this block:
 
 ---
 
@@ -206,7 +210,7 @@ Let’s create the enemy roaming sonar buoy.
 
 ---
 
-From ``||custom:Custom||``, drag:
+- :paper plane: From ``||custom:Custom||``, drag:
 
 ```blocks
 //@highlight
@@ -267,7 +271,7 @@ Your drone comes equipped with technology that can jam the enemy buoy's sonar co
 
 ---
 
-From ``||custom:Custom||``, add:
+- :paper plane: From ``||custom:Custom||``, add:
 
 ```blocks
 //@highlight
@@ -286,18 +290,17 @@ What happens to the enemy buoy?
 ## Drone Fact: Active vs. Passive Sonar @showdialog
 ![Active vs. Passive Sonar](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/avspSonar.png "Active vs. Passive Sonar")
 
-- **Active sonar** sends out a ping and listens for echoes, great for finding things, but it **reveals your position**.  
-- **Passive sonar** only listens **stealthily**, but slower to detect and easier to confuse with ocean noise.
+- **Active sonar** sends out a ping and listens for **echoes**, great for finding things, but it **reveals your position**.  
+- **Passive sonar** only **listens stealthily**, but **slower** to detect and **easier** to confuse with ocean noise.
 
-In a later level, you will code your heuristic and part of it will alert when you are too close to the enemey buoy and to avoid it. The alert is a simple example of active sonar in action.
+In a later level, you will code your heuristic, and part of it will alert you when you are too close to the enemy buoy and to avoid it. The alert is a simple example of active sonar in action.
 
 ## {Finale}
-👏 Great, your ocean has real danger now!
+👏 Great, your ocean now has real danger!
 
 ---
 
-When you're finished, click **Done** to
-head to the next level and find out how to upload your data to the ship!
+When you're finished, click **Done** to head to the next level and find out how to upload your data to the ship!
 
 ```blockconfig.global
 let myData = sprites.create(img`
