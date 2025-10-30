@@ -4,6 +4,7 @@
 ## Welcome to Enemy Waters @showdialog
 **The SPURV**
 ![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png)
+
 The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
 
 In this section, you will program your drone to collect the missing data in enemy territory.
@@ -66,7 +67,7 @@ When your program starts to grow, you’ll see the same ideas repeat: “put the
 Instead of rewriting long code each time, we bundle it into a **custom block**. 
 This is called **abstraction**: hiding the **messy details** behind a simple, easy-to-use command.
 
-You’ve already used abstraction:
+**You’ve already used abstraction:**
 
 ```blocks
 //@highlight
@@ -93,7 +94,7 @@ container already in the workspace.  <br/>
 
 ---
 
-Run the program several times. 
+- :binoculars: Run the program several times. 
 
 What do you notice about the data sprite's location each time you run the program?
 
@@ -188,13 +189,14 @@ This custom block allows you to pick up a maximum of 3 data shards at a time.
 
 ---
 
-Run the program several times. 
+- :binoculars: Run the program several times. 
 
 What happens after the drone collects 3 data shards? What do you expect to happen if we change the number 3 to 5?
 
 ## Career Spotlight: Navy Oceanographer @showdialog
 ![Navy Oceanographer](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSoceanographer.jpg)
-Currents, waves, and temperature layers change how drones move and how sonar travels. Navy oceanographers forecast these conditions so operators pick smarter routes—just like you’re designing rules about when and where to collect and upload data.
+
+Currents, waves, and temperature layers **change** how drones **move** and how sonar **travels**. **Navy oceanographers** forecast these conditions so operators pick **smarter routes**, just like you’re designing rules about when and where to collect and upload data.
 
 ## {Step 3}
 **Avoid the Sonar Buoy**
@@ -216,7 +218,7 @@ container already in the workspace.  <br/>
 
 ---
 
-Run the program several times. 
+- :binoculars: Run the program several times. 
 
 Change the number from 1 to 3. 
 
@@ -228,6 +230,7 @@ hint~
 
 ## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
 ![U.S. Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg)
+
 **Cryptologic Technician Technical** hunts and defends **data links**. 
 
 If an enemy drone communicates home after a buoy **detects you**, a Cryptologic Technician looks for patterns to **jam, spoof, or geolocate** their communication.
@@ -237,7 +240,7 @@ Turn on the “bump” rule so the buoy knocks your drone back (and you lose dat
 
 ---
 
-From ``||custom:Custom||``, add:
+- :paper plane: From ``||custom:Custom||``, add:
 
 ```blocks
 //@highlight
@@ -249,7 +252,9 @@ container already in the workspace.  <br/>
 
 ---
 
-Now playtest, let the buoy hit you, and watch what happens!
+- :binoculars: Now run the program.
+
+What happens when the enemy buoy touches the drone? What if you have collected some of the data shards?
 
 ## Career Spotlight: Navy Sonar Technicians @showdialog
 ![U.S. Navy Sonar Technicians](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSsonartech.png)
@@ -274,17 +279,17 @@ container already in the workspace.  <br/>
 
 ---
 
-Now playtest, and hit the spacebar to activate your sonar jam.
-
----
+- :binoculars: Run the program. Hit the spacebar to activate your disabling sonar pulse.
 
 What happens to the enemy buoy?
 
 ## Drone Fact: Active vs. Passive Sonar @showdialog
-- **Active sonar** sends out a ping and listens for echoes—great for finding things, but it **reveals your position**.  
+![Active vs. Passive Sonar](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/avspSonar.png)
+
+- **Active sonar** sends out a ping and listens for echoes, great for finding things, but it **reveals your position**.  
 - **Passive sonar** only listens **stealthily**, but slower to detect and easier to confuse with ocean noise.
 
-Your buoy’s timed “ping” event is a tiny version of active sonar.
+In a later level, you will code your heuristic and part of it will alert when you are too close to the enemey buoy and to avoid it. The alert is a simple example of active sonar in action.
 
 ## {Finale}
 👏 Great, your ocean has real danger now!
