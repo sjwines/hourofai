@@ -120,7 +120,7 @@ game.onUpdateInterval(500, function () {
 
 ## {Step 7}
 
-Now, you will cmpare your score to a number.
+Now, you will compare your score to a number.
 
 - :paper plane: **Step 1:** From ``||info:Info||``, drag score into the left socket.
 
