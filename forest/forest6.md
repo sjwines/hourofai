@@ -16,9 +16,13 @@ Time to tune, test, and tinker!
 - Add more enemies by calling custom.spawnEnemyBuoy() more times.
 - Change the carry limit
 - Change the win goal
-- Add a timer to add presure to collect the data shards with info.startCountDown(45)
-- Make the drone faster or slower with controller.moveSprite(myDrone, 110, 110)
-- Or any other idea you have! Have fun and the possiblities are endless!
+- Add a timer to add pressure to collect the data shards with info.startCountDown(45)
+- Make the drone faster or slower with the controller.moveSprite(myDrone, 110, 110)
+- Or any other idea you have! Have fun, and the possibilities are endless!
+
+---
+
+_💡If you find that your code is no longer working, click the **"Replace my code"** button at the bottom of the screen to start over._
 
 ## {Finale}
 👏 Congratulations on successfully securing the stolen documents!
