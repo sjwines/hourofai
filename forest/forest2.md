@@ -90,7 +90,7 @@ container already in the workspace.  <br/>
 
 --- 
 
-**Step 2:** Update the position block from **myDrone** to **myShip**.
+- :paper plane: **Step 2:** Update the position block from **myDrone** to **myShip**.
 
 ---
 
