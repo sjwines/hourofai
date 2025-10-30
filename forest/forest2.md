@@ -4,6 +4,7 @@
 ## Part 2: Incoming Ship @showdialog
 **The USS Delaware (SSN 791)**
 ![The SPURV](https://raw.githubusercontent.com/shanew1890/hourofai/master/assets/USSDelaware.jpg)
+
 The USS Delaware marks the first-ever torpedo tube **deployment and recovery** of a UUV in support of a **tactical mission**.
 
 In this section, you will create your Naval Ship Sprite that your drone will upload the stolen data to.
@@ -89,7 +90,7 @@ container already in the workspace.  <br/>
 
 --- 
 
-**Step 2** Update the position block from **myDrone** to **myShip**.
+**Step 2:** Update the position block from **myDrone** to **myShip**.
 
 ---
 
@@ -159,7 +160,7 @@ _💡Click the **next** button to fix this problem._
 
 Right now, when you run the program, sometimes the ship appears off-screen. To fix this, you will use the ``||scene: screen width||`` and ``||scene: screen height||`` blocks.
 
-- From ``||math:Math||`` drag the 0 - 0 block into the right side of the subtraction sign of both the x and y.
+- :paper plane: From ``||math:Math||`` drag the 0 - 0 block into the right side of the subtraction sign of both the x and y.
 
 ```blocks
 let myShip = sprites.create(img`
@@ -192,7 +193,7 @@ myShip.setPosition(
 ## {Step 8}
 **Continue to Randomize**
 
-On the left side of the subtraction sign, put ``||scene: screen width||`` for x and ``||scene: screen height||`` for y.
+- :paper plane: On the left side of the subtraction sign, put ``||scene: screen width||`` for x and ``||scene: screen height||`` for y.
 
 ```blocks
 let myShip = sprites.create(img`
@@ -227,7 +228,9 @@ myShip.setPosition(
 ## {Step 9}
 **Continue to Randomize**
 
-For both x and y, in the first number type 16. Then in the last number , type 16.
+- :paper plane: For both **x** and **y**, set the starting number to **16** and the ending number to scene width (or height) minus **16**.
+
+This keeps your sprite safely **inside** the **screen edges** of your game.
 
 ```blocks
 let myShip = sprites.create(img`
@@ -263,7 +266,7 @@ myShip.setPosition(
 hint~
 
 ## {Step 10}
-Run the program at least 10 times. 
+- :binoculars: Run the program at least 10 times. 
 
 How many times does the **ship** appear **off** the **game screen**?
 
