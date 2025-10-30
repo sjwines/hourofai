@@ -199,7 +199,7 @@ hint~
 _💡 If you don't like that drone, click the box and change to one of the others you like under **My Assets**, or you can **make one of your own**!_
  
 ## Career Spotlight: Navy Robotic Warfare Specialists @showdialog
-![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg)
+![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg "U.S. Navy Robotic Warfare Specialist's")
 
 **Robotic warfare specialists** serve the U.S. Navy and are responsible for the **operation, maintenance**, and **tactical employment** of **robotic and autonomous systems** to achieve a hybrid manned-unmanned fleet.
 
@@ -289,7 +289,7 @@ _💡 You can also use the arrow keys on your keyboard!_
 ![Find the game window.](/static/skillmap/forest/game.png "The game window is in the lower corner.")
 
 ## Drone Facts @showdialog
-![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png)
+![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png "US Navy Triton")
 
 As the world's first and only autonomous underwater and surface vehicle (AUSV), the **US Navy Triton** can operate in either sailing mode or submarine mode, thanks to its interchangeable sail.
 
