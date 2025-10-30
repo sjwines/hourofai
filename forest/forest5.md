@@ -5,11 +5,11 @@
 **AI Advisor HUD**
 ![AI HUD](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/DroneHUD.png "AI HUD")
 
-Recall what a heuristic is (a simple, fast rule of thumb to make a decision). 
+Recall what a **heuristic** is (a simple, fast rule of thumb to make a decision). 
 
-You will now practice with your heuristic here.
+You will now practice with your **heuristic** here.
 
-A Heads Up Display (HUD), is a tiny on-screen assistant that suggests what to do next: Collect / Upload / Avoid, and shows how full your data storage is.
+A **Heads Up Display (HUD)**is a tiny on-screen assistant that **suggests** what to do next: **Collect / Upload / Avoid**, and shows how full your data storage is.
 
 ## {Step 2}
 **Create your AI Advisor HUD**
@@ -81,9 +81,9 @@ custom.setMissionTuning(5, 5, 32)
 ---
 
 **The 3 numbers in the custom block are:** 
-- Max cargo: how many data pods you can hold
-- Upload at: when the advisor starts suggesting “Upload”
-- Danger radius: how close the buoy must be before advice changes to “Avoid”
+- **Max Cargo:** how many data pods you can hold
+- **Upload At:** when the advisor starts suggesting “Upload”
+- **Danger Radius:** how close the buoy must be before advice changes to “Avoid”
 
 ---
 
