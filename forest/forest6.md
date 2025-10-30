@@ -3,11 +3,11 @@
 
 ## Welcome @showdialog
 
-- :game pad: Time to tune, test, and tinker!
+Time to tune, test, and tinker!
 
 ## Mini Challenges 
 
-Pick a few mini-challenges below to make your game more interesting, harder, or just yours. 
+- :game pad: Pick a few mini-challenges below to make your game more interesting, harder, or just yours. 
 
 ---
 
