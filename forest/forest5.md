@@ -3,6 +3,7 @@
 
 ## Welcome @showdialog
 **AI Advisor HUD**
+![AI HUD](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/DroneHUD.png "AI HUD")
 
 Recall what a heuristic is (a simple, fast rule of thumb to make a decision). 
 
@@ -29,14 +30,14 @@ container already in the workspace.  <br/>
 
 This sprite is different as it needs to be **labeled** as **HUD** instead of a **Player**.
 
-**Step 2:** Click **Player** and change it to **HUD**.
+- :paper plane: **Step 2:** Click **Player** and change it to **HUD**.
 
 ---
 
 You **do not** need to give this sprite an image.
 
 ## {2. Turn On the Advisor}
-From ``||custom:Custom||``, drag:
+- :paper plane: From ``||custom:Custom||``, drag:
 
 ```blocks
 //@highlight
@@ -56,7 +57,7 @@ You can “tune” the mission by changing max cargo, when to upload, and the da
 
 ---
 
-From ``||custom:Custom||``, add:
+- :paper plane: From ``||custom:Custom||``, add:
 
 ```blocks
 //@highlight
@@ -70,7 +71,7 @@ container already in the workspace.  <br/>
 
 ---
 
-Then experiment! For example, carry more before uploading, but keep the same danger radius:
+- :binoculars: Then experiment! For example, carry more before uploading, but keep the same danger radius:
 
 ```blocks
 //@highlight
@@ -90,14 +91,20 @@ custom.setMissionTuning(5, 5, 32)
 Place setMissionTuning before setupAdvisorHUD if you want the HUD to start with your custom values right away.
 hint~
 
-## {4. Optional Win Condition}
+## {4. Win Condition}
 
 End the mission when your score reaches a target:
+
+- :paper plane: From ``||custom:Custom||``, add:
 
 ```blocks
 //@highlight
 custom.enableWinAtScore(15)
 ```
+
+- :binoculars: Test your game with different target data shard values.
+
+_💡If you want to increase the difficultly of the game, increase the amount of data shards the drone has to collect._
 
 ## {Finale}
 👏 Your advisor is live and smart! Click Done to complete the mission or refine your tuning.
