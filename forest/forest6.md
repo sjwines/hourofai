@@ -3,6 +3,7 @@
 
 ## Welcome @showdialog
 
+![Customize Your Game](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/tile6image.png "Customize Your Game")
 Time to tune, test, and tinker!
 
 ## Mini Challenges 
