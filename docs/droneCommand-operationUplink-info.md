@@ -1,4 +1,4 @@
-# Bug Arena Learning Outcomes
+# Drone Command Operation Uplink Learning Outcomes
 
 **A page for Educators & Parents**
 
