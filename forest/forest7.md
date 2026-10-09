@@ -175,6 +175,7 @@ let __boolAnd = (true && false)
 let __boolOr = (true || false)
 info.startCountdown(45)
 function __checkDanger(): boolean { return true }
+custom.enableAdaptiveAdvisor()
 ```
 
 ```customts

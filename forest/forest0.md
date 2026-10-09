@@ -214,6 +214,7 @@ let __scoreSurface = info.score()
 let __boolAnd = (true && false)
 let __boolOr = (true || false)
 info.startCountdown(45)
+custom.enableAdaptiveAdvisor()
 ```
 
 ```customts
