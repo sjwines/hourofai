@@ -18,7 +18,15 @@
         "forest/forest4.md",
         "forest/forest5.md",
         "forest/forest6.md",
-        "forest/forest7.md"
+        "forest/forest7.md",
+        "forest/forestG0.md",
+        "forest/forestG1.md",
+        "forest/forestG2.md",
+        "forest/forestG3.md",
+        "forest/forestG4.md",
+        "forest/forestG5.md",
+        "forest/forestG6.md",
+        "forest/forestG7.md"
     ],
     "testFiles": [
         "test.ts"
