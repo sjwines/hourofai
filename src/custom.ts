@@ -626,6 +626,46 @@ cccccccccccccccc
         })
     }
 
+    function firePulse(): void {
+        const drone = firstOf(SpriteKind.Player)
+        if (!drone) return
+        const now = game.runtime()
+        if (now < pulseReadyAt) {
+            drone.sayText("Recharging...", 400)
+            return
+        }
+        pulseReadyAt = now + PULSE_COOLDOWN_MS
+        pulsesUsed += 1
+        let vx = 0
+        let vy = -120
+        const target = nearestTo(SpriteKind.Enemy, drone, false)
+        if (target) {
+            const dx = target.x - drone.x
+            const dy = target.y - drone.y
+            const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+            vx = Math.round(120 * dx / m)
+            vy = Math.round(120 * dy / m)
+        }
+        const pulse = sprites.createProjectileFromSprite(pulseLook ? pulseLook.clone() : PULSE_FRAMES[0], drone, vx, vy)
+        pulse.lifespan = 1000
+        if (!pulseLook) animation.runImageAnimation(pulse, PULSE_FRAMES, 90, true)
+        music.pewPew.play()
+        // Active sonar gives away your position: buoys swing toward you for a moment.
+        for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
+            if (isFrozen(b)) continue
+            const dx = drone.x - b.x
+            const dy = drone.y - b.y
+            const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+            b.setVelocity(Math.round(55 * dx / m), Math.round(55 * dy / m))
+        }
+        control.runInParallel(function () {
+            pause(1500)
+            for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
+                if (!isFrozen(b)) drift(b)
+            }
+        })
+    }
+
     //% block="set pulse picture to $look"
     //% look.shadow=screen_image_picker
     export function setPulseLook(look: Image): void {
@@ -634,45 +674,7 @@ cccccccccccccccc
 
     //% block="enable pulse to disable buoy"
     export function enablePulse(): void {
-        controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-            const drone = firstOf(SpriteKind.Player)
-            if (!drone) return
-            const now = game.runtime()
-            if (now < pulseReadyAt) {
-                drone.sayText("Recharging...", 400)
-                return
-            }
-            pulseReadyAt = now + PULSE_COOLDOWN_MS
-            pulsesUsed += 1
-            let vx = 0
-            let vy = -120
-            const target = nearestTo(SpriteKind.Enemy, drone, false)
-            if (target) {
-                const dx = target.x - drone.x
-                const dy = target.y - drone.y
-                const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-                vx = Math.round(120 * dx / m)
-                vy = Math.round(120 * dy / m)
-            }
-            const pulse = sprites.createProjectileFromSprite(pulseLook ? pulseLook.clone() : PULSE_FRAMES[0], drone, vx, vy)
-            pulse.lifespan = 1000
-            if (!pulseLook) animation.runImageAnimation(pulse, PULSE_FRAMES, 90, true)
-            music.pewPew.play()
-            // Active sonar gives away your position: buoys swing toward you for a moment.
-            for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
-                if (isFrozen(b)) continue
-                const dx = drone.x - b.x
-                const dy = drone.y - b.y
-                const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-                b.setVelocity(Math.round(55 * dx / m), Math.round(55 * dy / m))
-            }
-            control.runInParallel(function () {
-                pause(1500)
-                for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
-                    if (!isFrozen(b)) drift(b)
-                }
-            })
-        })
+        controller.A.onEvent(ControllerButtonEvent.Pressed, function () { firePulse() })
         sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (p, buoy) {
             p.destroy(effects.disintegrate, 100)
             if (isFrozen(buoy)) return
@@ -865,15 +867,16 @@ cccccccccccccccc
             }
             if (mode == 2) {
                 if (!ship) return
-                const ox = [-48, 48, 0, -48]
-                const oy = [26, 26, -38, 26]
+                const ox = [-70, 70, 0, -70]
+                const oy = [40, 40, -55, 40]
                 if (demoStep(d, ship.x + ox[wp], ship.y + oy[wp], 70, dt) < 6) wp = (wp + 1) % ox.length
                 return
             }
             if (mode >= 6 || mode == 0) {
-                if (!pressed && now > 1500) {
+                if (!pressed && now > 1500 && adviceSet) {
                     pressed = true
-                    control.raiseEvent(controller.B.id, ControllerButtonEvent.Pressed)
+                    autopilotOn = true
+                    autoDx = 0
                 }
                 return
             }
@@ -884,20 +887,17 @@ cccccccccccccccc
             let ty = d.y
             const f = nearestTo(SpriteKind.Food, d, false)
             if (mode == 3) {
-                if (dataLost == 0) {
-                    if (cargo < MAX_CARGO) {
-                        if (f) { tx = f.x; ty = f.y }
-                    } else {
-                        const bb = nearestTo(SpriteKind.Enemy, d, false)
-                        if (bb) { tx = bb.x; ty = bb.y }
-                    }
+                if (cargo < MAX_CARGO && dataLost == 0) {
+                    if (f) { tx = f.x; ty = f.y }
+                } else if (dataLost == 0) {
+                    const bb = nearestTo(SpriteKind.Enemy, d, false)
+                    if (bb) { tx = bb.x; ty = bb.y }
                 } else {
-                    if (b && bd < 80 && now - lastPulse > 3200) {
+                    if (b && bd < 85 && now - lastPulse > 3500) {
                         lastPulse = now
-                        control.raiseEvent(controller.A.id, ControllerButtonEvent.Pressed)
+                        firePulse()
                     }
-                    if (b && bd < 80) { tx = b.x; ty = b.y }
-                    else if (f) { tx = f.x; ty = f.y }
+                    if (f) { tx = f.x; ty = f.y }
                 }
             } else {
                 let advice = Advice.Collect
