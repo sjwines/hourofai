@@ -31,7 +31,8 @@ namespace custom {
 
     // Game state
     let cargo = 0
-    let overShip = false
+    let noDataUntil = 0
+    let pulseLook: Image = null
     let hitCooldown = false
     let hud: Sprite = null
     let adviceSet = false
@@ -617,6 +618,12 @@ cccccccccccccccc
         })
     }
 
+    //% block="set pulse picture to $look"
+    //% look.shadow=screen_image_picker
+    export function setPulseLook(look: Image): void {
+        pulseLook = look
+    }
+
     //% block="enable pulse to disable buoy"
     export function enablePulse(): void {
         controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -639,9 +646,9 @@ cccccccccccccccc
                 vx = Math.round(120 * dx / m)
                 vy = Math.round(120 * dy / m)
             }
-            const pulse = sprites.createProjectileFromSprite(PULSE_FRAMES[0], drone, vx, vy)
+            const pulse = sprites.createProjectileFromSprite(pulseLook ? pulseLook.clone() : PULSE_FRAMES[0], drone, vx, vy)
             pulse.lifespan = 1000
-            animation.runImageAnimation(pulse, PULSE_FRAMES, 90, true)
+            if (!pulseLook) animation.runImageAnimation(pulse, PULSE_FRAMES, 90, true)
             music.pewPew.play()
             // Active sonar gives away your position: buoys swing toward you for a moment.
             for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
@@ -675,35 +682,31 @@ cccccccccccccccc
     }
 
     // ---------- the ship ----------
-    //% block="enable upload at ship"
-    export function enableUploadAtShip(): void {
-        game.onUpdate(function () {
-            const drone = firstOf(SpriteKind.Player)
-            const ship = findShip()
-            if (!drone || !ship) return
-            const touching = drone.overlapsWith(ship)
-            if (touching && !overShip) {
-                if (cargo > 0) {
-                    const n = cargo
-                    info.changeScoreBy(n)
-                    trips += 1
-                    uploaded += n
-                    cargo = 0
-                    music.powerUp.play()
-                    if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
-                    if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {
-                        spawnBuoy()
-                        ship.sayText("Uploaded " + n + " - new buoy!", 700)
-                    } else {
-                        ship.sayText("Uploaded " + n, 600)
-                    }
-                } else {
-                    ship.sayText("No data", 400)
-                    music.thump.play()
-                }
+    // Students build the "when the drone touches the ship" rule themselves:
+    //   on overlap (Player, Ship): change score by data carried, then complete the upload.
+    // The overlap event fires on every frame while the drone sits on the ship,
+    // so an upload can never be missed (even if the cargo fills up while touching it).
+    //% block="complete the upload"
+    export function completeUpload(): void {
+        const ship = findShip()
+        if (cargo > 0) {
+            const n = cargo
+            trips += 1
+            uploaded += n
+            cargo = 0
+            music.powerUp.play()
+            if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
+            if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {
+                spawnBuoy()
+                if (ship) ship.sayText("Uploaded " + n + " - new buoy!", 700)
+            } else {
+                if (ship) ship.sayText("Uploaded " + n, 600)
             }
-            overShip = touching
-        })
+        } else if (game.runtime() > noDataUntil) {
+            noDataUntil = game.runtime() + 1500
+            if (ship) ship.sayText("No data", 400)
+            music.thump.play()
+        }
     }
 
     // ---------- the advisor ----------
