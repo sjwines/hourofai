@@ -1006,6 +1006,91 @@ cccccccccccccccc
             }
         })
     }
+
+    // ---------- DEMO DRIVER (only on the gif-recording branch, never merged) ----------
+    function demoFace(d: Sprite, dx: number): void {
+        if (dx > 1 && !facingRight) { d.image.flipX(); facingRight = true }
+        else if (dx < -1 && facingRight) { d.image.flipX(); facingRight = false }
+    }
+
+    function demoStep(d: Sprite, tx: number, ty: number, speed: number, dt: number): number {
+        const dx = tx - d.x
+        const dy = ty - d.y
+        const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+        const step = Math.min(m, speed * dt)
+        d.x = Math.max(TILE * 1.5, Math.min(arenaW() - TILE * 1.5, d.x + dx / m * step))
+        d.y = Math.max(TILE * 1.5, Math.min(arenaH() - TILE * 1.5, d.y + dy / m * step))
+        demoFace(d, dx)
+        return m
+    }
+
+    //% block="demo drive $mode"
+    export function demoDrive(mode: number): void {
+        let wp = 0
+        let t0 = game.runtime()
+        let pressed = false
+        let lastPulse = -9999
+        game.onUpdate(function () {
+            const d = firstOf(SpriteKind.Player)
+            if (!d || won) return
+            const dt = game.eventContext().deltaTime
+            const now = game.runtime() - t0
+            if (now < 900) return
+            const ship = findShip()
+            if (mode == 1) {
+                const px = [210, 290, 200, 95, 80]
+                const py = [95, 190, 275, 215, 80]
+                if (demoStep(d, px[wp], py[wp], 75, dt) < 6) wp = (wp + 1) % px.length
+                return
+            }
+            if (mode == 2) {
+                if (!ship) return
+                const ox = [-48, 48, 0, -48]
+                const oy = [26, 26, -38, 26]
+                if (demoStep(d, ship.x + ox[wp], ship.y + oy[wp], 70, dt) < 6) wp = (wp + 1) % ox.length
+                return
+            }
+            if (mode >= 6 || mode == 0) {
+                if (!pressed && now > 1500) {
+                    pressed = true
+                    control.raiseEvent(controller.B.id, ControllerButtonEvent.Pressed)
+                }
+                return
+            }
+            // modes 3, 4, 5: a player flies the drone
+            const b = nearestTo(SpriteKind.Enemy, d, true)
+            const bd = b ? dist(b, d) : 999
+            let tx = d.x
+            let ty = d.y
+            const f = nearestTo(SpriteKind.Food, d, false)
+            if (mode == 3) {
+                if (dataLost == 0) {
+                    if (cargo < MAX_CARGO) {
+                        if (f) { tx = f.x; ty = f.y }
+                    } else {
+                        const bb = nearestTo(SpriteKind.Enemy, d, false)
+                        if (bb) { tx = bb.x; ty = bb.y }
+                    }
+                } else {
+                    if (b && bd < 80 && now - lastPulse > 3200) {
+                        lastPulse = now
+                        control.raiseEvent(controller.A.id, ControllerButtonEvent.Pressed)
+                    }
+                    if (b && bd < 80) { tx = b.x; ty = b.y }
+                    else if (f) { tx = f.x; ty = f.y }
+                }
+            } else {
+                let advice = Advice.Collect
+                if (mode == 5 && adviceSet) advice = currentAdvice
+                else if (b && bd < DANGER_RADIUS + 10) advice = Advice.Avoid
+                else if (cargo >= UPLOAD_AT) advice = Advice.Upload
+                if (advice == Advice.Avoid && b) { tx = d.x + (d.x - b.x); ty = d.y + (d.y - b.y) }
+                else if (advice == Advice.Upload && ship) { tx = ship.x; ty = ship.y }
+                else if (f) { tx = f.x; ty = f.y }
+            }
+            demoStep(d, tx, ty, info.score() >= 5 ? 120 : 100, dt)
+        })
+    }
 }
 ```
 

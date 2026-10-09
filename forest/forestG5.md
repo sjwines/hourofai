@@ -1,172 +1,8 @@
-# Build Your Advisor
+# Demo G5
 ### @explicitHints true
 
-## AI Advisor Online @showdialog
-**Your drone needs a brain**
-
-![AI HUD](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/DroneHUD.png "AI HUD")
-
-Right now your drone can't decide anything on its own. In this level you will build an **AI advisor**: a short list of **if/else rules** that decides what the drone should do next.
-
-An advisor works in three steps:
-
-- **Sense:** read numbers, like how far away a buoy is
-- **Decide:** use if/else rules
-- **Act:** give advice: **Collect**, **Upload**, or **Avoid**
-
-A simple, fast rule of thumb like this is called a **heuristic**.
-
-## {2. Turn On the HUD}
-A **Heads Up Display (HUD)** is a little on-screen assistant that shows the advice.
-
-- :flask: From ``||custom:Custom||``, drag:
-
-```blocks
-//@highlight
-custom.setupAdvisorHUD()
-```
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.
-
----
-
-- :binoculars: Run your game. The HUD says **"Advisor offline"** because you have not built the advisor yet. Let's fix that!
-
-## {3. Sense Danger}
-Look in your workspace: there is already a loop that runs every **350 milliseconds**, with an ``||logic:if else||`` that has nothing inside yet. You made one just like it for the speed boost. This is where your advisor will think!
-
-Your first rule: *if a buoy is too close, then avoid it.*
-
-- :random: From ``||logic:Logic||``, drag a comparison block (it looks like ``0 < 0``) into the **if** slot.
-- :flask: From ``||custom:Custom||``, drag ``distance to nearest buoy`` into the left side and ``danger radius`` into the right side.
-
-```blocks
-game.onUpdateInterval(350, function () {
-    //@highlight
-    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
-    } else {
-    }
-})
-```
-
-~hint What do these blocks mean? 💡
-
----
-**distance to nearest buoy** is a *sensor reading*: how many pixels away the closest active buoy is.
-
-**danger radius** is a *setting*: it starts at 32 pixels.
-
-The test is true when a buoy is closer than the danger radius.
-hint~
-
-## {4. Give Advice}
-- :flask: From ``||custom:Custom||``, drag ``set advice to`` into the **if** part and choose **Avoid**.
-
-```blocks
-game.onUpdateInterval(350, function () {
-    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
-        //@highlight
-        custom.setAdvice(Advice.Avoid)
-    } else {
-    }
-})
-```
-
-## {5. Try It}
-- :binoculars: Run your game and fly toward the buoy. The HUD should say **Avoid** when you get close!
-
-~hint It says "Advisor offline" or never changes ⚠️
-
----
-Check these common mistakes:
-
-1. Is the new loop block **by itself** (not inside ``||loops:on start||``)?
-2. Is ``set advice to`` **inside** the if part?
-3. Did you add ``setup advisor HUD`` to ``||loops:on start||``?
-
-Still stuck? Click **Replace my code** at the bottom of the screen to start this step over.
-hint~
-
-## {6. Add a Second Rule}
-One rule is not enough. Your next rule: *else if you are carrying enough data, then upload it.*
-
-- :random: Click the **➕** on the ``||logic:if else||`` block to add an **else if**.
-- :random: Build this test: ``data carried`` **≥** ``upload at``.
-- :flask: Put ``set advice to`` **Upload** inside it.
-
-```blocks
-game.onUpdateInterval(350, function () {
-    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
-        custom.setAdvice(Advice.Avoid)
-    } else if (custom.dataCarried() >= custom.uploadAt()) {
-        //@highlight
-        custom.setAdvice(Advice.Upload)
-    } else {
-    }
-})
-```
-
-~hint Show me how 🕵🏽
-
----
-The ➕ is on the **if else** block, at the bottom left. Click it once and an **else if** appears in the middle.
-
-The comparison block is the same one you used for danger. Change **<** to **≥** with the little dropdown.
-hint~
-
-## {7. Everything Else}
-If there is no danger, and you are not ready to upload, there is only one thing left to do: collect more data!
-
-- :flask: In the last **else**, drag ``set advice to`` and choose **Collect**.
-
-```blocks
-game.onUpdateInterval(350, function () {
-    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
-        custom.setAdvice(Advice.Avoid)
-    } else if (custom.dataCarried() >= custom.uploadAt()) {
-        custom.setAdvice(Advice.Upload)
-    } else {
-        //@highlight
-        custom.setAdvice(Advice.Collect)
-    }
-})
-```
-
-## {8. Test Your Advisor}
-- :binoculars: Play your game. Watch the HUD:
-  - It says **Collect** when the way is clear.
-  - It says **Upload** when your cargo is full.
-  - It says **Avoid** when a buoy is close.
-
-~hint My advisor says the wrong thing ⚠️
-
----
-The **order** of your rules matters. The advisor checks them from top to bottom and uses the **first one that is true**.
-
-Danger should come first. Why? Think about what happens if a buoy is close **and** your cargo is full.
-hint~
-
-## Career Spotlight: Computer Scientist @showdialog
-![Navy computer scientist at work](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CScomputerscientist.jpg "A Navy computer scientist writes code with his team. Photo: U.S. Navy")
-
-**Computer scientists write the rules machines follow.**
-
-A **computer scientist** specializes in the development of computer language, algorithms, and programming to solve complex problems.
-
-The if/else rules you just wrote are the same kind of logic that sits inside real autonomous systems.
-
-## {Finale}
-👏 Your advisor is live, and it is **your** code making the decisions!
-
----
-
-Click **Done** to get your certificate. After that, you can let your advisor fly the drone **all by itself** in the next level.
-
-```blockconfig.global
-custom.setupAdvisorHUD()
-custom.setAdvice(Advice.Avoid)
-```
+## {Step 1}
+Gif recording demo.
 
 ```template
 namespace SpriteKind {
@@ -246,7 +82,7 @@ f99199111199199f
 `, SpriteKind.Food)
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
-custom.spawnEnemyBuoys(1)
+custom.spawnEnemyBuoys(3)
 custom.enableBuoyBump()
 custom.enablePulse()
 info.setScore(0)
@@ -261,11 +97,17 @@ game.onUpdateInterval(500, function () {
         controller.moveSprite(myDrone, 100, 100)
     }
 })
+custom.setupAdvisorHUD()
 game.onUpdateInterval(350, function () {
-    if (true) {
+    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
+        custom.setAdvice(Advice.Avoid)
+    } else if (custom.dataCarried() >= custom.uploadAt()) {
+        custom.setAdvice(Advice.Upload)
     } else {
+        custom.setAdvice(Advice.Collect)
     }
 })
+custom.demoDrive(5)
 ```
 
 ```ghost
@@ -277,6 +119,7 @@ game.onUpdateInterval(350, function () { })
 if (__d < __r) { } else if (__c >= __u) { } else { }
 let __geSurface = 1 >= 0
 let __ltSurface = 0 < 1
+let __scoreSurface = info.score()
 ```
 
 ```customts
