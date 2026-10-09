@@ -25,6 +25,7 @@ The ship is preparing to arrive and launch the drone into the water to collect t
 Let's get the code in there to make that happen!
 
 ~hint What's a sprite? 💡
+
 ---
 In Arcade, each character or image that does something is called a **SPRITE**.
 
@@ -49,6 +50,7 @@ then snap it inside the empty <br/>
 block already in the workspace.
 
 ~hint Click here to see how 🕵🏽
+
 ---
 - :lightbulb: The panel with the colorful category names is called the
  **toolbox**. <br/>

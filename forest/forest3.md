@@ -270,6 +270,7 @@ container already in the workspace.  <br/>
 - :binoculars: Run the program. Hit the spacebar to activate your disabling sonar pulse.
 
 What happens to the enemy buoy?
+
 ---
 - :binoculars: Now press it twice in a row. Your pulse needs about **3 seconds to recharge**.
 - :binoculars: Watch the *other* buoys right after you fire. What do they do?

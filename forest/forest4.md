@@ -102,6 +102,7 @@ game.onUpdateInterval(500, function () {
 ```
 
 ~hint What is an if/else? 💡
+
 ---
 An **if/else** lets your code make a decision.
 

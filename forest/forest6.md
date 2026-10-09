@@ -31,6 +31,7 @@ Watch the HUD. It now says **AUTO**, and your advisor's advice decides where the
 _💡 Grab the joystick any time to take control back. Press **B** again to switch the autopilot off._
 
 ~hint The B button does nothing ⚠️
+
 ---
 - Did you add ``enable autopilot`` to ``||loops:on start||``?
 - Did you build your advisor in the last level? The autopilot says **"Build your advisor first!"** if the advisor never gave any advice.
@@ -76,6 +77,7 @@ Read your Mission Report. It shows:
 **Can you beat your first Mission Report?** Try to lose less data, or finish faster.
 
 ~hint Ideas to try 💡
+
 ---
 - A bigger **danger radius** means more safety but slower collecting.
 - A smaller **upload at** means more trips.

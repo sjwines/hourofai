@@ -49,6 +49,7 @@ game.onUpdateInterval(350, function () {
 ```
 
 ~hint Show me how 🕵🏽
+
 ---
 You did this in the last level with the speed boost! The new loop does **not** snap into ``||loops:on start||``. Leave it by itself in the workspace.
 hint~
@@ -69,6 +70,7 @@ game.onUpdateInterval(350, function () {
 ```
 
 ~hint What do these blocks mean? 💡
+
 ---
 **distance to nearest buoy** is a *sensor reading*: how many pixels away the closest active buoy is.
 
@@ -94,6 +96,7 @@ game.onUpdateInterval(350, function () {
 - :binoculars: Run your game and fly toward the buoy. The HUD should say **Avoid** when you get close!
 
 ~hint It says "Advisor offline" or never changes ⚠️
+
 ---
 Check these common mistakes:
 
@@ -124,6 +127,7 @@ game.onUpdateInterval(350, function () {
 ```
 
 ~hint Show me how 🕵🏽
+
 ---
 The ➕ is on the **if else** block, at the bottom left. Click it once and an **else if** appears in the middle.
 
@@ -155,6 +159,7 @@ game.onUpdateInterval(350, function () {
   - It says **Avoid** when a buoy is close.
 
 ~hint My advisor says the wrong thing ⚠️
+
 ---
 The **order** of your rules matters. The advisor checks them from top to bottom and uses the **first one that is true**.
 
