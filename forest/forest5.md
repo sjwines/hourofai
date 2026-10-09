@@ -9,7 +9,7 @@ Recall what a **heuristic** is (a simple, fast rule of thumb to make a decision)
 
 You will now practice with your **heuristic** here.
 
-A **Heads Up Display (HUD)**is a tiny on-screen assistant that **suggests** what to do next: **Collect / Upload / Avoid**, and shows how full your data storage is.
+A **Heads Up Display (HUD)** is a tiny on-screen assistant that **suggests** what to do next: **Collect / Upload / Avoid**, and shows how full your data storage is.
 
 ## {2. Turn On the Advisor}
 - :paper plane: From ``||custom:Custom||``, drag:
