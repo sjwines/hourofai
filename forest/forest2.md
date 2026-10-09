@@ -52,7 +52,7 @@ hint~
 
 This sprite is different because it needs to be labeled as a **Ship** sprite instead of a **Player**. You only want one player sprite, your drone.
 
-- :paper plane: **Step 2:** Click **Player** and pick **Ship** from the list.
+- :paper plane: **Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
 ## {Step 3}
 **Update Your Ship Sprite's Location**
@@ -306,7 +306,7 @@ let myShip = sprites.create(img`
 ..............................
 ..............................
 ..............................
-`, SpriteKind.Ship)
+`, SpriteKind.Player)
 myShip.setPosition(
     randint(16, scene.screenWidth() - 16),
     randint(16, scene.screenHeight() - 16)
@@ -359,11 +359,6 @@ let __h = scene.screenHeight()
 // Operation Uplink: the shared game blocks.
 // This is the ONE source for the code hidden inside every tutorial.
 // After editing, run:  python tools/sync_custom.py
-namespace SpriteKind {
-    export const Ship = SpriteKind.create()
-    export const HUD = SpriteKind.create()
-}
-
 enum Advice {
     //% block="Collect"
     Collect,
@@ -388,8 +383,13 @@ namespace custom {
     const MAX_BUOYS = 5
     const PULSE_COOLDOWN_MS = 3000
 
+    // The HUD sprite gets its own kind. The ship's kind is made by students in level 2,
+    // so the code below finds the ship by looking at sprites instead of naming its kind.
+    const HUD_KIND = SpriteKind.create()
+
     // Game state
     let cargo = 0
+    let overShip = false
     let hitCooldown = false
     let hud: Sprite = null
     let adviceSet = false
@@ -442,6 +442,16 @@ namespace custom {
     function firstOf(kind: number): Sprite {
         const l = sprites.allOfKind(kind)
         return l.length ? l[0] : null
+    }
+    function findShip(): Sprite {
+        for (const s of game.currentScene().allSprites) {
+            const sp = s as Sprite
+            if (!sp || !sp.image) continue
+            const k = sp.kind()
+            if (k == SpriteKind.Player || k == SpriteKind.Food || k == SpriteKind.Enemy || k == SpriteKind.Projectile || k == HUD_KIND) continue
+            return sp
+        }
+        return null
     }
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y))
@@ -660,25 +670,32 @@ namespace custom {
     // ---------- the ship ----------
     //% block="enable upload at ship"
     export function enableUploadAtShip(): void {
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
-            if (cargo > 0) {
-                const n = cargo
-                info.changeScoreBy(n)
-                trips += 1
-                uploaded += n
-                cargo = 0
-                music.powerUp.play()
-                if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
-                if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {
-                    spawnBuoy()
-                    ship.sayText("Uploaded " + n + " - new buoy!", 700)
+        game.onUpdate(function () {
+            const drone = firstOf(SpriteKind.Player)
+            const ship = findShip()
+            if (!drone || !ship) return
+            const touching = drone.overlapsWith(ship)
+            if (touching && !overShip) {
+                if (cargo > 0) {
+                    const n = cargo
+                    info.changeScoreBy(n)
+                    trips += 1
+                    uploaded += n
+                    cargo = 0
+                    music.powerUp.play()
+                    if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
+                    if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {
+                        spawnBuoy()
+                        ship.sayText("Uploaded " + n + " - new buoy!", 700)
+                    } else {
+                        ship.sayText("Uploaded " + n, 600)
+                    }
                 } else {
-                    ship.sayText("Uploaded " + n, 600)
+                    ship.sayText("No data", 400)
+                    music.thump.play()
                 }
-            } else {
-                ship.sayText("No data", 400)
-                music.thump.play()
             }
+            overShip = touching
         })
     }
 
@@ -693,7 +710,7 @@ namespace custom {
     //% block="setup advisor HUD"
     export function setupAdvisorHUD(): void {
         if (!hud) {
-            hud = sprites.create(img`.`, SpriteKind.HUD)
+            hud = sprites.create(img`.`, HUD_KIND)
             hud.setFlag(SpriteFlag.RelativeToCamera, true)
             hud.setPosition(48, 25)
         }
@@ -756,7 +773,7 @@ namespace custom {
                 const b = nearestTo(SpriteKind.Enemy, drone, true)
                 if (b) { tx = drone.x + (drone.x - b.x); ty = drone.y + (drone.y - b.y) }
             } else if (currentAdvice == Advice.Upload) {
-                const s = firstOf(SpriteKind.Ship)
+                const s = findShip()
                 if (s) { tx = s.x; ty = s.y }
             } else {
                 const f = nearestTo(SpriteKind.Food, drone, false)
