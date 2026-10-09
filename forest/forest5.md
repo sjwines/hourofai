@@ -843,9 +843,9 @@ cccccccccccccccc
                 if (band < 7 && (x + y) % 2 == 0 && y < 62 - band * 3) bg.setPixel(x, y, 6)
             }
         }
-        for (let y = 96; y < 120; y++) {
+        for (let y = 104; y < 120; y++) {
             for (let x = 0; x < 160; x++) {
-                if ((y > 106 && (x + y) % 2 == 0) || (x % 4 == 0 && y % 4 == 0)) bg.setPixel(x, y, 15)
+                if ((y > 112 && (x + y) % 3 == 0) || (x % 6 == 0 && y % 4 == 0)) bg.setPixel(x, y, 15)
             }
         }
         return bg
