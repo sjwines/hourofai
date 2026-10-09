@@ -4,6 +4,12 @@
 ## {Step 1}
 Gif recording demo.
 
+## {Step 2}
+Watch.
+
+## {Finale}
+Done.
+
 ```template
 namespace SpriteKind {
     export const Ship = SpriteKind.create()

@@ -4,6 +4,12 @@
 ## {Step 1}
 Gif recording demo.
 
+## {Step 2}
+Watch.
+
+## {Finale}
+Done.
+
 ```template
 custom.buildOcean()
 let myDrone = sprites.create(img`
