@@ -913,6 +913,14 @@ cccccccccccccccc
             if (!awayFrom || dist(s, awayFrom) >= minDist) return
         }
     }
+    // data pods never appear on top of the ship or right next to the drone
+    function placePod(s: Sprite, drone: Sprite): void {
+        const ship = findShip()
+        for (let tries = 0; tries < 25; tries++) {
+            s.setPosition(randint(2 * TILE, arenaW() - 2 * TILE), randint(2 * TILE, arenaH() - 2 * TILE))
+            if ((!drone || dist(s, drone) >= 60) && (!ship || dist(s, ship) >= 48)) return
+        }
+    }
     function drift(b: Sprite): void {
         b.setVelocity(randint(-40, 40), randint(-40, 40))
     }
@@ -1013,7 +1021,7 @@ cccccccccccccccc
         }
         const d = firstOf(SpriteKind.Player)
         for (const s of shards) {
-            placeAtRandom(s, d, 50)
+            placePod(s, d)
             if (s.image.equals(SHARD_FRAMES[0])) animation.runImageAnimation(s, SHARD_FRAMES, 450, true)
         }
     }
@@ -1032,7 +1040,7 @@ cccccccccccccccc
             }
             cargo += 1
             music.baDing.play()
-            placeAtRandom(food, drone, 60)
+            placePod(food, drone)
         })
     }
 
