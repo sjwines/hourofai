@@ -1,20 +1,5 @@
 # Prepare Your Drone
 ### @explicitHints true
-<!-- ***************************************************
-// Use the single hash to name the tutorial, and the
-// double hash to name the step. Triple hashes set
-// custom flags that change the way the tutorial works
-// https://makecode.com/writing-docs/tutorials
-// @explicitHints true cues the tutorial not to add hints
-// automatically, but to let you tell it when you want hints
-// ****************************************************-->
-
-<!-- ***************************************************
-//           STEP ONE
-<!-- ***************************************************
-// Step #1 is usually a modal (pop-up) that sets the scene
-// The @showdialog tag makes it pop out
-// **************************************************** -->
 
 ## Drone Command - Operation Uplink @showdialog
 A **critical intel package** has slipped into enemy hands, but before delivery, the aerial drone carrying it was taken down, and the data was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to **pilot** a recon drone across hostile waters, **recover** the scattered data shards, and **upload** them back to the ship. 
@@ -22,8 +7,6 @@ A **critical intel package** has slipped into enemy hands, but before delivery, 
 Once all **15 data shards are collected**, the game is over, and you can leave the enemy waters.
 
 **The Manta Ray**
-<!-- This is how you add an image in markdown -->
-<!-- The first part is for the screen reader. The second is the URL of the image. The last is the mouse rollover text. -->
 ![The Manta Ray](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/UUVMantaRay.png "The Manta Ray")
 
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
@@ -34,13 +17,6 @@ You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above 
 
 Ready to launch?
 
-<!-- ***************************************************
-//                      STEP TWO
-<!-- ***************************************************
-// This step's title is inside curly braces. That hides it
-// from the viewer, because step titles are pretty huge
-// and obnoxious
-// **************************************************** -->
 ## {2.Set the Scene}
 **🌊 Welcome to the Ocean**
 
@@ -48,51 +24,24 @@ The ship is preparing to arrive and launch the drone into the water to collect t
 
 Let's get the code in there to make that happen!
 
-<!----------------------------------------------------------->
-<!-- This is how you create a clue within the instruction -->
-<!-- vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv -->
 ~hint What's a sprite? 💡
-
 ---
-
 In Arcade, each character or image that does something is called a **SPRITE**.
+
 Sprites have properties that you can use and change — things like scale, position, and lifespan are all properties of sprites.
-Our ocean and drone are actually sprites, too.
+
+Our drone, ship, and data are all sprites, too.
 hint~
-<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
-<!------------------------ End Clue --------------------------->
-<!----------------------------------------------------------->
 
 ---
 
-<!-- This next part of the instruction uses a couple of different
-// formats to guide students. 
-// https://makecode.com/writing-docs/snippets#namespace-coloring
-//
-// The -:tree: text adds an icon to the side of the instruction that 
-// corresponds to the category for the step (this one adds the tree icon)
-//
-// Next, the ``||scene:Scene||`` text creates a highlighted "button" that
-// opens the category it points to when clicked (it's the Scene category here.)
-//
-// Want the formatted text to link to a different category than the color
-// sends it to by default, use a different category in parentheses
-// ``||variables(sprites):set [mySprite]||`` makes a red block that
-// goes to the blue Sprites category.
-//
-// ``||loops(noclick):on start||`` makes the text green but doesn't
-// open any category
-//
-// The ```block segment lets you insert a block directly
-// into the instructions.
-// https://makecode.com/writing-docs/snippets#blocks
-// --------------------------------------------------------------->
-First, we need a background for our project.
-- :tree: Go to the ``||scene: Scene||`` category **in the toolbox** and grab:
+First, we need an ocean for our mission.
+
+- :flask: Go to the ``||custom: Custom||`` category **in the toolbox** and grab:
 
 ```blocks
 //@highlight
-scene.setBackgroundImage(img``)
+custom.buildOcean()
 ```
 
 then snap it inside the empty <br/>
@@ -100,59 +49,16 @@ then snap it inside the empty <br/>
 block already in the workspace.
 
 ~hint Click here to see how 🕵🏽
-
 ---
-
 - :lightbulb: The panel with the colorful category names is called the
  **toolbox**. <br/>
- Click ``||scene: Scene||`` to find the block you need.
-
-![Look under Scene for the block you need](/static/skillmap/mole/add-bg-block.gif "Drag out the background block to fill later.")
-
+ Click ``||custom: Custom||`` (the green flask) to find the block you need.
 hint~
 
-<!-- This section will add blocks to the answer key.
-// https://makecode.com/writing-docs/tutorials/basics#using-blocks
-// tutorialhint tells the tutorial that we're adding a hint now. 
-// Include all of the blocks that students will see within
-// the code segment that they're working on. 
-//  
-// Use //@highlight to highlight the instruction from this step 
-// https://makecode.com/writing-docs/snippets#highlight -->
-
-<!-- ***************************************************
-//                      STEP THREE
-<!-- ***************************************************
-// Keep adding instructions and hints to guide students
-// toward the steps they need to take. Tutorials work best
-// when you "complete a thought" before moving on to the next thing.
-// Add a sprite, position it, get it moving, follow with the camera,
-// THEN you can move on to the maze mechanics.
-// **************************************************** -->
 ## {Step 3}
+- :binoculars: Look at your project in the game window!
 
-- :paint brush: Click the empty **gray square** to open the image editor and choose a background from the **Gallery** or **My Assets**.
-
-```blocks
-//@highlight
-scene.setBackgroundImage(img``)
-```
-
-_💡 If you don't find a background you like, you can make one of your own!_
-
-<!-- ***************************************************
-//                      STEP FIVE
-<!-- ***************************************************
-// Occasionally remind students to look at what they've done
-// so they can make sure things are working. You might be
-// surprised at how often they soldier on without taking
-// time to play with their creations.
-// **************************************************** -->
-## {Step 4}
-
-- :binoculars: Look at your project in the game window to see what your code has done!
-
-_💡You should see a background. Hopefully with an ocean theme!_
+_💡 You should see deep blue water with bubbles and a rocky edge. The whole ocean is **bigger than your screen**; you will explore it soon!_
 
 ## {Step 5}
 **Create Your Drone Sprite**
@@ -198,6 +104,7 @@ hint~
 
 _💡 If you don't like that drone, click the box and change to one of the others you like under **My Assets**, or you can **make one of your own**!_
  
+
 ## Career Spotlight: Navy Robotic Warfare Specialists @showdialog
 ![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg "U.S. Navy Robotic Warfare Specialist's")
 
@@ -298,9 +205,9 @@ Sea drones like Triton are deployed in combat to **gather intelligence**, **cond
 Drones also **protect** crewed vessels in the fleet, such as aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
 
 ## {Step 12}
-**😮 Ack!**
+**🔭 Explore the Ocean**
 
-Your drone glides off-screen if you go too far.
+The ocean is bigger than your screen. Let's make the camera follow your drone so you can explore it.
 
 - :game pad: From the ``||scene: Scene||`` category, drag <br/>
 
@@ -343,18 +250,8 @@ You should now be able to pilot your drone anywhere and keep it in view, as the 
 
 ---
 
-_💡If it looks like the drone isn’t moving, that’s just because the camera is centered on it._
+_💡The drone stays in the middle of the screen while the ocean slides past. Watch the bubbles and rocks move!_
 
-<!-- ***************************************************
-//                      NOTE
-<!-- ***************************************************
-// Students usually max out somewhere between 10-15 steps.
-// If you can wrap-up the tutorial in this amount of time,
-// then it makes sense to use a single tutorial for the game.
-// Otherwise, consider creating a skillmap. Directions for
-// turning tutorials into skillmaps can be found at
-// aka.ms/make-a-skillmap
-// **************************************************** -->
 ## {10. Finale}
 **You've finished the first level!**<br/>
 👏 👏 👏
@@ -363,93 +260,487 @@ _💡If it looks like the drone isn’t moving, that’s just because the camera
 
 When you're ready, click **Done** to return to the skillmap and go to the next level,
 where you'll add your other sprites!
-<!-- **************************** End Tutorial Text Portion *************************//
-// ---------------------------------------------------------------------------------//
-// The following code sets up the images, blocks, and extensions                   //
-// see https://makecode.com/writing-docs/tutorials/control-options#special-blocks //
-// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->
 
-<!-- ***************************************************
-//            BLOCKCONFIG - DEFAULT BLOCKS
-// ****************************************************
-// https://makecode.com/writing-docs/tutorials/basics#limitations
-// This is how you add default settings to blocks
-// in the toolbox
-******************************************************-->
+
 ```blockconfig.global
+custom.buildOcean()
 let myDrone = sprites.create(img`
-    ....................
-    ....................
-    ....................
-    ....................
-    .........cf.........
-    .........ff.........
-    .........ccf........
-    ...fff.ffffffff.....
-    ...cfc4444444f44....
-    ...cfc444444fcf4....
-    ...c.f444444fcf4....
-    ...ccff44444444f....
-    ...fff.ffffffff.....
-    .......fc..ff.fff...
-    ......ff...fc.......
-    ...........ff.......
-    ....................
-    ....................
-    ....................
-    ....................
-    `, SpriteKind.Player)
-myDrone.setPosition(80,80)
+....................
+....................
+....................
+....................
+....................
+........f...........
+........fcf.........
+........fcc.........
+....cf.f4444444f....
+....fc54444ffc44f...
+....fc44444fcff4....
+....cc44444fcfff....
+....cff4544fff4f....
+.......fcf4444......
+.......ff...........
+....................
+....................
+....................
+....................
+....................
+`, SpriteKind.Player)
+myDrone.setPosition(80, 80)
 controller.moveSprite(myDrone)
 scene.cameraFollowSprite(myDrone)
 ```
 
-<!-- ***************************************************
-//            PACKAGE - IMPORT EXTENSIONS
-// ****************************************************
-// https://makecode.com/writing-docs/snippets#package
-// This is how you import extensions into your tutorial
-******************************************************-->
+```ghost
+let __add = 0 + 0
+let __sub = 0 - 0
+let __mul = 1 * 1
+let __div = 1 / 1
+let __min = Math.min(0, 1)
+let __max = Math.max(0, 1)
+let __abs = Math.abs(-1)
+let __rand = randint(0, 10)
+let __w = scene.screenWidth()
+let __h = scene.screenHeight()
+```
 
-<!-- ***************************************************
-//            TEMPLATE - START WITH BLOCKS
-// ****************************************************
-// https://makecode.com/writing-docs/tutorials/control-options#special-blocks
-// This is how you start with code in the workspace
-******************************************************-->
+```customts
+// Operation Uplink: the shared game blocks.
+// This is the ONE source for the code hidden inside every tutorial.
+// After editing, run:  python tools/sync_custom.py
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+    export const HUD = SpriteKind.create()
+}
 
+enum Advice {
+    //% block="Collect"
+    Collect,
+    //% block="Upload"
+    Upload,
+    //% block="Avoid"
+    Avoid
+}
 
-<!-- ***************************************************
-// GHOST - ADD BLOCKS EVEN IF THEY'RE NOT YET IN TUTORIAL
-// ****************************************************
-// https://makecode.com/writing-docs/tutorials/control-options#ghost-blocks
-// This is how you add blocks to the toolbox, even
-// if the tutorial doesn't use them
-// I've preloaded this with all of the code for our game.
-// Note that the blocks won't show up prefilled in the toolbox
-// unless you also add them to a blockconfig section.
-******************************************************-->
+//% weight=100 color=#0fbc11 icon=""
+namespace custom {
+    // Tunables: students change these with "set mission tuning"
+    export let MAX_CARGO = 3
+    export let UPLOAD_AT = 3
+    export let DANGER_RADIUS = 32
 
-<!-- ***************************************************
-//            CUSTOMTS - BEHIND THE SCENES
-// ****************************************************
-// https://makecode.com/writing-docs/tutorials/control-options#custom-code
-// This is how you add code "behind the scenes"
-// This code is hidden from the user so it's a good way
-// to hide confusing steps or add custom functions
-******************************************************-->
+    // World settings
+    const TILE = 16
+    const ARENA_W_TILES = 32
+    const ARENA_H_TILES = 24
+    const SHARD_COUNT = 4
+    const MAX_BUOYS = 5
+    const PULSE_COOLDOWN_MS = 3000
 
-<!-- ***************************************************
-//            ASSETJSON - ADD NON_EXTENSION ASSETS
-// ****************************************************
-// https://makecode.com/writing-docs/tutorials/resources#assetjson
-// This imports items into 'My Assets". This is important for things
-// like music and tilemaps that don't have a gallery.
-// You get this from saving a project containing only assets
-// from the url
-// https://arcade.makecode.com/?saveTemplate=1#editor
-// and pasting the result between the ticks
-******************************************************-->
+    // Game state
+    let cargo = 0
+    let hitCooldown = false
+    let hud: Sprite = null
+    let adviceSet = false
+    let currentAdvice = Advice.Collect
+    let autopilotOn = false
+    let adaptive = false
+    let won = false
+    let pulseReadyAt = 0
+    let startedAt = 0
+    let trips = 0
+    let uploaded = 0
+    let dataLost = 0
+    let pulsesUsed = 0
+    let autoMs = 0
+
+    const BUOY_IMG = img`
+..................
+........ddddd.....
+........ddddd.....
+..........dd......
+..........dd......
+..........bb......
+..........bb......
+.......b..bb.b....
+.......bb.bb.bb...
+.......bbbbbbbb...
+....fc6444b44fc6..
+....fc6444444fc6..
+..ff4b62222224ef..
+..ff4b64444444ef..
+..ff4b64444444ef..
+....fe46b4444ff...
+....fe46bbbbbf....
+........66666.....
+`
+    const PULSE_IMG = img`
+. . 8 8 f f f f f f 8 8 . .
+. 6 8 f f f f f f f f 8 6 .
+6 8 f f c c c c c c f f 8 6
+8 f f c 8 8 8 8 8 8 c f f 8
+8 f f c 8 8 8 8 8 8 c f f 8
+6 8 f f c c c c c c f f 8 6
+. 6 8 f f f f f f f f 8 6 .
+. . 8 8 f f f f f f 8 8 . .
+`
+
+    // ---------- helpers (hidden from students) ----------
+    function arenaW(): number { return ARENA_W_TILES * TILE }
+    function arenaH(): number { return ARENA_H_TILES * TILE }
+    function firstOf(kind: number): Sprite {
+        const l = sprites.allOfKind(kind)
+        return l.length ? l[0] : null
+    }
+    function dist(a: Sprite, b: Sprite): number {
+        return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y))
+    }
+    function isFrozen(s: Sprite): boolean {
+        return !!(s.data && s.data["frozen"])
+    }
+    function nearestTo(kind: number, from: Sprite, skipFrozen: boolean): Sprite {
+        if (!from) return null
+        let best: Sprite = null
+        let bestD = 99999
+        for (const s of sprites.allOfKind(kind)) {
+            if (skipFrozen && isFrozen(s)) continue
+            const d = dist(s, from)
+            if (d < bestD) { best = s; bestD = d }
+        }
+        return best
+    }
+    function placeAtRandom(s: Sprite, awayFrom: Sprite, minDist: number): void {
+        for (let tries = 0; tries < 25; tries++) {
+            s.setPosition(randint(2 * TILE, arenaW() - 2 * TILE), randint(2 * TILE, arenaH() - 2 * TILE))
+            if (!awayFrom || dist(s, awayFrom) >= minDist) return
+        }
+    }
+    function drift(b: Sprite): void {
+        b.setVelocity(randint(-40, 40), randint(-40, 40))
+    }
+    function spawnBuoy(): void {
+        const b = sprites.create(BUOY_IMG, SpriteKind.Enemy)
+        placeAtRandom(b, firstOf(SpriteKind.Player), 90)
+        drift(b)
+        b.setBounceOnWall(true)
+    }
+    function adviceLabel(): string {
+        if (!adviceSet) return "Advisor offline"
+        if (currentAdvice == Advice.Avoid) return "Avoid"
+        if (currentAdvice == Advice.Upload) return "Upload"
+        return "Collect"
+    }
+    function clock(ms: number): string {
+        const secs = Math.floor(ms / 1000)
+        const s = secs % 60
+        return Math.floor(secs / 60) + ":" + (s < 10 ? "0" : "") + s
+    }
+    function missionReport(): string {
+        const total = Math.max(1, game.runtime() - startedAt)
+        let text = "MISSION COMPLETE! Time " + clock(total) + ". Trips: " + trips + ". Data uploaded: " + uploaded + ". Data lost: " + dataLost + ". Pulses used: " + pulsesUsed + ". Autopilot flew " + Math.round(100 * autoMs / total) + "% of the mission."
+        if (adaptive) text += " Your advisor ended with a danger radius of " + DANGER_RADIUS + "."
+        return text
+    }
+
+    // ---------- the ocean ----------
+    //% block="build the ocean arena"
+    export function buildOcean(): void {
+        const w = ARENA_W_TILES
+        const h = ARENA_H_TILES
+        const data = control.createBuffer(4 + w * h)
+        data.setNumber(NumberFormat.UInt16LE, 0, w)
+        data.setNumber(NumberFormat.UInt16LE, 2, h)
+        const walls = image.create(w, h)
+        for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+                let t = 0
+                if (x == 0 || y == 0 || x == w - 1 || y == h - 1) {
+                    t = 2
+                    walls.setPixel(x, y, 1)
+                } else if (randint(0, 9) == 0) {
+                    t = 1
+                }
+                data.setUint8(4 + y * w + x, t)
+            }
+        }
+        const water = image.create(TILE, TILE)
+        const bubbles = image.create(TILE, TILE)
+        bubbles.setPixel(3, 4, 9)
+        bubbles.setPixel(4, 3, 9)
+        bubbles.setPixel(4, 4, 9)
+        bubbles.setPixel(11, 11, 9)
+        bubbles.setPixel(12, 10, 9)
+        bubbles.setPixel(11, 10, 9)
+        const rock = image.create(TILE, TILE)
+        rock.fill(12)
+        rock.drawRect(0, 0, TILE, TILE, 11)
+        rock.setPixel(4, 5, 11)
+        rock.setPixel(10, 3, 11)
+        rock.setPixel(7, 11, 11)
+        rock.setPixel(12, 12, 11)
+        tiles.setCurrentTilemap(tiles.createTilemap(data, walls, [water, bubbles, rock], TileScale.Sixteen))
+        scene.setBackgroundColor(8)
+        startedAt = game.runtime()
+    }
+
+    // ---------- data ----------
+    //% block="place data randomly"
+    export function placeDataRandomly(): void {
+        const shards: Sprite[] = []
+        for (const s of sprites.allOfKind(SpriteKind.Food)) shards.push(s)
+        if (!shards.length) return
+        const model = shards[0]
+        while (shards.length < SHARD_COUNT) {
+            shards.push(sprites.create(model.image.clone(), SpriteKind.Food))
+        }
+        const d = firstOf(SpriteKind.Player)
+        for (const s of shards) placeAtRandom(s, d, 50)
+    }
+
+    //% block="enable data collection (max $capacity)"
+    //% capacity.defl=3 capacity.min=1 capacity.max=20
+    export function enableDataCollection(capacity: number = 3): void {
+        if (capacity && capacity > 0) {
+            MAX_CARGO = capacity | 0
+        }
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (drone, food) {
+            if (cargo >= MAX_CARGO) {
+                drone.sayText("Storage full!", 400)
+                music.thump.play()
+                return
+            }
+            cargo += 1
+            music.baDing.play()
+            placeAtRandom(food, drone, 60)
+        })
+    }
+
+    // ---------- buoys ----------
+    //% block="spawn enemy buoys (count %count)"
+    //% count.defl=1 count.min=1 count.max=5
+    export function spawnEnemyBuoys(count: number): void {
+        count = Math.floor(Math.max(1, Math.min(MAX_BUOYS, count)))
+        for (let i = 0; i < count; i++) spawnBuoy()
+    }
+
+    //% block="enable buoy bump"
+    export function enableBuoyBump(): void {
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (drone, buoy) {
+            if (hitCooldown || isFrozen(buoy)) return
+            hitCooldown = true
+            if (cargo > 0) {
+                dataLost += cargo
+                cargo = 0
+                drone.sayText("Data lost!", 600)
+                music.zapped.play()
+                scene.cameraShake(4, 200)
+                if (adaptive) DANGER_RADIUS = Math.min(80, DANGER_RADIUS + 6)
+            } else {
+                music.thump.play()
+            }
+            const kx = drone.x - buoy.x
+            const ky = drone.y - buoy.y
+            const L = Math.max(1, Math.sqrt(kx * kx + ky * ky))
+            drone.x += (kx / L) * 8
+            drone.y += (ky / L) * 8
+            control.runInParallel(function () {
+                pause(800)
+                hitCooldown = false
+            })
+        })
+    }
+
+    //% block="enable pulse to disable buoy"
+    export function enablePulse(): void {
+        controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+            const drone = firstOf(SpriteKind.Player)
+            if (!drone) return
+            const now = game.runtime()
+            if (now < pulseReadyAt) {
+                drone.sayText("Recharging...", 400)
+                return
+            }
+            pulseReadyAt = now + PULSE_COOLDOWN_MS
+            pulsesUsed += 1
+            let vx = 0
+            let vy = -120
+            const target = nearestTo(SpriteKind.Enemy, drone, false)
+            if (target) {
+                const dx = target.x - drone.x
+                const dy = target.y - drone.y
+                const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+                vx = Math.round(120 * dx / m)
+                vy = Math.round(120 * dy / m)
+            }
+            const pulse = sprites.createProjectileFromSprite(PULSE_IMG, drone, vx, vy)
+            pulse.lifespan = 1000
+            music.pewPew.play()
+            // Active sonar gives away your position: buoys swing toward you for a moment.
+            for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
+                if (isFrozen(b)) continue
+                const dx = drone.x - b.x
+                const dy = drone.y - b.y
+                const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+                b.setVelocity(Math.round(55 * dx / m), Math.round(55 * dy / m))
+            }
+            control.runInParallel(function () {
+                pause(1500)
+                for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
+                    if (!isFrozen(b)) drift(b)
+                }
+            })
+        })
+        sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (p, buoy) {
+            p.destroy(effects.disintegrate, 100)
+            if (isFrozen(buoy)) return
+            if (!buoy.data) buoy.data = {}
+            buoy.data["frozen"] = true
+            buoy.setVelocity(0, 0)
+            buoy.startEffect(effects.halo, 3000)
+            music.zapped.play()
+            control.runInParallel(function () {
+                pause(3000)
+                buoy.data["frozen"] = false
+                drift(buoy)
+            })
+        })
+    }
+
+    // ---------- the ship ----------
+    //% block="enable upload at ship"
+    export function enableUploadAtShip(): void {
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (drone, ship) {
+            if (cargo > 0) {
+                const n = cargo
+                info.changeScoreBy(n)
+                trips += 1
+                uploaded += n
+                cargo = 0
+                music.powerUp.play()
+                if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
+                if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {
+                    spawnBuoy()
+                    ship.sayText("Uploaded " + n + " - new buoy!", 700)
+                } else {
+                    ship.sayText("Uploaded " + n, 600)
+                }
+            } else {
+                ship.sayText("No data", 400)
+                music.thump.play()
+            }
+        })
+    }
+
+    // ---------- the advisor ----------
+    //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
+    export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
+        MAX_CARGO = Math.max(1, max | 0)
+        UPLOAD_AT = Math.max(1, uploadAt | 0)
+        DANGER_RADIUS = Math.max(8, radius | 0)
+    }
+
+    //% block="setup advisor HUD"
+    export function setupAdvisorHUD(): void {
+        if (!hud) {
+            hud = sprites.create(img`.`, SpriteKind.HUD)
+            hud.setFlag(SpriteFlag.RelativeToCamera, true)
+            hud.setPosition(48, 25)
+        }
+        game.onUpdateInterval(350, function () {
+            const suffix = cargo >= MAX_CARGO ? "FULL" : cargo + "/" + MAX_CARGO
+            hud.sayText(adviceLabel() + " | data " + suffix + (autopilotOn ? " | AUTO" : ""), 400)
+        })
+    }
+
+    //% block="set advice to $advice"
+    export function setAdvice(advice: Advice): void {
+        currentAdvice = advice
+        adviceSet = true
+    }
+
+    //% block="distance to nearest buoy"
+    export function distanceToNearestBuoy(): number {
+        const drone = firstOf(SpriteKind.Player)
+        const b = nearestTo(SpriteKind.Enemy, drone, true)
+        return (drone && b) ? Math.round(dist(drone, b)) : 999
+    }
+
+    //% block="data carried"
+    export function dataCarried(): number {
+        return cargo
+    }
+
+    //% block="danger radius"
+    export function dangerRadius(): number {
+        return DANGER_RADIUS
+    }
+
+    //% block="upload at"
+    export function uploadAt(): number {
+        return UPLOAD_AT
+    }
+
+    // ---------- autopilot, learning, and the win ----------
+    //% block="enable autopilot (press B to switch)"
+    export function enableAutopilot(): void {
+        controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+            const drone = firstOf(SpriteKind.Player)
+            if (!drone) return
+            if (!adviceSet) {
+                drone.sayText("Build your advisor first!", 1200)
+                return
+            }
+            autopilotOn = !autopilotOn
+            drone.sayText(autopilotOn ? "Autopilot ON" : "Autopilot OFF", 800)
+        })
+        game.onUpdate(function () {
+            if (!autopilotOn || !adviceSet) return
+            const drone = firstOf(SpriteKind.Player)
+            if (!drone) return
+            const dt = game.eventContext().deltaTime
+            autoMs += Math.round(dt * 1000)
+            let tx = drone.x
+            let ty = drone.y
+            if (currentAdvice == Advice.Avoid) {
+                const b = nearestTo(SpriteKind.Enemy, drone, true)
+                if (b) { tx = drone.x + (drone.x - b.x); ty = drone.y + (drone.y - b.y) }
+            } else if (currentAdvice == Advice.Upload) {
+                const s = firstOf(SpriteKind.Ship)
+                if (s) { tx = s.x; ty = s.y }
+            } else {
+                const f = nearestTo(SpriteKind.Food, drone, false)
+                if (f) { tx = f.x; ty = f.y }
+            }
+            const dx = tx - drone.x
+            const dy = ty - drone.y
+            const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+            const step = Math.min(m, (info.score() >= 5 ? 120 : 100) * dt)
+            drone.x = Math.max(TILE * 1.5, Math.min(arenaW() - TILE * 1.5, drone.x + dx / m * step))
+            drone.y = Math.max(TILE * 1.5, Math.min(arenaH() - TILE * 1.5, drone.y + dy / m * step))
+        })
+    }
+
+    //% block="let the advisor learn from mistakes"
+    export function enableAdaptiveAdvisor(): void {
+        adaptive = true
+    }
+
+    //% block="win when score ≥ $threshold"
+    export function enableWinAtScore(threshold: number): void {
+        game.onUpdate(function () {
+            if (won) return
+            if (info.score() >= threshold) {
+                won = true
+                control.runInParallel(function () {
+                    game.showLongText(missionReport(), DialogLayout.Center)
+                    game.over(true, effects.confetti)
+                })
+            }
+        })
+    }
+}
+```
+
 ```assetjson
 {
   "README.md": " ",

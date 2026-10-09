@@ -51,21 +51,29 @@
 * description: Data collection is key. Collect the data and upload it at the ship!
 * url: https://github.com/sjwines/hourofai/forest/forest4
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile4Gif.gif
-* tags: easy, variables, overlaps
+* tags: easy, variables, overlaps, if/else
 * next: forest5
 * position: 2 1
 
 ### forest5
-* name: AI Advisor Online
+* name: Build Your Advisor
 * type: tutorial
-* description: Code your AI Advisor and then tune it with heuristics to how you want the game to be.
+* description: Write the if/else rules that tell your drone when to Collect, Upload, or Avoid.
 * url: https://github.com/sjwines/hourofai/forest/forest5
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
-* tags: easy, custom
-* next: forest-cert
+* tags: if/else, logic, sensors
+* next: forest6
 * position: 2 2
 
-
+### forest6
+* name: Fly With Your Advisor
+* type: tutorial
+* description: Switch on the autopilot, fly the mission, and read your Mission Report.
+* url: https://github.com/sjwines/hourofai/forest/forest6
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
+* tags: autonomy, tuning, testing
+* next: forest-cert
+* position: 3 2
 
 ### forest-cert
 * name: Congrats!
@@ -73,8 +81,8 @@
 * type: certificate
 * url: /static/skillmap/certificates/forest-cert.pdf
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaworthySTEMChallengeCertificate.png
-* next: forest6
-* position: 3 2
+* next: forest7
+* position: 4 2
 * rewards:
     * certificate:
         * url: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaworthySTEMChallengeCertificate.pdf
@@ -83,11 +91,11 @@
     * editor: [Edit Your Project with a Full Toolbox] (/)
 
 
-### forest6
+### forest7
 * name: Challenge Lab
 * type: tutorial
-* description: Complete mini challenges!
-* url: https://github.com/sjwines/hourofai/forest/forest6
+* description: Pick a Bronze, Silver, or Gold challenge to push your advisor even further!
+* url: https://github.com/sjwines/hourofai/forest/forest7
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
-* tags: custom, animation, sounds
-* position: 4 2
+* tags: custom, strategy, animation, sounds
+* position: 4 1

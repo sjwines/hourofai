@@ -1,228 +1,46 @@
-# Upload Complete
+# Challenge Lab: Polish & Experiment
 ### @explicitHints true
 
 ## Welcome @showdialog
 
-**Ship Upload & Scoring**
-![Drone Uploading Data to the Ship](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneUploading.png "Drone Uploading Data to the Ship")
+![Customize Your Game](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/tile6image.png "Customize Your Game")
+Time to tune, test, and tinker!
 
-You’ve got data shards, now let’s upload them to the ship and update your score.
+## Pick Your Challenge Tier
+Choose a tier and try **a few** challenges. Start with Bronze, and move up when you are ready!
 
-## {2. Start a Score}
+**🥉 Bronze: Tinker**
+- Change the carry limit in ``enable data collection (max 3)``.
+- Change the win goal in ``win when score ≥ 15``.
+- Add more enemies: change the number in ``spawn enemy buoys (count 1)`` (try 3!).
+- Add a countdown for pressure: ``info.startCountdown(45)``.
+- Change your sprites in the image editor.
 
-Initialize your score so that the upload count is accurate.
+**🥈 Silver: Strategize**
+- Beat your best **Mission Report**. Can you lose less data?
+- Race your autopilot: fly the mission yourself, then let the advisor fly. Which is faster?
+- Make the advisor smarter with ``||logic:and||``: only say **Avoid** when a buoy is close **and** you are carrying data.
+- Tune ``set mission tuning`` to get your fastest time.
 
----
+**🥇 Gold: Engineer**
+- Add ``let the advisor learn from mistakes``. After a mission, read the danger radius in your Mission Report. Why does it grow when you lose data?
+- Make your own function (``||functions:make a function||``) called ``checkDanger`` and use it in your advisor.
+- Design a new rule your advisor needs, and test it. Explain to a partner **why** it goes where it does.
 
-- :game pad: From ``||info:Info||``, add:
-
-```blocks
-//@highlight
-info.setScore(0)
-```
-
----
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
-
-## Drone Fact: What “payload” means @showdialog
-![Drone Payload](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/dronePayload.png "Drone Payload")
-
-A drone’s **payload** is the stuff it carries to get the job done—like cameras, sonar tools, or data pods. 
-
-In your game, your drone’s “cargo” is the data it **collects**.
-
-Real ocean drones have to **trade off** between the weight of their payload and the range of their batteries.
-
-## {3. Enable Upload at the Ship}
-**Enable Upload at the Ship**
-
-Turn on the upload rule: touching myShip uploads the data you’re holding, adds to the score, then resets your cargo.
-
----
-
-- :paper plane:  From ``||custom:Custom||``, add:
-
-```blocks
-//@highlight
-custom.enableUploadAtShip()
-```
-
----
-
-**Test it:**
-
-- Collect a few data pieces.
-- Touch the ship.
-- Watch the score increase and the ship say how much got uploaded.
-- Notice: every upload wakes up **one more buoy** (up to 5). The mission gets harder as you succeed!
-
-~hint What if nothing uploads?
-If you arrive with 0 data, the ship will say “No data,” and you’ll hear a thump.
-hint~
-
-## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
-![Navy Cryptologic Technician Technical](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSCTT.jpg "Navy Cryptologic Technician Technical")
-
-**Cryptologic Technician Technical** hunts and defends **data links**. 
-
-If an enemy drone communicates home after a buoy **detects you**, a Cryptologic Technician looks for patterns to **jam, spoof, or geolocate** their communication.
-
-## {Step 4}
-**Drone Speed Boost**
-
-Let’s use an if/else so your drone speeds up once your score reaches 5. 
-
----
-
-- :paper plane: From the ``||game:Game||`` category, drag on game update every 500 ms into the workspace. This block will not connect to the``||loops:on start||`` block.
-
-```blocks
-//@highlight
-game.onUpdateInterval(500, function () {
-})
-```
-
-## {Step 5}
-
-Add the decision (if/else) that will check your score.
-
-- :paper plane: From ``||logic:Logic||`` drag an if/else into that update block.
-
-```blocks
-game.onUpdateInterval(500, function () {
-    //@highlight
-    if (true) {
-        
-    } else {
-        
-    }
-})
-```
-
-~hint What is an if/else? 💡
----
-An **if/else** lets your code make a decision.
-
-You give it a **condition** that is either true or false.
-
-- If it is **true**, the blocks in **if** run.
-- If it is **false**, the blocks in **else** run instead.
-
-In a minute, you will use this same idea to build your AI advisor!
-hint~
-
-## {Step 6}
-We’ll tell the game to speed up when your score reaches 5.
-
-- :paper plane: **Step 1:** From ``||logic:Logic||``, drag the comparison block (looks like 0 < 0) and snap it into the if slot.
-
-```blocks
-game.onUpdateInterval(500, function () {
-    //@highlight
-    if (0 < 0) {
-        
-    } else {
-        
-    }
-})
-```
-
----
-
-- :paper plane: **Step 2:** Click the dropdown and change < to ≥.
-
-```blocks
-game.onUpdateInterval(500, function () {
-    //@highlight
-    if (0 >= 0) {
-        
-    } else {
-        
-    }
-})
-```
-
-## {Step 7}
-
-Now, you will compare your score to a number.
-
-- :paper plane: **Step 1:** From ``||info:Info||``, drag score into the left socket.
-
-```blocks
-game.onUpdateInterval(500, function () {
-    //@highlight
-    if (info.score() >= 0) {
-        
-    } else {
-        
-    }
-})
-```
-
----
-
-You don't want the drone to have the speed boost from the start of the game. 
-
-- :paper plane: **Step 2:** Click the number and type 5 in the right socket.
-
-```blocks
-game.onUpdateInterval(500, function () {
-    //@highlight
-    if (info.score() >= 5) {
-        
-    } else {
-        
-    }
-})
-```
-
-This checks if the score is greater than or equal to 5.
-
----
-
-_💡You can always change when the drone speed boost will happen by adjusting the number to your preference._
-
-## {Step 8}
-
-Add movement speed to both outcomes. 
-
-**If** score is greater than or equal to 5, drone gets a speed boost, **else** drone speed stays the same.
-
-- :game pad: From ``||controller:Controller||`` add move mySprite with vx vy into both branches.
-
-```blocks
-//@highlight
-game.onUpdateInterval(500, function () {
-    if (info.score() >= 5) {
-        controller.moveSprite(myDrone, 120, 120)
-    } else {
-        controller.moveSprite(myDrone, 100, 100)
-    }
-})
-```
-
----
-
-Change the values to the speed you want. The speed in the if section, should be higher than the else section.
-
----
-
-_💡For example, set vx, vy to 120 in the if and 100 in the else._
+_💡If your code stops working, click the **"Replace my code"** button at the bottom of the screen to start over._
 
 ## {Finale}
-👏 Great, you can now keep track of how many data shards you have collected and speed up your drone after reaching a certain score!
+👏 Congratulations on successfully securing the stolen documents!
 
----
-
-When you're finished, click **Done** to head to the next level and find out how to add your AI advisor!
+When you're finished, click **Done** to finish the activity.
 
 
 ```blockconfig.global
-info.setScore(0)
-custom.enableUploadAtShip()
-controller.moveSprite(myDrone, 100, 100)
+custom.setMissionTuning(3, 3, 32)
+custom.enableAutopilot()
+custom.enableWinAtScore(15)
+custom.enableAdaptiveAdvisor()
+custom.setAdvice(Advice.Avoid)
 ```
 
 ```template
@@ -301,6 +119,28 @@ custom.enableDataCollection(3)
 custom.spawnEnemyBuoys(1)
 custom.enableBuoyBump()
 custom.enablePulse()
+info.setScore(0)
+custom.enableUploadAtShip()
+game.onUpdateInterval(500, function () {
+    if (info.score() >= 5) {
+        controller.moveSprite(myDrone, 120, 120)
+    } else {
+        controller.moveSprite(myDrone, 100, 100)
+    }
+})
+custom.setupAdvisorHUD()
+custom.setMissionTuning(3, 3, 32)
+game.onUpdateInterval(350, function () {
+    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
+        custom.setAdvice(Advice.Avoid)
+    } else if (custom.dataCarried() >= custom.uploadAt()) {
+        custom.setAdvice(Advice.Upload)
+    } else {
+        custom.setAdvice(Advice.Collect)
+    }
+})
+custom.enableAutopilot()
+custom.enableWinAtScore(15)
 ```
 
 ```ghost
@@ -314,10 +154,19 @@ let __abs = Math.abs(-1)
 let __rand = randint(0, 10)
 let __w = scene.screenWidth()
 let __h = scene.screenHeight()
-game.onUpdateInterval(500, function () { })
-let __scoreSurface = info.score()
-if (true) { } else { }
+let __d = custom.distanceToNearestBuoy()
+let __c = custom.dataCarried()
+let __r = custom.dangerRadius()
+let __u = custom.uploadAt()
+game.onUpdateInterval(350, function () { })
+if (__d < __r) { } else if (__c >= __u) { } else { }
 let __geSurface = 1 >= 0
+let __ltSurface = 0 < 1
+let __scoreSurface = info.score()
+let __boolAnd = (true && false)
+let __boolOr = (true || false)
+info.startCountdown(45)
+function __checkDanger(): boolean { return true }
 ```
 
 ```customts
