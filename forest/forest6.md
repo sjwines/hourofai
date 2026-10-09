@@ -72,7 +72,21 @@ Read your Mission Report. It shows:
 - how much of the mission the autopilot flew
 
 ## {7. Tune and Compare}
-- :flask: Change the three numbers in ``set mission tuning`` and fly again.
+Your advisor uses three settings. Changing them changes how it behaves!
+
+- :flask: From ``||custom:Custom||``, drag ``set mission tuning`` into ``||loops:on start||``.
+
+```blocks
+//@highlight
+custom.setMissionTuning(3, 3, 32)
+```
+
+**The 3 numbers are:**
+- **Max Cargo:** how many data pods you can hold
+- **Upload At:** how much data you carry before the advisor says Upload
+- **Danger Radius:** how close a buoy must be before the advice changes to Avoid
+
+- :binoculars: Change the numbers and fly again.
 
 **Can you beat your first Mission Report?** Try to lose less data, or finish faster.
 
@@ -89,7 +103,7 @@ hint~
 
 ---
 
-Click **Done** to get your certificate. After that, try the **Challenge Lab** to push your advisor even further.
+Click **Done** to open the **Challenge Lab** and push your advisor even further.
 
 ```blockconfig.global
 custom.setMissionTuning(3, 3, 32)
@@ -188,7 +202,6 @@ game.onUpdateInterval(500, function () {
     }
 })
 custom.setupAdvisorHUD()
-custom.setMissionTuning(3, 3, 32)
 game.onUpdateInterval(350, function () {
     if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
         custom.setAdvice(Advice.Avoid)

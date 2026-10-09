@@ -134,7 +134,6 @@ game.onUpdateInterval(500, function () {
     }
 })
 custom.setupAdvisorHUD()
-custom.setMissionTuning(3, 3, 32)
 game.onUpdateInterval(350, function () {
     if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
         custom.setAdvice(Advice.Avoid)
@@ -144,6 +143,7 @@ game.onUpdateInterval(350, function () {
         custom.setAdvice(Advice.Collect)
     }
 })
+custom.setMissionTuning(3, 3, 32)
 custom.enableAutopilot()
 custom.enableWinAtScore(15)
 ```

@@ -33,28 +33,9 @@ container already in the workspace.
 
 - :binoculars: Run your game. The HUD says **"Advisor offline"** because you have not built the advisor yet. Let's fix that!
 
-## {3. Make the Advisor Loop}
-Your advisor needs to think over and over while the game runs.
+## {3. Sense Danger}
+Look in your workspace: there is already a loop that runs every **350 milliseconds**, with an ``||logic:if else||`` that has nothing inside yet. You made one just like it for the speed boost. This is where your advisor will think!
 
-- :clock: From ``||game:Game||``, drag ``||game:on game update every 500 ms||`` into the workspace. Change **500** to **350**.
-- :random: From ``||logic:Logic||``, drag an ``||logic:if else||`` block inside it.
-
-```blocks
-game.onUpdateInterval(350, function () {
-    //@highlight
-    if (true) {
-    } else {
-    }
-})
-```
-
-~hint Show me how 🕵🏽
-
----
-You did this in the last level with the speed boost! The new loop does **not** snap into ``||loops:on start||``. Leave it by itself in the workspace.
-hint~
-
-## {4. Sense Danger}
 Your first rule: *if a buoy is too close, then avoid it.*
 
 - :random: From ``||logic:Logic||``, drag a comparison block (it looks like ``0 < 0``) into the **if** slot.
@@ -79,7 +60,7 @@ game.onUpdateInterval(350, function () {
 The test is true when a buoy is closer than the danger radius.
 hint~
 
-## {5. Give Advice}
+## {4. Give Advice}
 - :flask: From ``||custom:Custom||``, drag ``set advice to`` into the **if** part and choose **Avoid**.
 
 ```blocks
@@ -92,7 +73,7 @@ game.onUpdateInterval(350, function () {
 })
 ```
 
-## {6. Try It}
+## {5. Try It}
 - :binoculars: Run your game and fly toward the buoy. The HUD should say **Avoid** when you get close!
 
 ~hint It says "Advisor offline" or never changes ⚠️
@@ -107,7 +88,7 @@ Check these common mistakes:
 Still stuck? Click **Replace my code** at the bottom of the screen to start this step over.
 hint~
 
-## {7. Add a Second Rule}
+## {6. Add a Second Rule}
 One rule is not enough. Your next rule: *else if you are carrying enough data, then upload it.*
 
 - :random: Click the **➕** on the ``||logic:if else||`` block to add an **else if**.
@@ -134,7 +115,7 @@ The ➕ is on the **if else** block, at the bottom left. Click it once and an **
 The comparison block is the same one you used for danger. Change **<** to **≥** with the little dropdown.
 hint~
 
-## {8. Everything Else}
+## {7. Everything Else}
 If there is no danger, and you are not ready to upload, there is only one thing left to do: collect more data!
 
 - :flask: In the last **else**, drag ``set advice to`` and choose **Collect**.
@@ -152,7 +133,7 @@ game.onUpdateInterval(350, function () {
 })
 ```
 
-## {9. Test Your Advisor}
+## {8. Test Your Advisor}
 - :binoculars: Play your game. Watch the HUD:
   - It says **Collect** when the way is clear.
   - It says **Upload** when your cargo is full.
@@ -173,33 +154,15 @@ A **computer scientist** specializes in the development of computer language, al
 
 The if/else rules you just wrote are the same kind of logic that sits inside real autonomous systems.
 
-## {10. Tune It}
-Your advisor uses three settings. Changing them changes how your advisor behaves!
-
-- :flask: From ``||custom:Custom||``, drag ``set mission tuning`` into ``||loops:on start||``.
-
-```blocks
-//@highlight
-custom.setMissionTuning(3, 3, 32)
-```
-
-**The 3 numbers are:**
-- **Max Cargo:** how many data pods you can hold
-- **Upload At:** how much data you carry before the advisor says Upload
-- **Danger Radius:** how close a buoy must be before the advice changes to Avoid
-
-- :binoculars: Try different numbers. What happens if the danger radius is **64**? What if it is **10**?
-
 ## {Finale}
 👏 Your advisor is live, and it is **your** code making the decisions!
 
 ---
 
-When you're finished, click **Done** to see what happens when your advisor flies the drone **all by itself**.
+Click **Done** to get your certificate. After that, you can let your advisor fly the drone **all by itself** in the next level.
 
 ```blockconfig.global
 custom.setupAdvisorHUD()
-custom.setMissionTuning(3, 3, 32)
 custom.setAdvice(Advice.Avoid)
 ```
 
@@ -291,6 +254,11 @@ game.onUpdateInterval(500, function () {
         controller.moveSprite(myDrone, 120, 120)
     } else {
         controller.moveSprite(myDrone, 100, 100)
+    }
+})
+game.onUpdateInterval(350, function () {
+    if (true) {
+    } else {
     }
 })
 ```

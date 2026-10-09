@@ -62,7 +62,7 @@
 * url: https://github.com/sjwines/hourofai/forest/forest5
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
 * tags: if/else, logic, sensors
-* next: forest6
+* next: forest-cert
 * position: 2 2
 
 ### forest6
@@ -72,8 +72,8 @@
 * url: https://github.com/sjwines/hourofai/forest/forest6
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
 * tags: autonomy, tuning, testing
-* next: forest-cert
-* position: 3 2
+* next: forest7
+* position: 4 2
 
 ### forest-cert
 * name: Congrats!
@@ -81,8 +81,8 @@
 * type: certificate
 * url: /static/skillmap/certificates/forest-cert.pdf
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaworthySTEMChallengeCertificate.png
-* next: forest7
-* position: 4 2
+* next: forest6
+* position: 3 2
 * rewards:
     * certificate:
         * url: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaworthySTEMChallengeCertificate.pdf

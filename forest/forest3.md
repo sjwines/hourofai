@@ -272,8 +272,7 @@ container already in the workspace.  <br/>
 What happens to the enemy buoy?
 
 ---
-- :binoculars: Now press it twice in a row. Your pulse needs about **3 seconds to recharge**.
-- :binoculars: Watch the *other* buoys right after you fire. What do they do?
+- :binoculars: Press it twice in a row (your pulse needs about **3 seconds to recharge**) and watch the *other* buoys right after you fire. What do they do?
 
 ## Drone Fact: Active vs. Passive Sonar @showdialog
 ![Active vs. Passive Sonar](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/avspSonar.png "Active vs. Passive Sonar")
