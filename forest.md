@@ -14,6 +14,16 @@
 * name: Drone Command - Operation Uplink
 * layout: manual
 
+### forest0
+* allowcodecarryover: false
+* name: Mission Preview: See the Finished Game
+* type: tutorial
+* description: Optional. Fly the finished game and watch the autopilot before you build it. Great for teachers to model.
+* url: https://github.com/sjwines/hourofai/forest/forest0
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
+* tags: preview, demo, optional
+* position: 0 2
+
 ### forest1
 * allowcodecarryover: false
 * name: Prepare Your Drone

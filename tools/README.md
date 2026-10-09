@@ -1,10 +1,10 @@
 # Operation Uplink: how the shared game code works
 
-Every tutorial (`forest/forest1.md` to `forest7.md`) hides the same game blocks inside its
-```` ```customts ```` section. To avoid editing that code seven times:
+Every tutorial (`forest/forest0.md` to `forest7.md`) hides the same game blocks inside its
+```` ```customts ```` section. To avoid editing that code eight times:
 
 1. **Edit `src/custom.ts`.** This is the only copy you change.
-2. Run `python tools/sync_custom.py`. It copies the file into all seven tutorials.
+2. Run `python tools/sync_custom.py`. It copies the file into all eight tutorials.
 3. `python tools/sync_custom.py --check` tells you if any tutorial is out of date (it exits with an error if so).
 4. Commit and push as usual. Students need nothing extra: the code stays inside the tutorials.
 
