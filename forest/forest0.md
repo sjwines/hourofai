@@ -1,12 +1,13 @@
-# Mission Preview
+# The Finished Game
 ### @explicitHints true
 
-## Mission Preview: The Finished Game @showdialog
-**See the goal before you build it**
+## The Finished Game @showdialog
+**Play the complete game, any time**
 
-This is the **finished Operation Uplink game**. Everything you will build in Levels 1 to 6 is already working here.
+This is the **finished Operation Uplink game**, with the AI advisor and the autopilot already built in.
 
-Fly it, watch the autopilot, and get a feel for the mission. Then start **Level 1** and build it yourself!
+- **Before you start:** fly it and watch the autopilot to see what you are building.
+- **After you finish:** come back to play it again and try the **Bronze, Silver, and Gold challenges**.
 
 _Teachers: this is a good level to model on a projector before students begin._
 
@@ -48,18 +49,49 @@ When you win, the game shows a **Mission Report** with your time, trips, data up
 
 ---
 - Pilot by hand for one trip, then switch to autopilot and ask students to predict what it will do next.
-- Point to the HUD: each moment the advisor shows **Collect**, **Upload**, or **Avoid**. These are the three outputs students will code in Level 5.
+- Point to the HUD: each moment the advisor shows **Collect**, **Upload**, or **Avoid**. These are the three outputs students code in Level 5.
 - Ask: "What information does the advisor need to decide?" (distance to a buoy, how much data you carry)
 - Ask: "Is this really AI?" Discuss rules versus learning from data.
-- Finish by reading the Mission Report together. In Level 6, students try to beat it.
+- Finish by reading the Mission Report together. Students try to beat it in Level 6.
 hint~
 
+## {4. Pick Your Challenge}
+Choose a tier and try **a few** challenges. Start with Bronze, and move up when you are ready!
+
+**🥉 Bronze: Play**
+- Beat your best **Mission Report**. Can you finish faster or lose less data?
+- Fly the whole mission **by hand**, then again on **autopilot**. Which is faster?
+- Finish the mission without using a single sonar pulse.
+
+**🥈 Silver: Tinker** (change the blocks)
+- Change the carry limit in ``enable data collection (max 3)``.
+- Change the win goal in ``win when score ≥ 15``.
+- Add more enemies: change the number in ``spawn enemy buoys (count 1)`` (try 3!).
+- Add a countdown for pressure: ``info.startCountdown(45)``.
+- Give it a new look: pick a different drone, ship, data pod, or pulse from **My Assets**, or **draw your own** in the image editor.
+
+**🥇 Gold: Engineer**
+- Tune ``set mission tuning`` to get your fastest time.
+- Add ``let the advisor learn from mistakes``. After a mission, read the danger radius in your Mission Report. Why does it grow when you lose data?
+- Make the advisor smarter with ``||logic:and||``: only say **Avoid** when a buoy is close **and** you are carrying data.
+- Design a new rule your advisor needs, and test it. Explain to a partner **why** it goes where it does.
+
+_💡If your code stops working, click the **"Replace my code"** button at the bottom of the screen to start over._
+
 ## {Finale}
-👏 That is the game you are about to build!
+👏 Thanks for playing!
 
 ---
 
-Click **Done**, then start **Level 1: Prepare Your Drone**.
+Click **Done** to go back to the skillmap. You can come back to this level any time to play again.
+
+```blockconfig.global
+custom.setMissionTuning(3, 3, 32)
+custom.enableAutopilot()
+custom.enableWinAtScore(15)
+custom.enableAdaptiveAdvisor()
+custom.setAdvice(Advice.Avoid)
+```
 
 ```template
 namespace SpriteKind {
@@ -179,6 +211,9 @@ if (__d < __r) { } else if (__c >= __u) { } else { }
 let __geSurface = 1 >= 0
 let __ltSurface = 0 < 1
 let __scoreSurface = info.score()
+let __boolAnd = (true && false)
+let __boolOr = (true || false)
+info.startCountdown(45)
 ```
 
 ```customts

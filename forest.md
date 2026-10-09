@@ -16,13 +16,13 @@
 
 ### forest0
 * allowcodecarryover: false
-* name: Mission Preview: See the Finished Game
+* name: The Finished Game: Play and Challenge
 * type: tutorial
-* description: Optional. Fly the finished game and watch the autopilot before you build it. Great for teachers to model.
+* description: Optional, any time. Play the complete game with the AI advisor and autopilot, then try the Bronze, Silver, and Gold challenges. Great for teachers to model.
 * url: https://github.com/sjwines/hourofai/forest/forest0
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile0Gif.gif
-* tags: preview, demo, optional
-* position: 0 2
+* tags: play, challenges, optional
+* position: 4 0
 
 ### forest1
 * allowcodecarryover: false
