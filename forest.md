@@ -20,7 +20,7 @@
 * type: tutorial
 * description: Optional. Fly the finished game and watch the autopilot before you build it. Great for teachers to model.
 * url: https://github.com/sjwines/hourofai/forest/forest0
-* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile0Gif.gif
 * tags: preview, demo, optional
 * position: 0 2
 
@@ -70,7 +70,7 @@
 * type: tutorial
 * description: Write the if/else rules that tell your drone when to Collect, Upload, or Avoid.
 * url: https://github.com/sjwines/hourofai/forest/forest5
-* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile5Gif.gif
 * tags: if/else, logic, sensors
 * next: forest-cert
 * position: 2 2
@@ -80,7 +80,7 @@
 * type: tutorial
 * description: Switch on the autopilot, fly the mission, and read your Mission Report.
 * url: https://github.com/sjwines/hourofai/forest/forest6
-* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile6Gif.gif
 * tags: autonomy, tuning, testing
 * next: forest7
 * position: 4 2
@@ -106,6 +106,6 @@
 * type: tutorial
 * description: Pick a Bronze, Silver, or Gold challenge to push your advisor even further!
 * url: https://github.com/sjwines/hourofai/forest/forest7
-* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FullGame.gif
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile7Gif.gif
 * tags: custom, strategy, animation, sounds
 * position: 4 1
