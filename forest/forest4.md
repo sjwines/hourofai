@@ -58,7 +58,7 @@ Maritime drones can be teleoperated or semi-autonomous, utilizing simple rules (
 ## {Step 4}
 **Drone Speed Boost**
 
-Let’s use an if/else so your drone speeds up once your score reaches 10. 
+Let’s use an if/else so your drone speeds up once your score reaches 5. 
 
 ---
 

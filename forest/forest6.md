@@ -14,10 +14,10 @@ Time to tune, test, and tinker!
 
 **Pick as many as you would like:**
 - Add or edit sprites
-- Add more enemies by calling custom.spawnEnemyBuoy() more times.
+- Add more enemies by changing the number in custom.spawnEnemyBuoys(1) (try 3!)
 - Change the carry limit
 - Change the win goal
-- Add a timer to add pressure to collect the data shards with info.startCountDown(45)
+- Add a timer to add pressure to collect the data shards with info.startCountdown(45)
 - Make the drone faster or slower with the controller.moveSprite(myDrone, 110, 110)
 - Or any other idea you have! Have fun, and the possibilities are endless!
 
@@ -38,7 +38,6 @@ custom.enableBuoyBump()
 custom.enablePulse()
 custom.enableUploadAtShip()
 custom.setMissionTuning(3, 3, 32)
-custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
 controller.moveSprite(myDrone, 100, 100)
@@ -127,13 +126,11 @@ custom.enableBuoyBump()
 custom.enablePulse()
 info.setScore(0)
 custom.enableUploadAtShip()
-let hud = sprites.create(img``, SpriteKind.Player)
 custom.setMissionTuning(3, 3, 32)
-custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
 game.onUpdateInterval(500, function () {
-    if (info.score() >= 10) {
+    if (info.score() >= 5) {
         controller.moveSprite(myDrone, 120, 120)
     } else {
         controller.moveSprite(myDrone, 100, 100)
@@ -190,7 +187,7 @@ function __surfaceAll(): void {
     info.setLife(3)
     info.changeLifeBy(-1)
     info.startCountdown(45)
-    if (info.score() >= 10) { }
+    if (info.score() >= 5) { }
 
     // SCENE (camera, effects, background)
     scene.cameraFollowSprite(myDrone)

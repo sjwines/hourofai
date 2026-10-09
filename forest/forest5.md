@@ -9,32 +9,7 @@ Recall what a **heuristic** is (a simple, fast rule of thumb to make a decision)
 
 You will now practice with your **heuristic** here.
 
-A **Heads Up Display (HUD)**is a tiny on-screen assistant that **suggests** what to do next: **Collect / Upload / Avoid**, and shows how full your data storage is.
-
-## {Step 2}
-**Create your AI Advisor HUD**
-
-For a moment, the game will not load. Add a final sprite to fix the game:
-
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab another <br/>
-
-```blocks
-//@highlight
-let hud = sprites.create(img``, SpriteKind.Player)
-```
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
-
----
-
-This sprite is different as it needs to be **labeled** as **HUD** instead of a **Player**.
-
-- :paper plane: **Step 2:** Click **Player** and change it to **HUD**.
-
----
-
-You **do not** need to give this sprite an image.
+A **Heads Up Display (HUD)** is a tiny on-screen assistant that **suggests** what to do next: **Collect / Upload / Avoid**, and shows how full your data storage is.
 
 ## {2. Turn On the Advisor}
 - :paper plane: From ``||custom:Custom||``, drag:
@@ -122,10 +97,8 @@ custom.enablePulse()
 custom.enableUploadAtShip()
 controller.moveSprite(myDrone, 100, 100)
 custom.setMissionTuning(3, 3, 32)
-custom.setHUDSprite(hud)
 custom.setupAdvisorHUD()
 custom.enableWinAtScore(15)
-let hud = sprites.create(img``, SpriteKind.Player)
 ```
 
 ```template
@@ -212,7 +185,7 @@ custom.enablePulse()
 info.setScore(0)
 custom.enableUploadAtShip()
 game.onUpdateInterval(500, function () {
-    if (info.score() >= 10) {
+    if (info.score() >= 5) {
         controller.moveSprite(myDrone, 120, 120)
     } else {
         controller.moveSprite(myDrone, 100, 100)
