@@ -279,6 +279,8 @@ What happens when the enemy buoy touches the drone? What if you have collected s
 
 On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
+_Photo: Sonar Technician (Surface) 1st Class Jessica Bonilla aboard USS Cowpens (CG 63), June 30, 2011. U.S. Navy photo by Mass Communication Specialist 1st Class N. Ross Taylor, public domain ([source](https://commons.wikimedia.org/wiki/File:US_Navy_110630-N-KB052-665_Sonar_Technician_%28Surface%29_1st_Class_Jessica_Bonilla,_from_Inglewood,_Calif.,_stands_the_surface_warfare_coordinator_wat.jpg)). Cropped._
+
 ## Enable a Disabling Sonar Pulse
 
 Your drone comes equipped with technology that can jam the enemy buoy's sonar communication. 
