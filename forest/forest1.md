@@ -118,9 +118,11 @@ hint~
  
 
 ## Career Spotlight: Navy Robotic Warfare Specialists @showdialog
-![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavyProfession1.jpg "U.S. Navy Robotic Warfare Specialist's")
+![U.S. Navy Robotic Warfare Specialist's](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/RoboticsWarfareSpecialist.jpg "U.S. Navy Robotic Warfare Specialist's")
 
 **Robotic warfare specialists** serve the U.S. Navy and are responsible for the **operation, maintenance**, and **tactical employment** of **robotic and autonomous systems** to achieve a hybrid manned-unmanned fleet.
+
+_Image: "Establishing the Robotics Warfare Specialist," U.S. Navy graphic by Mass Communication Specialist 1st Class Jeanette Mullinax, Chief of Naval Personnel, Feb. 22, 2024. Public domain ([source](https://www.dvidshub.net/image/8251849/establishing-robotics-warfare-specialist-social-media-graphic-1-3))._
 
 ## {Step 7}
 **Move your Drone's Starting Location**

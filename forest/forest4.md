@@ -131,6 +131,8 @@ hint~
 
 If an enemy drone communicates home after a buoy **detects you**, a Cryptologic Technician looks for patterns to **jam, spoof, or geolocate** their communication.
 
+_Photo: a Cryptologic Technician (Technical) on watch in the combat information center of USS Milius. Source: [Navy.com, Cryptologic Technician (Technical)](https://www.navy.com/careers-benefits/careers/intelligence-information-cryptology/cryptologic-technician-technical)._
+
 ## {Step 6}
 **Drone Speed Boost**
 

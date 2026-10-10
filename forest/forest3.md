@@ -212,6 +212,8 @@ What happens after the drone collects 3 data shards? What do you expect to happe
 
 Currents, waves, and temperature layers **change** how drones **move** and how sonar **travels**. **Navy oceanographers** forecast these conditions so operators pick **smarter routes**, just like you’re designing rules about when and where to collect and upload data.
 
+_Photo: Navy oceanographers check an underwater drone for data. Source: [Navy.com, Meteorology & Oceanography Officer](https://www.navy.com/careers-benefits/careers/science-engineering/meteorology-oceanography)._
+
 ## {Step 3}
 **Avoid the Sonar Buoy**
 

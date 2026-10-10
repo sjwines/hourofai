@@ -172,6 +172,8 @@ In real-world operations, RWS teams utilize a **support ship** as both the **lau
 
 Your ship sprite fills that role: it’s the safe place your drone **returns to**, **offloads “payload/data,” and resets** for the next task. 
 
+_Photo (cropped): "Establishing the Robotics Warfare Specialist," U.S. Navy graphic by Mass Communication Specialist 1st Class Jeanette Mullinax, Chief of Naval Personnel, Feb. 22, 2024. Public domain ([source](https://www.dvidshub.net/image/8251849/establishing-robotics-warfare-specialist-social-media-graphic-1-3))._
+
 ## {Step 6}
 - :binoculars: Look at your project in the game window!
 Your drone should move in the direction you press the arrow keys.
