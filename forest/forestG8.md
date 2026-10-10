@@ -1,8 +1,8 @@
-# Key K1
+# Demo G0
 ### @explicitHints true
 
 ## {Step 1}
-Answer key.
+Gif recording demo.
 
 ## {Step 2}
 Watch.
@@ -11,6 +11,9 @@ Watch.
 Done.
 
 ```template
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
 custom.buildOcean()
 let myDrone = sprites.create(img`
 ...........f22f...............
@@ -35,6 +38,85 @@ fdf.......ffeeeeeeeeffff......
 myDrone.setPosition(80, 80)
 controller.moveSprite(myDrone)
 scene.cameraFollowSprite(myDrone)
+let myShip = sprites.create(img`
+..............................fdfdf.........
+.............................fdddddf........
+.................fffffffff....ffdff.........
+................fdddddddddf....fdf..........
+..............fffbbcccccbbfff.ffdff.........
+.........fffffdddddddddddddddfbbdbbf........
+........fd222fdddddddddddddddfbbbbbf........
+........fd111fbb99b99b99b99bbfcccccf........
+........fd222fbb99b99b99b99bbfcccccfffff....
+........fdffffcccccccccccccccfccccccddddf...
+..fffffffdffffcccccccccccccccfcccccccffff...
+.fdddddddddddddddddddddddddddddddddddddddff.
+.fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf
+.fbbdddddddddddddddddddddddddddddddddddbbbbf
+.fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbf.
+.fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbf..
+.fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf...
+.f2222222222222222222222222222222222222f....
+.f222222222222222222222222222222222222f.....
+.feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef......
+..fffffffffffffffffffffffffffffffffff.......
+.1...................................1..11..
+.......................................999..
+............................................
+`, SpriteKind.Ship)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
+let myData = sprites.create(img`
+.......ff.......
+....fff99fff.5..
+...f99999999555.
+..f99661166995..
+.f996669966699f.
+.f966119999669f.
+.f966991199669f.
+f99199111199199f
+f99199111199199f
+.f966991199669f.
+.f966999999669f.
+.f996669966699f.
+..f9966116699f..
+...f99999999f...
+....fff99fff....
+.......ff.......
+`, SpriteKind.Food)
+custom.placeDataRandomly()
+custom.enableDataCollection(3)
+custom.spawnEnemyBuoys(2)
+custom.enableBuoyBump()
+custom.enablePulse()
+info.setScore(0)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (sprite, otherSprite) {
+    info.changeScoreBy(custom.dataCarried())
+    custom.completeUpload()
+})
+game.onUpdateInterval(500, function () {
+    if (info.score() >= 5) {
+        controller.moveSprite(myDrone, 120, 120)
+    } else {
+        controller.moveSprite(myDrone, 100, 100)
+    }
+})
+custom.setupAdvisorHUD()
+game.onUpdateInterval(350, function () {
+    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
+        custom.setAdvice(Advice.Avoid)
+    } else if (custom.dataCarried() >= custom.uploadAt()) {
+        custom.setAdvice(Advice.Upload)
+    } else {
+        custom.setAdvice(Advice.Collect)
+    }
+})
+custom.setMissionTuning(3, 3, 32)
+custom.enableAutopilot()
+custom.enableWinAtScore(15)
+custom.demoDrive(9)
 ```
 
 ```ghost

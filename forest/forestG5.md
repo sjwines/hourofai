@@ -983,11 +983,60 @@ cccccccccccccccc
         let t0 = game.runtime()
         let pressed = false
         let lastPulse = -9999
+        let setup = false
+        let stage = 0
+        let stageT = 0
         game.onUpdate(function () {
             const d = firstOf(SpriteKind.Player)
             if (!d || won) return
             const dt = game.eventContext().deltaTime
             const now = game.runtime() - t0
+            if (mode == 9) {
+                // Showcase: a player pulses a buoy, collects 3 data pods, uploads them, then switches the autopilot on.
+                if (!setup) {
+                    setup = true
+                    d.setPosition(256, 192)
+                    const sh = findShip()
+                    if (sh) sh.setPosition(166, 222)
+                    const foods = sprites.allOfKind(SpriteKind.Food)
+                    const fx = [55, 110, 40, -50]
+                    const fy = [50, 10, -70, -65]
+                    for (let i = 0; i < foods.length && i < 4; i++) foods[i].setPosition(256 + fx[i], 192 + fy[i])
+                    const bs = sprites.allOfKind(SpriteKind.Enemy)
+                    if (bs.length) bs[0].setPosition(256 + 70, 192 - 40)
+                    if (bs.length > 1) bs[1].setPosition(256 - 20, 192 + 95)
+                    return
+                }
+                if (now < 900 || stage >= 5) return
+                const bn = nearestTo(SpriteKind.Enemy, d, false)
+                const bdist = bn ? dist(bn, d) : 999
+                const shp = findShip()
+                if (stage == 0) {
+                    if (bdist < 80) { firePulse(); stage = 1; stageT = now }
+                    else if (bn) demoStep(d, bn.x, bn.y, 100, dt)
+                } else if (stage == 1) {
+                    if (now - stageT > 700) stage = 2
+                } else if (stage == 2) {
+                    if (cargo >= MAX_CARGO) { stage = 3; return }
+                    const f2 = nearestTo(SpriteKind.Food, d, false)
+                    let tx = f2 ? f2.x : d.x
+                    let ty = f2 ? f2.y : d.y
+                    const nb = nearestTo(SpriteKind.Enemy, d, true)
+                    if (nb && dist(nb, d) < 45) { tx = d.x + (d.x - nb.x); ty = d.y + (d.y - nb.y) }
+                    demoStep(d, tx, ty, 100, dt)
+                } else if (stage == 3) {
+                    if (trips >= 1) { stage = 4; stageT = now; return }
+                    if (shp) demoStep(d, shp.x, shp.y, 100, dt)
+                } else if (stage == 4) {
+                    if (now - stageT > 500) {
+                        autopilotOn = true
+                        autoDx = 0
+                        d.sayText("Autopilot ON", 800)
+                        stage = 5
+                    }
+                }
+                return
+            }
             if (now < 900) return
             const ship = findShip()
             if (mode == 1) {
