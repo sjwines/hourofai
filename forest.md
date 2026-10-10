@@ -10,6 +10,20 @@
 * completednodecolor: #FFD700
 * alternatesources: github: https://github.com/sjwines/hourofai/forest.md
 
+## The Finished Game
+* name: The Finished Game
+* layout: manual
+
+### forest0
+* allowcodecarryover: false
+* name: The Finished Game: Play and Challenge
+* type: tutorial
+* description: Optional, any time. Play the complete game with the AI advisor and autopilot, then try the Bronze, Silver, and Gold challenges. Great for teachers to model.
+* url: https://github.com/sjwines/hourofai/forest/forest0
+* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile0Gif.gif
+* tags: play, challenges, optional
+* position: 4 0
+
 ## Drone Command - Operation Uplink
 * name: Drone Command - Operation Uplink
 * layout: manual
@@ -99,13 +113,3 @@
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile7Gif.gif
 * tags: custom, strategy, animation, sounds
 * position: 4 1
-
-### forest0
-* allowcodecarryover: false
-* name: The Finished Game: Play and Challenge
-* type: tutorial
-* description: Optional, any time. Play the complete game with the AI advisor and autopilot, then try the Bronze, Silver, and Gold challenges. Great for teachers to model.
-* url: https://github.com/sjwines/hourofai/forest/forest0
-* imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile0Gif.gif
-* tags: play, challenges, optional
-* position: 4 0
