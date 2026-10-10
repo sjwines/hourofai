@@ -37,7 +37,7 @@ container already in the workspace.
 Your advisor needs a loop that checks the situation again and again. You will make a new one that runs every **350 milliseconds**.
 
 - :game: From ``||game:Game||``, drag a **new** ``||game:on game update every 500 ms||`` block onto an empty part of the workspace (**not** inside ``||loops:on start||``).
-- :pencil2: Change **500** to **350**.
+- :paper plane: Change **500** to **350**.
 
 ```blocks
 //@highlight
