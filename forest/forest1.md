@@ -92,11 +92,12 @@ let myDrone = sprites.create(img`
 ```
 
 and snap it into ``||loops:on start||``
-container already in the workspace.  
+container already in the workspace, **under** the ``build the ocean arena`` block.
 
 ~hint Show me how! 🕵🏽
 
-![Add the sprite block.](/static/skillmap/mole/add-sprite.gif "Add a sprite to your game.")
+---
+![How to add the sprite block: click Sprites, then drag the block into on start, under the last block.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L1_add_sprite.gif "Click Sprites, then drag the set sprite block into on start, under the last block.")
 
 hint~
 
@@ -200,7 +201,7 @@ Your sprite should move around the ocean as you move the joypad.
 
 _💡 You can also use the arrow keys on your keyboard!_
 
-![Find the game window.](/static/skillmap/forest/game.png "The game window is in the lower corner.")
+![The game window is in the lower corner of the editor. Press the arrow keys here.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L1_game_window.png "The game window is in the lower corner of the editor.")
 
 ## Drone Facts @showdialog
 ![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png "US Navy Triton")

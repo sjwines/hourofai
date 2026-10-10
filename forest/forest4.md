@@ -54,6 +54,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherS
 
 Now it reads: *when a Player sprite (your drone) overlaps a Ship sprite...*
 
+```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
+//@highlight
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (sprite, otherSprite) {
+})
+```
+
 ## {4. Update the Score}
 When the drone touches the ship, your score should go up by the **amount of data the drone is carrying**.
 
@@ -61,7 +70,10 @@ When the drone touches the ship, your score should go up by the **amount of data
 - :flask: From ``||custom:Custom||``, drag ``data carried`` into the ``1`` spot.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (sprite, otherSprite) {
     //@highlight
     info.changeScoreBy(custom.dataCarried())
 })
@@ -81,7 +93,10 @@ After the data is uploaded, the drone's cargo must go back to **0** so it can co
 - :flask: From ``||custom:Custom||``, drag ``complete the upload`` **under** the ``change score`` block.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (sprite, otherSprite) {
     info.changeScoreBy(custom.dataCarried())
     //@highlight
     custom.completeUpload()
@@ -97,7 +112,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherS
 - Collect a few data pods.
 - Touch the ship.
 - Watch the score go up and the ship say how much got uploaded.
-- Notice: every upload wakes up **one more buoy** (up to 5). The mission gets harder as you succeed!
+- Remember the buoy limit from Enemy Waters? Every upload wakes up **one more buoy** (up to 5), so the mission gets harder as you succeed!
 
 ~hint What if nothing uploads?
 
@@ -1070,6 +1085,7 @@ cccccccccccccccc
     // The overlap event fires on every frame while the drone sits on the ship,
     // so an upload can never be missed (even if the cargo fills up while touching it).
     //% block="complete the upload"
+    //% weight=89
     export function completeUpload(): void {
         const ship = findShip()
         if (cargo > 0) {
@@ -1127,6 +1143,7 @@ cccccccccccccccc
     }
 
     //% block="data carried"
+    //% weight=90
     export function dataCarried(): number {
         return cargo
     }

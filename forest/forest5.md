@@ -33,13 +33,48 @@ container already in the workspace.
 
 - :binoculars: Run your game. The HUD says **"Advisor offline"** because you have not built the advisor yet. Let's fix that!
 
-## {3. Sense Danger}
-Look in your workspace: there is already a loop that runs every **350 milliseconds**, with an ``||logic:if else||`` that has nothing inside yet. You made one just like it for the speed boost. This is where your advisor will think!
+## {3. Start the Advisor Loop}
+Your advisor needs a loop that checks the situation again and again. You will make a new one that runs every **350 milliseconds**.
 
+- :repeat: From ``||loops:Loops||``, drag a **new** ``||loops:on game update every 500 ms||`` block onto an empty part of the workspace (**not** inside ``||loops:on start||``).
+- :pencil2: Change **500** to **350**.
+
+```blocks
+//@highlight
+game.onUpdateInterval(350, function () {
+})
+```
+
+_💡 You already have an ``on game update every 500 ms`` block that controls your drone's speed. Leave it alone! The advisor gets its own separate loop._
+
+## {4. Add an If/Else}
+- :random: From ``||logic:Logic||``, drag an ``||logic:if else||`` block **inside** your new 350 loop.
+
+```blocks
+game.onUpdateInterval(350, function () {
+    //@highlight
+    if (true) {
+    } else {
+    }
+})
+```
+
+## {5. Sense Danger}
 Your first rule: *if a buoy is too close, then avoid it.*
 
-- :random: From ``||logic:Logic||``, drag a comparison block (it looks like ``0 < 0``) into the **if** slot.
-- :flask: From ``||custom:Custom||``, drag ``distance to nearest buoy`` into the left side and ``danger radius`` into the right side.
+- :random: From ``||logic:Logic||``, drag the **less than** comparison block into the **if** slot. It looks like this:
+
+```blocks
+//@highlight
+if (0 < 0) {
+}
+```
+
+_💡 If you grabbed the ``0 = 0`` block by mistake, click its ``=`` and choose ``<`` from the list._
+
+---
+
+- :flask: From ``||custom:Custom||``, drag ``distance to nearest buoy`` into the **left** side and ``danger radius`` into the **right** side.
 
 ```blocks
 game.onUpdateInterval(350, function () {
@@ -60,7 +95,7 @@ game.onUpdateInterval(350, function () {
 The test is true when a buoy is closer than the danger radius.
 hint~
 
-## {4. Give Advice}
+## {6. Give Advice}
 - :flask: From ``||custom:Custom||``, drag ``set advice to`` into the **if** part and choose **Avoid**.
 
 ```blocks
@@ -73,7 +108,7 @@ game.onUpdateInterval(350, function () {
 })
 ```
 
-## {5. Try It}
+## {7. Try It}
 - :binoculars: Run your game and fly toward the buoy. The HUD should say **Avoid** when you get close!
 
 ~hint It says "Advisor offline" or never changes ⚠️
@@ -81,14 +116,14 @@ game.onUpdateInterval(350, function () {
 ---
 Check these common mistakes:
 
-1. Is the new loop block **by itself** (not inside ``||loops:on start||``)?
+1. Is the new 350 loop block **by itself** (not inside ``||loops:on start||``)?
 2. Is ``set advice to`` **inside** the if part?
 3. Did you add ``setup advisor HUD`` to ``||loops:on start||``?
 
 Still stuck? Click **Replace my code** at the bottom of the screen to start this step over.
 hint~
 
-## {6. Add a Second Rule}
+## {8. Add a Second Rule}
 One rule is not enough. Your next rule: *else if you are carrying enough data, then upload it.*
 
 - :random: Click the **➕** on the ``||logic:if else||`` block to add an **else if**.
@@ -115,7 +150,7 @@ The ➕ is on the **if else** block, at the bottom left. Click it once and an **
 The comparison block is the same one you used for danger. Change **<** to **≥** with the little dropdown.
 hint~
 
-## {7. Everything Else}
+## {9. Everything Else}
 If there is no danger, and you are not ready to upload, there is only one thing left to do: collect more data!
 
 - :flask: In the last **else**, drag ``set advice to`` and choose **Collect**.
@@ -133,7 +168,7 @@ game.onUpdateInterval(350, function () {
 })
 ```
 
-## {8. Test Your Advisor}
+## {10. Test Your Advisor}
 - :binoculars: Play your game. Watch the HUD:
   - It says **Collect** when the way is clear.
   - It says **Upload** when your cargo is full.
@@ -161,7 +196,9 @@ The if/else rules you just wrote are the same kind of logic that sits inside rea
 
 ---
 
-Click **Done** to get your certificate. After that, you can let your advisor fly the drone **all by itself** in the next level.
+Click **Done** to get your certificate, but **don't stop here!**
+
+Keep playing to code your AI system: in the next levels you will let your advisor fly the drone **all by itself**, tune its decisions, and then take on the **Challenge Lab**. Your certificate will be waiting for you either way.
 
 ```blockconfig.global
 custom.setupAdvisorHUD()
@@ -259,11 +296,6 @@ game.onUpdateInterval(500, function () {
         controller.moveSprite(myDrone, 120, 120)
     } else {
         controller.moveSprite(myDrone, 100, 100)
-    }
-})
-game.onUpdateInterval(350, function () {
-    if (true) {
-    } else {
     }
 })
 ```
@@ -1008,6 +1040,7 @@ cccccccccccccccc
     }
 
     //% block="setup advisor HUD"
+    //% weight=90
     export function setupAdvisorHUD(): void {
         if (!hud) {
             hud = sprites.create(img`.`, HUD_KIND)
@@ -1021,12 +1054,14 @@ cccccccccccccccc
     }
 
     //% block="set advice to $advice"
+    //% weight=87
     export function setAdvice(advice: Advice): void {
         currentAdvice = advice
         adviceSet = true
     }
 
     //% block="distance to nearest buoy"
+    //% weight=89
     export function distanceToNearestBuoy(): number {
         const drone = firstOf(SpriteKind.Player)
         const b = nearestTo(SpriteKind.Enemy, drone, true)
@@ -1034,16 +1069,19 @@ cccccccccccccccc
     }
 
     //% block="data carried"
+    //% weight=86
     export function dataCarried(): number {
         return cargo
     }
 
     //% block="danger radius"
+    //% weight=88
     export function dangerRadius(): number {
         return DANGER_RADIUS
     }
 
     //% block="upload at"
+    //% weight=85
     export function uploadAt(): number {
         return UPLOAD_AT
     }

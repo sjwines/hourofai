@@ -30,6 +30,17 @@ Watch the HUD. It now says **AUTO**, and your advisor's advice decides where the
 
 _💡 Grab the joystick any time to take control back. Press **B** again to switch the autopilot off._
 
+~hint My drone is stuck ⚠️
+
+---
+Sometimes the autopilot gets stuck. If you changed the number in ``enable data collection (max 3)`` back in Enemy Waters, the autopilot still thinks it should upload at **3** pods:
+
+- If your max is **smaller than 3**, your drone is full but keeps waiting for more data, so it just sits on a data pod.
+- If your max is **bigger than 3**, it turns toward the ship before it is full.
+
+**Steer by hand** (grab the joystick) to get it moving again. You will fix this behavior in step 7 with ``set mission tuning``.
+hint~
+
 ~hint The B button does nothing ⚠️
 
 ---
@@ -42,7 +53,7 @@ hint~
 ## {4. Watch for Mistakes}
 Autopilots are only as good as their rules.
 
-- :binoculars: Watch your autopilot for a while. Does it ever get stuck, or lose data to a buoy?
+- :binoculars: Watch your autopilot for a while. Does it ever get stuck, or lose data to a buoy? _(If it gets stuck, drive it by hand. You will fix that in step 7.)_
 - :speech_bubble: With a partner, decide: **which rule would fix it?** Why would that rule go first?
 
 _💡 Engineers ask this question about real autonomous systems, too._
@@ -82,9 +93,12 @@ custom.setMissionTuning(3, 3, 32)
 ```
 
 **The 3 numbers are:**
+
 - **Max Cargo:** how many data pods you can hold
 - **Upload At:** how much data you carry before the advisor says Upload
 - **Danger Radius:** how close a buoy must be before the advice changes to Avoid
+
+_💡 This block also fixes the stuck drone: make **Max Cargo** and **Upload At** the same number so the autopilot always knows when it is full._
 
 - :binoculars: Change the numbers and fly again.
 
@@ -950,6 +964,7 @@ cccccccccccccccc
 
     // ---------- the advisor ----------
     //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
+    //% weight=88
     export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
         MAX_CARGO = Math.max(1, max | 0)
         UPLOAD_AT = Math.max(1, uploadAt | 0)
@@ -999,6 +1014,7 @@ cccccccccccccccc
 
     // ---------- autopilot, learning, and the win ----------
     //% block="enable autopilot (press B to switch)"
+    //% weight=90
     export function enableAutopilot(): void {
         controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             const drone = firstOf(SpriteKind.Player)
@@ -1045,6 +1061,7 @@ cccccccccccccccc
     }
 
     //% block="win when score ≥ $threshold"
+    //% weight=89
     export function enableWinAtScore(threshold: number): void {
         game.onUpdate(function () {
             if (won) return

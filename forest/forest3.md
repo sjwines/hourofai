@@ -90,6 +90,8 @@ You don’t see the math inside how the controls work; you know that if you move
 Now we’ll use more that are already made for us!
 
 ## Placing the Data Randomly
+- :binoculars: **Run your program 3 times.** Is the data pod in a different place each time? Why isn't the data appearing randomly around the screen?
+
 We need a way so that when the program starts, the data appears in a random location.
 
 Introducing custom blocks! Drag out the custom block:
@@ -109,6 +111,8 @@ container already in the workspace.  <br/>
 
 What do you notice about the data pods? How many are there, and do they move each time you run the program?
 
+_💡 The ocean is much bigger than your screen, so you may need to **drive around** to find the data pods._
+
 What do you wonder about how this custom block works?
 
 ## How a Custom Block Works 
@@ -120,7 +124,9 @@ Hidden inside a custom block are 4 main parts:
 
 ---
 
-The **placeDataRandomly()** block at the start of your program runs and places your data sprite at a **random location** on the map.
+The **placeDataRandomly()** block at the start of your program runs and places your data pods at **random locations** all over the ocean map.
+
+The ocean map is much bigger than your screen: **512 pixels wide and 384 pixels tall**. Your screen only shows a small part of it at a time.
 
 ```blocks
 //@highlight
@@ -152,8 +158,10 @@ let myData = sprites.create(img`
     .......ff.......
 `, SpriteKind.Food)
 //@highlight
-myData.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.screenHeight() - 16))
+myData.setPosition(randint(32, 480), randint(32, 352))
 ```
+
+It picks a random spot anywhere on the **whole map** (not just the screen), and the block makes several copies so there is more than one data pod to find.
 
 ## Data Collection - Checking for Overlap
 If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. 
@@ -228,10 +236,20 @@ container already in the workspace.  <br/>
 
 Change the number from 1 to 3. 
 
-What is the maximum amount of enemy buoys you can have in your game? (Try 10 and see what the block does.)
+What is the maximum number of enemy buoys you can have in your game? Type **10** and count the buoys you actually get.
 
 ~hint What does this spawn enemy buoy do?
-The green block creates an enemy buoy, places it on the map, assigns it a velocity, and enables bounce on wall, allowing it to roam. 
+
+---
+The green block creates an enemy buoy, places it on the map, assigns it a velocity, and enables bounce on wall, allowing it to roam.
+hint~
+
+~hint Why don't I see 10 buoys? 🤔
+
+---
+The game allows **at most 5 buoys** at a time, so any number above 5 gives you 5.
+
+You can start with a smaller number. Later, when you start **uploading data**, each upload wakes up **one more buoy** (up to 5), so the mission gets harder as you succeed!
 hint~
 
 ## {3. Make It Dangerous (Bump/Avoid)}
@@ -351,7 +369,7 @@ f99199111199199f
 ...f99999999f...
 ....fff99fff....
 .......ff.......
-`, SpriteKind.Food)
+`, SpriteKind.Player)
 custom.placeDataRandomly()
 custom.enableDataCollection(3)
 custom.spawnEnemyBuoys(1)
@@ -1011,6 +1029,7 @@ cccccccccccccccc
 
     // ---------- data ----------
     //% block="place data randomly"
+    //% weight=90
     export function placeDataRandomly(): void {
         const shards: Sprite[] = []
         for (const s of sprites.allOfKind(SpriteKind.Food)) shards.push(s)
@@ -1027,6 +1046,7 @@ cccccccccccccccc
     }
 
     //% block="enable data collection (max $capacity)"
+    //% weight=89
     //% capacity.defl=3 capacity.min=1 capacity.max=20
     export function enableDataCollection(capacity: number = 3): void {
         if (capacity && capacity > 0) {
@@ -1046,6 +1066,7 @@ cccccccccccccccc
 
     // ---------- buoys ----------
     //% block="spawn enemy buoys (count %count)"
+    //% weight=88
     //% count.defl=1 count.min=1 count.max=5
     export function spawnEnemyBuoys(count: number): void {
         count = Math.floor(Math.max(1, Math.min(MAX_BUOYS, count)))
@@ -1053,6 +1074,7 @@ cccccccccccccccc
     }
 
     //% block="enable buoy bump"
+    //% weight=87
     export function enableBuoyBump(): void {
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (drone, buoy) {
             if (hitCooldown || isFrozen(buoy)) return
@@ -1080,12 +1102,14 @@ cccccccccccccccc
     }
 
     //% block="set pulse picture to $look"
+    //% weight=85
     //% look.shadow=screen_image_picker
     export function setPulseLook(look: Image): void {
         pulseLook = look
     }
 
     //% block="enable pulse to disable buoy"
+    //% weight=86
     export function enablePulse(): void {
         controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             const drone = firstOf(SpriteKind.Player)

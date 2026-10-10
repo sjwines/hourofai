@@ -34,6 +34,13 @@ _💡If your code stops working, click the **"Replace my code"** button at the b
 
 When you're finished, click **Done** to finish the activity.
 
+### 💾 Keep building!
+
+Your game does not have to end here:
+
+- Go back to the **skillmap** and click **Save to My Projects**. That gives you your own copy with access to **every Microsoft MakeCode Arcade block**, so you can keep coding.
+- Or click the **Share** button to send your game to a friend and let them play it.
+
 
 ```blockconfig.global
 custom.setMissionTuning(3, 3, 32)
@@ -990,6 +997,7 @@ cccccccccccccccc
     }
 
     //% block="let the advisor learn from mistakes"
+    //% weight=90
     export function enableAdaptiveAdvisor(): void {
         adaptive = true
     }

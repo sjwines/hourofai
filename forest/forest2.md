@@ -11,7 +11,7 @@ In this section, you will create your Naval Ship Sprite that your drone will upl
 
 ## {Step 2}
 **Create Your Ship Sprite**
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
+- :paper plane: From the ``||sprites:Sprites||`` category, grab:
 
 ```blocks
 //@highlight
@@ -44,19 +44,14 @@ let myShip = sprites.create(img`
 ```
 
 and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
+container already in the workspace, **under** the ``camera follow sprite`` block.
 
 ~hint Show me how! 🕵🏽
 
-![Add the sprite block.](/static/skillmap/mole/add-sprite.gif "Add a sprite to your game.")
+---
+![How to add the ship sprite block: click Sprites, then drag the block into on start, under the last block.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L2_add_sprite.gif "Click Sprites, then drag the set sprite block into on start, under the last block.")
 
 hint~
-
----
-
-This sprite is different because it needs to be labeled as a **Ship** sprite instead of a **Player**. You only want one player sprite, your drone.
-
-- :paper plane: **Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
 ~hint Choose a different ship 🎨
 
@@ -70,10 +65,21 @@ Click the picture inside the ``||sprites:create sprite||`` block to open the ima
 hint~
 
 ## {Step 3}
-**Update Your Ship Sprite's Location**
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
+**Name the New Kind: Ship**
+
+This sprite is different. It is **not** a Player, because you only want one Player sprite: your drone. You will give the ship its own **kind**.
+
+- :paper plane: Click **Player** in the new block, choose **Add a new kind**, type the name below, and click **Ok**.
+
+### ⚠️ Type it exactly like this: **Ship**
+
+The name **must start with a capital S**: ``Ship``, not ``ship``. The next levels look for a kind named ``Ship``, so a different spelling will break your game.
 
 ```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
+//@highlight
 let myShip = sprites.create(img`
     ..............................fdfdf.........
     .............................fdddddf........
@@ -99,7 +105,50 @@ let myShip = sprites.create(img`
     .1...................................1..11..
     .......................................999..
     ............................................
-`, SpriteKind.Player)
+`, SpriteKind.Ship)
+```
+
+~hint Show me how! 🕵🏽
+
+---
+![How to add a new kind: click Player, choose Add a new kind, type Ship with a capital S, and click Ok.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L2_add_kind_Ship.gif "Click Player, choose Add a new kind, type Ship with a capital S, then click Ok.")
+
+hint~
+
+## {Step 4}
+**Update Your Ship Sprite's Location**
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
+
+```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
+let myShip = sprites.create(img`
+    ..............................fdfdf.........
+    .............................fdddddf........
+    .................fffffffff....ffdff.........
+    ................fdddddddddf....fdf..........
+    ..............fffbbcccccbbfff.ffdff.........
+    .........fffffdddddddddddddddfbbdbbf........
+    ........fd222fdddddddddddddddfbbbbbf........
+    ........fd111fbb99b99b99b99bbfcccccf........
+    ........fd222fbb99b99b99b99bbfcccccfffff....
+    ........fdffffcccccccccccccccfccccccddddf...
+    ..fffffffdffffcccccccccccccccfcccccccffff...
+    .fdddddddddddddddddddddddddddddddddddddddff.
+    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf
+    .fbbdddddddddddddddddddddddddddddddddddbbbbf
+    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbf.
+    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbf..
+    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf...
+    .f2222222222222222222222222222222222222f....
+    .f222222222222222222222222222222222222f.....
+    .feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef......
+    ..fffffffffffffffffffffffffffffffffff.......
+    .1...................................1..11..
+    .......................................999..
+    ............................................
+`, SpriteKind.Ship)
 //@highlight
 myShip.setPosition(20,100)
 ```
@@ -123,7 +172,7 @@ In real-world operations, RWS teams utilize a **support ship** as both the **lau
 
 Your ship sprite fills that role: it’s the safe place your drone **returns to**, **offloads “payload/data,” and resets** for the next task. 
 
-## {Step 5}
+## {Step 6}
 - :binoculars: Look at your project in the game window!
 Your drone should move in the direction you press the arrow keys.
 
@@ -131,14 +180,17 @@ Your drone should move in the direction you press the arrow keys.
 
 _Can you remember which lines of code create each action?_
 
-## {Step 6}
+## {Step 7}
 **Randomize Your Ship's Starting Location**
 
 - :paper plane: From the ``||math:Math||`` category, drag two
 ``||math: pick random 0 to 10||`` blocks.  <br/>
-One into the X socket and one into the Y socket of:
+One into the **X** socket and one into the **Y** socket of:
 
 ```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
 let myShip = sprites.create(img`
     ..............................fdfdf.........
     .............................fdddddf........
@@ -164,28 +216,68 @@ let myShip = sprites.create(img`
     .1...................................1..11..
     .......................................999..
     ............................................
-`, SpriteKind.Player)
+`, SpriteKind.Ship)
 //@highlight
-myShip.setPosition(
-    randint(0,160), randint(0,140)
+myShip.setPosition(randint(0, 10), randint(0, 10))
 ```
 
 ---
 
-- :binoculars: Run the program at least 10 times. 
+- :paper plane: Now change the numbers. The game screen is 160 wide and 120 tall, so click the **10** in the **X** block and change it to **160**. Then click the **10** in the **Y** block and change it to **120**.
+
+```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
+let myShip = sprites.create(img`
+    ..............................fdfdf.........
+    .............................fdddddf........
+    .................fffffffff....ffdff.........
+    ................fdddddddddf....fdf..........
+    ..............fffbbcccccbbfff.ffdff.........
+    .........fffffdddddddddddddddfbbdbbf........
+    ........fd222fdddddddddddddddfbbbbbf........
+    ........fd111fbb99b99b99b99bbfcccccf........
+    ........fd222fbb99b99b99b99bbfcccccfffff....
+    ........fdffffcccccccccccccccfccccccddddf...
+    ..fffffffdffffcccccccccccccccfcccccccffff...
+    .fdddddddddddddddddddddddddddddddddddddddff.
+    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf
+    .fbbdddddddddddddddddddddddddddddddddddbbbbf
+    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbf.
+    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbf..
+    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf...
+    .f2222222222222222222222222222222222222f....
+    .f222222222222222222222222222222222222f.....
+    .feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef......
+    ..fffffffffffffffffffffffffffffffffff.......
+    .1...................................1..11..
+    .......................................999..
+    ............................................
+`, SpriteKind.Ship)
+//@highlight
+myShip.setPosition(randint(0, 160), randint(0, 120))
+```
+
+---
+
+- :binoculars: Run the program at least 10 times.
 
 How many times does the **ship** appear **off** the **game screen**?
 
 _💡Click the **next** button to fix this problem._
 
-## {Step 7}
+## {Step 8}
 **Continue to Randomize**
 
 Right now, when you run the program, sometimes the ship appears off-screen. To fix this, you will use the ``||scene: screen width||`` and ``||scene: screen height||`` blocks.
 
-- :paper plane: From ``||math:Math||`` drag the 0 - 0 block into the right side of the subtraction sign of both the x and y.
+- :paper plane: From ``||math:Math||`` drag a ``0 - 0`` block on top of the **160** in the X block, and another on top of the **120** in the Y block.
 
 ```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
 let myShip = sprites.create(img`
     ..............................fdfdf.........
     .............................fdddddf........
@@ -211,59 +303,20 @@ let myShip = sprites.create(img`
     .1...................................1..11..
     .......................................999..
     ............................................
-`, SpriteKind.Player)
+`, SpriteKind.Ship)
 //@highlight
-myShip.setPosition(
-    randint(0,0-0), randint(0,0-0)
-```
-
-## {Step 8}
-**Continue to Randomize**
-
-- :paper plane: On the left side of the subtraction sign, put ``||scene: screen width||`` for x and ``||scene: screen height||`` for y.
-
-```blocks
-let myShip = sprites.create(img`
-    ..............................fdfdf.........
-    .............................fdddddf........
-    .................fffffffff....ffdff.........
-    ................fdddddddddf....fdf..........
-    ..............fffbbcccccbbfff.ffdff.........
-    .........fffffdddddddddddddddfbbdbbf........
-    ........fd222fdddddddddddddddfbbbbbf........
-    ........fd111fbb99b99b99b99bbfcccccf........
-    ........fd222fbb99b99b99b99bbfcccccfffff....
-    ........fdffffcccccccccccccccfccccccddddf...
-    ..fffffffdffffcccccccccccccccfcccccccffff...
-    .fdddddddddddddddddddddddddddddddddddddddff.
-    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf
-    .fbbdddddddddddddddddddddddddddddddddddbbbbf
-    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbf.
-    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbf..
-    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf...
-    .f2222222222222222222222222222222222222f....
-    .f222222222222222222222222222222222222f.....
-    .feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef......
-    ..fffffffffffffffffffffffffffffffffff.......
-    .1...................................1..11..
-    .......................................999..
-    ............................................
-`, SpriteKind.Player)
-//@highlight
-myShip.setPosition(
-    randint(0,scene.screenWidth()-0),
-    randint(0,scene.screenHeight()-0
-)
+myShip.setPosition(randint(0, 0 - 0), randint(0, 0 - 0))
 ```
 
 ## {Step 9}
 **Continue to Randomize**
 
-- :paper plane: For both **x** and **y**, set the starting number to **16** and the ending number to scene width (or height) minus **16**.
-
-This keeps your sprite safely **inside** the **screen edges** of your game.
+- :paper plane: On the left side of the subtraction sign, put ``||scene: screen width||`` for x and ``||scene: screen height||`` for y.
 
 ```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
 let myShip = sprites.create(img`
     ..............................fdfdf.........
     .............................fdddddf........
@@ -289,25 +342,66 @@ let myShip = sprites.create(img`
     .1...................................1..11..
     .......................................999..
     ............................................
-`, SpriteKind.Player)
+`, SpriteKind.Ship)
 //@highlight
-myShip.setPosition(
-    randint(16, scene.screenWidth() - 16),
-    randint(16, scene.screenHeight() - 16)
-)
+myShip.setPosition(randint(0, scene.screenWidth() - 0), randint(0, scene.screenHeight() - 0))
 ```
+
+## {Step 10}
+**Continue to Randomize**
+
+- :paper plane: For both **x** and **y**, change the first number of **pick random** to **16**, and the number after the minus sign to **16**.
+
+This keeps your sprite safely **inside** the **screen edges** of your game.
+
+```blocks
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
+}
+let myShip = sprites.create(img`
+    ..............................fdfdf.........
+    .............................fdddddf........
+    .................fffffffff....ffdff.........
+    ................fdddddddddf....fdf..........
+    ..............fffbbcccccbbfff.ffdff.........
+    .........fffffdddddddddddddddfbbdbbf........
+    ........fd222fdddddddddddddddfbbbbbf........
+    ........fd111fbb99b99b99b99bbfcccccf........
+    ........fd222fbb99b99b99b99bbfcccccfffff....
+    ........fdffffcccccccccccccccfccccccddddf...
+    ..fffffffdffffcccccccccccccccfcccccccffff...
+    .fdddddddddddddddddddddddddddddddddddddddff.
+    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf
+    .fbbdddddddddddddddddddddddddddddddddddbbbbf
+    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbf.
+    .fbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbf..
+    .fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf...
+    .f2222222222222222222222222222222222222f....
+    .f222222222222222222222222222222222222f.....
+    .feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef......
+    ..fffffffffffffffffffffffffffffffffff.......
+    .1...................................1..11..
+    .......................................999..
+    ............................................
+`, SpriteKind.Ship)
+//@highlight
+myShip.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.screenHeight() - 16))
+```
+
 ~hint Why 16?
+
+---
 💡The number 16 is used so when your ship sprite appears, it will be 16 spaces (pixels) away from the edge of the screen.
 hint~
 
-## {Step 10}
-- :binoculars: Run the program at least 10 times. 
+## {Step 11}
+- :binoculars: Run the program at least 10 times.
 
 How many times does the **ship** appear **off** the **game screen**?
 
----
-
 ~hint How many times does it?
+
+---
 💡 The answer is 0. The ship now stays in between the screen when the program starts!
 hint~
 
