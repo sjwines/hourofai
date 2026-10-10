@@ -65,16 +65,19 @@ Your first rule: *if a buoy is too close, then avoid it.*
 - :random: From ``||logic:Logic||``, drag the **less than** comparison block into the **if** slot. It looks like this:
 
 ```blocks
-//@highlight
-if (0 < 0) {
-}
+game.onUpdateInterval(350, function () {
+    //@highlight
+    if (0 < 0) {
+    } else {
+    }
+})
 ```
 
 _💡 If you grabbed the ``0 = 0`` block by mistake, click its ``=`` and choose ``<`` from the list._
 
 ---
 
-- :flask: From ``||custom:Custom||``, drag ``distance to nearest buoy`` into the **left** side and ``danger radius`` into the **right** side.
+- :flask: From ``||custom:Custom||``, drag ``||custom:distance to nearest buoy||`` into the **left** side and ``||custom:danger radius||`` into the **right** side.
 
 ```blocks
 game.onUpdateInterval(350, function () {
@@ -96,7 +99,7 @@ The test is true when a buoy is closer than the danger radius.
 hint~
 
 ## {6. Give Advice}
-- :flask: From ``||custom:Custom||``, drag ``set advice to`` into the **if** part and choose **Avoid**.
+- :flask: From ``||custom:Custom||``, drag ``||custom:set advice to||`` into the **if** part and choose **Avoid**.
 
 ```blocks
 game.onUpdateInterval(350, function () {
@@ -117,7 +120,7 @@ game.onUpdateInterval(350, function () {
 Check these common mistakes:
 
 1. Is the new 350 loop block **by itself** (not inside ``||loops:on start||``)?
-2. Is ``set advice to`` **inside** the if part?
+2. Is ``||custom:set advice to||`` **inside** the if part?
 3. Did you add ``setup advisor HUD`` to ``||loops:on start||``?
 
 Still stuck? Click **Replace my code** at the bottom of the screen to start this step over.
@@ -127,8 +130,8 @@ hint~
 One rule is not enough. Your next rule: *else if you are carrying enough data, then upload it.*
 
 - :random: Click the **➕** on the ``||logic:if else||`` block to add an **else if**.
-- :random: Build this test: ``data carried`` **≥** ``upload at``.
-- :flask: Put ``set advice to`` **Upload** inside it.
+- :random: Build this test: ``||custom:data carried||`` **≥** ``||custom:upload at||``.
+- :flask: Put ``||custom:set advice to||`` **Upload** inside it.
 
 ```blocks
 game.onUpdateInterval(350, function () {
@@ -153,7 +156,7 @@ hint~
 ## {9. Everything Else}
 If there is no danger, and you are not ready to upload, there is only one thing left to do: collect more data!
 
-- :flask: In the last **else**, drag ``set advice to`` and choose **Collect**.
+- :flask: In the last **else**, drag ``||custom:set advice to||`` and choose **Collect**.
 
 ```blocks
 game.onUpdateInterval(350, function () {

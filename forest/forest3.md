@@ -214,6 +214,7 @@ Currents, waves, and temperature layers **change** how drones **move** and how s
 
 ## {Step 3}
 **Avoid the Sonar Buoy**
+
 Enemy sonar buoys patrol these waters. They’ll bump your drone and cause you to lose any collected data.
 
 Let’s create the enemy roaming sonar buoy.
