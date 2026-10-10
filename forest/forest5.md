@@ -1154,7 +1154,7 @@ cccccccccccccccc
                     const fy = [50, 10, -70, -65]
                     for (let i = 0; i < foods.length && i < 4; i++) foods[i].setPosition(256 + fx[i], 192 + fy[i])
                     const bs = sprites.allOfKind(SpriteKind.Enemy)
-                    if (bs.length) bs[0].setPosition(256 + 70, 192 - 40)
+                    if (bs.length) bs[0].setPosition(256 + 88, 192 - 36)
                     if (bs.length > 1) bs[1].setPosition(256 - 20, 192 + 95)
                     return
                 }
@@ -1163,10 +1163,10 @@ cccccccccccccccc
                 const bdist = bn ? dist(bn, d) : 999
                 const shp = findShip()
                 if (stage == 0) {
-                    if (bdist < 80) { firePulse(); stage = 1; stageT = now }
-                    else if (bn) demoStep(d, bn.x, bn.y, 100, dt)
+                    if (bdist < 78) { if (now > 2000) { firePulse(); stage = 1; stageT = now } }
+                    else if (bn) demoStep(d, bn.x, bn.y, 60, dt)
                 } else if (stage == 1) {
-                    if (now - stageT > 700) stage = 2
+                    if (now - stageT > 1800) stage = 2
                 } else if (stage == 2) {
                     if (cargo >= MAX_CARGO) { stage = 3; return }
                     const f2 = nearestTo(SpriteKind.Food, d, false)
