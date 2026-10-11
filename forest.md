@@ -93,7 +93,6 @@
 * name: Congrats!
 * kind: completion
 * type: certificate
-* url: /static/skillmap/certificates/forest-cert.pdf
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaworthySTEMChallengeCertificate.png
 * next: forest6
 * position: 3 2
