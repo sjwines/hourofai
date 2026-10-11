@@ -1283,11 +1283,14 @@ cccccccccccccccc
                     let tx = f2 ? f2.x : d.x
                     let ty = f2 ? f2.y : d.y
                     const nb = nearestTo(SpriteKind.Enemy, d, true)
-                    if (nb && dist(nb, d) < 45) { tx = d.x + (d.x - nb.x); ty = d.y + (d.y - nb.y) }
+                    if (nb && dist(nb, d) < 62) { tx = d.x + (d.x - nb.x); ty = d.y + (d.y - nb.y) }
                     demoStep(d, tx, ty, 100, dt)
                 } else if (stage == 3) {
                     if (trips >= 1) { stage = 4; stageT = now; return }
-                    if (shp) demoStep(d, shp.x, shp.y, 100, dt)
+                    if (cargo == 0) { stage = 2; return }
+                    const nb3 = nearestTo(SpriteKind.Enemy, d, true)
+                    if (nb3 && dist(nb3, d) < 62) demoStep(d, d.x + (d.x - nb3.x), d.y + (d.y - nb3.y), 100, dt)
+                    else if (shp) demoStep(d, shp.x, shp.y, 100, dt)
                 } else if (stage == 4) {
                     if (now - stageT > 500) {
                         autopilotOn = true
