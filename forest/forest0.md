@@ -6,7 +6,7 @@
 
 This is the **finished Operation Uplink game**, with the AI advisor and the autopilot already built in.
 
-![The finished game being played: the autopilot collects data pods, then uploads them to the Navy ship.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FinishedGame_Play.gif "The finished game with the autopilot flying the drone.")
+![The finished game: the drone fires a sonar pulse that disables a buoy, collects three data pods, uploads them to the Navy ship, then the autopilot takes over.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/FinishedGame_Showcase.gif "The drone disables a buoy, collects data, uploads it to the ship, then the autopilot flies.")
 
 - **Before you start:** fly it and watch the autopilot to see what you are building.
 - **After you finish:** come back to play it again and try the **Bronze, Silver, and Gold challenges**.
