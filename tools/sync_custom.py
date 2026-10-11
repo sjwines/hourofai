@@ -21,16 +21,16 @@ BLOCK = re.compile(r"```customts\n.*?\n```", re.S)
 # Blocks a level asks the student to drag, in the order they use them. In that level's toolbox
 # they appear at the top of the Custom drawer (MakeCode sorts blocks by //% weight, highest first).
 FEATURED = {
-    0: ["chooseOceanMap"],
+    0: ["chooseOceanMap", "fireSonarPulse", "sonarPulseReady"],
     3: ["placeDataRandomly", "enableDataCollection", "spawnEnemyBuoys", "enableBuoyBump", "enablePulse", "setPulseLook"],
     4: ["dataCarried", "completeUpload"],
     5: ["setupAdvisorHUD", "distanceToNearestBuoy", "dangerRadius", "setAdvice", "dataCarried", "uploadAt"],
     6: ["enableAutopilot", "enableWinAtScore", "setMissionTuning"],
-    7: ["chooseOceanMap", "enableAdaptiveAdvisor"],
+    7: ["chooseOceanMap", "enableAdaptiveAdvisor", "fireSonarPulse", "sonarPulseReady"],
 }
 
 # Blocks that only appear in some levels (they stay in the code, but are hidden from the toolbox elsewhere).
-SHOW_ONLY = {"chooseOceanMap": (0, 7)}
+SHOW_ONLY = {"chooseOceanMap": (0, 7), "fireSonarPulse": (0, 7), "sonarPulseReady": (0, 7)}
 
 
 def with_weights(code: str, level: int) -> str:

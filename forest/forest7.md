@@ -27,7 +27,32 @@ Choose a tier and try **a few** challenges. Start with Bronze, and move up when 
 **🥇 Gold: Engineer**
 - Add ``let the advisor learn from mistakes``. After a mission, read the danger radius in your Mission Report. Why does it grow when you lose data?
 - Make your own function (``||functions:make a function||``) called ``checkDanger`` and use it in your advisor.
+- Teach your advisor to use the sonar pulse: in the **Avoid** rule, check ``||custom:sonar pulse ready||`` and then ``||custom:fire sonar pulse||``. Compare your Mission Reports. Do you lose less data? What does the pulse cost you?
 - Design a new rule your advisor needs, and test it. Explain to a partner **why** it goes where it does.
+
+~hint Show me an example 💡
+
+---
+Put an ``||logic:if||`` inside the **Avoid** rule, so the advisor only fires when the pulse has recharged:
+
+```blocks
+game.onUpdateInterval(350, function () {
+    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
+        custom.setAdvice(Advice.Avoid)
+        //@highlight
+        if (custom.sonarPulseReady()) {
+            custom.fireSonarPulse()
+        }
+    } else if (custom.dataCarried() >= custom.uploadAt()) {
+        custom.setAdvice(Advice.Upload)
+    } else {
+        custom.setAdvice(Advice.Collect)
+    }
+})
+```
+
+A pulse switches off one buoy for 3 seconds, but it also tells the other buoys where you are!
+hint~
 
 _💡If your code stops working, click the **"Replace my code"** button at the bottom of the screen to start over._
 
@@ -1213,47 +1238,50 @@ cccccccccccccccc
         pulseLook = look
     }
 
+    // fires one sonar pulse (used by the A button and by the fire sonar pulse block)
+    function firePulse(): void {
+        const drone = firstOf(SpriteKind.Player)
+        if (!drone) return
+        const now = game.runtime()
+        if (now < pulseReadyAt) {
+            drone.sayText("Recharging...", 400)
+            return
+        }
+        pulseReadyAt = now + PULSE_COOLDOWN_MS
+        pulsesUsed += 1
+        let vx = 0
+        let vy = -120
+        const target = nearestTo(SpriteKind.Enemy, drone, false)
+        if (target) {
+            const dx = target.x - drone.x
+            const dy = target.y - drone.y
+            const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+            vx = Math.round(120 * dx / m)
+            vy = Math.round(120 * dy / m)
+        }
+        const pulse = sprites.createProjectileFromSprite(pulseLook ? pulseLook.clone() : PULSE_FRAMES[0], drone, vx, vy)
+        pulse.lifespan = 1000
+        if (!pulseLook) animation.runImageAnimation(pulse, PULSE_FRAMES, 90, true)
+        music.pewPew.play()
+        // Active sonar gives away your position: buoys swing toward you for a moment.
+        for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
+            if (isFrozen(b)) continue
+            const dx = drone.x - b.x
+            const dy = drone.y - b.y
+            const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+            b.setVelocity(Math.round(55 * dx / m), Math.round(55 * dy / m))
+        }
+        control.runInParallel(function () {
+            pause(1500)
+            for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
+                if (!isFrozen(b)) drift(b)
+            }
+        })
+    }
+
     //% block="enable pulse to disable buoy"
     export function enablePulse(): void {
-        controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-            const drone = firstOf(SpriteKind.Player)
-            if (!drone) return
-            const now = game.runtime()
-            if (now < pulseReadyAt) {
-                drone.sayText("Recharging...", 400)
-                return
-            }
-            pulseReadyAt = now + PULSE_COOLDOWN_MS
-            pulsesUsed += 1
-            let vx = 0
-            let vy = -120
-            const target = nearestTo(SpriteKind.Enemy, drone, false)
-            if (target) {
-                const dx = target.x - drone.x
-                const dy = target.y - drone.y
-                const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-                vx = Math.round(120 * dx / m)
-                vy = Math.round(120 * dy / m)
-            }
-            const pulse = sprites.createProjectileFromSprite(pulseLook ? pulseLook.clone() : PULSE_FRAMES[0], drone, vx, vy)
-            pulse.lifespan = 1000
-            if (!pulseLook) animation.runImageAnimation(pulse, PULSE_FRAMES, 90, true)
-            music.pewPew.play()
-            // Active sonar gives away your position: buoys swing toward you for a moment.
-            for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
-                if (isFrozen(b)) continue
-                const dx = drone.x - b.x
-                const dy = drone.y - b.y
-                const m = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-                b.setVelocity(Math.round(55 * dx / m), Math.round(55 * dy / m))
-            }
-            control.runInParallel(function () {
-                pause(1500)
-                for (const b of sprites.allOfKind(SpriteKind.Enemy)) {
-                    if (!isFrozen(b)) drift(b)
-                }
-            })
-        })
+        controller.A.onEvent(ControllerButtonEvent.Pressed, function () { firePulse() })
         sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (p, buoy) {
             p.destroy(effects.disintegrate, 100)
             if (isFrozen(buoy)) return
@@ -1268,6 +1296,18 @@ cccccccccccccccc
                 drift(buoy)
             })
         })
+    }
+
+    //% block="fire sonar pulse"
+    //% weight=88
+    export function fireSonarPulse(): void {
+        firePulse()
+    }
+
+    //% block="sonar pulse ready"
+    //% weight=87
+    export function sonarPulseReady(): boolean {
+        return game.runtime() >= pulseReadyAt
     }
 
     // ---------- the ship ----------
