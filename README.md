@@ -16,12 +16,9 @@ findings to a ship. Then they build an **AI advisor** from if / else-if / else r
 | `forest/forest0.md` | The Finished Game (optional, always open). |
 | `forest/forest1.md` to `forest5.md` | Levels 1 to 5: build the drone, ship, data, upload rule, and AI advisor. The certificate comes after Level 5. |
 | `forest/forest6.md`, `forest7.md` | Optional Level 6 (autopilot) and Level 7 (Challenge Lab). |
-| `src/custom.ts` | The hidden game code shared by every level. Edit this one file, then run `python tools/sync_custom.py`. See `tools/README.md`. |
 | `assets/` | Pictures, animated clips, and the certificate used by the lessons and the skill map. |
 
-The file names start with `forest` because the project began from a skill map template. Students
-never see them. Please keep them as they are: the skill map link, saved student progress, and the
-level links all depend on these names.
+The file names start with `forest` because the project began from a skill map template.
 
 ## Credits
 
