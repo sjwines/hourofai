@@ -425,6 +425,8 @@ namespace custom {
     const ARENA_W_TILES = 32
     const ARENA_H_TILES = 24
     const SHARD_COUNT = 4
+    // new data pods appear at least this far from the ship, so every trip is a real journey
+    const POD_MIN_SHIP = 120
     const MAX_BUOYS = 5
     const PULSE_COOLDOWN_MS = 3000
 
@@ -464,6 +466,7 @@ namespace custom {
     let faceStarted = false
     let pathDist: number[] = []
     let pathGoal = -1
+    let mapReach: boolean[] = []
     let pathReplanAt = 0
 
     // ---------- art (all drawn with the 16 MakeCode colours) ----------
@@ -892,7 +895,39 @@ cccccccccccccccc
         return true
     }
     function spotFree(x: number, y: number): boolean {
-        return passable(Math.floor(x / TILE), Math.floor(y / TILE))
+        const tx = Math.floor(x / TILE)
+        const ty = Math.floor(y / TILE)
+        if (!passable(tx, ty)) return false
+        // never inside a closed-off pocket the drone cannot reach
+        return !mapReach.length || !!mapReach[ty * ARENA_W_TILES + tx]
+    }
+    // every open tile the drone can reach from the start area (breadth-first search)
+    function computeReach(): void {
+        const w = ARENA_W_TILES
+        const h = ARENA_H_TILES
+        mapReach = []
+        for (let i = 0; i < w * h; i++) mapReach.push(false)
+        const queue = [5 * w + 5]
+        mapReach[5 * w + 5] = true
+        let head = 0
+        while (head < queue.length) {
+            const c = queue[head]
+            head += 1
+            const cx = c % w
+            const cy = Math.floor(c / w)
+            for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                    if (dx == 0 && dy == 0) continue
+                    const nx = cx + dx
+                    const ny = cy + dy
+                    if (nx < 1 || ny < 1 || nx > w - 2 || ny > h - 2) continue
+                    if (mapReach[ny * w + nx] || !passable(nx, ny)) continue
+                    if (dx != 0 && dy != 0 && (!passable(cx + dx, cy) || !passable(cx, cy + dy))) continue
+                    mapReach[ny * w + nx] = true
+                    queue.push(ny * w + nx)
+                }
+            }
+        }
     }
     // could the drone sit here without touching rock?
     function rectFree(x: number, y: number): boolean {
@@ -1029,18 +1064,37 @@ cccccccccccccccc
     }
 
     function placeAtRandom(s: Sprite, awayFrom: Sprite, minDist: number): void {
-        for (let tries = 0; tries < 60; tries++) {
-            s.setPosition(randint(2 * TILE, arenaW() - 2 * TILE), randint(2 * TILE, arenaH() - 2 * TILE))
-            if (spotFree(s.x, s.y) && (!awayFrom || dist(s, awayFrom) >= minDist)) return
+        let fx = -1
+        let fy = -1
+        for (let tries = 0; tries < 80; tries++) {
+            const x = randint(2 * TILE, arenaW() - 2 * TILE)
+            const y = randint(2 * TILE, arenaH() - 2 * TILE)
+            if (!spotFree(x, y)) continue
+            fx = x
+            fy = y
+            s.setPosition(x, y)
+            if (!awayFrom || dist(s, awayFrom) >= minDist) return
         }
+        if (fx >= 0) s.setPosition(fx, fy)
     }
-    // data pods never appear on top of the ship or right next to the drone
+    // data pods stay out of the rock, away from the drone, and at least POD_MIN_SHIP from the ship
     function placePod(s: Sprite, drone: Sprite): void {
         const ship = findShip()
-        for (let tries = 0; tries < 60; tries++) {
-            s.setPosition(randint(2 * TILE, arenaW() - 2 * TILE), randint(2 * TILE, arenaH() - 2 * TILE))
-            if (spotFree(s.x, s.y) && (!drone || dist(s, drone) >= 60) && (!ship || dist(s, ship) >= 48)) return
+        let fx = -1
+        let fy = -1
+        for (let tries = 0; tries < 120; tries++) {
+            const x = randint(2 * TILE, arenaW() - 2 * TILE)
+            const y = randint(2 * TILE, arenaH() - 2 * TILE)
+            if (!spotFree(x, y)) continue
+            if (fx < 0 || (ship && Math.sqrt((x - ship.x) * (x - ship.x) + (y - ship.y) * (y - ship.y)) > Math.sqrt((fx - ship.x) * (fx - ship.x) + (fy - ship.y) * (fy - ship.y)))) {
+                fx = x
+                fy = y
+            }
+            s.setPosition(x, y)
+            if ((!drone || dist(s, drone) >= 60) && (!ship || dist(s, ship) >= POD_MIN_SHIP)) return
         }
+        // no spot met every rule: use the safe spot that was farthest from the ship
+        if (fx >= 0) s.setPosition(fx, fy)
     }
     function drift(b: Sprite): void {
         b.setVelocity(randint(-40, 40), randint(-40, 40))
@@ -1211,6 +1265,7 @@ cccccccccccccccc
             addCurrent(22, 14, 29, 22, 0, -40)
             addCurrent(2, 15, 11, 21, -35, 0)
         }
+        computeReach()
         // sea life on the open tiles that have nothing else on them
         for (let y = 1; y < h - 1; y++) {
             for (let x = 1; x < w - 1; x++) {
