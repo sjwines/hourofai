@@ -921,7 +921,7 @@ cccccccccccccccc
     }
 
     // ---------- the ocean ----------
-    function plankTile(seed: number): Image {
+    function plankTile(seed: number, porthole: boolean): Image {
         const im = image.create(TILE, TILE)
         im.fill(14)
         for (let y = 0; y < TILE; y++) {
@@ -936,6 +936,15 @@ cccccccccccccccc
         im.setPixel((seed * 5 + 11) % TILE, 12, 6)
         im.setPixel((seed * 2 + 5) % TILE, 2, 13)
         im.setPixel((seed * 4 + 1) % TILE, 8, 13)
+        if (porthole) {
+            // a round window in the hull
+            for (let dy = -3; dy <= 3; dy++) {
+                for (let dx = -3; dx <= 3; dx++) {
+                    const d2 = dx * dx + dy * dy
+                    if (d2 <= 9) im.setPixel(8 + dx, 7 + dy, d2 >= 6 ? 13 : 8)
+                }
+            }
+        }
         return im
     }
     // a faint arrow that shows which way a current flows (0 right, 1 left, 2 down, 3 up)
@@ -959,7 +968,7 @@ cccccccccccccccc
                 if (x < 1 || y < 1 || x > ARENA_W_TILES - 2 || y > ARENA_H_TILES - 2) continue
                 if (x <= 11 && y <= 8) continue
                 mapSolid[y * ARENA_W_TILES + x] = true
-                mapTile[y * ARENA_W_TILES + x] = kind == 1 ? 10 + randint(0, 1) : 7 + randint(0, 2)
+                mapTile[y * ARENA_W_TILES + x] = kind == 1 ? ((x * 7 + y * 3) % 4 == 0 ? 11 : 10) : 7 + randint(0, 2)
                 hasInteriorWalls = true
             }
         }
@@ -1075,7 +1084,7 @@ cccccccccccccccc
             }
         }
         const water = image.create(TILE, TILE)
-        tiles.setCurrentTilemap(tiles.createTilemap(data, walls, [water, T_BUBBLES_A, T_BUBBLES_B, T_RIPPLE_A, T_RIPPLE_B, T_KELP, T_CORAL, T_ROCK_A, T_ROCK_B, T_ROCK_C, plankTile(1), plankTile(3), flowTile(0), flowTile(1), flowTile(2), flowTile(3)], TileScale.Sixteen))
+        tiles.setCurrentTilemap(tiles.createTilemap(data, walls, [water, T_BUBBLES_A, T_BUBBLES_B, T_RIPPLE_A, T_RIPPLE_B, T_KELP, T_CORAL, T_ROCK_A, T_ROCK_B, T_ROCK_C, plankTile(1, false), plankTile(3, true), flowTile(0), flowTile(1), flowTile(2), flowTile(3)], TileScale.Sixteen))
         scene.setBackgroundImage(oceanBackdrop())
         if (currentZones.length) startCurrents()
     }
