@@ -21,12 +21,16 @@ BLOCK = re.compile(r"```customts\n.*?\n```", re.S)
 # Blocks a level asks the student to drag, in the order they use them. In that level's toolbox
 # they appear at the top of the Custom drawer (MakeCode sorts blocks by //% weight, highest first).
 FEATURED = {
+    0: ["chooseOceanMap"],
     3: ["placeDataRandomly", "enableDataCollection", "spawnEnemyBuoys", "enableBuoyBump", "enablePulse", "setPulseLook"],
     4: ["dataCarried", "completeUpload"],
     5: ["setupAdvisorHUD", "distanceToNearestBuoy", "dangerRadius", "setAdvice", "dataCarried", "uploadAt"],
     6: ["enableAutopilot", "enableWinAtScore", "setMissionTuning"],
-    7: ["enableAdaptiveAdvisor"],
+    7: ["chooseOceanMap", "enableAdaptiveAdvisor"],
 }
+
+# Blocks that only appear in some levels (they stay in the code, but are hidden from the toolbox elsewhere).
+SHOW_ONLY = {"chooseOceanMap": (0, 7)}
 
 
 def with_weights(code: str, level: int) -> str:
@@ -39,6 +43,15 @@ def with_weights(code: str, level: int) -> str:
             j -= 1
         assert j >= 0 and idx - j < 6, name
         lines.insert(j + 1, "    //% weight=" + str(90 - rank))
+    for name, levels in SHOW_ONLY.items():
+        if level in levels:
+            continue
+        idx = next(i for i, l in enumerate(lines) if l.startswith("    export function " + name + "("))
+        j = idx - 1
+        while j >= 0 and not lines[j].lstrip().startswith("//% block="):
+            j -= 1
+        assert j >= 0 and idx - j < 6, name
+        lines.insert(j + 1, "    //% blockHidden=true")
     return "\n".join(lines)
 
 
