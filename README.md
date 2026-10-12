@@ -20,6 +20,10 @@ findings to a ship. Then they build an **AI advisor** from if / else-if / else r
 
 The file names start with `forest` because the project began from a skill map template.
 
+## A tip for students
+
+Use the ocean maps that come with the game (the `choose ocean map` block). Please don't replace the ocean with your own tile map, because the data pods, buoys, and autopilot are built for these oceans.
+
 ## Credits
 
 - Started from the **forest_test** MakeCode Arcade skill map template by

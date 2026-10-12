@@ -56,6 +56,8 @@ hint~
 
 _💡If your code stops working, click the **"Replace my code"** button at the bottom of the screen to start over._
 
+_💡 Tip: use the ocean maps that come with the game (the ``||custom:choose ocean map||`` block). Please don't replace the ocean with your own tile map, because the data pods, buoys, and autopilot are built for these oceans._
+
 ## {Finale}
 👏 Congratulations on successfully securing the stolen documents!
 
