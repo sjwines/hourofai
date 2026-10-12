@@ -65,11 +65,14 @@ Your drone can patrol **different oceans**. Find the ``||custom:choose ocean map
 custom.chooseOceanMap(OceanMap.Caves)
 ```
 
-- :flask: Click the **dropdown** on the block, pick a new ocean, and run your game:
-  - **open water:** wide open, the ocean you know.
-  - **shipwreck graveyard:** old wrecks and rock piles block the way. Fly around them!
-  - **caves:** a tunnel and a rock wall. Watch how the autopilot finds a way around.
-  - **currents:** rivers of moving water push your drone. Look for the light streaks!
+- :flask: Click the **dropdown** on the block, pick a new ocean, and run your game.
+
+**The four oceans:**
+
+- **open water:** wide open, the ocean you know.
+- **shipwreck graveyard:** old wrecks and rock piles block the way. Fly around them!
+- **caves:** a tunnel and a rock wall. Watch how the autopilot finds a way around.
+- **currents:** rivers of moving water push your drone. Look for the light streaks!
 
 - :binoculars: Which ocean is hardest for **you**? Which is hardest for the **autopilot**? Check the **Mission Report**: it names the map.
 
