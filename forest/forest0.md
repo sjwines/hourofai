@@ -74,7 +74,7 @@ custom.chooseOceanMap(OceanMap.Caves)
 - **caves:** a tunnel and a rock wall. Watch how the autopilot finds a way around.
 - **currents:** rivers of moving water push your drone. Look for the light streaks!
 
-- :binoculars: Which ocean is hardest for **you**? Which is hardest for the **autopilot**? Check the **Mission Report**: it names the map.
+- :binoculars: Play a full mission on each ocean (reach 15 points). Which ocean is hardest for you? Which is hardest for the autopilot? Compare your Mission Reports.
 
 ## {5. Pick Your Challenge}
 Choose a tier and try **a few** challenges. Start with Bronze, and move up when you are ready!
