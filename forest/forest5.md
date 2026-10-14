@@ -134,7 +134,6 @@ One rule is not enough. Your next rule: *else if you are carrying enough data, t
 game.onUpdateInterval(350, function () {
     if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
         custom.setAdvice(Advice.Avoid)
-    //@highlight
     } else if (true) {
     } else {
     }
@@ -160,7 +159,6 @@ Now give the **else if** a test: *is the drone carrying enough data to upload?*
 game.onUpdateInterval(350, function () {
     if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
         custom.setAdvice(Advice.Avoid)
-    //@highlight
     } else if (custom.dataCarried() >= custom.uploadAt()) {
     } else {
     }
