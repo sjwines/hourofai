@@ -5,6 +5,8 @@
 **The SPURV**
 ![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png "The SPURV")
 
+_Image: the SPURV (Self-Propelled Underwater Research Vehicle), built at the University of Washington Applied Physics Laboratory for the U.S. Navy._
+
 The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
 
 In this section, you will program your drone to collect the missing data in enemy territory.
@@ -118,7 +120,7 @@ What do you wonder about how this custom block works?
 ## How a Custom Block Works 
 Hidden inside a custom block are 4 main parts:
 - a name (what shows up as the block text),
-- inputs/parameters (what you can change),
+- inputs/parameters (settings you can change; some blocks have them, but not every block does, and ``place data randomly`` has none),
 - body (the steps it runs),
 - and sometimes a result (a return value).
 
@@ -212,7 +214,7 @@ What happens after the drone collects 3 data shards? What do you expect to happe
 
 Currents, waves, and temperature layers **change** how drones **move** and how sonar **travels**. **Navy oceanographers** forecast these conditions so operators pick **smarter routes**, just like you’re designing rules about when and where to collect and upload data.
 
-_Photo: Navy oceanographers check an underwater drone for data. Source: [Navy.com, Meteorology & Oceanography Officer](https://www.navy.com/careers-benefits/careers/science-engineering/meteorology-oceanography)._
+_Photo: Navy oceanographers check an underwater drone for data. Source: Navy.com, Meteorology & Oceanography Officer._
 
 ## {Step 3}
 **Avoid the Sonar Buoy**
@@ -281,7 +283,7 @@ What happens when the enemy buoy touches the drone? What if you have collected s
 
 On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
-_Photo: Sonar Technician (Surface) 1st Class Jessica Bonilla aboard USS Cowpens (CG 63), June 30, 2011. U.S. Navy photo by Mass Communication Specialist 1st Class N. Ross Taylor, public domain ([source](https://commons.wikimedia.org/wiki/File:US_Navy_110630-N-KB052-665_Sonar_Technician_%28Surface%29_1st_Class_Jessica_Bonilla,_from_Inglewood,_Calif.,_stands_the_surface_warfare_coordinator_wat.jpg)). Cropped._
+_Photo: Sonar Technician (Surface) 1st Class Jessica Bonilla aboard USS Cowpens (CG 63), June 30, 2011. U.S. Navy photo by Mass Communication Specialist 1st Class N. Ross Taylor, public domain, via Wikimedia Commons. Cropped._
 
 ## Enable a Disabling Sonar Pulse
 

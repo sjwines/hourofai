@@ -3,8 +3,8 @@
 
 ## Welcome @showdialog
 
-![Customize Your Game](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/tile6image.png "Customize Your Game")
-Time to tune, test, and tinker!
+![Challenge Lab: Bronze, Gold, and Silver medals waiting to be earned](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/ChallengeLab.png "Challenge Lab")
+Time to tune, test, and tinker! Pick your challenges and see how many medals you can earn.
 
 ## Pick Your Challenge Tier
 Choose a tier and try **a few** challenges. Start with Bronze, and move up when you are ready!
@@ -53,8 +53,6 @@ game.onUpdateInterval(350, function () {
 
 A pulse switches off one buoy for 3 seconds, but it also tells the other buoys where you are!
 hint~
-
-_💡If your code stops working, click the **"Replace my code"** button at the bottom of the screen to start over._
 
 _💡 Tip: use the ocean maps that come with the game (the ``||custom:choose ocean map||`` block). Please don't replace the ocean with your own tile map, because the data pods, buoys, and autopilot are built for these oceans._
 

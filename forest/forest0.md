@@ -36,7 +36,7 @@ The HUD changes to **AUTO**. Your drone now follows the advice of an **AI adviso
 - **Upload:** head for the ship
 - **Avoid:** move away from the nearest buoy
 
-_💡 Grab the joystick any time to take control back._
+_💡 To take control back, press **B** (or **X**) to switch the autopilot **off**, then use the joystick._
 
 ## {3. Complete the Mission}
 - :binoculars: Keep going until your score reaches **15**.
@@ -51,6 +51,7 @@ When you win, the game shows a **Mission Report** with your time, trips, data up
 
 ---
 - Pilot by hand for one trip, then switch to autopilot and ask students to predict what it will do next.
+- Remind students to press **B** to turn the autopilot **off** before they grab the joystick. The joystick will not take control while the autopilot is on.
 - Point to the HUD: each moment the advisor shows **Collect**, **Upload**, or **Avoid**. These are the three outputs students code in Level 5.
 - Ask: "What information does the advisor need to decide?" (distance to a buoy, how much data you carry)
 - Ask: "Is this really AI?" Discuss rules versus learning from data.
@@ -121,8 +122,6 @@ game.onUpdateInterval(350, function () {
 
 A pulse switches off one buoy for 3 seconds, but it also tells the other buoys where you are!
 hint~
-
-_💡If your code stops working, click the **"Replace my code"** button at the bottom of the screen to start over._
 
 ## {Finale}
 👏 Thanks for playing!

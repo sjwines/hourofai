@@ -165,14 +165,14 @@ container already in the workspace.  <br/>
 _💡You can change your ship's x and y position to whatever you like. You will update the position in the next level_
 
 ## Career Spotlight: Robotic Warfare Specialist (RWS) — Mission Handoff @showdialog
-![U.S. Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSRWS.png "U.S. Navy Robotic Warfare Specialists")
+![Sailors launching an unmanned vehicle from the back deck of a Navy ship](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNSBurlingtonLaunch.jpg "Sailors launching an unmanned vehicle from the back deck of a Navy ship")
 
-In Part 1, you met the **Robotic Warfare Specialists** who **plans, launches, and supervises** unmanned systems. 
+In Part 1, you met the **Robotic Warfare Specialists** who **plan, launch, and supervise** unmanned systems. 
 In real-world operations, RWS teams utilize a **support ship** as both the **launch/recovery point** and the **data handoff hub**.
 
 Your ship sprite fills that role: it’s the safe place your drone **returns to**, **offloads “payload/data,” and resets** for the next task. 
 
-_Photo (cropped): "Establishing the Robotics Warfare Specialist," U.S. Navy graphic by Mass Communication Specialist 1st Class Jeanette Mullinax, Chief of Naval Personnel, Feb. 22, 2024. Public domain ([source](https://www.dvidshub.net/image/8251849/establishing-robotics-warfare-specialist-social-media-graphic-1-3))._
+_Photo: Sailors and civilian mariners launch a Wave Glider unmanned surface vehicle from the back deck of USNS Burlington (T-EPF 10) in the Caribbean Sea, June 30, 2023. U.S. Navy photo by Mass Communication Specialist 2nd Class Conner Foy. Public domain, via DVIDS._
 
 ## {Step 6}
 - :binoculars: Look at your project in the game window!

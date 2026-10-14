@@ -45,7 +45,7 @@ game.onUpdateInterval(350, function () {
 })
 ```
 
-_💡 You already have an ``on game update every 500 ms`` block that controls your drone's speed. Leave it alone! The advisor gets its own separate loop._
+_💡 You already have an ``on game update every 500 ms`` block that controls your drone's speed. Please leave it as it is. The advisor gets its own separate loop._
 
 ## {4. Add an If/Else}
 - :random: From ``||logic:Logic||``, drag an ``||logic:if else||`` block **inside** your new 350 loop.
@@ -123,15 +123,62 @@ Check these common mistakes:
 2. Is ``||custom:set advice to||`` **inside** the if part?
 3. Did you add ``setup advisor HUD`` to ``||loops:on start||``?
 
-Still stuck? Click **Replace my code** at the bottom of the screen to start this step over.
 hint~
 
 ## {8. Add a Second Rule}
 One rule is not enough. Your next rule: *else if you are carrying enough data, then upload it.*
 
 - :random: Click the **➕** on the ``||logic:if else||`` block to add an **else if**.
-- :random: Build this test: ``||custom:data carried||`` **≥** ``||custom:upload at||``.
-- :flask: Put ``||custom:set advice to||`` **Upload** inside it.
+
+```blocks
+game.onUpdateInterval(350, function () {
+    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
+        custom.setAdvice(Advice.Avoid)
+    //@highlight
+    } else if (true) {
+    } else {
+    }
+})
+```
+
+~hint Show me how 🕵🏽
+
+---
+![How to add an else if: click the plus sign at the bottom of the if else block and an else if appears in the middle.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L5_add_else_if.gif "Click the plus sign on the if else block.")
+
+The ➕ is on the **if else** block, at the bottom left. Click it once and an **else if** appears in the middle.
+hint~
+
+## {9. Sense a Full Cargo}
+Now give the **else if** a test: *is the drone carrying enough data to upload?*
+
+- :random: From ``||logic:Logic||``, drag the **less than** comparison block into the **else if** slot.
+- :random: Click the ``<`` and choose **≥** (greater than or equal to) from the list.
+- :flask: From ``||custom:Custom||``, drag ``||custom:data carried||`` into the **left** side and ``||custom:upload at||`` into the **right** side.
+
+```blocks
+game.onUpdateInterval(350, function () {
+    if (custom.distanceToNearestBuoy() < custom.dangerRadius()) {
+        custom.setAdvice(Advice.Avoid)
+    //@highlight
+    } else if (custom.dataCarried() >= custom.uploadAt()) {
+    } else {
+    }
+})
+```
+
+~hint What do these blocks mean? 💡
+
+---
+**data carried** is how many data pods the drone is holding right now.
+
+**upload at** is a setting: how many pods the drone should hold before it heads for the ship.
+
+The test is true when the drone is carrying **at least** that many pods.
+hint~
+
+## {10. Give Upload Advice}
+- :flask: From ``||custom:Custom||``, drag ``||custom:set advice to||`` into the **else if** part and choose **Upload**.
 
 ```blocks
 game.onUpdateInterval(350, function () {
@@ -145,15 +192,7 @@ game.onUpdateInterval(350, function () {
 })
 ```
 
-~hint Show me how 🕵🏽
-
----
-The ➕ is on the **if else** block, at the bottom left. Click it once and an **else if** appears in the middle.
-
-The comparison block is the same one you used for danger. Change **<** to **≥** with the little dropdown.
-hint~
-
-## {9. Everything Else}
+## {11. Everything Else}
 If there is no danger, and you are not ready to upload, there is only one thing left to do: collect more data!
 
 - :flask: In the last **else**, drag ``||custom:set advice to||`` and choose **Collect**.
@@ -171,7 +210,7 @@ game.onUpdateInterval(350, function () {
 })
 ```
 
-## {10. Test Your Advisor}
+## {12. Test Your Advisor}
 - :binoculars: Play your game. Watch the HUD:
   - It says **Collect** when the way is clear.
   - It says **Upload** when your cargo is full.
@@ -186,13 +225,15 @@ Danger should come first. Why? Think about what happens if a buoy is close **and
 hint~
 
 ## Career Spotlight: Computer Scientist @showdialog
-![Navy computer scientist at work](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CScomputerscientist.jpg "A Navy computer scientist writes code with his team. Photo: U.S. Navy")
+![Navy computer scientist at work](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CScomputerscientist.jpg "A Navy computer scientist writes code with his team")
 
 **Computer scientists write the rules machines follow.**
 
 A **computer scientist** specializes in the development of computer language, algorithms, and programming to solve complex problems.
 
 The if/else rules you just wrote are the same kind of logic that sits inside real autonomous systems.
+
+_Photo: Nathan Helmly, a computer scientist at Naval Surface Warfare Center Dahlgren Division, Aug. 11, 2021. U.S. Navy photo (VIRIN 210811-N-DM031-006). Public domain, via NAVSEA._
 
 ## {Finale}
 👏 Your advisor is live, and it is **your** code making the decisions!

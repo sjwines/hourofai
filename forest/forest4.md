@@ -87,6 +87,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (sprite, otherSpr
 If you carry 3 pods when you touch the ship, the score goes up by 3.
 hint~
 
+**Test it:**
+
+- :binoculars: Collect a few data pods, then touch the ship and watch the score.
+- :question circle: **Why is my score going up so much?** Think about what happens to the data pods after you touch the ship.
+
+_💡 Don't worry, you will fix this in the next step!_
+
 ## {5. Complete the Upload}
 After the data is uploaded, the drone's cargo must go back to **0** so it can collect more.
 
@@ -121,7 +128,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Ship, function (sprite, otherSpr
 - Did you change the second **Player** to **Ship**?
 - If you arrive with 0 data, the ship says "No data" and you hear a thump.
 
-Still stuck? Click **Replace my code** at the bottom of the screen.
 hint~
 
 ## Career Spotlight: Navy Cryptologic Technician Technical @showdialog
@@ -131,7 +137,7 @@ hint~
 
 If an enemy drone communicates home after a buoy **detects you**, a Cryptologic Technician looks for patterns to **jam, spoof, or geolocate** their communication.
 
-_Photo: a Cryptologic Technician (Technical) on watch in the combat information center of USS Milius. Source: [Navy.com, Cryptologic Technician (Technical)](https://www.navy.com/careers-benefits/careers/intelligence-information-cryptology/cryptologic-technician-technical)._
+_Photo: a Cryptologic Technician (Technical) on watch in the combat information center of USS Milius. Source: Navy.com, Cryptologic Technician (Technical)._
 
 ## {Step 6}
 **Drone Speed Boost**

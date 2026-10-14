@@ -4,9 +4,13 @@
 ## Drone Fact: Autonomy levels @showdialog
 **From pilot to passenger**
 
+![The Sea Hunter, an unmanned surface vessel, sailing out of Pearl Harbor with no one steering it](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SeaHunter.jpg "The Sea Hunter, an unmanned surface vessel")
+
 So far, **you** have been the pilot. Now you will let your advisor fly!
 
 Maritime drones can be teleoperated or semi-autonomous, utilizing simple rules (heuristics) such as “collect, then upload, avoid danger.” Next, you’ll start shaping those rules so your drone makes smarter choices on its own.
+
+_Photo: the unmanned surface vessel Sea Hunter departs Pearl Harbor, July 11, 2022. U.S. Navy photo by Mass Communication Specialist 3rd Class Shardenae Tackett. Public domain, via DVIDS._
 
 ## {2. Add the Autopilot}
 - :flask: From ``||custom:Custom||``, drag:
@@ -28,7 +32,7 @@ Watch the HUD. It now says **AUTO**, and your advisor's advice decides where the
 - **Upload:** head for the ship
 - **Avoid:** move away from the nearest buoy
 
-_💡 Grab the joystick any time to take control back. Press **B** again to switch the autopilot off._
+_💡 To take control back, press **B** again to switch the autopilot **off**, then use the joystick._
 
 ~hint My drone is stuck ⚠️
 
@@ -38,7 +42,7 @@ Sometimes the autopilot gets stuck. If you changed the number in ``enable data c
 - If your max is **smaller than 3**, your drone is full but keeps waiting for more data, so it just sits on a data pod.
 - If your max is **bigger than 3**, it turns toward the ship before it is full.
 
-**Steer by hand** (grab the joystick) to get it moving again. You will fix this behavior in step 7 with ``set mission tuning``.
+**Steer by hand** to get it moving again: press **B** to switch the autopilot off, then use the joystick. You will fix this behavior in step 7 with ``set mission tuning``.
 hint~
 
 ~hint The B button does nothing ⚠️
@@ -47,14 +51,13 @@ hint~
 - Did you add ``enable autopilot`` to ``||loops:on start||``?
 - Did you build your advisor in the last level? The autopilot says **"Build your advisor first!"** if the advisor never gave any advice.
 
-Still stuck? Click **Replace my code** at the bottom of the screen.
 hint~
 
 ## {4. Watch for Mistakes}
 Autopilots are only as good as their rules.
 
-- :binoculars: Watch your autopilot for a while. Does it ever get stuck, or lose data to a buoy? _(If it gets stuck, drive it by hand. You will fix that in step 7.)_
-- :speech_bubble: With a partner, decide: **which rule would fix it?** Why would that rule go first?
+- :binoculars: Watch your autopilot for a while. Does it ever get stuck, or lose data to a buoy? _(If it gets stuck, press **B** to switch the autopilot off and drive by hand. You will fix that in step 7.)_
+- :users: With a partner, decide: **which rule would fix it?** Why would that rule go first?
 
 _💡 Engineers ask this question about real autonomous systems, too._
 
