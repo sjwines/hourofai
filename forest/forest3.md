@@ -2,12 +2,12 @@
 ### @explicitHints true
 
 ## Welcome to Enemy Waters @showdialog
-**The SPURV**
-![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png "The SPURV")
+**Unmanned Underwater Vehicles**
+![Yellow unmanned underwater vehicles lined up on the deck of a Navy ship](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/NavalOceanography.jpg "Unmanned underwater vehicles on the deck of a Navy ship")
 
-_Image: the SPURV (Self-Propelled Underwater Research Vehicle), built at the University of Washington Applied Physics Laboratory for the U.S. Navy._
+_Photo: unmanned underwater vehicles on the deck of a Navy ship. U.S. Navy photo 180710-N-IT407-001, from "Naval Oceanography: At the Leading Edge of Unmanned Systems," by Ed Darack, Weatherwise Magazine, March 13, 2023, via U.S. Fleet Forces Command._
 
-The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
+Today, the Navy sends out fleets of unmanned underwater vehicles like these to collect ocean data. The Navy helped build the very first one, called **SPURV**, back in 1957 to gather ocean data.
 
 In this section, you will program your drone to collect the missing data in enemy territory.
 
