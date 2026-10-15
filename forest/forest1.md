@@ -206,13 +206,15 @@ _💡 You can also use the arrow keys on your keyboard!_
 ![The game window is in the lower corner of the editor. Press the arrow keys here.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L1_game_window.png "The game window is in the lower corner of the editor.")
 
 ## Drone Facts @showdialog
-![US Navy Triton](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTriton.png "US Navy Triton")
+![A Triton unmanned vessel on the surface with its dark sail raised](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/USNavyTritonSurface.jpg "A Triton unmanned vessel on the surface")
 
 As the world's first and only autonomous underwater and surface vehicle (AUSV), the **US Navy Triton** can operate in either sailing mode or submarine mode, thanks to its interchangeable sail.
 
 Sea drones like Triton are deployed in combat to **gather intelligence**, **conduct surveillance** and **reconnaissance**, **sweep mines**, and **protect critical underwater infrastructure**.
 
 Drones also **protect** crewed vessels in the fleet, such as aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
+
+_Photo (cropped): a Triton unmanned surface vessel (left) and a Devil Ray T-38 operate in the Red Sea, Aug. 19, 2022. U.S. Navy photo by Lt. Cmdr. Ray Miller IV, NAVCENT Public Affairs. Public domain, via DVIDS._
 
 ## {Step 12}
 **🔭 Explore the Ocean**
@@ -1420,6 +1422,7 @@ cccccccccccccccc
             trips += 1
             uploaded += n
             cargo = 0
+            noDataUntil = game.runtime() + 1000   // keep the 'Uploaded' message from being replaced by 'No data'
             music.powerUp.play()
             if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
             if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {

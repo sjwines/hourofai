@@ -1591,6 +1591,7 @@ cccccccccccccccc
             trips += 1
             uploaded += n
             cargo = 0
+            noDataUntil = game.runtime() + 1000   // keep the 'Uploaded' message from being replaced by 'No data'
             music.powerUp.play()
             if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
             if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {

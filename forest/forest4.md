@@ -4,7 +4,7 @@
 ## Welcome @showdialog
 
 **Ship Upload & Scoring**
-![Drone Uploading Data to the Ship](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/droneUploading.png "Drone Uploading Data to the Ship")
+![The drone picks up its last data shard, flies to the ship, and the ship says Uploaded 3 while the score goes up.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L4_upload.gif "The drone uploads its data to the ship and the score goes up.")
 
 You’ve got data shards, now let’s upload them to the ship and update your score.
 
@@ -27,7 +27,7 @@ and snap it into ``||loops:on start||`` <br/>
 container already in the workspace.  <br/>
 
 ## Drone Fact: What “payload” means @showdialog
-![Drone Payload](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/dronePayload.png "Drone Payload")
+![The drone flies up to a data shard and picks it up. Its cargo goes from 0 to 1.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L4_payload.gif "The drone picks up a data shard.")
 
 A drone’s **payload** is the stuff it carries to get the job done—like cameras, sonar tools, or data pods. 
 
@@ -1506,6 +1506,7 @@ cccccccccccccccc
             trips += 1
             uploaded += n
             cargo = 0
+            noDataUntil = game.runtime() + 1000   // keep the 'Uploaded' message from being replaced by 'No data'
             music.powerUp.play()
             if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
             if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {

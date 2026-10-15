@@ -9,6 +9,8 @@ The USS Delaware marks the first-ever torpedo tube **deployment and recovery** o
 
 In this section, you will create your Naval Ship Sprite that your drone will upload the stolen data to.
 
+_Photo (cropped): Navy divers swim a Yellow Moray (REMUS 600) unmanned underwater vehicle to the USS Delaware (SSN 791) during a UUV exercise at Haakonsvern Naval Base, Norway, May 1, 2025. U.S. Navy photo by Senior Chief Petty Officer Oliver Cole. Public domain, via DVIDS._
+
 ## {Step 2}
 **Create Your Ship Sprite**
 - :paper plane: From the ``||sprites:Sprites||`` category, grab:
@@ -1595,6 +1597,7 @@ cccccccccccccccc
             trips += 1
             uploaded += n
             cargo = 0
+            noDataUntil = game.runtime() + 1000   // keep the 'Uploaded' message from being replaced by 'No data'
             music.powerUp.play()
             if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
             if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {

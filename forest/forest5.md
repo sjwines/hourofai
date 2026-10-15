@@ -4,7 +4,7 @@
 ## AI Advisor Online @showdialog
 **Your drone needs a brain**
 
-![AI HUD](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/DroneHUD.png "AI HUD")
+![The drone flies with the AI advisor: the HUD says Collect, switches to Avoid when a sonar buoy is close, then says Upload once the drone is full.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L5_advisor.gif "The AI advisor in action: Collect, Avoid, Upload.")
 
 Right now your drone can't decide anything on its own. In this level you will build an **AI advisor**: a short list of **if/else rules** that decides what the drone should do next.
 
@@ -1463,6 +1463,7 @@ cccccccccccccccc
             trips += 1
             uploaded += n
             cargo = 0
+            noDataUntil = game.runtime() + 1000   // keep the 'Uploaded' message from being replaced by 'No data'
             music.powerUp.play()
             if (adaptive) DANGER_RADIUS = Math.max(16, DANGER_RADIUS - 2)
             if (sprites.allOfKind(SpriteKind.Enemy).length < MAX_BUOYS) {
