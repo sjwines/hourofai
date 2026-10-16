@@ -9,6 +9,8 @@ Once all **15 data shards are collected**, the game is over, and you can leave t
 **The Manta Ray**
 ![The Manta Ray prototype floating on the ocean surface](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/MantaRaySurface.jpg "The Manta Ray")
 
+_Photo: the Manta Ray prototype uncrewed underwater vehicle on the surface during in-water testing off Southern California, Feb.-Mar. 2024. Photo from Northrop Grumman, released by DARPA (darpa.mil), May 1, 2024._
+
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
 - **Collect data** pods underwater
 - **Surface** at the ship to **upload** and increase your score
@@ -16,8 +18,6 @@ You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above 
 - Use a **coded AI advisor** that will suggest a **"Collect / Upload / Avoid"** using simple rules (heuristic) you can **tune**
 
 Ready to launch?
-
-_Photo: the Manta Ray prototype uncrewed underwater vehicle on the surface during in-water testing off Southern California, Feb.-Mar. 2024. Photo from Northrop Grumman, released by DARPA (darpa.mil), May 1, 2024._
 
 ## {2.Set the Scene}
 **🌊 Welcome to the Ocean**
