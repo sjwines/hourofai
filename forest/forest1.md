@@ -7,7 +7,7 @@ A **critical intel package** has slipped into enemy hands, but before delivery, 
 Once all **15 data shards are collected**, the game is over, and you can leave the enemy waters.
 
 **A Navy Unmanned Underwater Vehicle**
-![A blue Navy Knifefish unmanned underwater vehicle on the back deck of a ship while a Navy test engineer looks on](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/KnifefishDeck.jpg "A Navy Knifefish unmanned underwater vehicle")
+![A blue Navy Knifefish unmanned underwater vehicle on the back deck of a ship while a Navy test engineer looks on](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/KnifefishWide.jpg "A Navy Knifefish unmanned underwater vehicle")
 
 _Photo (cropped): a Knifefish unmanned undersea vehicle is checked during an operational test in Massachusetts Bay, May 16, 2019. U.S. Navy photo by Mass Communication Specialist 1st Class Brian M. Brooks. Public domain, via DVIDS._
 
