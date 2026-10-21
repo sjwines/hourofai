@@ -6,10 +6,10 @@ A **critical intel package** has slipped into enemy hands, but before delivery, 
 
 Once all **15 data shards are collected**, the game is over, and you can leave the enemy waters.
 
-**The Manta Ray**
-![The Manta Ray prototype floating on the ocean surface](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/MantaRaySurface.jpg "The Manta Ray")
+**A Navy Unmanned Underwater Vehicle**
+![A blue Navy Knifefish unmanned underwater vehicle on the back deck of a ship while a Navy test engineer looks on](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/KnifefishUUV.jpg "A Navy Knifefish unmanned underwater vehicle")
 
-_Photo: the Manta Ray prototype uncrewed underwater vehicle on the surface during in-water testing off Southern California, Feb.-Mar. 2024. Photo from Northrop Grumman, released by DARPA (darpa.mil), May 1, 2024._
+_Photo (cropped): a Knifefish unmanned undersea vehicle is checked during an operational test in Massachusetts Bay, May 16, 2019. U.S. Navy photo by Mass Communication Specialist 1st Class Brian M. Brooks. Public domain, via DVIDS._
 
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
 - **Collect data** pods underwater
