@@ -9,7 +9,7 @@ The USS Delaware marks the first-ever torpedo tube **deployment and recovery** o
 
 In this section, you will create your Naval Ship Sprite that your drone will upload the stolen data to.
 
-_Photo (cropped): Navy divers swim a Yellow Moray (REMUS 600) unmanned underwater vehicle to the USS Delaware (SSN 791) during a UUV exercise at Haakonsvern Naval Base, Norway, May 1, 2025. U.S. Navy photo by Senior Chief Petty Officer Oliver Cole. Public domain, via DVIDS._
+_Photo: Navy divers swim a Yellow Moray (REMUS 600) unmanned underwater vehicle to the USS Delaware (SSN 791) during a UUV exercise at Haakonsvern Naval Base, Norway, May 1, 2025. U.S. Navy photo by Senior Chief Petty Officer Oliver Cole. Public domain, via DVIDS._
 
 ## {Step 2}
 **Create Your Ship Sprite**
@@ -119,7 +119,7 @@ hint~
 
 ## {Step 4}
 **Update Your Ship Sprite's Location**
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
+- :paper plane: From the ``||sprites:Sprites||`` category, grab:
 
 ```blocks
 namespace SpriteKind {
@@ -158,10 +158,6 @@ myShip.setPosition(20,100)
 and snap it into ``||loops:on start||`` <br/>
 container already in the workspace.  <br/>
 
---- 
-
-- :paper plane: **Step 2:** Update the position block from **myDrone** to **myShip**.
-
 ---
 
 _💡You can change your ship's x and y position to whatever you like. You will update the position in the next level_
@@ -183,6 +179,10 @@ Your drone should move in the direction you press the arrow keys.
 ---
 
 _Can you remember which lines of code create each action?_
+
+- :binoculars: Now fly your drone over to the ship. **Does anything happen when the drone touches the ship?**
+
+_💡 Not yet! In an upcoming level, you will make things happen when your drone touches the ship._
 
 ## {Step 7}
 **Randomize Your Ship's Starting Location**
@@ -266,6 +266,10 @@ myShip.setPosition(randint(0, 160), randint(0, 120))
 ---
 
 - :binoculars: Run the program at least 10 times.
+
+_💡 To run your program again, click the **restart** button (the circular arrow next to the **Menu** button, below the game window)._
+
+![The restart button is the circular arrow next to the Menu button below the game window.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L2_restart_button.png "The restart button is next to the Menu button.")
 
 How many times does the **ship** appear **off** the **game screen**?
 
@@ -400,6 +404,8 @@ hint~
 
 ## {Step 11}
 - :binoculars: Run the program at least 10 times.
+
+_💡 Remember: click the **restart** button (the circular arrow next to the **Menu** button, below the game window) to run your program again._
 
 How many times does the **ship** appear **off** the **game screen**?
 

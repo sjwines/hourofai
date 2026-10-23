@@ -222,6 +222,35 @@ The **order** of your rules matters. The advisor checks them from top to bottom 
 Danger should come first. Why? Think about what happens if a buoy is close **and** your cargo is full.
 hint~
 
+## {13. Add the Win}
+A full game needs an ending. Let's end the game when your drone has uploaded enough data.
+
+- :flask: From ``||custom:Custom||``, drag:
+
+```blocks
+//@highlight
+custom.enableWinAtScore(15)
+```
+
+and snap it into ``||loops:on start||`` <br/>
+container already in the workspace.
+
+When your score reaches **15**, you win, and the game shows your **Mission Report**.
+
+## {14. Complete the Mission}
+- :binoculars: Play your game until your score reaches **15**!
+
+Read your **Mission Report**. It shows:
+
+- how long the mission took
+- how many trips you made
+- how much data you uploaded and lost
+- how many pulses you used
+
+_💡 It also says how much of the mission the autopilot flew. That is 0% for now, because you will add the autopilot in the next level._
+
+**Can you beat your own Mission Report?** Play again and try to lose less data or finish faster.
+
 ## Career Spotlight: Computer Scientist @showdialog
 ![Navy computer scientist at work](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CScomputerscientist.jpg "A Navy computer scientist writes code with his team")
 
@@ -234,17 +263,23 @@ The if/else rules you just wrote are the same kind of logic that sits inside rea
 _Photo: Nathan Helmly, a computer scientist at Naval Surface Warfare Center Dahlgren Division, Aug. 11, 2021. U.S. Navy photo (VIRIN 210811-N-DM031-006). Public domain, via NAVSEA._
 
 ## {Finale}
-👏 Your advisor is live, and it is **your** code making the decisions!
+👏 Your advisor is live, and it is **your** code making the decisions! You built a complete game, and it ends when you reach 15 points.
 
 ---
 
-Click **Done** to get your certificate, but **don't stop here!**
+Click **Done** to claim your certificate. 🎓
 
-Keep playing to code your AI system: in the next levels you will let your advisor fly the drone **all by itself**, tune its decisions, and then take on the **Challenge Lab**. Your certificate will be waiting for you either way.
+**But you're not finished yet!** There are **2 more levels** on the skill map, and both are optional:
+
+- **Level 6, Fly With Your Advisor:** switch on the **autopilot** and watch your advisor fly the drone all by itself. Watch for the mistakes it makes, then tune its settings to beat your Mission Report.
+- **Level 7, Challenge Lab:** pick a **Bronze, Silver, or Gold** challenge. Tinker with your game, try new ocean maps, and even teach your advisor to fire the sonar pulse.
+
+Your certificate will be waiting for you either way.
 
 ```blockconfig.global
 custom.setupAdvisorHUD()
 custom.setAdvice(Advice.Avoid)
+custom.enableWinAtScore(15)
 ```
 
 ```template
@@ -1585,6 +1620,7 @@ cccccccccccccccc
     }
 
     //% block="win when score ≥ $threshold"
+    //% weight=84
     export function enableWinAtScore(threshold: number): void {
         game.onUpdate(function () {
             if (won) return

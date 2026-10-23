@@ -9,7 +9,7 @@ Once all **15 data shards are collected**, the game is over, and you can leave t
 **A Navy Unmanned Underwater Vehicle**
 ![A blue Navy Knifefish unmanned underwater vehicle on the back deck of a ship while a Navy test engineer looks on](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/KnifefishWide.jpg "A Navy Knifefish unmanned underwater vehicle")
 
-_Photo (cropped): a Knifefish unmanned undersea vehicle is checked during an operational test in Massachusetts Bay, May 16, 2019. U.S. Navy photo by Mass Communication Specialist 1st Class Brian M. Brooks. Public domain, via DVIDS._
+_Photo: a Knifefish unmanned undersea vehicle is checked during an operational test in Massachusetts Bay, May 16, 2019. U.S. Navy photo by Mass Communication Specialist 1st Class Brian M. Brooks. Public domain, via DVIDS._
 
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
 - **Collect data** pods underwater
@@ -124,7 +124,7 @@ hint~
 
 **Robotic warfare specialists** serve the U.S. Navy and are responsible for the **operation, maintenance**, and **tactical employment** of **robotic and autonomous systems** to achieve a hybrid manned-unmanned fleet.
 
-_Image (cropped): "Establishing the Robotics Warfare Specialist," U.S. Navy graphic by Mass Communication Specialist 1st Class Jeanette Mullinax, Chief of Naval Personnel, Feb. 22, 2024. Public domain, via DVIDS._
+_Photo: "Establishing the Robotics Warfare Specialist," U.S. Navy graphic by Mass Communication Specialist 1st Class Jeanette Mullinax, Chief of Naval Personnel, Feb. 22, 2024. Public domain, via DVIDS._
 
 ## {Step 7}
 **Move your Drone's Starting Location**
@@ -216,7 +216,7 @@ Sea drones like Triton are deployed in combat to **gather intelligence**, **cond
 
 Drones also **protect** crewed vessels in the fleet, such as aircraft carriers and submarines, acting as a **first line of defense** in hostile territories.
 
-_Photo (cropped): a Triton unmanned surface vessel (left) and a Devil Ray T-38 operate in the Red Sea, Aug. 19, 2022. U.S. Navy photo by Lt. Cmdr. Ray Miller IV, NAVCENT Public Affairs. Public domain, via DVIDS._
+_Photo: a Triton unmanned surface vessel (left) and a Devil Ray T-38 operate in the Red Sea, Aug. 19, 2022. U.S. Navy photo by Lt. Cmdr. Ray Miller IV, NAVCENT Public Affairs. Public domain, via DVIDS._
 
 ## {Step 12}
 **🔭 Explore the Ocean**

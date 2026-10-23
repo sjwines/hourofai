@@ -29,7 +29,7 @@ container already in the workspace.  <br/>
 ## Drone Fact: What “payload” means @showdialog
 ![The drone flies up to a data shard and picks it up. Its cargo goes from 0 to 1.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L4_payload.gif "The drone picks up a data shard.")
 
-A drone’s **payload** is the stuff it carries to get the job done—like cameras, sonar tools, or data pods. 
+A drone’s **payload** is the stuff it carries to get the job done, like cameras, sonar tools, or data pods. 
 
 In your game, your drone’s “cargo” is the data it **collects**.
 
@@ -90,6 +90,7 @@ hint~
 **Test it:**
 
 - :binoculars: Collect a few data pods, then touch the ship and watch the score.
+- :binoculars: Now move the drone away from the ship. What happens to the score then?
 - :question circle: **Why is my score going up so much?** Think about what happens to the data pods after you touch the ship.
 
 _💡 Don't worry, you will fix this in the next step!_

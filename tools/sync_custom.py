@@ -24,8 +24,8 @@ FEATURED = {
     0: ["chooseOceanMap", "fireSonarPulse", "sonarPulseReady"],
     3: ["placeDataRandomly", "enableDataCollection", "spawnEnemyBuoys", "enableBuoyBump", "enablePulse", "setPulseLook"],
     4: ["dataCarried", "completeUpload"],
-    5: ["setupAdvisorHUD", "distanceToNearestBuoy", "dangerRadius", "setAdvice", "dataCarried", "uploadAt"],
-    6: ["enableAutopilot", "enableWinAtScore", "setMissionTuning"],
+    5: ["setupAdvisorHUD", "distanceToNearestBuoy", "dangerRadius", "setAdvice", "dataCarried", "uploadAt", "enableWinAtScore"],
+    6: ["enableAutopilot", "setMissionTuning"],
     7: ["chooseOceanMap", "enableAdaptiveAdvisor", "fireSonarPulse", "sonarPulseReady"],
 }
 

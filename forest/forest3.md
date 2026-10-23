@@ -283,7 +283,7 @@ What happens when the enemy buoy touches the drone? What if you have collected s
 
 On real missions, **Navy Sonar Technicians** use underwater acoustics to detect and track objects—similar to how your game will use pulses and proximity. They **interpret signals, tune sensors, and advise** the team where to steer next.
 
-_Photo: Sonar Technician (Surface) 1st Class Jessica Bonilla aboard USS Cowpens (CG 63), June 30, 2011. U.S. Navy photo by Mass Communication Specialist 1st Class N. Ross Taylor, public domain, via Wikimedia Commons. Cropped._
+_Photo: Sonar Technician (Surface) 1st Class Jessica Bonilla aboard USS Cowpens (CG 63), June 30, 2011. U.S. Navy photo by Mass Communication Specialist 1st Class N. Ross Taylor, public domain, via Wikimedia Commons._
 
 ## Enable a Disabling Sonar Pulse
 
@@ -343,7 +343,7 @@ custom.setPulseLook(img`
 hint~
 
 ## Drone Fact: Active vs. Passive Sonar @showdialog
-![Active vs. Passive Sonar](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/avspSonar.png "Active vs. Passive Sonar")
+![The drone sends out a sonar ping, and the sonar buoys swing toward it.](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/L3_active_sonar.gif "The drone pings and the buoys swing toward it.")
 
 - **Active sonar** sends out a ping and listens for **echoes**, great for finding things, but it **reveals your position**.  
 - **Passive sonar** only **listens stealthily**, but **slower** to detect and **easier** to confuse with ocean noise.

@@ -14,7 +14,7 @@ findings to a ship. Then they build an **AI advisor** from if / else-if / else r
 | --- | --- |
 | `forest.md` | The skill map: order of the levels, descriptions, tile pictures, and the certificate. |
 | `forest/forest0.md` | The Finished Game (optional, always open). |
-| `forest/forest1.md` to `forest5.md` | Levels 1 to 5: build the drone, ship, data, upload rule, and AI advisor. The certificate comes after Level 5. |
+| `forest/forest1.md` to `forest5.md` | Levels 1 to 5: build the drone, ship, data, upload rule, AI advisor, and the win. A complete game, then the certificate. |
 | `forest/forest6.md`, `forest7.md` | Optional Level 6 (autopilot) and Level 7 (Challenge Lab). |
 | `assets/` | Pictures, animated clips, and the certificate used by the lessons and the skill map. |
 

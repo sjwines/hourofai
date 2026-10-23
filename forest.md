@@ -72,7 +72,7 @@
 ### forest5
 * name: Build Your Advisor
 * type: tutorial
-* description: Write the if/else rules that tell your drone when to Collect, Upload, or Avoid.
+* description: Write the if/else rules that tell your drone when to Collect, Upload, or Avoid, then add a win to finish your game.
 * url: https://github.com/sjwines/hourofai/forest/forest5
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile5Gif.gif
 * tags: if/else, logic, sensors
@@ -82,7 +82,7 @@
 ### forest6
 * name: Fly With Your Advisor
 * type: tutorial
-* description: Switch on the autopilot, fly the mission, and read your Mission Report.
+* description: Switch on the autopilot, tune your advisor, and try to beat your Mission Report.
 * url: https://github.com/sjwines/hourofai/forest/forest6
 * imageUrl: https://raw.githubusercontent.com/sjwines/hourofai/master/assets/Tile6Gif.gif
 * tags: autonomy, tuning, testing

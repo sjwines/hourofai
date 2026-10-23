@@ -42,7 +42,7 @@ Sometimes the autopilot gets stuck. If you changed the number in ``enable data c
 - If your max is **smaller than 3**, your drone is full but keeps waiting for more data, so it just sits on a data pod.
 - If your max is **bigger than 3**, it turns toward the ship before it is full.
 
-**Steer by hand** to get it moving again: press **B** to switch the autopilot off, then use the joystick. You will fix this behavior in step 7 with ``set mission tuning``.
+**Steer by hand** to get it moving again: press **B** to switch the autopilot off, then use the joystick. You will fix this behavior in step 6 with ``set mission tuning``.
 hint~
 
 ~hint The B button does nothing ⚠️
@@ -56,36 +56,20 @@ hint~
 ## {4. Watch for Mistakes}
 Autopilots are only as good as their rules.
 
-- :binoculars: Watch your autopilot for a while. Does it ever get stuck, or lose data to a buoy? _(If it gets stuck, press **B** to switch the autopilot off and drive by hand. You will fix that in step 7.)_
+- :binoculars: Watch your autopilot for a while. Does it ever get stuck, or lose data to a buoy? _(If it gets stuck, press **B** to switch the autopilot off and drive by hand. You will fix that in step 6.)_
 - :users: With a partner, decide: **which rule would fix it?** Why would that rule go first?
 
 _💡 Engineers ask this question about real autonomous systems, too._
 
-## {5. Add the Win}
-- :flask: From ``||custom:Custom||``, drag:
-
-```blocks
-//@highlight
-custom.enableWinAtScore(15)
-```
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.
-
-When your score reaches **15**, you win, and the game shows your **Mission Report**.
-
-## {6. Fly the Mission}
+## {5. Fly the Mission}
 - :binoculars: Complete the mission, by hand or with the autopilot!
 
-Read your Mission Report. It shows:
+Compare your new **Mission Report** with the one from the last level:
 
-- how long the mission took
-- how many trips you made
-- how much data you uploaded and lost
-- how many pulses you used
-- how much of the mission the autopilot flew
+- Did the mission take more time or less time?
+- How much of the mission did the **autopilot** fly?
 
-## {7. Tune and Compare}
+## {6. Tune and Compare}
 Your advisor uses three settings. Changing them changes how it behaves!
 
 - :flask: From ``||custom:Custom||``, drag ``set mission tuning`` into ``||loops:on start||``.
@@ -231,6 +215,7 @@ game.onUpdateInterval(350, function () {
         custom.setAdvice(Advice.Collect)
     }
 })
+custom.enableWinAtScore(15)
 ```
 
 ```ghost
@@ -1373,7 +1358,7 @@ cccccccccccccccc
 
     // ---------- the advisor ----------
     //% block="set mission tuning max cargo $max upload at $uploadAt danger radius $radius"
-    //% weight=88
+    //% weight=89
     export function setMissionTuning(max: number, uploadAt: number, radius: number): void {
         MAX_CARGO = Math.max(1, max | 0)
         UPLOAD_AT = Math.max(1, uploadAt | 0)
@@ -1473,7 +1458,6 @@ cccccccccccccccc
     }
 
     //% block="win when score ≥ $threshold"
-    //% weight=89
     export function enableWinAtScore(threshold: number): void {
         game.onUpdate(function () {
             if (won) return
